@@ -82,3 +82,27 @@ tbl_sum.robonomist_data <- function(x, ...) {
   c("Robonomist id" = crayon::cyan(attr(x, "robonomist_id")), default_header)
 }
 
+
+#' @export
+#' @importFrom tibble tbl_sum
+tbl_sum.px <- function(x, ...) {
+
+  header <- NextMethod()
+
+  lang <- attr(x, "output_language", exact = FALSE)
+  y <- attr(x, "title", exact = FALSE)[lang]
+  if (!is.null(y))
+    header <- c(header, Title = unname(y))
+
+  y <- attr(x, "last-updated", exact = FALSE)
+  if (!is.null(y))
+    header <- c(header, `Last updated` = as.character(y))
+
+  y <- attr(x, "next-update", exact = FALSE)
+  if (!is.null(y))
+    header <- c(header, `Next update` = as.character(y))
+
+  header
+}
+
+
