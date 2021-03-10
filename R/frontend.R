@@ -53,16 +53,32 @@ data <- function(pattern = "", dl_filter = NULL, labels = TRUE,
 
 do_request <- function(fun, args) {
   if (is.null(getOption("robonomist.server"))) {
-    do.call(fun, args, env = robonomistServer::database)
+    if(suppressWarnings(require(robonomistServer))) {
+      do.call(fun, args, env = robonomistServer::database)
+    } else {
+      stop("Please set the Robonomist Server hostname using `options(robonomist.server = \"myhost.com\")` or environment variable ROBONOMIST_SERVER.", call. = FALSE)
+    }
   } else {
     payload <- list(fun = fun, args = args)
     req <- httr::POST(paste0("http://", getOption("robonomist.server"), "/data_remote"),
                body = serialize(payload, NULL),
                encode = "raw",
                httr::content_type("application/octet-stream"))
+    httr::stop_for_status(req, task = "request data from server")
     unserialize(httr::content(req))
   }
 }
 
+#' @export
+#' @importFrom tibble tbl_sum
+tbl_sum.robonomist_search <- function(x, ...) {
+  crayon::bold(crayon::red("Robonomist Database search results"))
+}
 
+#' @export
+#' @importFrom tibble tbl_sum
+tbl_sum.robonomist_data <- function(x, ...) {
+  default_header <- NextMethod()
+  c("Robonomist id" = crayon::cyan(attr(x, "robonomist_id")), default_header)
+}
 
