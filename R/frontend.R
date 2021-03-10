@@ -52,16 +52,15 @@ data <- function(pattern = "", dl_filter = NULL, labels = TRUE,
 
 
 do_request <- function(fun, args) {
-  if (is.null(getOption("robonomis.server"))) {
+  if (is.null(getOption("robonomist.server"))) {
     do.call(fun, args, env = robonomistServer::database)
   } else {
     payload <- list(fun = fun, args = args)
-    httr::POST(paste0("http://", getOption("robonomist.server"), "/data_remote"),
+    req <- httr::POST(paste0("http://", getOption("robonomist.server"), "/data_remote"),
                body = serialize(payload, NULL),
                encode = "raw",
-               httr::content_type("application/octet-stream")) %>%
-      httr::content() %>%
-        unserialize()
+               httr::content_type("application/octet-stream"))
+    unserialize(httr::content(req))
   }
 }
 
