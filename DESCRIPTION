@@ -16,4 +16,5 @@ Imports:
     httr,
     tibble,
     crayon,
-    cli
+    cli,
+    pillar ( >= 1.5.1)
