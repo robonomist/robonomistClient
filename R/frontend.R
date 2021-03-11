@@ -57,7 +57,9 @@ do_request <- function(fun, args) {
     if(suppressWarnings(require(robonomistServer))) {
       do.call(fun, args, env = robonomistServer::database)
     } else {
-      stop("Please set the Robonomist Server hostname using `options(robonomist.server = \"myhost.com\")` or environment variable ROBONOMIST_SERVER.", call. = FALSE)
+      cli::cli_process_failed()
+      cli::cli_alert_info("Please set the Robonomist Server hostname using `options(robonomist.server = \"myhost.com\")`. Alternatively set the environment variable `ROBONOMIST_SERVER` before loading the package.")
+      stop("Robonomist server unavailable.", call. = FALSE)
     }
   } else {
     payload <- list(fun = fun, args = args)
@@ -65,7 +67,10 @@ do_request <- function(fun, args) {
                body = serialize(payload, NULL),
                encode = "raw",
                httr::content_type("application/octet-stream"))
-    httr::stop_for_status(req, task = "request data from server")
+    if(httr::http_error(req)) {
+      cli::cli_process_failed()
+      httr::stop_for_status(req, task = "request data from server")
+    }
     unserialize(httr::content(req))
   }
 }
