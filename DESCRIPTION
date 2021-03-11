@@ -17,4 +17,4 @@ Imports:
     tibble,
     crayon,
     cli,
-    pillar ( >= 1.5.1)
+    pillar (>= 1.5.1)
