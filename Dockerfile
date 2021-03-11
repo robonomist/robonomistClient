@@ -6,6 +6,8 @@ RUN apt-get update \
   r-cran-httr \
   r-cran-tibble \
   r-cran-crayon \
+  r-cran-cli \
+  r-cran-pillar \
   && apt-get clean \
 	&& rm -rf /var/lib/apt/lists/* \
   && rm -rf /tmp/downloaded_packages/ /tmp/*.rds

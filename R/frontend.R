@@ -52,6 +52,7 @@ data <- function(pattern = "", dl_filter = NULL, labels = TRUE,
 
 
 do_request <- function(fun, args) {
+  cli::cli_process_start("Processing request", on_exit = "done"); on.exit(cli::cli_status_clear())
   if (is.null(getOption("robonomist.server"))) {
     if(suppressWarnings(require(robonomistServer))) {
       do.call(fun, args, env = robonomistServer::database)
@@ -68,41 +69,3 @@ do_request <- function(fun, args) {
     unserialize(httr::content(req))
   }
 }
-
-#' @export
-#' @importFrom tibble tbl_sum
-tbl_sum.robonomist_search <- function(x, ...) {
-  crayon::bold(crayon::red("Robonomist Database search results"))
-}
-
-#' @export
-#' @importFrom tibble tbl_sum
-tbl_sum.robonomist_data <- function(x, ...) {
-  default_header <- NextMethod()
-  c("Robonomist id" = crayon::cyan(attr(x, "robonomist_id")), default_header)
-}
-
-
-#' @export
-#' @importFrom tibble tbl_sum
-tbl_sum.px <- function(x, ...) {
-
-  header <- NextMethod()
-
-  lang <- attr(x, "output_language", exact = FALSE)
-  y <- attr(x, "title", exact = FALSE)[lang]
-  if (!is.null(y))
-    header <- c(header, Title = unname(y))
-
-  y <- attr(x, "last-updated", exact = FALSE)
-  if (!is.null(y))
-    header <- c(header, `Last updated` = as.character(y))
-
-  y <- attr(x, "next-update", exact = FALSE)
-  if (!is.null(y))
-    header <- c(header, `Next update` = as.character(y))
-
-  header
-}
-
-
