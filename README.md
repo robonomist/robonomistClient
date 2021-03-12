@@ -19,7 +19,7 @@ Currently integrated datasources:
 * OECD
 * THL Sotkanet
 * THL Epirapo COVID-19 data
-* ECB
+* ECB Statistical data warehouse
 * COVID-19 data (ECDC & covid19datahub.io)
 * Robonomist's processed tidy data
 
