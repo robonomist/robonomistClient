@@ -1,6 +1,27 @@
-# Robonomist Client
+# Robonomist Client <a href='https://robonomist.com'><img src='man/figures/logo.png' align="right" height="138.5" /></a>
 
-Client R package to Robonomist Server
+Client R package for Robonomist Server
+
+## Datasources
+
+The `robonomistClient` package allows easy and fast access to various datasources via Robonomist Server instances, which integrate various datasources with up-to-date data.
+
+Currently integrated datasources:
+
+* Statistics Finland (StatFin & StatFin archive databases)
+* Statistics Finland municipal data (Key figures & Financial data)
+* Finnish Tax Administration
+* Customs Finland
+* Finnish Treasury
+* Eurostat
+* European Commission Business and consumer surveys
+* World Bank
+* OECD
+* THL Sotkanet
+* THL Epirapo COVID-19 data
+* ECB
+* COVID-19 data (ECDC & covid19datahub.io)
+* Robonomist's processed tidy data
 
 ## Installation
 
@@ -17,7 +38,7 @@ Once installed, set the `robonomist.server` option to your Robonomist Server's a
 
 ``` r
 library(robonomistClient)
-options(robonomist.server = "https://hostname.com")
+options(robonomist.server = "hostname.com")
 
 ## List all available data tables
 data()
