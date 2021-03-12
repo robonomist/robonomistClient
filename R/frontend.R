@@ -34,6 +34,13 @@ data_search <- function(pattern = "") {
   do_request("search", as.list(environment()))
 }
 
+#' List datasources
+#' 
+#' @export
+datasources <- function() {
+  do_request("datasources", list())
+}
+
 #' Get data from Robonomist database
 #'
 #' Convenience api that searches when multiple table id matches are found and filters the table using the section pattern
