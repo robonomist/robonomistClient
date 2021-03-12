@@ -13,11 +13,11 @@ devtools::install_github("robonomist/robonomistClient")
 
 ## Getting started
 
-Once installed, set the `robonomist.server` option to your Robonomist Server's hostname. Now can start exploring the database. The `data` function is convenient way to search and get data tables.
+Once installed, set the `robonomist.server` option to your Robonomist Server's address. Now can start exploring the database. The `data` function is convenient way to search and get data tables.
 
 ``` r
 library(robonomistClient)
-options(robonomist.server = "example.com")
+options(robonomist.server = "https://hostname.com")
 
 ## List all available data tables
 data()

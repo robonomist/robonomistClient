@@ -2,7 +2,7 @@
 #' @importFrom tibble tbl_sum
 tbl_sum.robonomist_search <- function(x, ...) {
   ## crayon::bold(crayon::red("Robonomist Database search results"))
-  cli::cli_h2("Robonomist Database search results"); NULL
+  cli::cli_h3("Robonomist Database search results"); NULL
 }
 
 #' @export
@@ -22,7 +22,7 @@ ctl_new_pillar.robonomist_search <- function(controller, x, width, ..., title = 
   if (title == "id") {
     y <- pillar::new_pillar_component(
       list(pillar::new_pillar_shaft_simple(crayon::cyan(x))),
-      width = pillar::get_max_extent(x), min_width = pillar::get_max_extent(x))
+      width = pillar::get_max_extent(x), min_width = min(pillar::get_max_extent(x), 40L))
   } else {
     y <- pillar::new_pillar_component(
       list(pillar::new_pillar_shaft_simple(x)), width = width)

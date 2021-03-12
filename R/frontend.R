@@ -63,10 +63,12 @@ do_request <- function(fun, args) {
     }
   } else {
     payload <- list(fun = fun, args = args)
-    req <- httr::POST(paste0("http://", getOption("robonomist.server"), "/data_remote"),
+    req <- httr::POST(paste0(getOption("robonomist.server"), "/data_remote"),
                body = serialize(payload, NULL),
                encode = "raw",
-               httr::content_type("application/octet-stream"))
+               httr::content_type("application/octet-stream"),
+               httr::timeout(60L*1000L)
+               )
     if(httr::http_error(req)) {
       cli::cli_process_failed()
       httr::stop_for_status(req, task = "request data from server")
