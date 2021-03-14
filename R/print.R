@@ -36,6 +36,33 @@ ctl_new_pillar.robonomist_search <- function(controller, x, width, ..., title = 
   ))
 }
 
+## robonomist_datasources
+
+#' @export
+#' @importFrom tibble tbl_sum
+tbl_sum.robonomist_datasources <- function(x, ...) {
+  cli::cli_h3("Robonomist Server Datasources"); NULL
+}
+
+#' @export
+#' @importFrom pillar ctl_new_pillar pillar_component new_pillar_component
+ctl_new_pillar.robonomist_datasources <- function(controller, x, width, ..., title = NULL) {
+  if (title == "dataset") {
+    extent <- pillar::get_max_extent(x)
+    y <- new_pillar_component(
+      list(pillar::new_pillar_shaft_simple(crayon::blue(x))),
+      width = extent, min_width = min(extent, 40L))
+  } else {
+    y <- new_pillar_component(
+      list(pillar::new_pillar_shaft_simple(x)), width = width)
+  }
+  pillar::new_pillar(list(
+            title = pillar_component(pillar::new_pillar_title(title)),
+            data = y
+          ))
+}
+
+
 ## robonomist_data
 
 #' @export

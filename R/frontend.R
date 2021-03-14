@@ -34,7 +34,7 @@ data_search <- function(pattern = "") {
   do_request("search", as.list(environment()))
 }
 
-#' List datasources
+#' List available datasources
 #' 
 #' @export
 datasources <- function() {

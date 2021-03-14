@@ -2,10 +2,10 @@
 % Please edit documentation in R/frontend.R
 \name{datasources}
 \alias{datasources}
-\title{List datasources}
+\title{List available datasources}
 \usage{
 datasources()
 }
 \description{
-List datasources
+List available datasources
 }
