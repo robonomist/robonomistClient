@@ -58,7 +58,7 @@ data <- function(pattern = "", dl_filter = NULL, labels = TRUE,
 }
 
 user_agent <-
-  httr::user_agent(paste0("R/robonomistClient"/, packageVersion("robonomistClient")))
+  httr::user_agent(paste0("R/robonomistClient/", packageVersion("robonomistClient")))
 
 do_request <- function(fun, args) {
   cli::cli_process_start("Processing request", on_exit = "done"); on.exit(cli::cli_status_clear())
