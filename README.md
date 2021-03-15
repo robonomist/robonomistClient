@@ -40,6 +40,9 @@ Once installed, set the `robonomist.server` option to your Robonomist Server's a
 library(robonomistClient)
 options(robonomist.server = "hostname.com")
 
+## List all available datasources
+datasources()
+
 ## List all available data tables
 data()
 
