@@ -46,6 +46,14 @@ datasources()
 ## List all available data tables
 data()
 
+## Explore the available data tables
+View(data())
+
+## List all available data tables
+data("Vero/")
+View(data("Vero/"))
+
+
 ## List all data tables related to "inflation"
 data("inflation")
 data_search("inflation")

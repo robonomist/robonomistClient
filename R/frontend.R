@@ -61,7 +61,7 @@ user_agent <-
   httr::user_agent(paste0("R/robonomistClient/", packageVersion("robonomistClient")))
 
 do_request <- function(fun, args) {
-  cli::cli_process_start("Processing request", on_exit = "done"); on.exit(cli::cli_status_clear())
+  cli::cli_process_start("Processing request...", on_exit = "done"); on.exit(cli::cli_status_clear())
   if (is.null(getOption("robonomist.server"))) {
     if(suppressWarnings(require(robonomistServer))) {
       do.call(fun, args, env = robonomistServer::database)
@@ -78,7 +78,7 @@ do_request <- function(fun, args) {
       encode = "raw",
       user_agent,
       httr::content_type("application/octet-stream"),
-      httr::timeout(60L*1000L))
+      httr::timeout(3600L))
     if(httr::http_error(req)) {
       cli::cli_process_failed()
       httr::stop_for_status(req, task = "request data from server")
