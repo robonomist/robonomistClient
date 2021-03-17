@@ -1,0 +1,125 @@
+---
+output: github_document
+---
+
+# Robonomist Client <a href='https://robonomist.com'><img src='man/figures/logo.png' align="right" height="138.5" /></a>
+
+Client R package for Robonomist Server
+
+## Datasources
+
+The `robonomistClient` package allows easy and fast access to various datasources via Robonomist Server instances, which integrate various datasources with up-to-date data.
+
+Currently integrated datasources:
+
+* Statistics Finland (StatFin & StatFin archive databases)
+* Statistics Finland municipal data (Key figures & Financial data)
+* Finnish Tax Administration
+* Customs Finland
+* Finnish Treasury
+* Eurostat
+* European Commission Business and consumer surveys
+* World Bank
+* OECD
+* THL Sotkanet
+* THL Epirapo COVID-19 data
+* ECB Statistical data warehouse
+* COVID-19 data (ECDC & covid19datahub.io)
+* Robonomist's processed tidy data
+
+## Installation
+
+Install the development version from github:
+
+```{r, eval = FALSE}
+## install.packages("devtools")
+devtools::install_github("robonomist/robonomistClient")
+```
+
+## Getting started
+
+Once installed, set your Robonomist Server's address option `robonomist.server`. Now can start exploring the database. 
+
+```{r, include = FALSE}
+library(robonomistClient)
+library(robonomistServer)
+library(tidyverse)
+data()
+```
+
+```{r, eval = FALSE}
+library(robonomistClient)
+options(robonomist.server = "hostname.com")
+```
+
+List all available datasources:
+```{r}
+datasources()
+```
+
+The `data` function is convenient way to search and get data tables. Print all available data tables:
+```{r}
+data()
+```
+
+To get a specific data table, use the tables id.
+```{r}
+data("StatFin/vrm/synt/statfin_synt_pxt_12dx.px")
+```
+
+
+## Features
+
+You can easily explore all available data tables in the Data Viewer.
+```{r, eval = FALSE}
+View(data())
+```
+
+To explore available data tables in the `Vero` dataset, for example, use the dataset name with a forward slash as the first argument in `data`, i.e.  `View(data("Vero/"))`. Or print all the data table listing:
+```{r}
+data("Vero/")
+```
+
+To search all data tables related to "väestö", use:
+```{r}
+data_search("väestö")
+```
+
+Also the `data("väestö")` function will search data for data tables when the argument does not match an exact table id or an unique data table. E.g. in this case it will return the same search results as `data_search("väestö")`.
+
+To prevent searching and guarantee that a data table or an error will be returned, use `data_get("StatFin/vrm/synt/statfin_synt_pxt_12dx.px")`.
+
+The `data()` function will return a data table, when exactly one match is found. Use `data_get()` to return a data table for a given table id. The function `data()` is meant for exploration, and in production settings it is better to use `data_get()`. The function `data_search()` allows to search and return matching table ids, without downloading actual data.
+
+## Examples
+
+```{r, message = FALSE}
+data("StatFin/vrm/synt/statfin_synt_pxt_12dx.px") %>%
+  robonomist::tidy_auto() %>%
+  filter(Tiedot %in% c("Elävänä syntyneet", "Kuolleet")) %>%
+  ggplot(aes(time, value/1000, color = Tiedot)) +
+  geom_line() +
+  labs(title = "Elävänä syntyneet ja kuolleet Suomessa",
+       subtitle = "Tuhatta henkeä",
+       caption = "Lähde: Tilastokeskus.", x=NULL, y=NULL)
+
+```
+
+```{r, message = FALSE}
+data("ec/esi_nace2§(Fin|Swe|Ger)§sentiment§2015-01-01") %>%
+  ggplot(aes(time, value, color = Country)) +
+  geom_line() +
+  labs(title = "Economic Sentiment Indicator",
+       subtitle = "Composite index (average = 100)",
+       caption = "Source: European Commission.", x=NULL,y=NULL)
+```
+
+You can also export the data, for example to an [Excel file](../README_files/export.xlsx):
+
+```{r, message = FALSE, warning = FALSE}
+data("ec/esi_nace2§(Fin|Swe|Ger)§§2015-01-01") %>%
+  pivot_wider(names_from = Country) %>%
+  split(.$Indicator) %>%
+  writexl::write_xlsx("README_files/export.xlsx")
+```
+
