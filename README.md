@@ -199,7 +199,7 @@ actual data.
 ![](README_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
 
 You can also export the data, for example to an [Excel
-file](../README_files/export.xlsx).
+file](../blob/main/README_files/export.xlsx):
 
     data("ec/esi_nace2§(Fin|Swe|Ger)§§2015-01-01") %>%
       pivot_wider(names_from = Country) %>%
