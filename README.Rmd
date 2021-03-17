@@ -114,7 +114,7 @@ data("ec/esi_nace2§(Fin|Swe|Ger)§sentiment§2015-01-01") %>%
        caption = "Source: European Commission.", x=NULL,y=NULL)
 ```
 
-You can also export the data, for example to an [Excel file](../blob/main/README_files/export.xlsx):
+You can also export the data, for example to an [Excel file](../../raw/main/README_files/export.xlsx):
 
 ```{r, message = FALSE, warning = FALSE}
 data("ec/esi_nace2§(Fin|Swe|Ger)§§2015-01-01") %>%
