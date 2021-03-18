@@ -1,12 +1,12 @@
 
 # Robonomist Client <a href='https://robonomist.com'><img src='man/figures/logo.png' align="right" height="138.5" /></a>
 
-Client R package for Robonomist Server
+A client package for R to Robonomist Data Server
 
 ## Datasources
 
 The `robonomistClient` package allows easy and fast access to various
-datasources through Robonomist Data Servers, which integrate various
+datasources through Robonomist Data Server, which integrate various
 datasources with up-to-date data. The client provides access to over 34
 000 data tables in 14 datasources.
 
@@ -25,7 +25,7 @@ Currently integrated datasources:
 -   THL Epirapo COVID-19 data
 -   ECB Statistical data warehouse
 -   COVID-19 data (ECDC & covid19datahub.io)
--   Robonomist’s processed tidy data
+-   Robonomist’s curated tidy data tables
 
 To setup a Robonomist Data Server for your organization, please contact
 <a href="mailto:team@robonomist.com" class="email">team@robonomist.com</a>.
@@ -126,7 +126,8 @@ You can easily explore all available data tables in the Data Viewer.
 
 To explore available data tables in the `Vero` dataset, for example, use
 the dataset name with a forward slash as the first argument in `data`,
-i.e. `View(data("Vero/"))`. Or print all the data table listing:
+i.e. `View(data("Vero/"))`. Or print the data table listing in your
+console:
 
     data("Vero/")
 
@@ -176,12 +177,30 @@ returned, use `data_get("StatFin/vrm/synt/statfin_synt_pxt_12dx.px")`.
 
 The `data()` function will return a data table, when exactly one match
 is found. Use `data_get()` to return a data table for a given table id.
-The function `data()` is meant for exploration, and in production
-settings it is better to use `data_get()`. The function `data_search()`
-allows to search and return matching table ids, without downloading
-actual data.
+The function `data()` is meant for exploration and `data_get()` is for
+production use. The function `data_search()` allows to search and return
+matching table ids, without downloading actual data.
 
 ## Examples
+
+    inner_join(
+      data("tidy/thl_kunnat"),
+      data("tidy/laaja_kuutio") %>%
+        filter(Tiedot %in% c("Kerrostaloissa asuvat asuntokunnat, %", "Väkiluku"),
+               time == max(time)) %>%
+        pivot_wider(names_from = Tiedot),
+      by = c("Alue" = "Alue 2021")) %>%
+      mutate(Ilmaantuvuus = 100*1000*value/Väkiluku) %>%
+      ggplot(aes(`Kerrostaloissa asuvat asuntokunnat, %`, Ilmaantuvuus)) +
+      geom_smooth() +
+      geom_point(aes(size = Väkiluku)) +
+      labs(title = "Koronavirustartuntojen ilmaantuvuus ja kerrostaloissa asuntokuntien osuus",
+           subtitle = "Tartuntoja 100 000 asukasta kohden",
+           caption = paste0(
+             "Lähteet: THL ja Tilastokeskus.\n",
+             format(as.Date(data_vintage("epirapo/covid19case")), "THL:n tartuntatiedot %-d. %Bta %Y.")))
+
+![](README_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
 
     data("StatFin/vrm/synt/statfin_synt_pxt_12dx.px") %>%
       robonomist::tidy_auto() %>%
@@ -192,7 +211,7 @@ actual data.
            subtitle = "Tuhatta henkeä",
            caption = "Lähde: Tilastokeskus.", x=NULL, y=NULL)
 
-![](README_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
 
     data("ec/esi_nace2§(Fin|Swe|Ger)§sentiment§2015-01-01") %>%
       ggplot(aes(time, value, color = Country)) +
@@ -201,7 +220,7 @@ actual data.
            subtitle = "Composite index (average = 100)",
            caption = "Source: European Commission.", x=NULL,y=NULL)
 
-![](README_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-12-1.png)<!-- -->
 
 You can also export the data, for example to an [Excel
 file](../../raw/main/README_files/export.xlsx):
