@@ -8,7 +8,7 @@ Client R package for Robonomist Server
 
 ## Datasources
 
-The `robonomistClient` package allows easy and fast access to various datasources via Robonomist Server instances, which integrate various datasources with up-to-date data.
+The `robonomistClient` package allows easy and fast access to various datasources through Robonomist Data Servers, which integrate various datasources with up-to-date data. The client provides access to over 34 000 data tables in 14 datasources.
 
 Currently integrated datasources:
 
@@ -27,6 +27,8 @@ Currently integrated datasources:
 * COVID-19 data (ECDC & covid19datahub.io)
 * Robonomist's processed tidy data
 
+To setup a Robonomist Data Server for your organization, please contact <team@robonomist.com>.
+
 ## Installation
 
 Install the development version from github:
@@ -38,7 +40,7 @@ devtools::install_github("robonomist/robonomistClient")
 
 ## Getting started
 
-Once installed, set your Robonomist Server's address option `robonomist.server`. Now can start exploring the database. 
+Once installed, set your Robonomist Data Server's address option `robonomist.server`. Now can start exploring the database. 
 
 ```{r, include = FALSE}
 library(robonomistClient)
@@ -49,7 +51,7 @@ data()
 
 ```{r, eval = FALSE}
 library(robonomistClient)
-options(robonomist.server = "hostname.com")
+set_robonomist_server("hostname.com")
 ```
 
 List all available datasources:

@@ -6,8 +6,9 @@ Client R package for Robonomist Server
 ## Datasources
 
 The `robonomistClient` package allows easy and fast access to various
-datasources via Robonomist Server instances, which integrate various
-datasources with up-to-date data.
+datasources through Robonomist Data Servers, which integrate various
+datasources with up-to-date data. The client provides access to over 34
+000 data tables in 14 datasources.
 
 Currently integrated datasources:
 
@@ -26,6 +27,9 @@ Currently integrated datasources:
 -   COVID-19 data (ECDC & covid19datahub.io)
 -   Robonomist’s processed tidy data
 
+To setup a Robonomist Data Server for your organization, please contact
+<a href="mailto:team@robonomist.com" class="email">team@robonomist.com</a>.
+
 ## Installation
 
 Install the development version from github:
@@ -35,11 +39,11 @@ Install the development version from github:
 
 ## Getting started
 
-Once installed, set your Robonomist Server’s address option
+Once installed, set your Robonomist Data Server’s address option
 `robonomist.server`. Now can start exploring the database.
 
     library(robonomistClient)
-    options(robonomist.server = "hostname.com")
+    set_robonomist_server("hostname.com")
 
 List all available datasources:
 
@@ -49,23 +53,24 @@ List all available datasources:
     ## ── Robonomist Server Datasources
 
     ##    dataset          title                                                       
-    ##  1 StatFin          Statistics Finland, StatFin database                        
-    ##  2 StatFin_Passiivi Statistics Finland, StatFin archive database                
-    ##  3 Eurostat         Statistic Finland, Eurostat main tables database            
-    ##  4 Vero             Verohallinnon tilastotietokanta                             
-    ##  5 kunnat           Tilastokeskus, Kuntien avainluvut                           
-    ##  6 kunnat           Tilastokeskus, Kuntien ja kuntayhtymien raportoimat taloust…
-    ##  7 tulli            Finnish Customs, Uljas Statistical Database                 
-    ##  8 covid            European Centre for Disease Prevention and Control COVID-19…
-    ##  9 covid            COVID-19 Data Hub dataset                                   
-    ## 10 ec               European Commission's Business and consumer surveys         
-    ## 11 eurostat         Eurostat database                                           
-    ## 12 ecb              ECB Statistical Data Warehouse                              
-    ## 13 oecd             OECD database                                               
-    ## 14 valtiokonttori   Valtiokonttori, Valtiontalouden kuukausitiedote             
-    ## 15 epirapo          THL Epirapo COVID-19 database                               
-    ## 16 sotkanet         THL Sotkanet                                                
-    ## 17 wb               World Bank Open Data
+    ##  1 tidy             Robonomist's processed tidy data                            
+    ##  2 StatFin          Statistics Finland, StatFin database                        
+    ##  3 StatFin_Passiivi Statistics Finland, StatFin archive database                
+    ##  4 Eurostat         Statistic Finland, Eurostat main tables database            
+    ##  5 Vero             Verohallinnon tilastotietokanta                             
+    ##  6 kunnat           Tilastokeskus, Kuntien avainluvut                           
+    ##  7 kunnat           Tilastokeskus, Kuntien ja kuntayhtymien raportoimat taloust…
+    ##  8 tulli            Finnish Customs, Uljas Statistical Database                 
+    ##  9 covid            European Centre for Disease Prevention and Control COVID-19…
+    ## 10 covid            COVID-19 Data Hub dataset                                   
+    ## 11 ec               European Commission's Business and consumer surveys         
+    ## 12 eurostat         Eurostat database                                           
+    ## 13 ecb              ECB Statistical Data Warehouse                              
+    ## 14 oecd             OECD database                                               
+    ## 15 valtiokonttori   Valtiokonttori, Valtiontalouden kuukausitiedote             
+    ## 16 epirapo          THL Epirapo COVID-19 database                               
+    ## 17 sotkanet         THL Sotkanet                                                
+    ## 18 wb               World Bank Open Data
 
 The `data` function is convenient way to search and get data tables.
 Print all available data tables:
@@ -86,7 +91,7 @@ Print all available data tables:
     ##  8 tidy/khi2015      Kuluttajahintaindeksi (2015=100)                           
     ##  9 tidy/kk_ajoik     Ajoneuvokannan keski-ikä maakunnittain                     
     ## 10 tidy/kk_alope_pää Aloittaneet ja lopettaneet yritykset kunnittain ja päätoim…
-    ## # … with 34,711 more rows
+    ## # … with 34,703 more rows
 
 To get a specific data table, use the tables id.
 

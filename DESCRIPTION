@@ -1,12 +1,12 @@
 Package: robonomistClient
-Title: Get data from Robonomist server
-Version: 0.0.0.9230
+Title: Access data from Robonomist Data Server
+Version: 0.0.1.0000
 Authors@R: 
     person(given = "Juha",
            family = "Itkonen",
            role = c("aut", "cre"),
            email = "juha@robonomist.com")
-Description: What the package does (one paragraph).
+Description: Easy and fast access to various datasources in a unified format via Robonomist Data Server
 License: Proprietary
 Encoding: UTF-8
 LazyData: true
