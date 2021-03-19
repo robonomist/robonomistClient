@@ -1,7 +1,7 @@
 
 # Robonomist Client <a href='https://robonomist.com'><img src='man/figures/logo.png' align="right" height="138.5" /></a>
 
-A client package for R to Robonomist Data Server
+A client package for R to access Robonomist Data Server
 
 ## Datasources
 
@@ -17,14 +17,13 @@ Currently integrated datasources:
 -   Finnish Tax Administration
 -   Customs Finland
 -   Finnish Treasury
+-   THL Sotkanet
 -   Eurostat
 -   European Commission Business and consumer surveys
 -   World Bank
 -   OECD
--   THL Sotkanet
--   THL Epirapo COVID-19 data
 -   ECB Statistical data warehouse
--   COVID-19 data (ECDC & covid19datahub.io)
+-   COVID-19 data (THL Epirapo, ECDC, and covid19datahub.io)
 -   Robonomist’s curated tidy data tables
 
 To setup a Robonomist Data Server for your organization, please contact
@@ -91,7 +90,7 @@ Print all available data tables:
     ##  8 tidy/khi2015      Kuluttajahintaindeksi (2015=100)                           
     ##  9 tidy/kk_ajoik     Ajoneuvokannan keski-ikä maakunnittain                     
     ## 10 tidy/kk_alope_pää Aloittaneet ja lopettaneet yritykset kunnittain ja päätoim…
-    ## # … with 34,703 more rows
+    ## # … with 34,704 more rows
 
 To get a specific data table, use the tables id.
 

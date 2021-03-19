@@ -4,7 +4,7 @@ output: github_document
 
 # Robonomist Client <a href='https://robonomist.com'><img src='man/figures/logo.png' align="right" height="138.5" /></a>
 
-A client package for R to Robonomist Data Server
+A client package for R to access Robonomist Data Server
 
 ## Datasources
 
@@ -17,14 +17,13 @@ Currently integrated datasources:
 * Finnish Tax Administration
 * Customs Finland
 * Finnish Treasury
+* THL Sotkanet
 * Eurostat
 * European Commission Business and consumer surveys
 * World Bank
 * OECD
-* THL Sotkanet
-* THL Epirapo COVID-19 data
 * ECB Statistical data warehouse
-* COVID-19 data (ECDC & covid19datahub.io)
+* COVID-19 data (THL Epirapo, ECDC, and covid19datahub.io)
 * Robonomist's curated tidy data tables
 
 To setup a Robonomist Data Server for your organization, please contact <team@robonomist.com>.
