@@ -20,26 +20,26 @@ print.tbl_lazy_oecd <- function(x, n = 10L, ...) {
   if("Frequency" %in% names(x$x)) {
     ## Filter out incompatible dates
     time_cols <-
-      inner_join(x$x$Frequency,
+      dplyr::inner_join(x$x$Frequency,
                  select(x$x$time, date_type, time),
                  by = c("code" = "date_type")) %>%
-      select(Frequency = type, time) %>%
-      arrange(time)
+      dplyr::select(Frequency = type, time) %>%
+      dplyr::arrange(time)
     not_time <- setdiff(names(x$x), c("Frequency", "time"))
     sel <- categories_n(
       c(x$ns[not_time], nrow(time_cols)))
-    dims <- map2(x$x[not_time], sel[1:length(not_time)], ~.x[1:.y,][[type]])
+    dims <- purrr::map2(x$x[not_time], sel[1:length(not_time)], ~.x[1:.y,][[type]])
     c(dims, time_cols)
-    r <- crossing(expand_grid(!!!dims), time_cols)
+    r <- tidyr::crossing(tidyr::expand_grid(!!!dims), time_cols)
   } else {
     sel <- categories_n(x$ns)
-    types <- case_when(names(x$x) == "time" ~ "time", TRUE ~ type)
-    dims <- pmap(list(.x = x$x, .y = sel, .z = types),
+    types <- dplyr::case_when(names(x$x) == "time" ~ "time", TRUE ~ type)
+    dims <- purrr::pmap(list(.x = x$x, .y = sel, .z = types),
                  function(.x, .y, .z) .x[1:.y, ][[.z]])
-    r <- expand_grid(!!!dims)
+    r <- tidyr::expand_grid(!!!dims)
   }
-  r <- mutate(r, value = vctrs::new_vctr("??", class = "collect"))
-  attr(r, "n_rows") <- prod(map_int(x$x, nrow))
+  r <- dplyr::mutate(r, value = vctrs::new_vctr("??", class = "collect"))
+  attr(r, "n_rows") <- prod(purrr::map_int(x$x, nrow))
   attr(r, "title") <- x$title
   attr(r, "robonomist_id") <- attr(x, "robonomist_id")
   class(r) <- c("robonomist_data", "lazy_oecd_printout", class(r))
@@ -78,19 +78,19 @@ filter.tbl_lazy_oecd <- function(.data, ..., .preserve = FALSE) {
   vars <- .data$vars
 
   getAST <- function(x) purrr::map_if(as.list(x), is.call, getAST)
-  symbols <- map(rlang::exprs(...), ~as.character(keep(unlist(getAST(.x)), is.symbol)))
+  symbols <- purrr::map(rlang::exprs(...), ~as.character(purrr::keep(unlist(getAST(.x)), is.symbol)))
   filtered_vars <-
-    map_chr(symbols, function(x) {
-      i <- which(map_lgl(vars, ~any(x == .x)))
+    purrr::map_chr(symbols, function(x) {
+      i <- which(purrr::map_lgl(vars, ~any(x == .x)))
       if(length(i) != 1)
         stop("Filtering expressions must contain exactly one table variable.", call.=F)
       vars[i]
     })
 
   type <- c("code", "label")[.data$labels+1]
-  type <- case_when(filtered_vars == "time" ~ "time", TRUE ~ type)
+  type <- dplyr::case_when(filtered_vars == "time" ~ "time", TRUE ~ type)
   for(i in seq_along(filtered_vars)) {
-    keep_rows <- rlang::eval_tidy(dots[[i]], map(.data$x, type[i]))
+    keep_rows <- rlang::eval_tidy(dots[[i]], purrr::map(.data$x, type[i]))
     .data$x[[filtered_vars[i]]] <- .data$x[[filtered_vars[i]]][keep_rows, ]
   }
   .data
