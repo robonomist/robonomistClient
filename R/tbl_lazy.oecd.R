@@ -16,7 +16,7 @@ print.tbl_lazy_oecd <- function(x, n = 10L, ...) {
     }
     rev(sel)
   }
-
+  ## TODO Add more tests
   if("Frequency" %in% names(x$x)) {
     ## Filter out incompatible dates
     time_cols <-
@@ -27,9 +27,8 @@ print.tbl_lazy_oecd <- function(x, n = 10L, ...) {
       dplyr::arrange(time)
     not_time <- setdiff(names(x$x), c("Frequency", "time"))
     sel <- categories_n(
-      c(x$ns[not_time], nrow(time_cols)))
+      c(purrr::map_int(x$x[not_time], nrow), nrow(time_cols)))
     dims <- purrr::map2(x$x[not_time], sel[1:length(not_time)], ~.x[1:.y,][[type]])
-    c(dims, time_cols)
     r <- tidyr::crossing(tidyr::expand_grid(!!!dims), time_cols)
   } else {
     sel <- categories_n(x$ns)
@@ -43,7 +42,7 @@ print.tbl_lazy_oecd <- function(x, n = 10L, ...) {
   attr(r, "title") <- x$title
   attr(r, "robonomist_id") <- attr(x, "robonomist_id")
   class(r) <- c("robonomist_data", "lazy_oecd_printout", class(r))
-  print(r, n = n)
+  print(r, n = min(n, length(r[[1]])))
   invisible(x)
 }
 
