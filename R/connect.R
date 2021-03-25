@@ -8,8 +8,8 @@ do_request <- function(fun, args) {
       do.call(fun, args, env = robonomistServer::database)
     } else {
       cli::cli_process_failed()
-      cli::cli_alert_info("Please set the Robonomist Server hostname using `options(robonomist.server = \"myhost.com\")`. Alternatively set the environment variable `ROBONOMIST_SERVER` before loading the package.")
-      stop("Robonomist server unavailable.", call. = FALSE)
+      please_set_server()
+      stop("Robonomist Data Server unavailable.", call. = FALSE)
     }
   } else {
     payload <- list(fun = fun, args = args)

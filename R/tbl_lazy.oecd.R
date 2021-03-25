@@ -2,43 +2,48 @@
 #' @export
 print.tbl_lazy_oecd <- function(x, n = 10L, ...) {
 
-  type <- c("code", "label")[x$labels+1]
-
-  categories_n <- function(ns) {
+  categories_needed <- function(ns, n_target) {
     rns <- rev(ns)
+    cpns <- cumprod(rns)
     sel <- rep(1, length(ns))
     for(i in seq_along(rns)) {
-      p <- prod(sel)
-      if(p < n) {
-        remaining  <- n %/% p + 1L
-        sel[i] <- min(remaining, rns[i])
+      if(cpns[i] < n_target) {
+        sel[i] <- rns[i]
+      } else {
+        p <- cpns[i]/rns[i]
+        sel[i] <- ceiling(n_target / p)
+        break
       }
     }
     rev(sel)
   }
-  ## TODO Add more tests
+
   if("Frequency" %in% names(x$x)) {
     ## Filter out incompatible dates
     time_cols <-
       dplyr::inner_join(x$x$Frequency,
                  select(x$x$time, date_type, time),
                  by = c("code" = "date_type")) %>%
-      dplyr::select(Frequency = type, time) %>%
-      dplyr::arrange(time)
+      dplyr::select(x$var_types["Frequency"], time)
     not_time <- setdiff(names(x$x), c("Frequency", "time"))
-    sel <- categories_n(
-      c(purrr::map_int(x$x[not_time], nrow), nrow(time_cols)))
-    dims <- purrr::map2(x$x[not_time], sel[1:length(not_time)], ~.x[1:.y,][[type]])
+    n_categories <- c(purrr::map_int(x$x[not_time], nrow), nrow(time_cols))
+    sel <- categories_needed(n_categories, n)
+    dims <- purrr::pmap(
+      list(.x = x$x[not_time], .y = sel[1:length(not_time)], .z = x$var_types[not_time]),
+      function(.x, .y, .z) .x[1:.y,][[.z]])
     r <- tidyr::crossing(tidyr::expand_grid(!!!dims), time_cols)
+    n_rows <- prod(n_categories)
   } else {
-    sel <- categories_n(x$ns)
-    types <- dplyr::case_when(names(x$x) == "time" ~ "time", TRUE ~ type)
-    dims <- purrr::pmap(list(.x = x$x, .y = sel, .z = types),
+    sel <- categories_needed(x$ns, n)
+    dims <- purrr::pmap(list(.x = x$x, .y = sel, .z = x$var_types),
                  function(.x, .y, .z) .x[1:.y, ][[.z]])
     r <- tidyr::expand_grid(!!!dims)
+    n_rows <- prod(purrr::map_int(x$x, nrow))
   }
-  r <- dplyr::mutate(r, value = vctrs::new_vctr("??", class = "collect"))
-  attr(r, "n_rows") <- prod(purrr::map_int(x$x, nrow))
+  r <-
+    dplyr::mutate(r, value = vctrs::new_vctr("??", class = "collect"))  %>%
+    dplyr::arrange(time)
+  attr(r, "n_rows") <- n_rows
   attr(r, "title") <- x$title
   attr(r, "robonomist_id") <- attr(x, "robonomist_id")
   class(r) <- c("robonomist_data", "lazy_oecd_printout", class(r))
@@ -72,7 +77,6 @@ filter.tbl_lazy_oecd <- function(.data, ..., .preserve = FALSE) {
   if (!identical(.preserve, FALSE)) {
     stop("`.preserve` is not supported on database backends", call. = FALSE)
   }
- #browser()
   dots <- quos(...)
   vars <- .data$vars
 
@@ -86,12 +90,16 @@ filter.tbl_lazy_oecd <- function(.data, ..., .preserve = FALSE) {
       vars[i]
     })
 
-  type <- c("code", "label")[.data$labels+1]
-  type <- dplyr::case_when(filtered_vars == "time" ~ "time", TRUE ~ type)
-  for(i in seq_along(filtered_vars)) {
-    keep_rows <- rlang::eval_tidy(dots[[i]], purrr::map(.data$x, type[i]))
-    .data$x[[filtered_vars[i]]] <- .data$x[[filtered_vars[i]]][keep_rows, ]
-  }
+  data_context <- purrr::map2(.data$x, .data$var_types, ~.x[[.y]])
+  .data$x <-
+    imap(.data$x, function(x, y) {
+      if(y %in% filtered_vars) {
+        i <- match(y, filtered_vars)
+        x[rlang::eval_tidy(dots[[i]], data_context), ]
+      } else {
+        x
+      }
+    })
   .data
 }
 

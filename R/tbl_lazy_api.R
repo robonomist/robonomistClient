@@ -31,7 +31,10 @@ distinct.tbl_lazy_api <- function(.data, ..., .keep_all = FALSE) {
       )
     }
     dots <- ensyms(...)
-    with(expand_grid(!!!dots), data = map(.data$x, "label"))
+    data_context <- purrr::map2(.data$x, .data$var_types, ~.x[[.y]])
+    if("time" %in% as.character(dots))
+      data_context$time <- unique(data_context$time)
+    with(expand_grid(!!!dots), data = data_context)
   } else {
     .data
   }

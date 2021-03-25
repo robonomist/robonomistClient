@@ -10,6 +10,8 @@ test_that("Frontend works locally", {
 })
 
 test_that("Frontend works remotely", {
+  skip_if(Sys.getenv("ROBONOMIST_TEST_SERVER") == "",
+          "Test server not configured.")
   set_robonomist_server(Sys.getenv("ROBONOMIST_TEST_SERVER"))
   id <- "StatFin/asu/asas/statfin_asas_pxt_115a.px"
   expect_type(data_vintage(id), "character")
