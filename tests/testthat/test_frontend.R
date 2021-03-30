@@ -1,5 +1,5 @@
 test_that("Frontend works locally", {
-  options(robonomist.server = NULL)
+  set_robonomist_server(NULL)
   id <- "StatFin/asu/asas/statfin_asas_pxt_115a.px"
   expect_type(data_vintage(id), "character")
   expect_type(data_metadata(id), "list")
@@ -8,6 +8,7 @@ test_that("Frontend works locally", {
   expect_s3_class(data_get(id), "robonomist_data")
   expect_s3_class(data(id), "robonomist_data")
 })
+
 
 test_that("Frontend works remotely", {
   skip_if(Sys.getenv("ROBONOMIST_TEST_SERVER") == "",

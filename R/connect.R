@@ -1,30 +1,47 @@
-user_agent <-
-  httr::user_agent(paste0("R/robonomistClient/", packageVersion("robonomistClient")))
+## user_agent <-
+##   httr::user_agent(paste0("R/robonomistClient/", packageVersion("robonomistClient")))
 
 do_request <- function(fun, args) {
-  cli::cli_process_start("Processing request...", on_exit = "done"); on.exit(cli::cli_status_clear())
+  ## cli::cli_process_start("Processing request...", on_exit = "done")
+  ## on.exit(cli::cli_status_clear())
+  sp <- cli::make_spinner(template = "{spin} Processing request...")
+  on.exit(sp$finish())
+  sp$spin()
+
   if (is.null(getOption("robonomist.server"))) {
     if(suppressWarnings(require(robonomistServer))) {
       do.call(fun, args, env = robonomistServer::database)
     } else {
-      cli::cli_process_failed()
+      ## cli::cli_process_failed()
       please_set_server()
       stop("Robonomist Data Server unavailable.", call. = FALSE)
     }
   } else {
     payload <- list(fun = fun, args = args)
-    req <- httr::POST(
-      paste0(getOption("robonomist.protocol"), "://", getOption("robonomist.server"), "/data_remote"),
-      body = serialize(payload, NULL),
-      encode = "raw",
-      user_agent,
-      httr::content_type("application/octet-stream"),
-      httr::timeout(3600L))
-    if(httr::http_error(req)) {
-      cli::cli_process_failed()
-      httr::stop_for_status(req, task = "request data from server")
+    ## browser()
+    assign("data_buffer", NULL, envir = .globals)
+    sp$spin()
+    .globals$ws$send(memCompress(serialize(payload, NULL)))
+    later::run_now()
+    while (is.null(.globals$data_buffer)) {
+      if(.globals$ws$readyState() != 1L) stop("Request failed", call. = FALSE)
+      sp$spin()
+      later::run_now(timeoutSecs = 1)
     }
-    unserialize(httr::content(req))
+    .globals$data_buffer
+    ## req <- httr::POST(
+    ##   ## paste0("http://", getOption("robonomist.server"), "/data_remote"),
+    ##   paste0("http://", getOption("robonomist.server")),
+    ##   body = serialize(payload, NULL),
+    ##   encode = "raw",
+    ##   user_agent,
+    ##   httr::content_type("application/octet-stream"),
+    ##   httr::timeout(3600L))
+    ## if(httr::http_error(req)) {
+    ##   cli::cli_process_failed()
+    ##   httr::stop_for_status(req, task = "request data from server")
+    ## }
+    ## unserialize(httr::content(req))
   }
 }
 
@@ -35,4 +52,59 @@ do_request <- function(fun, args) {
 #' @export
 set_robonomist_server <- function(hostname = getOption("robonomist.server")) {
   options(robonomist.server = hostname)
+  if(!is.null(hostname)) {
+    cli::cli_alert_success("Set to {.pkg robonomistServer} at {hostname}")
+    connect_websocket()
+    while (.globals$ws$readyState() != 1L) {
+      later::run_now(timeoutSecs = 1)
+    }
+    cli::cli_alert_success("Connected successfully to {do_request('server_version', list())}")
+  }
 }
+
+.globals = new.env(parent = emptyenv())
+
+connect_websocket <- function() {
+  ws <- .globals$ws
+  if(!is.null(ws)) try(ws$stop(), silent = TRUE)
+
+  ws <- websocket::WebSocket$new(
+    paste0("ws://", getOption("robonomist.server")),
+    headers = list(
+      Cookie = "Xyz",
+      User_Agent = paste0("R/robonomistClient/", packageVersion("robonomistClient"))),
+    # accessLogChannels = "all",
+    autoConnect = FALSE,
+    maxMessageSize = 256 * 1024 * 1024
+  )
+
+  ws$onOpen(function(event) {
+    ##  print(event)
+    ## cli::cli_alert("Connection opened")
+  })
+
+  ws$onMessage(function(event) {
+    payload <- unserialize(memDecompress(event$data, "gzip"))
+    if(inherits(payload, c("cli_message", "condition"))) {
+      cli:::cli_server_default(payload)
+    } else {
+      assign("data_buffer", payload, envir = .globals)
+    }
+  })
+  ws$onClose(function(event) {
+    cat("Client disconnected with code ", event$code,
+        " and reason ", event$reason, "\n", sep = "")
+    stop()
+  })
+  ws$onError(function(event) {
+    cat("Client failed to connect: ", event$message, "\n")
+  })
+  ws$connect()
+
+  assign("data_buffer", NULL, envir = .globals)
+  assign("ws", ws, envir = .globals)
+}
+
+
+
+
