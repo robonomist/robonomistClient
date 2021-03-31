@@ -29,7 +29,7 @@ test_that("Frontend works remotely", {
 })
 
 test_that("OECDv2 api works", {
-
+  skip_if(is.null(getOption("robonomist.server")), "Test server not configured.")
   expect_s3_class(y <- data("oecd/QNA"), "tbl_lazy_oecd")
   expect_s3_class(y <- data_get("oecd/QNA"), "tbl_lazy_oecd")
   expect_s3_class(print(y), "tbl_lazy_oecd")
@@ -39,7 +39,7 @@ test_that("OECDv2 api works", {
                                Frequency=="Quarterly") %>%
                      filter(lubridate::year(time) > 2019L)}, "tbl_lazy_oecd")
   expect_s3_class(print(y), "tbl_lazy_oecd")
-  expect_s3_class(distinct(y, Subject), "tbl_lazy_oecd")
+  expect_s3_class(distinct(y, Subject), "tbl_df")
   expect_s3_class(collect(y), "tbl_df")
 
 })

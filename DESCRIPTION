@@ -17,9 +17,9 @@ Imports:
     tibble,
     crayon,
     cli,
-    pillar (>= 1.5.1)
+    pillar (>= 1.5.1),
+    vctrs (>= 0.3.6),
 Suggests:
-    vctrs,
     dplyr,
     tidyr,
     purrr,
