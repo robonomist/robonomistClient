@@ -92,7 +92,7 @@ filter.tbl_lazy_oecd <- function(.data, ..., .preserve = FALSE) {
 
   data_context <- purrr::map2(.data$x, .data$var_types, ~.x[[.y]])
   .data$x <-
-    imap(.data$x, function(x, y) {
+    purrr::imap(.data$x, function(x, y) {
       if(y %in% filtered_vars) {
         i <- match(y, filtered_vars)
         x[rlang::eval_tidy(dots[[i]], data_context), ]

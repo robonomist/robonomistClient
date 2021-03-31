@@ -16,7 +16,7 @@
 }
 
 .onUnload <- function(...) {
-  if(!is.null(ws)) try(ws$stop(), silent = TRUE)
+  if(!is.null(.globals$ws)) try(.globals$ws$close(), silent = TRUE)
 }
 
 please_set_server <- function() {

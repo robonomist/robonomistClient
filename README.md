@@ -38,8 +38,9 @@ Install the development version from github:
 
 ## Getting started
 
-Once installed, set your Robonomist Data Server’s address option
-`robonomist.server`. Now can start exploring the database.
+Once installed, set the hostname of your Robonomist Data Server and
+connnect with `set_robonomist_server` function. Then you can start
+exploring the database.
 
     library(robonomistClient)
     set_robonomist_server("hostname.com")
@@ -48,7 +49,8 @@ List all available datasources:
 
     datasources()
 
-    ## ℹ Processing request...                       
+    ## 
+
     ## ── Robonomist Server Datasources
 
     ##    dataset          title                                                       
@@ -76,7 +78,8 @@ Print all available data tables:
 
     data()
 
-    ## ℹ Processing request...                       
+    ## 
+
     ## ── Robonomist Database search results
 
     ##    id                title                                                      
@@ -90,13 +93,11 @@ Print all available data tables:
     ##  8 tidy/khi2015      Kuluttajahintaindeksi (2015=100)                           
     ##  9 tidy/kk_ajoik     Ajoneuvokannan keski-ikä maakunnittain                     
     ## 10 tidy/kk_alope_pää Aloittaneet ja lopettaneet yritykset kunnittain ja päätoim…
-    ## # … with 34,704 more rows
+    ## # … with 34,947 more rows
 
 To get a specific data table, use the tables id.
 
     data("StatFin/vrm/synt/statfin_synt_pxt_12dx.px")
-
-    ## ℹ Processing request...
 
     ## # Robonomist id: StatFin/vrm/synt/statfin_synt_pxt_12dx.px
     ## # A tibble:      2,981 x 3
@@ -130,7 +131,8 @@ console:
 
     data("Vero/")
 
-    ## ℹ Processing request...                       
+    ## 
+
     ## ── Robonomist Database search results
 
     ##    id                                       title                               
@@ -150,7 +152,8 @@ To search all data tables related to “väestö”, use:
 
     data_search("väestö")
 
-    ## ℹ Processing request...                       
+    ## 
+
     ## ── Robonomist Database search results
 
     ##    id                          title                                            
@@ -228,3 +231,124 @@ file](../../raw/main/README_files/export.xlsx):
       pivot_wider(names_from = Country) %>%
       split(.$Indicator) %>%
       writexl::write_xlsx("README_files/export.xlsx")
+
+## Filtering datasources
+
+Most data tables are returned as regular `tibble` objects, but some
+datasources contain large tables and require filtering at the source.
+For example, OECD database usually requires filtering on the data before
+anything can be retrieved. For convenience, Robonomist provides an
+easy-to-use workflow to fetch data.
+
+The initial data request (e.g `data("oecd/QNA")`) returns a data
+structure object that acts very much like a regular tibble, but it does
+not yet contain the actual data. This object is printed like a tibble,
+and it can be handled with common `dplyr` verbs such as `filter` and
+`distinct` in a `magrittr` pipe using `%>%`.
+
+    data("oecd/QNA")
+
+    ## # Robonomist id: oecd/QNA
+    ## # OECD:          Uncollected data structure
+    ## # Title:         Quarterly National Accounts
+    ##    Country   Subject                Measure       Frequency time           value
+    ##    <chr>     <chr>                  <chr>         <chr>     <date>     <collect>
+    ##  1 Australia Gross domestic product Current pric… Annual    1947-01-01        ??
+    ##  2 Australia Gross domestic product Current pric… Quarterly 1947-01-01        ??
+    ##  3 Australia Gross domestic product Current pric… Quarterly 1947-04-01        ??
+    ##  4 Australia Gross domestic product Current pric… Quarterly 1947-07-01        ??
+    ##  5 Australia Gross domestic product Current pric… Quarterly 1947-10-01        ??
+    ##  6 Australia Gross domestic product Current pric… Annual    1948-01-01        ??
+    ##  7 Australia Gross domestic product Current pric… Quarterly 1948-01-01        ??
+    ##  8 Australia Gross domestic product Current pric… Quarterly 1948-04-01        ??
+    ##  9 Australia Gross domestic product Current pric… Quarterly 1948-07-01        ??
+    ## 10 Australia Gross domestic product Current pric… Quarterly 1948-10-01        ??
+    ## # … with 181,756,214 more rows
+    ## # This data has not yet been collected from OECD api, and all rows might not be available. Please use `filter` to limit the number of rows under a million,  and use `collect` to retrieve actual data.
+
+    x <-
+      data("oecd/QNA") %>%
+      filter(Country == "Finland",
+             str_detect(Subject, "Gross domestic prod"),
+             Frequency=="Quarterly") %>%
+      filter(lubridate::year(time) > 2019L)
+    x
+
+    ## # Robonomist id: oecd/QNA
+    ## # OECD:          Uncollected data structure
+    ## # Title:         Quarterly National Accounts
+    ##    Country Subject      Measure                   Frequency time           value
+    ##    <chr>   <chr>        <chr>                     <chr>     <date>     <collect>
+    ##  1 Finland Gross domes… Current prices            Quarterly 2020-01-01        ??
+    ##  2 Finland Gross domes… National currency, curre… Quarterly 2020-01-01        ??
+    ##  3 Finland Gross domes… Current prices            Quarterly 2020-04-01        ??
+    ##  4 Finland Gross domes… National currency, curre… Quarterly 2020-04-01        ??
+    ##  5 Finland Gross domes… Current prices            Quarterly 2020-07-01        ??
+    ##  6 Finland Gross domes… National currency, curre… Quarterly 2020-07-01        ??
+    ##  7 Finland Gross domes… Current prices            Quarterly 2020-10-01        ??
+    ##  8 Finland Gross domes… National currency, curre… Quarterly 2020-10-01        ??
+    ##  9 Finland Gross domes… Current prices            Quarterly 2021-01-01        ??
+    ## 10 Finland Gross domes… National currency, curre… Quarterly 2021-01-01        ??
+    ## # … with 1,070 more rows
+    ## # This data has not yet been collected from OECD api, and all rows might not be available. Please use `filter` to limit the number of rows under a million,  and use `collect` to retrieve actual data.
+
+    distinct(x, Subject)
+
+    ## # A tibble: 6 x 1
+    ##   Subject                                                  
+    ##   <chr>                                                    
+    ## 1 Gross domestic product                                   
+    ## 2 Gross domestic product - expenditure approach            
+    ## 3 Gross domestic product - income approach                 
+    ## 4 Gross domestic product at market prices - output approach
+    ## 5 Gross domestic product at market prices - output approach
+    ## 6 Gross domestic product
+
+After data structure object has been filtered, the actual data can be
+collected with `collect()`.
+
+    x %>% collect()
+
+    ## # Robonomist id: oecd/QNA
+    ## # A tibble:      91 x 10
+    ## # Title:         Quarterly National Accounts
+    ##    Country Subject    Measure     Frequency time       value `Time Format` Unit 
+    ##    <chr>   <chr>      <chr>       <chr>     <date>     <dbl> <chr>         <chr>
+    ##  1 Finland Gross dom… National c… Quarterly 2020-01-01 58169 Quarterly     Euro 
+    ##  2 Finland Gross dom… National c… Quarterly 2020-04-01 58154 Quarterly     Euro 
+    ##  3 Finland Gross dom… National c… Quarterly 2020-07-01 58878 Quarterly     Euro 
+    ##  4 Finland Gross dom… National c… Quarterly 2020-10-01 62266 Quarterly     Euro 
+    ##  5 Finland Gross dom… National c… Quarterly 2020-01-01 60245 Quarterly     Euro 
+    ##  6 Finland Gross dom… National c… Quarterly 2020-04-01 57832 Quarterly     Euro 
+    ##  7 Finland Gross dom… National c… Quarterly 2020-07-01 59658 Quarterly     Euro 
+    ##  8 Finland Gross dom… National c… Quarterly 2020-10-01 59732 Quarterly     Euro 
+    ##  9 Finland Gross dom… National c… Quarterly 2020-01-01 54696 Quarterly     Euro 
+    ## 10 Finland Gross dom… National c… Quarterly 2020-04-01 54403 Quarterly     Euro 
+    ## # … with 81 more rows, and 2 more variables: Unit multiplier <chr>,
+    ## #   Reference period <chr>
+
+Also common `dplyr` verbs that require the actual data will trigger the
+`collect` function automatically.
+
+    data("oecd/QNA") %>%
+      filter(Subject == "Gross domestic product - expenditure approach",
+             str_detect(Measure, "Growth rate.*from previous"),
+             Frequency=="Quarterly") %>%
+      filter(lubridate::year(time) >= 2015L) %>%
+      group_by(Country) %>%
+      summarize(`Average Q/Q growth rate` = mean(value))
+
+    ## # A tibble: 56 x 2
+    ##    Country                      `Average Q/Q growth rate`
+    ##    <chr>                                            <dbl>
+    ##  1 Argentina                                       -0.168
+    ##  2 Australia                                        0.480
+    ##  3 Austria                                          0.172
+    ##  4 Belgium                                          0.194
+    ##  5 Brazil                                          -0.105
+    ##  6 Bulgaria                                         0.594
+    ##  7 Canada                                           0.255
+    ##  8 Chile                                            0.330
+    ##  9 China (People's Republic of)                     1.65 
+    ## 10 Colombia                                         0.427
+    ## # … with 46 more rows

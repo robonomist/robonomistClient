@@ -39,7 +39,7 @@ devtools::install_github("robonomist/robonomistClient")
 
 ## Getting started
 
-Once installed, set your Robonomist Data Server's address option `robonomist.server`. Now can start exploring the database. 
+Once installed, set the hostname of your Robonomist Data Server and connnect with `set_robonomist_server` function. Then you can start exploring the database. 
 
 ```{r, include = FALSE}
 library(robonomistClient)
@@ -144,3 +144,43 @@ data("ec/esi_nace2§(Fin|Swe|Ger)§§2015-01-01") %>%
   writexl::write_xlsx("README_files/export.xlsx")
 ```
 
+## Filtering datasources 
+
+Most data tables are returned as regular `tibble` objects, but some datasources contain large tables and require filtering at the source. For example, OECD database usually requires filtering on the data before anything can be retrieved. For convenience, Robonomist provides an easy-to-use workflow to fetch data.
+
+The initial data request (e.g `data("oecd/QNA")`) returns a data structure object that acts very much like a regular tibble, but it does not yet contain the actual data. This object is printed like a tibble, and it can be handled with common `dplyr` verbs such as `filter` and `distinct` in a `magrittr` pipe using `%>%`.
+
+```{r, message = FALSE, warning = FALSE}
+data("oecd/QNA")
+```
+
+```{r, message = FALSE, warning = FALSE}
+x <-
+  data("oecd/QNA") %>%
+  filter(Country == "Finland",
+         str_detect(Subject, "Gross domestic prod"),
+         Frequency=="Quarterly") %>%
+  filter(lubridate::year(time) > 2019L)
+x
+
+distinct(x, Subject)
+
+```
+
+After data structure object has been filtered, the actual data can be collected with `collect()`.
+
+```{r, message = FALSE, warning = FALSE}
+x %>% collect()
+```
+
+Also common `dplyr` verbs that require the actual data will trigger the `collect` function automatically.
+
+```{r, message = FALSE, warning = FALSE}
+data("oecd/QNA") %>%
+  filter(Subject == "Gross domestic product - expenditure approach",
+         str_detect(Measure, "Growth rate.*from previous"),
+         Frequency=="Quarterly") %>%
+  filter(lubridate::year(time) >= 2015L) %>%
+  group_by(Country) %>%
+  summarize(`Average Q/Q growth rate` = mean(value))
+```
