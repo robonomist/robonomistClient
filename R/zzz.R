@@ -1,12 +1,12 @@
 .onLoad <- function(libname, pkgname) {
 
-  cli::cli_alert_success("Loaded {.pkg robonomistClient} {packageVersion('robonomistClient')}")
+  cli::cli_alert_success("Loaded {.pkg robonomistClient} {utils::packageVersion('robonomistClient')}")
 
   . <- Sys.getenv("ROBONOMIST_SERVER")
   if (nzchar(.)) {
     set_robonomist_server(.)
-  } else if ("robonomistServer" %in% installed.packages()) {
-    cli::cli_alert_success("Using local {.pkg robonomistServer} {packageVersion('robonomistServer')}")
+  } else if ("robonomistServer" %in% utils::installed.packages()) {
+    cli::cli_alert_success("Using local {.pkg robonomistServer} {utils::packageVersion('robonomistServer')}")
   } else {
     please_set_server()
   }

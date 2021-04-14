@@ -18,11 +18,11 @@ Imports:
     crayon,
     cli,
     pillar (>= 1.5.1),
-    vctrs (>= 0.3.6)
-Suggests:
     dplyr,
     tidyr,
     purrr,
     rlang,
+    vctrs (>= 0.3.6)
+Suggests:
     testthat (>= 3.0.0)
 Config/testthat/edition: 3

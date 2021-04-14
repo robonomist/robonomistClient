@@ -53,7 +53,7 @@ connect_websocket <- function() {
     paste0("ws://", getOption("robonomist.server")),
     headers = list(
       Cookie = "Xyz",
-      User_Agent = paste0("R/robonomistClient/", packageVersion("robonomistClient"))),
+      User_Agent = paste0("R/robonomistClient/", utils::packageVersion("robonomistClient"))),
     autoConnect = FALSE,
     maxMessageSize = 256 * 1024 * 1024
   )
