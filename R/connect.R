@@ -29,6 +29,7 @@ do_request <- function(fun, args) {
 #' Set the hostname of Robonomist Data server
 #'
 #' @param hostname character, Set the hostname in format "data.hostname.com"
+#' @param access_token, character, Bearer token
 #'
 #' @export
 set_robonomist_server <- function(hostname = getOption("robonomist.server"),
@@ -54,7 +55,7 @@ connect_websocket <- function() {
   ws <- websocket::WebSocket$new(
     paste0("ws://", getOption("robonomist.server")),
     headers = list(
-      Cookie = "Xyz",
+      Authorization = paste("bearer", getOption("robonomist.access.token")),
       User_Agent = paste0("R/robonomistClient/", packageVersion("robonomistClient"))),
     autoConnect = FALSE,
     maxMessageSize = 256 * 1024 * 1024
