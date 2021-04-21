@@ -2,9 +2,10 @@
 
   cli::cli_alert_success("Loaded {.pkg robonomistClient} {packageVersion('robonomistClient')}")
 
-  . <- Sys.getenv("ROBONOMIST_SERVER")
-  if (nzchar(.)) {
-    set_robonomist_server(.)
+  hostname <- Sys.getenv("ROBONOMIST_SERVER")
+  access_token <- Sys.getenv("ROBONOMIST_ACCESS_TOKEN")
+  if (nzchar(hostname)) {
+    set_robonomist_server(hostname, access_token)
   } else if ("robonomistServer" %in% installed.packages()) {
     cli::cli_alert_success("Using local {.pkg robonomistServer} {packageVersion('robonomistServer')}")
   } else {
@@ -20,5 +21,5 @@
 }
 
 please_set_server <- function() {
-  cli::cli_alert_info("Please connect to a Robonomist Data Server by setting the hostname using `set_robonomist_server(\"myhost.com\")`. Alternatively set the environment variable `ROBONOMIST_SERVER` before loading the {.pkg robonomistClient} package.")
+  cli::cli_alert_info("Please set the Robonomist Data Server's hostname and access token with {.fn set_robonomist_server}, e.g. {.code set_robonomist_server(hostname = \"myhost.com\", access_token =\"xyz\")}. Alternatively set the environment variables `ROBONOMIST_SERVER` and `ROBONOMIST_ACCESS_TOKEN` before loading the {.pkg robonomistClient} package.")
 }

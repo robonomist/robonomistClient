@@ -39,7 +39,7 @@ test_that("OECDv2 api works", {
                                Frequency=="Quarterly") %>%
                      filter(lubridate::year(time) > 2019L)}, "tbl_lazy_oecd")
   expect_s3_class(print(y), "tbl_lazy_oecd")
-  expect_s3_class(distinct(y, Subject), "tbl_lazy_oecd")
+  expect_s3_class(distinct(y, Subject), "tbl_df")
   expect_s3_class(collect(y), "tbl_df")
 
 })

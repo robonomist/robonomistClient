@@ -1,7 +1,7 @@
 do_request <- function(fun, args) {
-  sp <- cli::make_spinner(template = "{spin} Processing request...")
-  on.exit(sp$finish())
-  sp$spin()
+  spinner <- cli::make_spinner(template = "{spin} Processing request...")
+  on.exit(spinner$finish())
+  spinner$spin()
 
   if (is.null(getOption("robonomist.server"))) {
     if(suppressWarnings(require(robonomistServer))) {
@@ -14,12 +14,12 @@ do_request <- function(fun, args) {
   } else {
     payload <- list(fun = fun, args = args)
     assign("data_buffer", NULL, envir = .globals)
-    sp$spin()
-    .globals$ws$send(memCompress(serialize(payload, NULL)))
+    spinner$spin()
+    .globals$ws$send(fst::compress_fst(serialize(payload, NULL), compression = 20))
     later::run_now()
     while (is.null(.globals$data_buffer)) {
       if(.globals$ws$readyState() != 1L) stop("Request failed", call. = FALSE)
-      sp$spin()
+      spinner$spin()
       later::run_now(timeoutSecs = 1)
     }
     .globals$data_buffer
@@ -31,8 +31,10 @@ do_request <- function(fun, args) {
 #' @param hostname character, Set the hostname in format "data.hostname.com"
 #'
 #' @export
-set_robonomist_server <- function(hostname = getOption("robonomist.server")) {
+set_robonomist_server <- function(hostname = getOption("robonomist.server"),
+                                  access_token = getOption("robonomist.access.token")) {
   options(robonomist.server = hostname)
+  options(robonomist.access.token = access_token)
   if(!is.null(hostname)) {
     cli::cli_alert_success("Set to {.pkg robonomistServer} at {hostname}")
     connect_websocket()
@@ -63,7 +65,7 @@ connect_websocket <- function() {
   })
 
   ws$onMessage(function(event) {
-    payload <- unserialize(memDecompress(event$data, "gzip"))
+    payload <- unserialize(fst::decompress_fst(event$data))
     if(inherits(payload, c("cli_message", "condition"))) {
       cli:::cli_server_default(payload)
     } else {
