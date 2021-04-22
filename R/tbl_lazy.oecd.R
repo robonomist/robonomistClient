@@ -51,6 +51,7 @@ print.tbl_lazy_oecd <- function(x, n = 10L, ...) {
   invisible(x)
 }
 
+#' @importFrom pillar tbl_sum
 #' @export
 tbl_sum.lazy_oecd_printout <- function(x, ...) {
   c("OECD" = "Uncollected data structure",
@@ -71,7 +72,7 @@ dim.lazy_oecd_printout <- function(x) {
   c(attr(x, "n_rows"), length(x))
 }
 
-
+#' @importFrom dplyr filter
 #' @export
 filter.tbl_lazy_oecd <- function(.data, ..., .preserve = FALSE) {
   if (!identical(.preserve, FALSE)) {

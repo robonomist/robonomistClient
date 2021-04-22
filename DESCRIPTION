@@ -1,6 +1,6 @@
 Package: robonomistClient
 Title: Access data from Robonomist Data Server
-Version: 0.4.4
+Version: 0.4.5
 Authors@R: 
     person(given = "Juha",
            family = "Itkonen",
@@ -18,12 +18,14 @@ Imports:
     crayon,
     cli,
     fst,
-    pillar (>= 1.5.1)
-Suggests:
-    vctrs,
+    R6,
+    pillar (>= 1.5.1),
     dplyr,
     tidyr,
     purrr,
     rlang,
+    digest,
+    vctrs (>= 0.3.6)
+Suggests:
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
