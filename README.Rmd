@@ -50,7 +50,7 @@ data()
 
 ```{r, eval = FALSE}
 library(robonomistClient)
-set_robonomist_server("hostname.com")
+set_robonomist_server(hostname = "hostname.com", access_token = "xyz")
 ```
 
 List all available datasources:

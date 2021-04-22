@@ -7,7 +7,6 @@ do_request <- function(fun, args) {
     if(suppressWarnings(require(robonomistServer))) {
       do.call(fun, args, env = robonomistServer::database)
     } else {
-      ## cli::cli_process_failed()
       please_set_server()
       stop("Robonomist Data Server unavailable.", call. = FALSE)
     }
