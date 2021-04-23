@@ -2,9 +2,8 @@ do_request <- function(fun, args) {
 
   if (is.null(getOption("robonomist.server"))) {
     if(suppressWarnings(require(robonomistServer))) {
-      cli::cli_process_start("Processing request...")
+      cli::cli_process_start("Processing request...", on_exit = "done")
       do.call(fun, args, env = robonomistServer::database)
-      cli::cli_process_done()
     } else {
       connection$please_set_server()
       stop("Robonomist Data Server unavailable.", call. = FALSE)
