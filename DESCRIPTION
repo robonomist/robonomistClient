@@ -1,6 +1,6 @@
 Package: robonomistClient
 Title: Access data from Robonomist Data Server
-Version: 0.4.5
+Version: 0.4.6
 Authors@R: 
     person(given = "Juha",
            family = "Itkonen",
@@ -17,7 +17,7 @@ Imports:
     tibble,
     crayon,
     cli,
-    fst,
+    qs,
     R6,
     pillar (>= 1.5.1),
     dplyr,

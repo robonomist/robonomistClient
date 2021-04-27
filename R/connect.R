@@ -58,7 +58,7 @@ RobonomistConnection <- R6::R6Class(
       })
 
       private$ws$onMessage(function(event) {
-        msg <- unserialize(fst::decompress_fst(event$data))
+        msg <- qs::qdeserialize(event$data)
         if(inherits(msg, c("cli_message", "condition"))) {
           cli:::cli_server_default(msg)
         } else {
@@ -94,7 +94,7 @@ RobonomistConnection <- R6::R6Class(
       if(hash != private$databuffer_hash) {
         private$databuffer <- NULL
         spinner$spin()
-        private$ws$send(fst::compress_fst(serialize(payload, NULL), compression = 20))
+        private$ws$send(qs::qserialize(payload))
         later::run_now()
         while (is.null(private$databuffer)) {
           if(private$ws$readyState() != 1L) stop("Request failed", call. = FALSE)

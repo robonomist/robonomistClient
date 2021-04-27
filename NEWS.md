@@ -1,3 +1,7 @@
+# robonomistClient 0.4.6
+
+* Change to serializer from `qs` package, `fst` consumed too much memory on large datasets.
+
 # robonomistClient 0.4.5
 
 * Added authentication with bearer token
