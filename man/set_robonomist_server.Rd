@@ -4,10 +4,15 @@
 \alias{set_robonomist_server}
 \title{Set the hostname of Robonomist Data server}
 \usage{
-set_robonomist_server(hostname = getOption("robonomist.server"))
+set_robonomist_server(
+  hostname = getOption("robonomist.server"),
+  access_token = getOption("robonomist.access.token")
+)
 }
 \arguments{
 \item{hostname}{character, Set the hostname in format "data.hostname.com"}
+
+\item{access_token, }{character, Bearer token}
 }
 \description{
 Set the hostname of Robonomist Data server
