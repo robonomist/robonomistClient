@@ -23,7 +23,7 @@ set_robonomist_server <- function(hostname = getOption("robonomist.server"),
                                   access_token = getOption("robonomist.access.token")) {
   options(robonomist.server = hostname)
   options(robonomist.access.token = access_token)
-  connection$connect()
+  if (!is.null(hostname)) connection$connect()
 }
 
 RobonomistConnection <- R6::R6Class(
