@@ -7,34 +7,43 @@ A client package for R to access Robonomist Data Server
 
 The `robonomistClient` package allows easy and fast access to various
 datasources through Robonomist Data Server, which integrate various
-datasources with up-to-date data. The client provides access to over 34
-000 data tables in 14 datasources.
+datasources with up-to-date data. The client provides access to over 38
+400 data tables from various datasources.
 
-Currently integrated datasources:
+Some of the integrated datasources:
 
--   Statistics Finland (StatFin & StatFin archive databases)
--   Statistics Finland municipal data (Key figures & Financial data)
--   Finnish Tax Administration
--   Customs Finland
--   Finnish Treasury
--   THL Sotkanet
--   Eurostat
--   European Commission Business and consumer surveys
--   World Bank
--   OECD
--   ECB Statistical data warehouse
--   COVID-19 data (THL Epirapo, ECDC, and covid19datahub.io)
--   Robonomist’s curated tidy data tables
+  - Statistics Finland (StatFin & StatFin archive databases)
+  - Statistics Finland municipal data (Key figures & Financial data)
+  - Paavo postal code area statistics by Statistics Finland
+  - Experimental statistics by Statistics Finland
+  - Immigrants and integration database by Statistics Finland
+  - Finnish Tax Administration
+  - Natural Resources Institute Finland (Luonnonvarakeskus LUKE)
+  - Traficom database (The Finnish Transport and Communications Agency)
+  - Customs Finland
+  - Finnish Treasury
+  - THL Sotkanet
+  - Helsingin seudun aluesarjat -tilastotietokanta
+  - Helsingin ympäristötilasto
+  - Eurostat
+  - European Commission Business and consumer surveys
+  - World Bank
+  - OECD
+  - ECB Statistical data warehouse
+  - COVID-19 data (THL Epirapo, ECDC, and covid19datahub.io)
+  - Robonomist’s curated tidy data tables
 
 To setup a Robonomist Data Server for your organization, please contact
-<a href="mailto:team@robonomist.com" class="email">team@robonomist.com</a>.
+<team@robonomist.com>.
 
 ## Installation
 
 Install the development version from github:
 
-    ## install.packages("devtools")
-    devtools::install_github("robonomist/robonomistClient")
+``` r
+## install.packages("devtools")
+devtools::install_github("robonomist/robonomistClient")
+```
 
 ## Getting started
 
@@ -42,62 +51,65 @@ Once installed, set the hostname of your Robonomist Data Server and
 connnect with `set_robonomist_server` function. Then you can start
 exploring the database.
 
-    library(robonomistClient)
-    set_robonomist_server("hostname.com")
+``` r
+library(robonomistClient)
+set_robonomist_server(hostname = "hostname.com", access_token = "xyz")
+```
 
 List all available datasources:
 
-    datasources()
+``` r
+datasources()
+```
 
+    ## ℹ Processing request...✔ Processing request... ... done
     ## 
-
     ## ── Robonomist Server Datasources
 
-    ##    dataset          title                                                       
-    ##  1 tidy             Robonomist's processed tidy data                            
-    ##  2 StatFin          Statistics Finland, StatFin database                        
-    ##  3 StatFin_Passiivi Statistics Finland, StatFin archive database                
-    ##  4 Eurostat         Statistic Finland, Eurostat main tables database            
-    ##  5 Vero             Verohallinnon tilastotietokanta                             
-    ##  6 kunnat           Tilastokeskus, Kuntien avainluvut                           
-    ##  7 kunnat           Tilastokeskus, Kuntien ja kuntayhtymien raportoimat taloust…
-    ##  8 tulli            Finnish Customs, Uljas Statistical Database                 
-    ##  9 covid            European Centre for Disease Prevention and Control COVID-19…
-    ## 10 covid            COVID-19 Data Hub dataset                                   
-    ## 11 ec               European Commission's Business and consumer surveys         
-    ## 12 eurostat         Eurostat database                                           
-    ## 13 ecb              ECB Statistical Data Warehouse                              
-    ## 14 oecd             OECD database                                               
-    ## 15 valtiokonttori   Valtiokonttori, Valtiontalouden kuukausitiedote             
-    ## 16 epirapo          THL Epirapo COVID-19 database                               
-    ## 17 sotkanet         THL Sotkanet                                                
-    ## 18 wb               World Bank Open Data
+    ##    dataset            title                                                     
+    ##  1 StatFin            Statistics Finland, StatFin database                      
+    ##  2 StatFin_Passiivi   Statistics Finland, StatFin archive database              
+    ##  3 Eurostat           Statistic Finland, Eurostat main tables database          
+    ##  4 Vero               Verohallinnon tilastotietokanta                           
+    ##  5 kunnat             Kuntien avainluvut (Tilastokeskus)                        
+    ##  6 kunnat             Kuntien ja kuntayhtymien raportoimat taloustiedot (Tilast…
+    ##  7 paavo              Postinumeroalueittainen avoin tieto -tietokanta Paavo (Ti…
+    ##  8 maakoto            Maahanmuuttajat ja kotoutuminen -tietokanta (Tilastokesku…
+    ##  9 koto               Kototietokanta (Tilastokeskus)                            
+    ## 10 toimipaikkalaskuri Toimipaikkalaskuri-tietokanta (Tilastokeskus)             
+    ## # … with 18 more rows
 
 The `data` function is convenient way to search and get data tables.
 Print all available data tables:
 
-    data()
+``` r
+data()
+```
 
+    ## ℹ Processing request...✔ Processing request... ... done
     ## 
-
     ## ── Robonomist Database search results
 
-    ##    id                title                                                      
-    ##  1 tidy/ashi         Osakeasuntojen hinnat                                      
-    ##  2 tidy/ati          Ansiotasoindeksi ja säännöllisen ansion indeksi työnantaja…
-    ##  3 tidy/jali         Julkisyhteisöjen alijäämä ja velka                         
-    ##  4 tidy/jtume        Julkisyhteisöjen tulot ja menot neljännesvuosittain        
-    ##  5 tidy/kbar         Kuluttajabarometri                                         
-    ##  6 tidy/kbar_alue    Kuluttajabarometri alueittain                              
-    ##  7 tidy/khi_hist     Kuluttajahintaindeksi, kuukausitiedot, 1972M01 alkaen      
-    ##  8 tidy/khi2015      Kuluttajahintaindeksi (2015=100)                           
-    ##  9 tidy/kk_ajoik     Ajoneuvokannan keski-ikä maakunnittain                     
-    ## 10 tidy/kk_alope_pää Aloittaneet ja lopettaneet yritykset kunnittain ja päätoim…
-    ## # … with 34,947 more rows
+    ##    id                                       title                               
+    ##  1 StatFin/asu/asas/statfin_asas_pxt_115a.… Asuntokunnat ja asuntoväestö muuttu…
+    ##  2 StatFin/asu/asas/statfin_asas_pxt_115y.… Asuntokunnat ja asuntoväestö muuttu…
+    ##  3 StatFin/asu/asas/statfin_asas_pxt_116a.… Asuntokunnat muuttujina Vuosi, Talo…
+    ##  4 StatFin/asu/asas/statfin_asas_pxt_116b.… Asuntokunnat ja asuntoväestö muuttu…
+    ##  5 StatFin/asu/asas/statfin_asas_pxt_116d.… Asuntokunnat muuttujina Alue, Talot…
+    ##  6 StatFin/asu/asas/statfin_asas_pxt_116e.… Asuntokunnat ja asuntoväestö muuttu…
+    ##  7 StatFin/asu/asas/statfin_asas_pxt_116f.… Asunnot muuttujina Alue, Talotyyppi…
+    ##  8 StatFin/asu/asvu/statfin_asvu_pxt_11x4.… Vuokraindeksi (2015=100) ja keskine…
+    ##  9 StatFin/asu/asvu/statfin_asvu_pxt_11x5.… Vuokraindeksi (2015=100) ja keskine…
+    ## 10 StatFin/asu/asvu/statfin_asvu_pxt_12d4.… Vapaarahoitteisten vuokra-asuntojen…
+    ## # … with 38,461 more rows
 
 To get a specific data table, use the tables id.
 
-    data("StatFin/vrm/synt/statfin_synt_pxt_12dx.px")
+``` r
+data("StatFin/vrm/synt/statfin_synt_pxt_12dx.px")
+```
+
+    ## ℹ Processing request...✔ Processing request... ... done
 
     ## # Robonomist id: StatFin/vrm/synt/statfin_synt_pxt_12dx.px
     ## # A tibble:      2,981 x 3
@@ -122,17 +134,21 @@ To get a specific data table, use the tables id.
 
 You can easily explore all available data tables in the Data Viewer.
 
-    View(data())
+``` r
+View(data())
+```
 
 To explore available data tables in the `Vero` dataset, for example, use
 the dataset name with a forward slash as the first argument in `data`,
 i.e. `View(data("Vero/"))`. Or print the data table listing in your
 console:
 
-    data("Vero/")
+``` r
+data("Vero/")
+```
 
+    ## ℹ Processing request...✔ Processing request... ... done
     ## 
-
     ## ── Robonomist Database search results
 
     ##    id                                       title                               
@@ -150,24 +166,26 @@ console:
 
 To search all data tables related to “väestö”, use:
 
-    data_search("väestö")
+``` r
+data_search("väestö")
+```
 
+    ## ℹ Processing request...✔ Processing request... ... done
     ## 
-
     ## ── Robonomist Database search results
 
-    ##    id                          title                                            
-    ##  1 tidy/kk_kourak              15 vuotta täyttänyt väestö koulutusasteen, maaku…
-    ##  2 tidy/kk_pieku               Asuntoväestön pienituloisuus ja pitkittynyt pien…
-    ##  3 tidy/kk_piemk               Asuntoväestön pienituloisuus ja pitkittynyt pien…
-    ##  4 tidy/kk_tuloek              Tuloerot ja tulonsiirtojen tuloeroja tasaava vai…
-    ##  5 tidy/kk_tuloemk             Tuloerot ja tulonsiirtojen tuloeroja tasaava vai…
-    ##  6 tidy/kk_vaennuste           Väestöennuste 2019-2040                          
-    ##  7 tidy/kk_vamuu_alue_arkisto  Väestömuutosten ennakkotiedot alueittain, arkisto
-    ##  8 tidy/kk_vamuu_alue_tot      Väestönmuutokset ja väkiluku alueittain          
-    ##  9 tidy/kk_varake_alue         Väestörakenteen ennakkotiedot alueittain         
-    ## 10 tidy/kk_varake_alue_arkisto Väestörakenteen ennakkotiedot alueittain, arkisto
-    ## # … with 814 more rows
+    ##    id                                       title                               
+    ##  1 StatFin/asu/asas/statfin_asas_pxt_115a.… Asuntokunnat ja asuntoväestö muuttu…
+    ##  2 StatFin/asu/asas/statfin_asas_pxt_115y.… Asuntokunnat ja asuntoväestö muuttu…
+    ##  3 StatFin/asu/asas/statfin_asas_pxt_116b.… Asuntokunnat ja asuntoväestö muuttu…
+    ##  4 StatFin/asu/asas/statfin_asas_pxt_116e.… Asuntokunnat ja asuntoväestö muuttu…
+    ##  5 StatFin/kou/vkour/statfin_vkour_pxt_12b… 15 vuotta täyttänyt väestö koulutus…
+    ##  6 StatFin/kou/vkour/statfin_vkour_pxt_12b… 15 vuotta täyttänyt väestö koulutus…
+    ##  7 StatFin/kou/vkour/statfin_vkour_pxt_12b… 15 vuotta täyttänyt väestö koulutus…
+    ##  8 StatFin/sos/lasuo/statfin_lasuo_pxt_001… Kodin ulkopuolelle sijoitetut 0-17-…
+    ##  9 StatFin/sos/toimtt/statfin_toimtt_pxt_0… Toimeentulotuen saajien osuus väest…
+    ## 10 StatFin/ter/avtk/statfin_avtk_pxt_001.px Lihavien osuus (%) 2064-vuotiaista, itse raportoitu paino ja pituus muuttujina Vuosi ja Sukupuoli
+    ## # … with 962 more rows
 
 Also the `data("väestö")` function will search data for data tables when
 the argument does not match an exact table id or an unique data table.
@@ -185,52 +203,63 @@ matching table ids, without downloading actual data.
 
 ## Examples
 
-    inner_join(
-      data("tidy/thl_kunnat"),
-      data("tidy/laaja_kuutio") %>%
-        filter(Tiedot %in% c("Kerrostaloissa asuvat asuntokunnat, %", "Väkiluku"),
-               time == max(time)) %>%
-        pivot_wider(names_from = Tiedot),
-      by = c("Alue" = "Alue 2021")) %>%
-      mutate(Ilmaantuvuus = 100*1000*value/Väkiluku) %>%
-      ggplot(aes(`Kerrostaloissa asuvat asuntokunnat, %`, Ilmaantuvuus)) +
-      geom_smooth() +
-      geom_point(aes(size = Väkiluku)) +
-      labs(title = "Koronavirustartuntojen ilmaantuvuus ja kerrostaloissa asuntokuntien osuus",
-           subtitle = "Tartuntoja 100 000 asukasta kohden",
-           caption = paste0(
-             "Lähteet: THL ja Tilastokeskus.\n",
-             format(as.Date(data_vintage("epirapo/covid19case")), "THL:n tartuntatiedot %-d. %Bta %Y.")))
+``` r
+laaja_kuutio <-
+  data("tidy/laaja_kuutio") %>%
+  filter(Tiedot %in% c("Kerrostaloissa asuvat asuntokunnat, %", "Väkiluku")) %>%
+  group_by(Tiedot) %>%
+  filter(time == max(time)) %>%
+  pivot_wider(names_from = Tiedot)
+inner_join(
+  data("tidy/thl_kunnat"),
+  laaja_kuutio,
+  by = c("Alue" = "Alue 2021")) %>%
+  mutate(Ilmaantuvuus = 100*1000*value/Väkiluku) %>%
+  ggplot(aes(`Kerrostaloissa asuvat asuntokunnat, %`, Ilmaantuvuus)) +
+  geom_smooth() +
+  geom_point(aes(size = Väkiluku)) +
+  labs(title = "Koronavirustartuntojen ilmaantuvuus ja kerrostaloissa asuntokuntien osuus",
+       subtitle = "Tartuntoja 100 000 asukasta kohden",
+       caption = paste0(
+         "Lähteet: THL ja Tilastokeskus.\n",
+         format(as.Date(data_vintage("epirapo/covid19case")), "THL:n tartuntatiedot %-d. %Bta %Y.")))
+```
 
 ![](README_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
 
-    data("StatFin/vrm/synt/statfin_synt_pxt_12dx.px") %>%
-      robonomist::tidy_auto() %>%
-      filter(Tiedot %in% c("Elävänä syntyneet", "Kuolleet")) %>%
-      ggplot(aes(time, value/1000, color = Tiedot)) +
-      geom_line() +
-      labs(title = "Elävänä syntyneet ja kuolleet Suomessa",
-           subtitle = "Tuhatta henkeä",
-           caption = "Lähde: Tilastokeskus.", x=NULL, y=NULL)
+``` r
+data("StatFin/vrm/synt/statfin_synt_pxt_12dx.px") %>%
+  robonomist::tidy_auto() %>%
+  filter(Tiedot %in% c("Elävänä syntyneet", "Kuolleet")) %>%
+  ggplot(aes(time, value/1000, color = Tiedot)) +
+  geom_line() +
+  labs(title = "Elävänä syntyneet ja kuolleet Suomessa",
+       subtitle = "Tuhatta henkeä",
+       caption = "Lähde: Tilastokeskus.", x=NULL, y=NULL)
+```
 
 ![](README_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
 
-    data("ec/esi_nace2§(Fin|Swe|Ger)§sentiment§2015-01-01") %>%
-      ggplot(aes(time, value, color = Country)) +
-      geom_line() +
-      labs(title = "Economic Sentiment Indicator",
-           subtitle = "Composite index (average = 100)",
-           caption = "Source: European Commission.", x=NULL,y=NULL)
+``` r
+data("ec/esi_nace2§(Fin|Swe|Ger)§sentiment§2015-01-01") %>%
+  ggplot(aes(time, value, color = Country)) +
+  geom_line() +
+  labs(title = "Economic Sentiment Indicator",
+       subtitle = "Composite index (average = 100)",
+       caption = "Source: European Commission.", x=NULL,y=NULL)
+```
 
 ![](README_files/figure-gfm/unnamed-chunk-12-1.png)<!-- -->
 
 You can also export the data, for example to an [Excel
 file](../../raw/main/README_files/export.xlsx):
 
-    data("ec/esi_nace2§(Fin|Swe|Ger)§§2015-01-01") %>%
-      pivot_wider(names_from = Country) %>%
-      split(.$Indicator) %>%
-      writexl::write_xlsx("README_files/export.xlsx")
+``` r
+data("ec/esi_nace2§(Fin|Swe|Ger)§§2015-01-01") %>%
+  pivot_wider(names_from = Country) %>%
+  split(.$Indicator) %>%
+  writexl::write_xlsx("README_files/export.xlsx")
+```
 
 ## Filtering datasources
 
@@ -246,7 +275,9 @@ not yet contain the actual data. This object is printed like a tibble,
 and it can be handled with common `dplyr` verbs such as `filter` and
 `distinct` in a `magrittr` pipe using `%>%`.
 
-    data("oecd/QNA")
+``` r
+data("oecd/QNA")
+```
 
     ## # Robonomist id: oecd/QNA
     ## # OECD:          Uncollected data structure
@@ -266,13 +297,15 @@ and it can be handled with common `dplyr` verbs such as `filter` and
     ## # … with 181,756,214 more rows
     ## # This data has not yet been collected from OECD api, and all rows might not be available. Please use `filter` to limit the number of rows under a million,  and use `collect` to retrieve actual data.
 
-    x <-
-      data("oecd/QNA") %>%
-      filter(Country == "Finland",
-             str_detect(Subject, "Gross domestic prod"),
-             Frequency=="Quarterly") %>%
-      filter(lubridate::year(time) > 2019L)
-    x
+``` r
+x <-
+  data("oecd/QNA") %>%
+  filter(Country == "Finland",
+         str_detect(Subject, "Gross domestic prod"),
+         Frequency=="Quarterly") %>%
+  filter(lubridate::year(time) > 2019L)
+x
+```
 
     ## # Robonomist id: oecd/QNA
     ## # OECD:          Uncollected data structure
@@ -292,7 +325,9 @@ and it can be handled with common `dplyr` verbs such as `filter` and
     ## # … with 1,070 more rows
     ## # This data has not yet been collected from OECD api, and all rows might not be available. Please use `filter` to limit the number of rows under a million,  and use `collect` to retrieve actual data.
 
-    distinct(x, Subject)
+``` r
+distinct(x, Subject)
+```
 
     ## # A tibble: 6 x 1
     ##   Subject                                                  
@@ -307,7 +342,9 @@ and it can be handled with common `dplyr` verbs such as `filter` and
 After data structure object has been filtered, the actual data can be
 collected with `collect()`.
 
-    x %>% collect()
+``` r
+x %>% collect()
+```
 
     ## # Robonomist id: oecd/QNA
     ## # A tibble:      91 x 10
@@ -330,13 +367,15 @@ collected with `collect()`.
 Also common `dplyr` verbs that require the actual data will trigger the
 `collect` function automatically.
 
-    data("oecd/QNA") %>%
-      filter(Subject == "Gross domestic product - expenditure approach",
-             str_detect(Measure, "Growth rate.*from previous"),
-             Frequency=="Quarterly") %>%
-      filter(lubridate::year(time) >= 2015L) %>%
-      group_by(Country) %>%
-      summarize(`Average Q/Q growth rate` = mean(value))
+``` r
+data("oecd/QNA") %>%
+  filter(Subject == "Gross domestic product - expenditure approach",
+         str_detect(Measure, "Growth rate.*from previous"),
+         Frequency=="Quarterly") %>%
+  filter(lubridate::year(time) >= 2015L) %>%
+  group_by(Country) %>%
+  summarize(`Average Q/Q growth rate` = mean(value))
+```
 
     ## # A tibble: 56 x 2
     ##    Country                      `Average Q/Q growth rate`
@@ -344,11 +383,11 @@ Also common `dplyr` verbs that require the actual data will trigger the
     ##  1 Argentina                                       -0.168
     ##  2 Australia                                        0.480
     ##  3 Austria                                          0.172
-    ##  4 Belgium                                          0.194
+    ##  4 Belgium                                          0.202
     ##  5 Brazil                                          -0.105
     ##  6 Bulgaria                                         0.594
     ##  7 Canada                                           0.255
     ##  8 Chile                                            0.330
-    ##  9 China (People's Republic of)                     1.65 
+    ##  9 China (People's Republic of)                     1.61 
     ## 10 Colombia                                         0.427
     ## # … with 46 more rows

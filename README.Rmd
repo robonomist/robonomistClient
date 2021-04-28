@@ -8,16 +8,23 @@ A client package for R to access Robonomist Data Server
 
 ## Datasources
 
-The `robonomistClient` package allows easy and fast access to various datasources through Robonomist Data Server, which integrate various datasources with up-to-date data. The client provides access to over 34 000 data tables in 14 datasources.
+The `robonomistClient` package allows easy and fast access to various datasources through Robonomist Data Server, which integrate various datasources with up-to-date data. The client provides access to over 38 400 data tables from various datasources.
 
-Currently integrated datasources:
+Some of the integrated datasources:
 
 * Statistics Finland (StatFin & StatFin archive databases)
 * Statistics Finland municipal data (Key figures & Financial data)
+* Paavo postal code area statistics by Statistics Finland
+* Experimental statistics by Statistics Finland
+* Immigrants and integration database by Statistics Finland
 * Finnish Tax Administration
+* Natural Resources Institute Finland (Luonnonvarakeskus LUKE)
+* Traficom database (The Finnish Transport and Communications Agency)
 * Customs Finland
 * Finnish Treasury
 * THL Sotkanet
+* Helsingin seudun aluesarjat -tilastotietokanta
+* Helsingin ympäristötilasto
 * Eurostat
 * European Commission Business and consumer surveys
 * World Bank
@@ -43,7 +50,7 @@ Once installed, set the hostname of your Robonomist Data Server and connnect wit
 
 ```{r, include = FALSE}
 library(robonomistClient)
-library(robonomistServer)
+## library(robonomistServer)
 library(tidyverse)
 data()
 ```
@@ -96,12 +103,15 @@ The `data()` function will return a data table, when exactly one match is found.
 ## Examples
 
 ```{r, message = FALSE, warning = FALSE}
+laaja_kuutio <-
+  data("tidy/laaja_kuutio") %>%
+  filter(Tiedot %in% c("Kerrostaloissa asuvat asuntokunnat, %", "Väkiluku")) %>%
+  group_by(Tiedot) %>%
+  filter(time == max(time)) %>%
+  pivot_wider(names_from = Tiedot)
 inner_join(
   data("tidy/thl_kunnat"),
-  data("tidy/laaja_kuutio") %>%
-    filter(Tiedot %in% c("Kerrostaloissa asuvat asuntokunnat, %", "Väkiluku"),
-           time == max(time)) %>%
-    pivot_wider(names_from = Tiedot),
+  laaja_kuutio,
   by = c("Alue" = "Alue 2021")) %>%
   mutate(Ilmaantuvuus = 100*1000*value/Väkiluku) %>%
   ggplot(aes(`Kerrostaloissa asuvat asuntokunnat, %`, Ilmaantuvuus)) +
