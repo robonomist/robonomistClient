@@ -3,6 +3,7 @@ FROM rocker/r-ubuntu:20.04
 RUN apt-get update \
   && apt-get install -y --no-install-recommends \
   libssl-dev \
+  liblz4-dev \
   r-cran-devtools \
   r-cran-httr \
   r-cran-tibble \
