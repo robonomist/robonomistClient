@@ -93,7 +93,7 @@ RobonomistConnection <- R6::R6Class(
       if(hash != private$databuffer_hash) {
         private$databuffer <- NULL
         spinner$spin()
-        private$ws$send(qs::qserialize(payload))
+        private$ws$send(qs::qserialize(payload, preset = "balanced"))
         later::run_now()
         while (is.null(private$databuffer)) {
           if(private$ws$readyState() != 1L) stop("Request failed", call. = FALSE)
