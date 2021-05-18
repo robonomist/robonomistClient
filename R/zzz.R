@@ -8,7 +8,7 @@
     set_robonomist_server(hostname, access_token)
   } else if ("robonomistServer" %in% installed.packages()) {
     cli::cli_alert_success("Using local {.pkg robonomistServer} {utils::packageVersion('robonomistServer')}")
-  } else {
+  } else if (interactive()){
     connection$please_set_server()
   }
 

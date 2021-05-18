@@ -1,3 +1,8 @@
+# robonomistClient 0.4.7
+
+* Improved error handling
+* New style px objects
+
 # robonomistClient 0.4.6
 
 * Change to serializer from `qs` package, `fst` consumed too much memory on large datasets.

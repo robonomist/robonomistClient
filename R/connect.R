@@ -2,7 +2,8 @@ do_request <- function(fun, args) {
 
   if (is.null(getOption("robonomist.server"))) {
     if(suppressWarnings(require(robonomistServer))) {
-      cli::cli_process_start("Processing request...", on_exit = "done")
+      cli::cli_process_start("Processing request...")
+      on.exit(cli::cli_process_done())
       do.call(fun, args, env = robonomistServer::database)
     } else {
       connection$please_set_server()
@@ -23,7 +24,12 @@ set_robonomist_server <- function(hostname = getOption("robonomist.server"),
                                   access_token = getOption("robonomist.access.token")) {
   options(robonomist.server = hostname)
   options(robonomist.access.token = access_token)
-  if (!is.null(hostname)) connection$connect()
+  if (!is.null(hostname)) {
+    for (i in 1:3) {
+      if (connection$connect()) break
+      Sys.sleep(5)
+    }
+  }
 }
 
 RobonomistConnection <- R6::R6Class(
@@ -49,7 +55,7 @@ RobonomistConnection <- R6::R6Class(
           Authorization = paste("bearer", access_token),
           User_Agent = paste0("R/robonomistClient/", utils::packageVersion("robonomistClient"))),
         autoConnect = FALSE,
-        maxMessageSize = 256 * 1024 * 1024
+        maxMessageSize = 1024^3
       )
 
       private$ws$onOpen(function(event) {
@@ -58,7 +64,7 @@ RobonomistConnection <- R6::R6Class(
 
       private$ws$onMessage(function(event) {
         msg <- qs::qdeserialize(event$data)
-        if(inherits(msg, c("cli_message", "condition"))) {
+        if(inherits(msg, "cli_message")) {
           cli:::cli_server_default(msg)
         } else {
           private$databuffer <- msg
@@ -80,8 +86,13 @@ RobonomistConnection <- R6::R6Class(
       while (private$ws$readyState() == 0L) {
         later::run_now(timeoutSecs = 1)
       }
-      version <- self$send('server_version', list())
-      cli::cli_alert_success("Connected successfully to {version}")
+      if ((private$ws$readyState() == 1L)) {
+        version <- self$send('server_version', list())
+        cli::cli_alert_success("Connected successfully to {version}")
+        TRUE
+      } else {
+        FALSE
+      }
     },
 
     send = function(fun, args) {
@@ -102,6 +113,8 @@ RobonomistConnection <- R6::R6Class(
         }
         private$databuffer_hash <- hash
       }
+      if(inherits(private$databuffer, "error"))
+        stop("Request failed in error:\n", conditionMessage(private$databuffer), call. = FALSE)
       private$databuffer
     },
 
