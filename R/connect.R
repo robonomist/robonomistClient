@@ -95,10 +95,12 @@ RobonomistConnection <- R6::R6Class(
         later::run_now(timeoutSecs = 1)
       }
       if ((private$ws$readyState() == 1L)) {
-        version <- self$send('server_version', list())
-        cli::cli_alert_success("Connected successfully to {version}")
-        private$heart_beat_loop <- later::create_loop()
-        private$heart_beat()
+        server_version <- self$send('server_version', list())
+        cli::cli_alert_success("Connected successfully to {server_version}")
+        if (server_version >= "0.4.11") {
+          private$heart_beat_loop <- later::create_loop()
+          private$heart_beat()
+        }
         self$open <- TRUE
       }
     },
