@@ -17,5 +17,7 @@
 }
 
 .onUnload <- function(...) {
-  if(!is.null(connection$ws)) try(connection$ws$close(), silent = TRUE)
+  if(connection$open) try({
+    disconnect()
+  }, silent = TRUE)
 }

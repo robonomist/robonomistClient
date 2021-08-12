@@ -18,6 +18,7 @@ Some of the integrated datasources:
 * Experimental statistics by Statistics Finland
 * Immigrants and integration database by Statistics Finland
 * Finnish Tax Administration
+* Finnish Centre for Pensions
 * Natural Resources Institute Finland (Luonnonvarakeskus LUKE)
 * Traficom database (The Finnish Transport and Communications Agency)
 * Customs Finland
@@ -125,8 +126,7 @@ inner_join(
 ```
 
 ```{r, message = FALSE}
-data("StatFin/vrm/synt/statfin_synt_pxt_12dx.px") %>%
-  robonomist::tidy_auto() %>%
+data("StatFin/vrm/synt/statfin_synt_pxt_12dx.px", tidy_time = TRUE) %>%
   filter(Tiedot %in% c("Elävänä syntyneet", "Kuolleet")) %>%
   ggplot(aes(time, value/1000, color = Tiedot)) +
   geom_line() +

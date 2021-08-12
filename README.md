@@ -18,6 +18,7 @@ Some of the integrated datasources:
   - Experimental statistics by Statistics Finland
   - Immigrants and integration database by Statistics Finland
   - Finnish Tax Administration
+  - Finnish Centre for Pensions
   - Natural Resources Institute Finland (Luonnonvarakeskus LUKE)
   - Traficom database (The Finnish Transport and Communications Agency)
   - Customs Finland
@@ -69,14 +70,14 @@ datasources()
     ##    dataset            title                                                     
     ##  1 StatFin            Statistics Finland, StatFin database                      
     ##  2 StatFin_Passiivi   Statistics Finland, StatFin archive database              
-    ##  3 Eurostat           Statistic Finland, Eurostat main tables database          
-    ##  4 Vero               Verohallinnon tilastotietokanta                           
-    ##  5 kunnat             Kuntien avainluvut (Tilastokeskus)                        
-    ##  6 kunnat             Kuntien ja kuntayhtymien raportoimat taloustiedot (Tilast…
-    ##  7 paavo              Postinumeroalueittainen avoin tieto -tietokanta Paavo (Ti…
-    ##  8 maakoto            Maahanmuuttajat ja kotoutuminen -tietokanta (Tilastokesku…
-    ##  9 koto               Kototietokanta (Tilastokeskus)                            
-    ## 10 toimipaikkalaskuri Toimipaikkalaskuri-tietokanta (Tilastokeskus)             
+    ##  3 Vero               Verohallinnon tilastotietokanta                           
+    ##  4 kunnat             Kuntien avainluvut (Tilastokeskus)                        
+    ##  5 kunnat             Kuntien ja kuntayhtymien raportoimat taloustiedot (Tilast…
+    ##  6 paavo              Postinumeroalueittainen avoin tieto -tietokanta Paavo (Ti…
+    ##  7 maakoto            Maahanmuuttajat ja kotoutuminen -tietokanta (Tilastokesku…
+    ##  8 koto               Kototietokanta (Tilastokeskus)                            
+    ##  9 toimipaikkalaskuri Toimipaikkalaskuri-tietokanta (Tilastokeskus)             
+    ## 10 kokeelliset        Tilastokeskuksen kokeelliset tilastot                     
     ## # … with 18 more rows
 
 The `data` function is convenient way to search and get data tables.
@@ -101,7 +102,7 @@ data()
     ##  8 StatFin/asu/asvu/statfin_asvu_pxt_11x4.… Vuokraindeksi (2015=100) ja keskine…
     ##  9 StatFin/asu/asvu/statfin_asvu_pxt_11x5.… Vuokraindeksi (2015=100) ja keskine…
     ## 10 StatFin/asu/asvu/statfin_asvu_pxt_12d4.… Vapaarahoitteisten vuokra-asuntojen…
-    ## # … with 38,461 more rows
+    ## # … with 38,084 more rows
 
 To get a specific data table, use the tables id.
 
@@ -113,7 +114,7 @@ data("StatFin/vrm/synt/statfin_synt_pxt_12dx.px")
 
     ## # Robonomist id: StatFin/vrm/synt/statfin_synt_pxt_12dx.px
     ## # A tibble:      2,981 x 3
-    ## # Title:         Väestönmuutokset muuttujina Vuosi ja Tiedot
+    ## # Title:         Väestönmuutokset
     ## # Last updated:  2020-05-14 08:00:00
     ## # Next update:   2021-05-14 08:00:00
     ##    Vuosi Tiedot                     value
@@ -162,7 +163,7 @@ data("Vero/")
     ##  8 Vero/Verotulojen_kehitys/010_alvkavamp_… 3.2. Oma-aloitteisten verojen ilmoi…
     ##  9 Vero/Verotulojen_kehitys/010_alvkavatol… 3.3. Oma-aloitteisten verojen ilmoi…
     ## 10 Vero/Verotulojen_kehitys/010_alvkava_ta… 3.1. Oma-aloitteisten verojen ilmoi…
-    ## # … with 311 more rows
+    ## # … with 315 more rows
 
 To search all data tables related to “väestö”, use:
 
@@ -185,7 +186,7 @@ data_search("väestö")
     ##  8 StatFin/sos/lasuo/statfin_lasuo_pxt_001… Kodin ulkopuolelle sijoitetut 0-17-…
     ##  9 StatFin/sos/toimtt/statfin_toimtt_pxt_0… Toimeentulotuen saajien osuus väest…
     ## 10 StatFin/ter/avtk/statfin_avtk_pxt_001.px Lihavien osuus (%) 2064-vuotiaista, itse raportoitu paino ja pituus muuttujina Vuosi ja Sukupuoli
-    ## # … with 962 more rows
+    ## # … with 972 more rows
 
 Also the `data("väestö")` function will search data for data tables when
 the argument does not match an exact table id or an unique data table.
@@ -228,8 +229,7 @@ inner_join(
 ![](README_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
 
 ``` r
-data("StatFin/vrm/synt/statfin_synt_pxt_12dx.px") %>%
-  robonomist::tidy_auto() %>%
+data("StatFin/vrm/synt/statfin_synt_pxt_12dx.px", tidy_time = TRUE) %>%
   filter(Tiedot %in% c("Elävänä syntyneet", "Kuolleet")) %>%
   ggplot(aes(time, value/1000, color = Tiedot)) +
   geom_line() +
@@ -237,6 +237,8 @@ data("StatFin/vrm/synt/statfin_synt_pxt_12dx.px") %>%
        subtitle = "Tuhatta henkeä",
        caption = "Lähde: Tilastokeskus.", x=NULL, y=NULL)
 ```
+
+    ## Warning: Removed 4 row(s) containing missing values (geom_path).
 
 ![](README_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
 
@@ -347,7 +349,7 @@ x %>% collect()
 ```
 
     ## # Robonomist id: oecd/QNA
-    ## # A tibble:      91 x 10
+    ## # A tibble:      99 x 11
     ## # Title:         Quarterly National Accounts
     ##    Country Subject    Measure     Frequency time       value `Time Format` Unit 
     ##    <chr>   <chr>      <chr>       <chr>     <date>     <dbl> <chr>         <chr>
@@ -361,8 +363,8 @@ x %>% collect()
     ##  8 Finland Gross dom… National c… Quarterly 2020-10-01 59732 Quarterly     Euro 
     ##  9 Finland Gross dom… National c… Quarterly 2020-01-01 54696 Quarterly     Euro 
     ## 10 Finland Gross dom… National c… Quarterly 2020-04-01 54403 Quarterly     Euro 
-    ## # … with 81 more rows, and 2 more variables: Unit multiplier <chr>,
-    ## #   Reference period <chr>
+    ## # … with 89 more rows, and 3 more variables: Unit multiplier <chr>,
+    ## #   Reference period <chr>, Observation Status <chr>
 
 Also common `dplyr` verbs that require the actual data will trigger the
 `collect` function automatically.
@@ -382,12 +384,12 @@ data("oecd/QNA") %>%
     ##    <chr>                                            <dbl>
     ##  1 Argentina                                       -0.168
     ##  2 Australia                                        0.480
-    ##  3 Austria                                          0.172
-    ##  4 Belgium                                          0.202
+    ##  3 Austria                                          0.175
+    ##  4 Belgium                                          0.218
     ##  5 Brazil                                          -0.105
     ##  6 Bulgaria                                         0.594
-    ##  7 Canada                                           0.255
-    ##  8 Chile                                            0.330
+    ##  7 Canada                                           0.309
+    ##  8 Chile                                            0.443
     ##  9 China (People's Republic of)                     1.61 
-    ## 10 Colombia                                         0.427
+    ## 10 Colombia                                         0.529
     ## # … with 46 more rows

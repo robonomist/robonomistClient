@@ -1,3 +1,7 @@
+# robonomistClient 0.4.8
+
+* Add heart beat to keep websocket connection alive
+
 # robonomistClient 0.4.7
 
 * Improved error handling

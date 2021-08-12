@@ -2,7 +2,7 @@
 % Please edit documentation in R/connect.R
 \name{set_robonomist_server}
 \alias{set_robonomist_server}
-\title{Set the hostname of Robonomist Data server}
+\title{Set the hostname of Robonomist Data Server}
 \usage{
 set_robonomist_server(
   hostname = getOption("robonomist.server"),
@@ -15,5 +15,5 @@ set_robonomist_server(
 \item{access_token, }{character, Bearer token}
 }
 \description{
-Set the hostname of Robonomist Data server
+Set the hostname of Robonomist Data Server
 }

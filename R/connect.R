@@ -6,7 +6,7 @@ do_request <- function(fun, args) {
       on.exit(cli::cli_process_done())
       do.call(fun, args, env = robonomistServer::database)
     } else {
-      connection$please_set_server()
+      please_set_server()
       stop("Robonomist Data Server unavailable.", call. = FALSE)
     }
   } else {
@@ -14,7 +14,7 @@ do_request <- function(fun, args) {
   }
 }
 
-#' Set the hostname of Robonomist Data server
+#' Set the hostname of Robonomist Data Server
 #'
 #' @param hostname character, Set the hostname in format "data.hostname.com"
 #' @param access_token, character, Bearer token
@@ -26,16 +26,26 @@ set_robonomist_server <- function(hostname = getOption("robonomist.server"),
   options(robonomist.access.token = access_token)
   if (!is.null(hostname)) {
     for (i in 1:3) {
-      if (connection$connect()) break
+      connection$connect()
+      if (connection$open) break
       Sys.sleep(5)
     }
   }
+}
+
+#' Disconnect from Robonomist Data Server
+#'
+#' @export
+disconnect <- function() {
+  connection$finalize()
 }
 
 RobonomistConnection <- R6::R6Class(
   "RobonomistConnection",
 
   public = list(
+
+    open = FALSE,
 
     connect = function(hostname = getOption("robonomist.server"),
                        access_token = getOption("robonomist.access.token"),
@@ -44,10 +54,12 @@ RobonomistConnection <- R6::R6Class(
       if(!is.null(hostname)) {
         cli::cli_alert_success("Connecting to {.pkg robonomistServer} at {hostname}")
       } else {
-        stop(private$connection_info)
+        please_set_server()
+        stop("Missing hostname", call. = FALSE)
       }
 
-      self$finalize()
+      private$databuffer_reset()
+      private$close_ws()
 
       private$ws <- websocket::WebSocket$new(
         paste0(protocol, "://", hostname),
@@ -57,10 +69,6 @@ RobonomistConnection <- R6::R6Class(
         autoConnect = FALSE,
         maxMessageSize = 1024^3
       )
-
-      private$ws$onOpen(function(event) {
-        ## cli::cli_alert("Connection opened")
-      })
 
       private$ws$onMessage(function(event) {
         msg <- qs::qdeserialize(event$data)
@@ -89,9 +97,9 @@ RobonomistConnection <- R6::R6Class(
       if ((private$ws$readyState() == 1L)) {
         version <- self$send('server_version', list())
         cli::cli_alert_success("Connected successfully to {version}")
-        TRUE
-      } else {
-        FALSE
+        private$heart_beat_loop <- later::create_loop()
+        private$heart_beat()
+        self$open <- TRUE
       }
     },
 
@@ -102,7 +110,7 @@ RobonomistConnection <- R6::R6Class(
       payload <- list(fun = fun, args = args)
       hash <- digest::digest(payload)
       if(hash != private$databuffer_hash) {
-        private$databuffer <- NULL
+        private$databuffer_reset()
         spinner$spin()
         private$ws$send(qs::qserialize(payload, preset = "balanced"))
         later::run_now()
@@ -118,25 +126,40 @@ RobonomistConnection <- R6::R6Class(
       private$databuffer
     },
 
-    please_set_server = function() {
-      cli::cli_alert_info(private$connection_info)
-    },
-
     finalize = function() {
-      if(!is.null(private$ws)) try(private$ws$stop(), silent = TRUE)
-      private$databuffer <- NULL
-      private$databuffer_hash <- ""
+      if (!is.null(private$heart_beat_loop))
+        later::destroy_loop(private$heart_beat_loop)
+      self$open <- FALSE
+      private$close_ws()
+      cli::cli_alert_success("{.pkg robonomistClient} disconnected from successfully")
     }
 
   ),
 
   private = list(
     ws = NULL,
+    close_ws = function() {
+      if(!is.null(private$ws)) try(private$ws$close(), silent = TRUE)
+      private$ws <- NULL
+    },
     databuffer = NULL,
     databuffer_hash = "",
-    connection_info = "Please set the Robonomist Data Server's hostname and access token with {.fn set_robonomist_server}, e.g. {.code set_robonomist_server(hostname = \"myhost.com\", access_token =\"xyz\")}. Alternatively set the environment variables `ROBONOMIST_SERVER` and `ROBONOMIST_ACCESS_TOKEN` before loading the {.pkg robonomistClient} package."
+    databuffer_reset = function() {
+      private$databuffer <- NULL
+      private$databuffer_hash <- ""
+    },
+    heart_beat_loop = NULL,
+    heart_beat = function(interval = 1800) {
+      private$ws$send("Stayin' Alive")
+      later::later(private$heart_beat, interval, loop = private$heart_beat_loop)
+    }
   )
-
 )
 
 connection <- RobonomistConnection$new()
+
+please_set_server <- function() {
+  cli::cli_alert_info(
+    "Please set the Robonomist Data Server's hostname and access token with {.fn set_robonomist_server}, e.g. {.code set_robonomist_server(hostname = \"myhost.com\", access_token =\"xyz\")}. Alternatively set the environment variables `ROBONOMIST_SERVER` and `ROBONOMIST_ACCESS_TOKEN` before loading the {.pkg robonomistClient} package."
+  )
+}
