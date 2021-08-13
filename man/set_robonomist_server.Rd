@@ -10,7 +10,7 @@ set_robonomist_server(
 )
 }
 \arguments{
-\item{hostname}{character, Set the hostname in format "data.hostname.com"}
+\item{hostname}{character, Set the hostname in format "data.example.com". To use secure websocket, also set the protocol, e.g. "wss://data.example.com".}
 
 \item{access_token, }{character, Bearer token}
 }

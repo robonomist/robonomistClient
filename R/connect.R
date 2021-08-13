@@ -16,7 +16,7 @@ do_request <- function(fun, args) {
 
 #' Set the hostname of Robonomist Data Server
 #'
-#' @param hostname character, Set the hostname in format "data.hostname.com"
+#' @param hostname character, Set the hostname in format "data.example.com". To use secure websocket, also set the protocol, e.g. "wss://data.example.com".
 #' @param access_token, character, Bearer token
 #'
 #' @export
@@ -48,8 +48,7 @@ RobonomistConnection <- R6::R6Class(
     open = FALSE,
 
     connect = function(hostname = getOption("robonomist.server"),
-                       access_token = getOption("robonomist.access.token"),
-                       protocol = "ws") {
+                       access_token = getOption("robonomist.access.token")) {
 
       if(!is.null(hostname)) {
         cli::cli_alert_success("Connecting to {.pkg robonomistServer} at {hostname}")
@@ -61,8 +60,14 @@ RobonomistConnection <- R6::R6Class(
       private$databuffer_reset()
       private$close_ws()
 
+      if (grepl("wss?://", hostname)) {
+        url <- hostname
+      } else {
+        url <- paste0("ws://", hostname)
+      }
+
       private$ws <- websocket::WebSocket$new(
-        paste0(protocol, "://", hostname),
+        url,
         headers = list(
           Authorization = paste("bearer", access_token),
           User_Agent = paste0("R/robonomistClient/", utils::packageVersion("robonomistClient"))),

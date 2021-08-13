@@ -1,6 +1,7 @@
 # robonomistClient 0.4.8
 
 * Add heart beat to keep websocket connection alive
+* Add TLS support
 
 # robonomistClient 0.4.7
 
