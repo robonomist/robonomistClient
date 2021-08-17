@@ -22,7 +22,6 @@ Some of the integrated datasources:
 * Natural Resources Institute Finland (Luonnonvarakeskus LUKE)
 * Traficom database (The Finnish Transport and Communications Agency)
 * Customs Finland
-* Finnish Treasury
 * THL Sotkanet
 * Helsingin seudun aluesarjat -tilastotietokanta
 * Helsingin ympäristötilasto
@@ -115,6 +114,7 @@ inner_join(
   laaja_kuutio,
   by = c("Alue" = "Alue 2021")) %>%
   mutate(Ilmaantuvuus = 100*1000*value/Väkiluku) %>%
+  drop_na() %>%
   ggplot(aes(`Kerrostaloissa asuvat asuntokunnat, %`, Ilmaantuvuus)) +
   geom_smooth() +
   geom_point(aes(size = Väkiluku)) +

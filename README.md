@@ -22,7 +22,6 @@ Some of the integrated datasources:
   - Natural Resources Institute Finland (Luonnonvarakeskus LUKE)
   - Traficom database (The Finnish Transport and Communications Agency)
   - Customs Finland
-  - Finnish Treasury
   - THL Sotkanet
   - Helsingin seudun aluesarjat -tilastotietokanta
   - Helsingin ympäristötilasto
@@ -78,7 +77,7 @@ datasources()
     ##  8 koto               Kototietokanta (Tilastokeskus)                            
     ##  9 toimipaikkalaskuri Toimipaikkalaskuri-tietokanta (Tilastokeskus)             
     ## 10 kokeelliset        Tilastokeskuksen kokeelliset tilastot                     
-    ## # … with 18 more rows
+    ## # … with 17 more rows
 
 The `data` function is convenient way to search and get data tables.
 Print all available data tables:
@@ -102,7 +101,7 @@ data()
     ##  8 StatFin/asu/asvu/statfin_asvu_pxt_11x4.… Vuokraindeksi (2015=100) ja keskine…
     ##  9 StatFin/asu/asvu/statfin_asvu_pxt_11x5.… Vuokraindeksi (2015=100) ja keskine…
     ## 10 StatFin/asu/asvu/statfin_asvu_pxt_12d4.… Vapaarahoitteisten vuokra-asuntojen…
-    ## # … with 38,084 more rows
+    ## # … with 38,473 more rows
 
 To get a specific data table, use the tables id.
 
@@ -113,10 +112,10 @@ data("StatFin/vrm/synt/statfin_synt_pxt_12dx.px")
     ## ℹ Processing request...✔ Processing request... ... done
 
     ## # Robonomist id: StatFin/vrm/synt/statfin_synt_pxt_12dx.px
-    ## # A tibble:      2,981 x 3
+    ## # A tibble:      2,992 × 3
     ## # Title:         Väestönmuutokset
-    ## # Last updated:  2020-05-14 08:00:00
-    ## # Next update:   2021-05-14 08:00:00
+    ## # Last updated:  2021-06-18 08:00:00
+    ## # Next update:   2022-06-17 08:00:00
     ##    Vuosi Tiedot                     value
     ##    <chr> <chr>                      <dbl>
     ##  1 1749  Elävänä syntyneet          16700
@@ -129,7 +128,7 @@ data("StatFin/vrm/synt/statfin_synt_pxt_12dx.px")
     ##  8 1749  Solmitut avioliitot         3900
     ##  9 1749  Avioerot                      NA
     ## 10 1749  Kokonaismuutos                NA
-    ## # … with 2,971 more rows
+    ## # … with 2,982 more rows
 
 ## Features
 
@@ -186,7 +185,7 @@ data_search("väestö")
     ##  8 StatFin/sos/lasuo/statfin_lasuo_pxt_001… Kodin ulkopuolelle sijoitetut 0-17-…
     ##  9 StatFin/sos/toimtt/statfin_toimtt_pxt_0… Toimeentulotuen saajien osuus väest…
     ## 10 StatFin/ter/avtk/statfin_avtk_pxt_001.px Lihavien osuus (%) 2064-vuotiaista, itse raportoitu paino ja pituus muuttujina Vuosi ja Sukupuoli
-    ## # … with 972 more rows
+    ## # … with 982 more rows
 
 Also the `data("väestö")` function will search data for data tables when
 the argument does not match an exact table id or an unique data table.
@@ -216,6 +215,7 @@ inner_join(
   laaja_kuutio,
   by = c("Alue" = "Alue 2021")) %>%
   mutate(Ilmaantuvuus = 100*1000*value/Väkiluku) %>%
+  drop_na() %>%
   ggplot(aes(`Kerrostaloissa asuvat asuntokunnat, %`, Ilmaantuvuus)) +
   geom_smooth() +
   geom_point(aes(size = Väkiluku)) +
@@ -237,8 +237,6 @@ data("StatFin/vrm/synt/statfin_synt_pxt_12dx.px", tidy_time = TRUE) %>%
        subtitle = "Tuhatta henkeä",
        caption = "Lähde: Tilastokeskus.", x=NULL, y=NULL)
 ```
-
-    ## Warning: Removed 4 row(s) containing missing values (geom_path).
 
 ![](README_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
 
@@ -284,19 +282,19 @@ data("oecd/QNA")
     ## # Robonomist id: oecd/QNA
     ## # OECD:          Uncollected data structure
     ## # Title:         Quarterly National Accounts
-    ##    Country   Subject                Measure       Frequency time           value
-    ##    <chr>     <chr>                  <chr>         <chr>     <date>     <collect>
-    ##  1 Australia Gross domestic product Current pric… Annual    1947-01-01        ??
-    ##  2 Australia Gross domestic product Current pric… Quarterly 1947-01-01        ??
-    ##  3 Australia Gross domestic product Current pric… Quarterly 1947-04-01        ??
-    ##  4 Australia Gross domestic product Current pric… Quarterly 1947-07-01        ??
-    ##  5 Australia Gross domestic product Current pric… Quarterly 1947-10-01        ??
-    ##  6 Australia Gross domestic product Current pric… Annual    1948-01-01        ??
-    ##  7 Australia Gross domestic product Current pric… Quarterly 1948-01-01        ??
-    ##  8 Australia Gross domestic product Current pric… Quarterly 1948-04-01        ??
-    ##  9 Australia Gross domestic product Current pric… Quarterly 1948-07-01        ??
-    ## 10 Australia Gross domestic product Current pric… Quarterly 1948-10-01        ??
-    ## # … with 181,756,214 more rows
+    ##    Country   Subject                Measure        Frequency time           value
+    ##    <chr>     <chr>                  <chr>          <chr>     <date>     <collect>
+    ##  1 Australia Gross domestic product Current prices Annual    1947-01-01        ??
+    ##  2 Australia Gross domestic product Current prices Quarterly 1947-01-01        ??
+    ##  3 Australia Gross domestic product Current prices Quarterly 1947-04-01        ??
+    ##  4 Australia Gross domestic product Current prices Quarterly 1947-07-01        ??
+    ##  5 Australia Gross domestic product Current prices Quarterly 1947-10-01        ??
+    ##  6 Australia Gross domestic product Current prices Annual    1948-01-01        ??
+    ##  7 Australia Gross domestic product Current prices Quarterly 1948-01-01        ??
+    ##  8 Australia Gross domestic product Current prices Quarterly 1948-04-01        ??
+    ##  9 Australia Gross domestic product Current prices Quarterly 1948-07-01        ??
+    ## 10 Australia Gross domestic product Current prices Quarterly 1948-10-01        ??
+    ## # … with 182,244,806 more rows
     ## # This data has not yet been collected from OECD api, and all rows might not be available. Please use `filter` to limit the number of rows under a million,  and use `collect` to retrieve actual data.
 
 ``` r
@@ -312,26 +310,26 @@ x
     ## # Robonomist id: oecd/QNA
     ## # OECD:          Uncollected data structure
     ## # Title:         Quarterly National Accounts
-    ##    Country Subject      Measure                   Frequency time           value
-    ##    <chr>   <chr>        <chr>                     <chr>     <date>     <collect>
-    ##  1 Finland Gross domes… Current prices            Quarterly 2020-01-01        ??
-    ##  2 Finland Gross domes… National currency, curre… Quarterly 2020-01-01        ??
-    ##  3 Finland Gross domes… Current prices            Quarterly 2020-04-01        ??
-    ##  4 Finland Gross domes… National currency, curre… Quarterly 2020-04-01        ??
-    ##  5 Finland Gross domes… Current prices            Quarterly 2020-07-01        ??
-    ##  6 Finland Gross domes… National currency, curre… Quarterly 2020-07-01        ??
-    ##  7 Finland Gross domes… Current prices            Quarterly 2020-10-01        ??
-    ##  8 Finland Gross domes… National currency, curre… Quarterly 2020-10-01        ??
-    ##  9 Finland Gross domes… Current prices            Quarterly 2021-01-01        ??
-    ## 10 Finland Gross domes… National currency, curre… Quarterly 2021-01-01        ??
-    ## # … with 1,070 more rows
+    ##    Country Subject                Measure         Frequency time           value
+    ##    <chr>   <chr>                  <chr>           <chr>     <date>     <collect>
+    ##  1 Finland Gross domestic product Current prices  Quarterly 2020-01-01        ??
+    ##  2 Finland Gross domestic product National curre… Quarterly 2020-01-01        ??
+    ##  3 Finland Gross domestic product Current prices  Quarterly 2020-04-01        ??
+    ##  4 Finland Gross domestic product National curre… Quarterly 2020-04-01        ??
+    ##  5 Finland Gross domestic product Current prices  Quarterly 2020-07-01        ??
+    ##  6 Finland Gross domestic product National curre… Quarterly 2020-07-01        ??
+    ##  7 Finland Gross domestic product Current prices  Quarterly 2020-10-01        ??
+    ##  8 Finland Gross domestic product National curre… Quarterly 2020-10-01        ??
+    ##  9 Finland Gross domestic product Current prices  Quarterly 2021-01-01        ??
+    ## 10 Finland Gross domestic product National curre… Quarterly 2021-01-01        ??
+    ## # … with 1,286 more rows
     ## # This data has not yet been collected from OECD api, and all rows might not be available. Please use `filter` to limit the number of rows under a million,  and use `collect` to retrieve actual data.
 
 ``` r
 distinct(x, Subject)
 ```
 
-    ## # A tibble: 6 x 1
+    ## # A tibble: 6 × 1
     ##   Subject                                                  
     ##   <chr>                                                    
     ## 1 Gross domestic product                                   
@@ -349,22 +347,22 @@ x %>% collect()
 ```
 
     ## # Robonomist id: oecd/QNA
-    ## # A tibble:      99 x 11
+    ## # A tibble:      125 × 10
     ## # Title:         Quarterly National Accounts
-    ##    Country Subject    Measure     Frequency time       value `Time Format` Unit 
-    ##    <chr>   <chr>      <chr>       <chr>     <date>     <dbl> <chr>         <chr>
-    ##  1 Finland Gross dom… National c… Quarterly 2020-01-01 58169 Quarterly     Euro 
-    ##  2 Finland Gross dom… National c… Quarterly 2020-04-01 58154 Quarterly     Euro 
-    ##  3 Finland Gross dom… National c… Quarterly 2020-07-01 58878 Quarterly     Euro 
-    ##  4 Finland Gross dom… National c… Quarterly 2020-10-01 62266 Quarterly     Euro 
-    ##  5 Finland Gross dom… National c… Quarterly 2020-01-01 60245 Quarterly     Euro 
-    ##  6 Finland Gross dom… National c… Quarterly 2020-04-01 57832 Quarterly     Euro 
-    ##  7 Finland Gross dom… National c… Quarterly 2020-07-01 59658 Quarterly     Euro 
-    ##  8 Finland Gross dom… National c… Quarterly 2020-10-01 59732 Quarterly     Euro 
-    ##  9 Finland Gross dom… National c… Quarterly 2020-01-01 54696 Quarterly     Euro 
-    ## 10 Finland Gross dom… National c… Quarterly 2020-04-01 54403 Quarterly     Euro 
-    ## # … with 89 more rows, and 3 more variables: Unit multiplier <chr>,
-    ## #   Reference period <chr>, Observation Status <chr>
+    ##    Country Subject     Measure    Frequency time       value `Time Format` Unit 
+    ##    <chr>   <chr>       <chr>      <chr>     <date>     <dbl> <chr>         <chr>
+    ##  1 Finland Gross dome… National … Quarterly 2020-01-01 58222 Quarterly     Euro 
+    ##  2 Finland Gross dome… National … Quarterly 2020-04-01 57423 Quarterly     Euro 
+    ##  3 Finland Gross dome… National … Quarterly 2020-07-01 58512 Quarterly     Euro 
+    ##  4 Finland Gross dome… National … Quarterly 2020-10-01 62031 Quarterly     Euro 
+    ##  5 Finland Gross dome… National … Quarterly 2021-01-01 57641 Quarterly     Euro 
+    ##  6 Finland Gross dome… National … Quarterly 2020-01-01 60429 Quarterly     Euro 
+    ##  7 Finland Gross dome… National … Quarterly 2020-04-01 57015 Quarterly     Euro 
+    ##  8 Finland Gross dome… National … Quarterly 2020-07-01 59281 Quarterly     Euro 
+    ##  9 Finland Gross dome… National … Quarterly 2020-10-01 59463 Quarterly     Euro 
+    ## 10 Finland Gross dome… National … Quarterly 2021-01-01 60073 Quarterly     Euro 
+    ## # … with 115 more rows, and 2 more variables: Unit multiplier <chr>,
+    ## #   Reference period <chr>
 
 Also common `dplyr` verbs that require the actual data will trigger the
 `collect` function automatically.
@@ -379,17 +377,17 @@ data("oecd/QNA") %>%
   summarize(`Average Q/Q growth rate` = mean(value))
 ```
 
-    ## # A tibble: 56 x 2
+    ## # A tibble: 57 × 2
     ##    Country                      `Average Q/Q growth rate`
     ##    <chr>                                            <dbl>
-    ##  1 Argentina                                       -0.168
-    ##  2 Australia                                        0.480
-    ##  3 Austria                                          0.175
-    ##  4 Belgium                                          0.218
-    ##  5 Brazil                                          -0.105
-    ##  6 Bulgaria                                         0.594
-    ##  7 Canada                                           0.309
-    ##  8 Chile                                            0.443
-    ##  9 China (People's Republic of)                     1.61 
-    ## 10 Colombia                                         0.529
-    ## # … with 46 more rows
+    ##  1 Argentina                                      -0.0551
+    ##  2 Australia                                       0.538 
+    ##  3 Austria                                         0.276 
+    ##  4 Belgium                                         0.282 
+    ##  5 Brazil                                         -0.0488
+    ##  6 Bulgaria                                        0.671 
+    ##  7 Canada                                          0.318 
+    ##  8 Chile                                           0.443 
+    ##  9 China (People's Republic of)                    1.58  
+    ## 10 Colombia                                        0.529 
+    ## # … with 47 more rows
