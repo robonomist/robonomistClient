@@ -1,0 +1,92 @@
+---
+title: "Basic features"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Basic features}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+library(tidyverse)
+```
+
+## Datasources
+
+The `robonomistClient` package aims to make using data from various sources as easy as possible. The package helps you access data in a simple standard format, without having to think about how to extract and wrangle the data.
+
+You can list all available datasources:
+```{r}
+library(robonomistClient)
+datasources()
+```
+
+```{r, include = FALSE}
+data()
+```
+
+## Data tables
+
+All contents are orginized as data tables, which in most cases are tibble-class objects. The `data` function is convenient way to search and get data tables. To print all available data tables:
+```{r}
+data()
+```
+The package automatically ensures that the listed data tables are the latest versions available at the datasources. 
+
+To get a specific data table, use the tables id.
+```{r}
+data("StatFin/vrm/synt/statfin_synt_pxt_12dx.px")
+```
+
+You can access the version information, or vintage, of a data table with
+```{r}
+data_vintage("StatFin/vrm/synt/statfin_synt_pxt_12dx.px")
+```
+
+You can easily explore all available data tables in the Data Viewer.
+```{r, eval = FALSE}
+View(data())
+```
+
+To explore available data tables in the `Vero` dataset, for example, use the dataset name with a forward slash as the first argument in `data`, i.e.  `View(data("Vero/"))`. Or print the data table listing in your console:
+```{r}
+data("Vero/")
+```
+
+## Search and retrieval
+
+The `data()` function a conveniance function that works for two tasks: search and retrieval.
+
+* When the argument matches more than one table ids or titles, the `data()` function will return tibble of matched data tables. 
+* When exactly one matching data table is found, the `data()` function will return that data table. 
+
+For example, `data("väestö")` will search data and find multible data tables, and return the matches. In contrast, `data("StatFin/vrm/synt/statfin_synt_pxt_12dx.px")` will return a specific data table. The function `data()` is meant for rapid exploration, and in production context it is better use more specific functions. 
+
+To separate the tasks of search and retrieval, use functions `data_search()` and `data_get()`. Use `data_get()` to return a data table for a given table id, and fail if no match exists. For example, use `data_get("StatFin/vrm/synt/statfin_synt_pxt_12dx.px")` to guarantee that either a data table or an error will be returned.
+
+The function `data_search()` allows to search and return matching table ids, without downloading actual data. For example, to search all data tables related to "väestö", use:
+```{r}
+data_search("väestö")
+```
+
+## Tidy time and labels
+
+For some datasources we are able to automatically parse the time dimension of the data into a more convenient format. When the `tidy_time` argument is set to `TRUE`, data tables are formatted so that time dimension is named `time`, the class is set to `Date`, and the variable is relocated next to `value`, i.e. second from the right.
+
+```{r}
+data_get("StatFin/kan/ntp/statfin_ntp_pxt_132h.px")
+data_get("StatFin/kan/ntp/statfin_ntp_pxt_132h.px", tidy_time = TRUE) %>%
+  arrange(Taloustoimi, Tiedot)
+```
+
+Similarly, some datasources provide both labelled and coded versions of tha data tables:
+
+```{r}
+data_get("StatFin/kan/ntp/statfin_ntp_pxt_132h.px", labels = FALSE)
+```
+
+
