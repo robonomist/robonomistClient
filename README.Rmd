@@ -53,7 +53,6 @@ knitr::opts_chunk$set(
   fig.path = "man/figures/"
 )
 library(robonomistClient)
-## library(robonomistServer)
 library(tidyverse)
 data()
 ```
@@ -77,3 +76,9 @@ To get a specific data table, use the tables id.
 ```{r}
 data("StatFin/vrm/synt/statfin_synt_pxt_12dx.px")
 ```
+
+## More information
+
+You can find detailed information on how to use `robonomistClient` in the !(documentation)[https://robonomist.github.io/robonomistClient].
+
+* !(Basic features)[https://robonomist.github.io/robonomistClient/basic_featurs.html]

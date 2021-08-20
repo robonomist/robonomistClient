@@ -12,6 +12,7 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
+library(tidyverse)
 ```
 
 ## Datasources
@@ -78,7 +79,8 @@ For some datasources we are able to automatically parse the time dimension of th
 
 ```{r}
 data_get("StatFin/kan/ntp/statfin_ntp_pxt_132h.px")
-data_get("StatFin/kan/ntp/statfin_ntp_pxt_132h.px", tidy_time = TRUE)
+data_get("StatFin/kan/ntp/statfin_ntp_pxt_132h.px", tidy_time = TRUE) %>%
+  arrange(Taloustoimi, Tiedot)
 ```
 
 Similarly, some datasources provide both labelled and coded versions of tha data tables:
