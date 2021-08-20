@@ -13,6 +13,8 @@ jobs:
     runs-on: macOS-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      ROBONOMIST_SERVER: ${{ secrets.ROBONOMIST_SERVER }}
+      ROBONOMIST_ACCESS_TOKEN: ${{ secrets.ROBONOMIST_ACCESS_TOKEN }}
     steps:
       - uses: actions/checkout@v2
 
