@@ -45,6 +45,10 @@ jobs:
       - name: Install package
         run: R CMD INSTALL .
 
+      - name: fi_FI.UTF-8
+        run: |
+          sudo locale-gen fi_FI.UTF-8
+          sudo update-locale LANG=fi_FI.UTF-8
       - name: Deploy package
         run: |
           git config --local user.email "actions@github.com"

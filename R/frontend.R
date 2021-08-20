@@ -1,6 +1,6 @@
 #' Vintage of table, i.e. datetime of the latest update
 #'
-#' @return character vector
+#' @return named character vector. For original data tables the value will be a scalar. For tidy tables, 
 #'
 #' @export
 data_vintage <- function(id) {

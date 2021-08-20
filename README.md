@@ -6,9 +6,9 @@ A client package for R to access Robonomist Data Server
 ## Datasources
 
 The `robonomistClient` package allows easy and fast access to various
-datasources through Robonomist Data Server, which integrate various
-datasources with up-to-date data. The client provides access to over 38
-400 data tables from various datasources.
+datasources connecting to a Robonomist Data Server. Currently the client
+package provides access to 38 481 up-to-date data tables from 27
+different datasources.
 
 Some of the integrated datasources:
 
@@ -129,3 +129,15 @@ data("StatFin/vrm/synt/statfin_synt_pxt_12dx.px")
     ##  9 1749  Avioerot                      NA
     ## 10 1749  Kokonaismuutos                NA
     ## # … with 2,982 more rows
+
+## More information
+
+You can find detailed information on how to use `robonomistClient` in
+the
+\!(documentation)\[<https://robonomist.github.io/robonomistClient>\].
+
+  - \!(Basic
+    features)\[<https://robonomist.github.io/robonomistClient/articles/basic_features.html>\]
+  - \!(Examples)\[<https://robonomist.github.io/robonomistClient/articles/examples.html>\]
+  - \!(Filtering large data
+    tables)\[<https://robonomist.github.io/robonomistClient/articles/filtering.html>\]

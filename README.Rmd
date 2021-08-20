@@ -2,13 +2,22 @@
 output: github_document
 ---
 
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  fig.path = "man/figures/"
+)
+library(robonomistClient)
+library(tidyverse)
+data()
+```
+
 # Robonomist Client <a href='https://robonomist.com'><img src='man/figures/logo.png' align="right" height="138.5" /></a>
 
 A client package for R to access Robonomist Data Server
 
 ## Datasources
 
-The `robonomistClient` package allows easy and fast access to various datasources through Robonomist Data Server, which integrate various datasources with up-to-date data. The client provides access to over 38 400 data tables from various datasources.
+The `robonomistClient` package allows easy and fast access to various datasources connecting to a Robonomist Data Server. Currently the client package provides access to `r format(nrow(data()), big.mark = " ")` up-to-date data tables from `r nrow(datasources())` different datasources.
 
 Some of the integrated datasources:
 
@@ -48,15 +57,6 @@ devtools::install_github("robonomist/robonomistClient")
 
 Once installed, set the hostname of your Robonomist Data Server and connnect with `set_robonomist_server` function. Then you can start exploring the database. 
 
-```{r, include = FALSE}
-knitr::opts_chunk$set(
-  fig.path = "man/figures/"
-)
-library(robonomistClient)
-library(tidyverse)
-data()
-```
-
 ```{r, eval = FALSE}
 library(robonomistClient)
 set_robonomist_server(hostname = "hostname.com", access_token = "xyz")
@@ -81,4 +81,6 @@ data("StatFin/vrm/synt/statfin_synt_pxt_12dx.px")
 
 You can find detailed information on how to use `robonomistClient` in the !(documentation)[https://robonomist.github.io/robonomistClient].
 
-* !(Basic features)[https://robonomist.github.io/robonomistClient/basic_featurs.html]
+* !(Basic features)[https://robonomist.github.io/robonomistClient/articles/basic_features.html]
+* !(Examples)[https://robonomist.github.io/robonomistClient/articles/examples.html]
+* !(Filtering large data tables)[https://robonomist.github.io/robonomistClient/articles/filtering.html]
