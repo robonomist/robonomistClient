@@ -7,6 +7,7 @@ Authors@R:
            role = c("aut", "cre"),
            email = "juha@robonomist.com")
 Description: Easy and fast access to various datasources in a unified format via Robonomist Data Server
+URL: https://robonomist.github.io/robonomistClient/, https://github.com/robonomist/robonomistClient
 License: Proprietary
 Encoding: UTF-8
 LazyData: true
@@ -27,5 +28,8 @@ Imports:
     digest,
     vctrs (>= 0.3.6)
 Suggests:
+    rmarkdown,
+    knitr,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
+VignetteBuilder: knitr

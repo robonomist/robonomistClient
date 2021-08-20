@@ -43,7 +43,7 @@ datasources <- function() {
 
 #' Get data from Robonomist database
 #'
-#' Convenience api that searches when multiple table id matches are found and filters the table using the section pattern
+#' @description Convenience api that searches when multiple table id matches are found and filters the table using the section pattern
 #'
 #' @param pattern string. A sequence of regular expressions separated by section sign \code{§}, which are used to filter the database. The first expression in the sequence is matched to a table id. The following expressions match to table variables in sequence. If the last variable is a date, it is used as start date filter.
 #' @param dl_filter list or named vector passed to datasource download functions for filtering incoming data. Supported by tulli, OECD and ECB.
