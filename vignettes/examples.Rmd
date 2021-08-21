@@ -49,7 +49,7 @@ inner_join(
        caption = paste0(
          "Lähteet: THL ja Tilastokeskus.\n",
          format(as.Date(data_vintage("epirapo/covid19case")),
-                "THL:n tartuntatiedot %-d. %Bta %Y.")))
+                "THL:n tartuntatiedot %e. %bkuuta %Y.")))
 ```
 
 ## The history of births and deaths in Finland
