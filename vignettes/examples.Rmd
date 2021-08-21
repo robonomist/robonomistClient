@@ -47,9 +47,9 @@ inner_join(
        subtitle = "Tartuntoja 100 000 asukasta kohden",
        size = "Kunnan\nväkiluku\n(tuhatta)",
        caption = paste0(
-         "Lähteet: THL ja Tilastokeskus.\n",
-         format(as.Date(data_vintage("epirapo/covid19case")),
-                "THL:n tartuntatiedot %e. %bkuuta %Y.")))
+         "Lähteet: THL ja Tilastokeskus.\nTHL:n tartuntatiedot ",
+         tolower(format(as.Date(data_vintage("epirapo/covid19case")),
+                "%e. %Bta %Y."))))
 ```
 
 ## The history of births and deaths in Finland
