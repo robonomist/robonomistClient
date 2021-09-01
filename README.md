@@ -7,7 +7,7 @@ A client package for R to access Robonomist Data Server
 
 The `robonomistClient` package allows easy and fast access to various
 datasources connecting to a Robonomist Data Server. Currently the client
-package provides access to 38 481 up-to-date data tables from 27
+package provides access to 38 387 up-to-date data tables from 27
 different datasources.
 
 Some of the integrated datasources:
@@ -23,6 +23,7 @@ Some of the integrated datasources:
   - Traficom database (The Finnish Transport and Communications Agency)
   - Customs Finland
   - THL Sotkanet
+  - Vipunen, Education Statistics Finland
   - Helsingin seudun aluesarjat -tilastotietokanta
   - Helsingin ympäristötilasto
   - Eurostat
@@ -101,7 +102,7 @@ data()
     ##  8 StatFin/asu/asvu/statfin_asvu_pxt_11x4.… Vuokraindeksi (2015=100) ja keskine…
     ##  9 StatFin/asu/asvu/statfin_asvu_pxt_11x5.… Vuokraindeksi (2015=100) ja keskine…
     ## 10 StatFin/asu/asvu/statfin_asvu_pxt_12d4.… Vapaarahoitteisten vuokra-asuntojen…
-    ## # … with 38,471 more rows
+    ## # … with 38,377 more rows
 
 To get a specific data table, use the tables id.
 
