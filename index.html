@@ -108,7 +108,7 @@
 <div id="datasources" class="section level2">
 <h2 class="hasAnchor">
 <a href="#datasources" class="anchor"></a>Datasources</h2>
-<p>The <code>robonomistClient</code> package allows easy and fast access to various datasources connecting to a Robonomist Data Server. Currently the client package provides access to 64 617 up-to-date data tables from 35 different datasources with 7 different languages.</p>
+<p>The <code>robonomistClient</code> package allows easy and fast access to various datasources connecting to a Robonomist Data Server. Currently the client package provides access to 64 616 up-to-date data tables from 35 different datasources with 7 different languages.</p>
 <p>Some of the integrated datasources:</p>
 <ul>
 <li>Statistics Finland (StatFin &amp; StatFin archive databases)</li>
@@ -194,7 +194,7 @@
 <span id="cb6-13"><a href="#cb6-13"></a><span class="co">##  8 StatFin/asu/asas/statfin_asas_pxt_116a.… Bostadshushåll efter År, Hustyp, Om…</span></span>
 <span id="cb6-14"><a href="#cb6-14"></a><span class="co">##  9 StatFin/asu/asas/statfin_asas_pxt_116a.… Household-dwelling units by Year, T…</span></span>
 <span id="cb6-15"><a href="#cb6-15"></a><span class="co">## 10 StatFin/asu/asas/statfin_asas_pxt_116b.… Asuntokunnat ja asuntoväestö muuttu…</span></span>
-<span id="cb6-16"><a href="#cb6-16"></a><span class="co">## # … with 114,423 more rows, and 1 more variable: lang &lt;chr&gt;</span></span></code></pre></div>
+<span id="cb6-16"><a href="#cb6-16"></a><span class="co">## # … with 114,422 more rows, and 1 more variable: lang &lt;chr&gt;</span></span></code></pre></div>
 <p>To get a specific data table, use the tables id.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/data.html">data</a></span><span class="op">(</span><span class="st">"StatFin/vrm/synt/statfin_synt_pxt_12dx.px"</span><span class="op">)</span></code></pre></div>
@@ -222,14 +222,11 @@
 <div id="more-information" class="section level2">
 <h2 class="hasAnchor">
 <a href="#more-information" class="anchor"></a>More information</h2>
-<p>You can find detailed information on how to use <code>robonomistClient</code> in the (documentation)<br><span class="math display"> &lt; <em>h</em><em>t</em><em>t</em><em>p</em><em>s</em> : //<em>r</em><em>o</em><em>b</em><em>o</em><em>n</em><em>o</em><em>m</em><em>i</em><em>s</em><em>t</em>.<em>g</em><em>i</em><em>t</em><em>h</em><em>u</em><em>b</em>.<em>i</em><em>o</em>/<em>r</em><em>o</em><em>b</em><em>o</em><em>n</em><em>o</em><em>m</em><em>i</em><em>s</em><em>t</em><em>C</em><em>l</em><em>i</em><em>e</em><em>n</em><em>t</em>&gt;</span><br>.</p>
+<p>You can find detailed information on how to use <code>robonomistClient</code> in the <a href="https://robonomist.github.io/robonomistClient">documentation</a>.</p>
 <ul>
-<li>(Basic features)<br><span class="math display"> &lt; <em>h</em><em>t</em><em>t</em><em>p</em><em>s</em> : //<em>r</em><em>o</em><em>b</em><em>o</em><em>n</em><em>o</em><em>m</em><em>i</em><em>s</em><em>t</em>.<em>g</em><em>i</em><em>t</em><em>h</em><em>u</em><em>b</em>.<em>i</em><em>o</em>/<em>r</em><em>o</em><em>b</em><em>o</em><em>n</em><em>o</em><em>m</em><em>i</em><em>s</em><em>t</em><em>C</em><em>l</em><em>i</em><em>e</em><em>n</em><em>t</em>/<em>a</em><em>r</em><em>t</em><em>i</em><em>c</em><em>l</em><em>e</em><em>s</em>/<em>b</em><em>a</em><em>s</em><em>i</em><em>c</em><sub><em>f</em></sub><em>e</em><em>a</em><em>t</em><em>u</em><em>r</em><em>e</em><em>s</em>.<em>h</em><em>t</em><em>m</em><em>l</em>&gt;</span><br>
-</li>
-<li>(Examples)<br><span class="math display"> &lt; <em>h</em><em>t</em><em>t</em><em>p</em><em>s</em> : //<em>r</em><em>o</em><em>b</em><em>o</em><em>n</em><em>o</em><em>m</em><em>i</em><em>s</em><em>t</em>.<em>g</em><em>i</em><em>t</em><em>h</em><em>u</em><em>b</em>.<em>i</em><em>o</em>/<em>r</em><em>o</em><em>b</em><em>o</em><em>n</em><em>o</em><em>m</em><em>i</em><em>s</em><em>t</em><em>C</em><em>l</em><em>i</em><em>e</em><em>n</em><em>t</em>/<em>a</em><em>r</em><em>t</em><em>i</em><em>c</em><em>l</em><em>e</em><em>s</em>/<em>e</em><em>x</em><em>a</em><em>m</em><em>p</em><em>l</em><em>e</em><em>s</em>.<em>h</em><em>t</em><em>m</em><em>l</em>&gt;</span><br>
-</li>
-<li>(Filtering large data tables)<br><span class="math display"> &lt; <em>h</em><em>t</em><em>t</em><em>p</em><em>s</em> : //<em>r</em><em>o</em><em>b</em><em>o</em><em>n</em><em>o</em><em>m</em><em>i</em><em>s</em><em>t</em>.<em>g</em><em>i</em><em>t</em><em>h</em><em>u</em><em>b</em>.<em>i</em><em>o</em>/<em>r</em><em>o</em><em>b</em><em>o</em><em>n</em><em>o</em><em>m</em><em>i</em><em>s</em><em>t</em><em>C</em><em>l</em><em>i</em><em>e</em><em>n</em><em>t</em>/<em>a</em><em>r</em><em>t</em><em>i</em><em>c</em><em>l</em><em>e</em><em>s</em>/<em>f</em><em>i</em><em>l</em><em>t</em><em>e</em><em>r</em><em>i</em><em>n</em><em>g</em>.<em>h</em><em>t</em><em>m</em><em>l</em>&gt;</span><br>
-</li>
+<li><a href="https://robonomist.github.io/robonomistClient/articles/basic_features.html">Basic features</a></li>
+<li><a href="https://robonomist.github.io/robonomistClient/articles/examples.html">Examples</a></li>
+<li><a href="https://robonomist.github.io/robonomistClient/articles/filtering.html">Filtering large data tables</a></li>
 </ul>
 </div>
 </div>
