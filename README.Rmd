@@ -87,8 +87,8 @@ data("StatFin/vrm/synt/statfin_synt_pxt_12dx.px")
 
 ## More information
 
-You can find detailed information on how to use `robonomistClient` in the (documentation)[https://robonomist.github.io/robonomistClient].
+You can find detailed information on how to use `robonomistClient` in the [documentation](https://robonomist.github.io/robonomistClient).
 
-* (Basic features)[https://robonomist.github.io/robonomistClient/articles/basic_features.html]
-* (Examples)[https://robonomist.github.io/robonomistClient/articles/examples.html]
-* (Filtering large data tables)[https://robonomist.github.io/robonomistClient/articles/filtering.html]
+* [Basic features](https://robonomist.github.io/robonomistClient/articles/basic_features.html)
+* [Examples](https://robonomist.github.io/robonomistClient/articles/examples.html)
+* [Filtering large data tables](https://robonomist.github.io/robonomistClient/articles/filtering.html)

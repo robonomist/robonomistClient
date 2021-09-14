@@ -7,7 +7,7 @@ A client package for R to access Robonomist Data Server
 
 The `robonomistClient` package allows easy and fast access to various
 datasources connecting to a Robonomist Data Server. Currently the client
-package provides access to 64 617 up-to-date data tables from 35
+package provides access to 64 616 up-to-date data tables from 35
 different datasources with 7 different languages.
 
 Some of the integrated datasources:
@@ -109,7 +109,7 @@ data()
     ##  8 StatFin/asu/asas/statfin_asas_pxt_116a.… Bostadshushåll efter År, Hustyp, Om…
     ##  9 StatFin/asu/asas/statfin_asas_pxt_116a.… Household-dwelling units by Year, T…
     ## 10 StatFin/asu/asas/statfin_asas_pxt_116b.… Asuntokunnat ja asuntoväestö muuttu…
-    ## # … with 114,423 more rows, and 1 more variable: lang <chr>
+    ## # … with 114,422 more rows, and 1 more variable: lang <chr>
 
 To get a specific data table, use the tables id.
 
@@ -141,10 +141,10 @@ data("StatFin/vrm/synt/statfin_synt_pxt_12dx.px")
 ## More information
 
 You can find detailed information on how to use `robonomistClient` in
-the (documentation)\[<https://robonomist.github.io/robonomistClient>\].
+the [documentation](https://robonomist.github.io/robonomistClient).
 
-  - (Basic
-    features)\[<https://robonomist.github.io/robonomistClient/articles/basic_features.html>\]
-  - (Examples)\[<https://robonomist.github.io/robonomistClient/articles/examples.html>\]
-  - (Filtering large data
-    tables)\[<https://robonomist.github.io/robonomistClient/articles/filtering.html>\]
+  - [Basic
+    features](https://robonomist.github.io/robonomistClient/articles/basic_features.html)
+  - [Examples](https://robonomist.github.io/robonomistClient/articles/examples.html)
+  - [Filtering large data
+    tables](https://robonomist.github.io/robonomistClient/articles/filtering.html)
