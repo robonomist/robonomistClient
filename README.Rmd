@@ -17,7 +17,7 @@ A client package for R to access Robonomist Data Server
 
 ## Datasources
 
-The `robonomistClient` package allows easy and fast access to various datasources connecting to a Robonomist Data Server. Currently the client package provides access to `r format(nrow(data()), big.mark = " ")` up-to-date data tables from `r nrow(datasources())` different datasources.
+The `robonomistClient` package allows easy and fast access to various datasources connecting to a Robonomist Data Server. Currently the client package provides access to `r format(nrow(distinct(data(), id)), big.mark = " ")` up-to-date data tables from `r nrow(datasources())` different datasources with `r length(unique(unlist(datasources()$languages)))` different languages.
 
 Some of the integrated datasources:
 
@@ -41,6 +41,13 @@ Some of the integrated datasources:
 * OECD
 * ECB Statistical data warehouse
 * COVID-19 data (THL Epirapo, ECDC, and covid19datahub.io)
+* Statistics Sweden
+* The Swedish National Institute of Economic Research
+* Swedish Agricultural Agency
+* Statistics Norway
+* Statistics Estonia
+* United Nations Economic Commission for Europe Statistical Database
+* Nordic Statistics Database
 * Robonomist's curated tidy data tables
 
 To setup a Robonomist Data Server for your organization, please contact <team@robonomist.com>.
@@ -80,8 +87,8 @@ data("StatFin/vrm/synt/statfin_synt_pxt_12dx.px")
 
 ## More information
 
-You can find detailed information on how to use `robonomistClient` in the !(documentation)[https://robonomist.github.io/robonomistClient].
+You can find detailed information on how to use `robonomistClient` in the (documentation)[https://robonomist.github.io/robonomistClient].
 
-* !(Basic features)[https://robonomist.github.io/robonomistClient/articles/basic_features.html]
-* !(Examples)[https://robonomist.github.io/robonomistClient/articles/examples.html]
-* !(Filtering large data tables)[https://robonomist.github.io/robonomistClient/articles/filtering.html]
+* (Basic features)[https://robonomist.github.io/robonomistClient/articles/basic_features.html]
+* (Examples)[https://robonomist.github.io/robonomistClient/articles/examples.html]
+* (Filtering large data tables)[https://robonomist.github.io/robonomistClient/articles/filtering.html]

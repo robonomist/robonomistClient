@@ -7,8 +7,8 @@ A client package for R to access Robonomist Data Server
 
 The `robonomistClient` package allows easy and fast access to various
 datasources connecting to a Robonomist Data Server. Currently the client
-package provides access to 38 387 up-to-date data tables from 27
-different datasources.
+package provides access to 64 617 up-to-date data tables from 35
+different datasources with 7 different languages.
 
 Some of the integrated datasources:
 
@@ -32,6 +32,13 @@ Some of the integrated datasources:
   - OECD
   - ECB Statistical data warehouse
   - COVID-19 data (THL Epirapo, ECDC, and covid19datahub.io)
+  - Statistics Sweden
+  - The Swedish National Institute of Economic Research
+  - Swedish Agricultural Agency
+  - Statistics Norway
+  - Statistics Estonia
+  - United Nations Economic Commission for Europe Statistical Database
+  - Nordic Statistics Database
   - Robonomist’s curated tidy data tables
 
 To setup a Robonomist Data Server for your organization, please contact
@@ -67,18 +74,18 @@ datasources()
     ## 
     ## ── Robonomist Server Datasources
 
-    ##    dataset            title                                                     
-    ##  1 StatFin            Statistics Finland, StatFin database                      
-    ##  2 StatFin_Passiivi   Statistics Finland, StatFin archive database              
-    ##  3 Vero               Verohallinnon tilastotietokanta                           
-    ##  4 kunnat             Kuntien avainluvut (Tilastokeskus)                        
-    ##  5 kunnat             Kuntien ja kuntayhtymien raportoimat taloustiedot (Tilast…
-    ##  6 paavo              Postinumeroalueittainen avoin tieto -tietokanta Paavo (Ti…
-    ##  7 maakoto            Maahanmuuttajat ja kotoutuminen -tietokanta (Tilastokesku…
-    ##  8 koto               Kototietokanta (Tilastokeskus)                            
-    ##  9 toimipaikkalaskuri Toimipaikkalaskuri-tietokanta (Tilastokeskus)             
-    ## 10 kokeelliset        Tilastokeskuksen kokeelliset tilastot                     
-    ## # … with 17 more rows
+    ##    dataset          title                                                       
+    ##  1 StatFin          Statistics Finland, StatFin database                        
+    ##  2 StatFin_Passiivi Statistics Finland, StatFin archive database                
+    ##  3 kunnat           Kuntien avainluvut (Tilastokeskus)                          
+    ##  4 kunnat           Kuntien ja kuntayhtymien raportoimat taloustiedot (Tilastok…
+    ##  5 paavo            Postinumeroalueittainen avoin tieto -tietokanta Paavo (Tila…
+    ##  6 Vero             Verohallinnon tilastotietokanta                             
+    ##  7 ec               European Commission's Business and consumer surveys         
+    ##  8 tulli            Finnish Customs, Uljas Statistical Database                 
+    ##  9 luke             Luonnonvarakeskus LUKE:n tilastotietokanta)                 
+    ## 10 etk              Eläketurvakeskuksen tietokanta                              
+    ## # … with 25 more rows, and 1 more variable: languages <list>
 
 The `data` function is convenient way to search and get data tables.
 Print all available data tables:
@@ -93,16 +100,16 @@ data()
 
     ##    id                                       title                               
     ##  1 StatFin/asu/asas/statfin_asas_pxt_115a.… Asuntokunnat ja asuntoväestö muuttu…
-    ##  2 StatFin/asu/asas/statfin_asas_pxt_115y.… Asuntokunnat ja asuntoväestö muuttu…
-    ##  3 StatFin/asu/asas/statfin_asas_pxt_116a.… Asuntokunnat muuttujina Vuosi, Talo…
-    ##  4 StatFin/asu/asas/statfin_asas_pxt_116b.… Asuntokunnat ja asuntoväestö muuttu…
-    ##  5 StatFin/asu/asas/statfin_asas_pxt_116d.… Asuntokunnat muuttujina Alue, Talot…
-    ##  6 StatFin/asu/asas/statfin_asas_pxt_116e.… Asuntokunnat ja asuntoväestö muuttu…
-    ##  7 StatFin/asu/asas/statfin_asas_pxt_116f.… Asunnot muuttujina Alue, Talotyyppi…
-    ##  8 StatFin/asu/asvu/statfin_asvu_pxt_11x4.… Vuokraindeksi (2015=100) ja keskine…
-    ##  9 StatFin/asu/asvu/statfin_asvu_pxt_11x5.… Vuokraindeksi (2015=100) ja keskine…
-    ## 10 StatFin/asu/asvu/statfin_asvu_pxt_12d4.… Vapaarahoitteisten vuokra-asuntojen…
-    ## # … with 38,377 more rows
+    ##  2 StatFin/asu/asas/statfin_asas_pxt_115a.… Bostadshushåll och boendebefolkning…
+    ##  3 StatFin/asu/asas/statfin_asas_pxt_115a.… Household-dwelling units and housin…
+    ##  4 StatFin/asu/asas/statfin_asas_pxt_115y.… Asuntokunnat ja asuntoväestö muuttu…
+    ##  5 StatFin/asu/asas/statfin_asas_pxt_115y.… Antal bostadshushåll och antal pers…
+    ##  6 StatFin/asu/asas/statfin_asas_pxt_115y.… Number of household-dwelling units …
+    ##  7 StatFin/asu/asas/statfin_asas_pxt_116a.… Asuntokunnat muuttujina Vuosi, Talo…
+    ##  8 StatFin/asu/asas/statfin_asas_pxt_116a.… Bostadshushåll efter År, Hustyp, Om…
+    ##  9 StatFin/asu/asas/statfin_asas_pxt_116a.… Household-dwelling units by Year, T…
+    ## 10 StatFin/asu/asas/statfin_asas_pxt_116b.… Asuntokunnat ja asuntoväestö muuttu…
+    ## # … with 114,423 more rows, and 1 more variable: lang <chr>
 
 To get a specific data table, use the tables id.
 
@@ -134,11 +141,10 @@ data("StatFin/vrm/synt/statfin_synt_pxt_12dx.px")
 ## More information
 
 You can find detailed information on how to use `robonomistClient` in
-the
-\!(documentation)\[<https://robonomist.github.io/robonomistClient>\].
+the (documentation)\[<https://robonomist.github.io/robonomistClient>\].
 
-  - \!(Basic
+  - (Basic
     features)\[<https://robonomist.github.io/robonomistClient/articles/basic_features.html>\]
-  - \!(Examples)\[<https://robonomist.github.io/robonomistClient/articles/examples.html>\]
-  - \!(Filtering large data
+  - (Examples)\[<https://robonomist.github.io/robonomistClient/articles/examples.html>\]
+  - (Filtering large data
     tables)\[<https://robonomist.github.io/robonomistClient/articles/filtering.html>\]

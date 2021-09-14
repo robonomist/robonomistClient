@@ -1,3 +1,9 @@
+# robonomistClient 2.1.0
+
+* Sync version with robonomistServer
+* Add new datasources
+* Improved language support
+
 # robonomistClient 0.4.8
 
 * Add heart beat to keep websocket connection alive
