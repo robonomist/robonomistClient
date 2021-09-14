@@ -44,7 +44,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">robonomistClient</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.8</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.1.0</span>
       </span>
     </div>
 
@@ -160,7 +160,6 @@
 <span class="co">#&gt; 10 Finland Gross domestic product National curre… Quarterly 2021-01-01        ??</span>
 <span class="co">#&gt; # … with 1,286 more rows</span>
 <span class="co">#&gt; # This data has not yet been collected from OECD api, and all rows might not be available. Please use `filter` to limit the number of rows under a million,  and use `collect` to retrieve actual data.</span>
-
 <span class="fu">distinct</span><span class="op">(</span><span class="va">x</span>, <span class="va">Subject</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 6 × 1</span>
 <span class="co">#&gt;   Subject                                                  </span>
@@ -175,7 +174,7 @@
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">x</span> <span class="op">%&gt;%</span> <span class="fu">collect</span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; # Robonomist id: oecd/QNA</span>
-<span class="co">#&gt; # A tibble:      133 × 11</span>
+<span class="co">#&gt; # A tibble:      150 × 10</span>
 <span class="co">#&gt; # Title:         Quarterly National Accounts</span>
 <span class="co">#&gt;    Country Subject     Measure    Frequency time       value `Time Format` Unit </span>
 <span class="co">#&gt;    &lt;chr&gt;   &lt;chr&gt;       &lt;chr&gt;      &lt;chr&gt;     &lt;date&gt;     &lt;dbl&gt; &lt;chr&gt;         &lt;chr&gt;</span>
@@ -183,14 +182,14 @@
 <span class="co">#&gt;  2 Finland Gross dome… National … Quarterly 2020-04-01 57423 Quarterly     Euro </span>
 <span class="co">#&gt;  3 Finland Gross dome… National … Quarterly 2020-07-01 58512 Quarterly     Euro </span>
 <span class="co">#&gt;  4 Finland Gross dome… National … Quarterly 2020-10-01 62031 Quarterly     Euro </span>
-<span class="co">#&gt;  5 Finland Gross dome… National … Quarterly 2021-01-01 57641 Quarterly     Euro </span>
-<span class="co">#&gt;  6 Finland Gross dome… National … Quarterly 2020-01-01 60429 Quarterly     Euro </span>
-<span class="co">#&gt;  7 Finland Gross dome… National … Quarterly 2020-04-01 57015 Quarterly     Euro </span>
-<span class="co">#&gt;  8 Finland Gross dome… National … Quarterly 2020-07-01 59281 Quarterly     Euro </span>
-<span class="co">#&gt;  9 Finland Gross dome… National … Quarterly 2020-10-01 59463 Quarterly     Euro </span>
-<span class="co">#&gt; 10 Finland Gross dome… National … Quarterly 2021-01-01 60073 Quarterly     Euro </span>
-<span class="co">#&gt; # … with 123 more rows, and 3 more variables: Unit multiplier &lt;chr&gt;,</span>
-<span class="co">#&gt; #   Reference period &lt;chr&gt;, Observation Status &lt;chr&gt;</span></code></pre></div>
+<span class="co">#&gt;  5 Finland Gross dome… National … Quarterly 2021-01-01 57560 Quarterly     Euro </span>
+<span class="co">#&gt;  6 Finland Gross dome… National … Quarterly 2021-04-01 62367 Quarterly     Euro </span>
+<span class="co">#&gt;  7 Finland Gross dome… National … Quarterly 2020-01-01 60435 Quarterly     Euro </span>
+<span class="co">#&gt;  8 Finland Gross dome… National … Quarterly 2020-04-01 57000 Quarterly     Euro </span>
+<span class="co">#&gt;  9 Finland Gross dome… National … Quarterly 2020-07-01 59284 Quarterly     Euro </span>
+<span class="co">#&gt; 10 Finland Gross dome… National … Quarterly 2020-10-01 59469 Quarterly     Euro </span>
+<span class="co">#&gt; # … with 140 more rows, and 2 more variables: Unit multiplier &lt;chr&gt;,</span>
+<span class="co">#&gt; #   Reference period &lt;chr&gt;</span></code></pre></div>
 <p>Also common <code>dplyr</code> verbs that require the actual data will trigger the <code>collect</code> function automatically.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/data.html">data</a></span><span class="op">(</span><span class="st">"oecd/QNA"</span><span class="op">)</span> <span class="op">%&gt;%</span>
@@ -204,12 +203,12 @@
 <span class="co">#&gt;    Country                      `Average Q/Q growth rate`</span>
 <span class="co">#&gt;    &lt;chr&gt;                                            &lt;dbl&gt;</span>
 <span class="co">#&gt;  1 Argentina                                      -0.0551</span>
-<span class="co">#&gt;  2 Australia                                       0.538 </span>
+<span class="co">#&gt;  2 Australia                                       0.549 </span>
 <span class="co">#&gt;  3 Austria                                         0.276 </span>
 <span class="co">#&gt;  4 Belgium                                         0.295 </span>
-<span class="co">#&gt;  5 Brazil                                         -0.0488</span>
-<span class="co">#&gt;  6 Bulgaria                                        0.671 </span>
-<span class="co">#&gt;  7 Canada                                          0.318 </span>
+<span class="co">#&gt;  5 Brazil                                         -0.0505</span>
+<span class="co">#&gt;  6 Bulgaria                                        0.670 </span>
+<span class="co">#&gt;  7 Canada                                          0.283 </span>
 <span class="co">#&gt;  8 Chile                                           0.473 </span>
 <span class="co">#&gt;  9 China (People's Republic of)                    1.58  </span>
 <span class="co">#&gt; 10 Colombia                                        0.424 </span>

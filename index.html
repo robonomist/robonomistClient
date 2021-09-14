@@ -44,7 +44,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">robonomistClient</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.8</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.1.0</span>
       </span>
     </div>
 
@@ -108,7 +108,7 @@
 <div id="datasources" class="section level2">
 <h2 class="hasAnchor">
 <a href="#datasources" class="anchor"></a>Datasources</h2>
-<p>The <code>robonomistClient</code> package allows easy and fast access to various datasources connecting to a Robonomist Data Server. Currently the client package provides access to 38 387 up-to-date data tables from 27 different datasources.</p>
+<p>The <code>robonomistClient</code> package allows easy and fast access to various datasources connecting to a Robonomist Data Server. Currently the client package provides access to 64 617 up-to-date data tables from 35 different datasources with 7 different languages.</p>
 <p>Some of the integrated datasources:</p>
 <ul>
 <li>Statistics Finland (StatFin &amp; StatFin archive databases)</li>
@@ -131,6 +131,13 @@
 <li>OECD</li>
 <li>ECB Statistical data warehouse</li>
 <li>COVID-19 data (THL Epirapo, ECDC, and covid19datahub.io)</li>
+<li>Statistics Sweden</li>
+<li>The Swedish National Institute of Economic Research</li>
+<li>Swedish Agricultural Agency</li>
+<li>Statistics Norway</li>
+<li>Statistics Estonia</li>
+<li>United Nations Economic Commission for Europe Statistical Database</li>
+<li>Nordic Statistics Database</li>
 <li>Robonomist’s curated tidy data tables</li>
 </ul>
 <p>To setup a Robonomist Data Server for your organization, please contact <a href="mailto:team@robonomist.com" class="email">team@robonomist.com</a>.</p>
@@ -157,18 +164,18 @@
 <span id="cb4-2"><a href="#cb4-2"></a><span class="co">## </span></span>
 <span id="cb4-3"><a href="#cb4-3"></a><span class="co">## ── Robonomist Server Datasources</span></span>
 <span id="cb4-4"><a href="#cb4-4"></a></span>
-<span id="cb4-5"><a href="#cb4-5"></a><span class="co">##    dataset            title                                                     </span></span>
-<span id="cb4-6"><a href="#cb4-6"></a><span class="co">##  1 StatFin            Statistics Finland, StatFin database                      </span></span>
-<span id="cb4-7"><a href="#cb4-7"></a><span class="co">##  2 StatFin_Passiivi   Statistics Finland, StatFin archive database              </span></span>
-<span id="cb4-8"><a href="#cb4-8"></a><span class="co">##  3 Vero               Verohallinnon tilastotietokanta                           </span></span>
-<span id="cb4-9"><a href="#cb4-9"></a><span class="co">##  4 kunnat             Kuntien avainluvut (Tilastokeskus)                        </span></span>
-<span id="cb4-10"><a href="#cb4-10"></a><span class="co">##  5 kunnat             Kuntien ja kuntayhtymien raportoimat taloustiedot (Tilast…</span></span>
-<span id="cb4-11"><a href="#cb4-11"></a><span class="co">##  6 paavo              Postinumeroalueittainen avoin tieto -tietokanta Paavo (Ti…</span></span>
-<span id="cb4-12"><a href="#cb4-12"></a><span class="co">##  7 maakoto            Maahanmuuttajat ja kotoutuminen -tietokanta (Tilastokesku…</span></span>
-<span id="cb4-13"><a href="#cb4-13"></a><span class="co">##  8 koto               Kototietokanta (Tilastokeskus)                            </span></span>
-<span id="cb4-14"><a href="#cb4-14"></a><span class="co">##  9 toimipaikkalaskuri Toimipaikkalaskuri-tietokanta (Tilastokeskus)             </span></span>
-<span id="cb4-15"><a href="#cb4-15"></a><span class="co">## 10 kokeelliset        Tilastokeskuksen kokeelliset tilastot                     </span></span>
-<span id="cb4-16"><a href="#cb4-16"></a><span class="co">## # … with 17 more rows</span></span></code></pre></div>
+<span id="cb4-5"><a href="#cb4-5"></a><span class="co">##    dataset          title                                                       </span></span>
+<span id="cb4-6"><a href="#cb4-6"></a><span class="co">##  1 StatFin          Statistics Finland, StatFin database                        </span></span>
+<span id="cb4-7"><a href="#cb4-7"></a><span class="co">##  2 StatFin_Passiivi Statistics Finland, StatFin archive database                </span></span>
+<span id="cb4-8"><a href="#cb4-8"></a><span class="co">##  3 kunnat           Kuntien avainluvut (Tilastokeskus)                          </span></span>
+<span id="cb4-9"><a href="#cb4-9"></a><span class="co">##  4 kunnat           Kuntien ja kuntayhtymien raportoimat taloustiedot (Tilastok…</span></span>
+<span id="cb4-10"><a href="#cb4-10"></a><span class="co">##  5 paavo            Postinumeroalueittainen avoin tieto -tietokanta Paavo (Tila…</span></span>
+<span id="cb4-11"><a href="#cb4-11"></a><span class="co">##  6 Vero             Verohallinnon tilastotietokanta                             </span></span>
+<span id="cb4-12"><a href="#cb4-12"></a><span class="co">##  7 ec               European Commission's Business and consumer surveys         </span></span>
+<span id="cb4-13"><a href="#cb4-13"></a><span class="co">##  8 tulli            Finnish Customs, Uljas Statistical Database                 </span></span>
+<span id="cb4-14"><a href="#cb4-14"></a><span class="co">##  9 luke             Luonnonvarakeskus LUKE:n tilastotietokanta)                 </span></span>
+<span id="cb4-15"><a href="#cb4-15"></a><span class="co">## 10 etk              Eläketurvakeskuksen tietokanta                              </span></span>
+<span id="cb4-16"><a href="#cb4-16"></a><span class="co">## # … with 25 more rows, and 1 more variable: languages &lt;list&gt;</span></span></code></pre></div>
 <p>The <code>data</code> function is convenient way to search and get data tables. Print all available data tables:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/data.html">data</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
@@ -178,16 +185,16 @@
 <span id="cb6-4"><a href="#cb6-4"></a></span>
 <span id="cb6-5"><a href="#cb6-5"></a><span class="co">##    id                                       title                               </span></span>
 <span id="cb6-6"><a href="#cb6-6"></a><span class="co">##  1 StatFin/asu/asas/statfin_asas_pxt_115a.… Asuntokunnat ja asuntoväestö muuttu…</span></span>
-<span id="cb6-7"><a href="#cb6-7"></a><span class="co">##  2 StatFin/asu/asas/statfin_asas_pxt_115y.… Asuntokunnat ja asuntoväestö muuttu…</span></span>
-<span id="cb6-8"><a href="#cb6-8"></a><span class="co">##  3 StatFin/asu/asas/statfin_asas_pxt_116a.… Asuntokunnat muuttujina Vuosi, Talo…</span></span>
-<span id="cb6-9"><a href="#cb6-9"></a><span class="co">##  4 StatFin/asu/asas/statfin_asas_pxt_116b.… Asuntokunnat ja asuntoväestö muuttu…</span></span>
-<span id="cb6-10"><a href="#cb6-10"></a><span class="co">##  5 StatFin/asu/asas/statfin_asas_pxt_116d.… Asuntokunnat muuttujina Alue, Talot…</span></span>
-<span id="cb6-11"><a href="#cb6-11"></a><span class="co">##  6 StatFin/asu/asas/statfin_asas_pxt_116e.… Asuntokunnat ja asuntoväestö muuttu…</span></span>
-<span id="cb6-12"><a href="#cb6-12"></a><span class="co">##  7 StatFin/asu/asas/statfin_asas_pxt_116f.… Asunnot muuttujina Alue, Talotyyppi…</span></span>
-<span id="cb6-13"><a href="#cb6-13"></a><span class="co">##  8 StatFin/asu/asvu/statfin_asvu_pxt_11x4.… Vuokraindeksi (2015=100) ja keskine…</span></span>
-<span id="cb6-14"><a href="#cb6-14"></a><span class="co">##  9 StatFin/asu/asvu/statfin_asvu_pxt_11x5.… Vuokraindeksi (2015=100) ja keskine…</span></span>
-<span id="cb6-15"><a href="#cb6-15"></a><span class="co">## 10 StatFin/asu/asvu/statfin_asvu_pxt_12d4.… Vapaarahoitteisten vuokra-asuntojen…</span></span>
-<span id="cb6-16"><a href="#cb6-16"></a><span class="co">## # … with 38,377 more rows</span></span></code></pre></div>
+<span id="cb6-7"><a href="#cb6-7"></a><span class="co">##  2 StatFin/asu/asas/statfin_asas_pxt_115a.… Bostadshushåll och boendebefolkning…</span></span>
+<span id="cb6-8"><a href="#cb6-8"></a><span class="co">##  3 StatFin/asu/asas/statfin_asas_pxt_115a.… Household-dwelling units and housin…</span></span>
+<span id="cb6-9"><a href="#cb6-9"></a><span class="co">##  4 StatFin/asu/asas/statfin_asas_pxt_115y.… Asuntokunnat ja asuntoväestö muuttu…</span></span>
+<span id="cb6-10"><a href="#cb6-10"></a><span class="co">##  5 StatFin/asu/asas/statfin_asas_pxt_115y.… Antal bostadshushåll och antal pers…</span></span>
+<span id="cb6-11"><a href="#cb6-11"></a><span class="co">##  6 StatFin/asu/asas/statfin_asas_pxt_115y.… Number of household-dwelling units …</span></span>
+<span id="cb6-12"><a href="#cb6-12"></a><span class="co">##  7 StatFin/asu/asas/statfin_asas_pxt_116a.… Asuntokunnat muuttujina Vuosi, Talo…</span></span>
+<span id="cb6-13"><a href="#cb6-13"></a><span class="co">##  8 StatFin/asu/asas/statfin_asas_pxt_116a.… Bostadshushåll efter År, Hustyp, Om…</span></span>
+<span id="cb6-14"><a href="#cb6-14"></a><span class="co">##  9 StatFin/asu/asas/statfin_asas_pxt_116a.… Household-dwelling units by Year, T…</span></span>
+<span id="cb6-15"><a href="#cb6-15"></a><span class="co">## 10 StatFin/asu/asas/statfin_asas_pxt_116b.… Asuntokunnat ja asuntoväestö muuttu…</span></span>
+<span id="cb6-16"><a href="#cb6-16"></a><span class="co">## # … with 114,423 more rows, and 1 more variable: lang &lt;chr&gt;</span></span></code></pre></div>
 <p>To get a specific data table, use the tables id.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/data.html">data</a></span><span class="op">(</span><span class="st">"StatFin/vrm/synt/statfin_synt_pxt_12dx.px"</span><span class="op">)</span></code></pre></div>
@@ -215,13 +222,13 @@
 <div id="more-information" class="section level2">
 <h2 class="hasAnchor">
 <a href="#more-information" class="anchor"></a>More information</h2>
-<p>You can find detailed information on how to use <code>robonomistClient</code> in the !(documentation)<br><span class="math display"> &lt; <em>h</em><em>t</em><em>t</em><em>p</em><em>s</em> : //<em>r</em><em>o</em><em>b</em><em>o</em><em>n</em><em>o</em><em>m</em><em>i</em><em>s</em><em>t</em>.<em>g</em><em>i</em><em>t</em><em>h</em><em>u</em><em>b</em>.<em>i</em><em>o</em>/<em>r</em><em>o</em><em>b</em><em>o</em><em>n</em><em>o</em><em>m</em><em>i</em><em>s</em><em>t</em><em>C</em><em>l</em><em>i</em><em>e</em><em>n</em><em>t</em>&gt;</span><br>.</p>
+<p>You can find detailed information on how to use <code>robonomistClient</code> in the (documentation)<br><span class="math display"> &lt; <em>h</em><em>t</em><em>t</em><em>p</em><em>s</em> : //<em>r</em><em>o</em><em>b</em><em>o</em><em>n</em><em>o</em><em>m</em><em>i</em><em>s</em><em>t</em>.<em>g</em><em>i</em><em>t</em><em>h</em><em>u</em><em>b</em>.<em>i</em><em>o</em>/<em>r</em><em>o</em><em>b</em><em>o</em><em>n</em><em>o</em><em>m</em><em>i</em><em>s</em><em>t</em><em>C</em><em>l</em><em>i</em><em>e</em><em>n</em><em>t</em>&gt;</span><br>.</p>
 <ul>
-<li>!(Basic features)<br><span class="math display"> &lt; <em>h</em><em>t</em><em>t</em><em>p</em><em>s</em> : //<em>r</em><em>o</em><em>b</em><em>o</em><em>n</em><em>o</em><em>m</em><em>i</em><em>s</em><em>t</em>.<em>g</em><em>i</em><em>t</em><em>h</em><em>u</em><em>b</em>.<em>i</em><em>o</em>/<em>r</em><em>o</em><em>b</em><em>o</em><em>n</em><em>o</em><em>m</em><em>i</em><em>s</em><em>t</em><em>C</em><em>l</em><em>i</em><em>e</em><em>n</em><em>t</em>/<em>a</em><em>r</em><em>t</em><em>i</em><em>c</em><em>l</em><em>e</em><em>s</em>/<em>b</em><em>a</em><em>s</em><em>i</em><em>c</em><sub><em>f</em></sub><em>e</em><em>a</em><em>t</em><em>u</em><em>r</em><em>e</em><em>s</em>.<em>h</em><em>t</em><em>m</em><em>l</em>&gt;</span><br>
+<li>(Basic features)<br><span class="math display"> &lt; <em>h</em><em>t</em><em>t</em><em>p</em><em>s</em> : //<em>r</em><em>o</em><em>b</em><em>o</em><em>n</em><em>o</em><em>m</em><em>i</em><em>s</em><em>t</em>.<em>g</em><em>i</em><em>t</em><em>h</em><em>u</em><em>b</em>.<em>i</em><em>o</em>/<em>r</em><em>o</em><em>b</em><em>o</em><em>n</em><em>o</em><em>m</em><em>i</em><em>s</em><em>t</em><em>C</em><em>l</em><em>i</em><em>e</em><em>n</em><em>t</em>/<em>a</em><em>r</em><em>t</em><em>i</em><em>c</em><em>l</em><em>e</em><em>s</em>/<em>b</em><em>a</em><em>s</em><em>i</em><em>c</em><sub><em>f</em></sub><em>e</em><em>a</em><em>t</em><em>u</em><em>r</em><em>e</em><em>s</em>.<em>h</em><em>t</em><em>m</em><em>l</em>&gt;</span><br>
 </li>
-<li>!(Examples)<br><span class="math display"> &lt; <em>h</em><em>t</em><em>t</em><em>p</em><em>s</em> : //<em>r</em><em>o</em><em>b</em><em>o</em><em>n</em><em>o</em><em>m</em><em>i</em><em>s</em><em>t</em>.<em>g</em><em>i</em><em>t</em><em>h</em><em>u</em><em>b</em>.<em>i</em><em>o</em>/<em>r</em><em>o</em><em>b</em><em>o</em><em>n</em><em>o</em><em>m</em><em>i</em><em>s</em><em>t</em><em>C</em><em>l</em><em>i</em><em>e</em><em>n</em><em>t</em>/<em>a</em><em>r</em><em>t</em><em>i</em><em>c</em><em>l</em><em>e</em><em>s</em>/<em>e</em><em>x</em><em>a</em><em>m</em><em>p</em><em>l</em><em>e</em><em>s</em>.<em>h</em><em>t</em><em>m</em><em>l</em>&gt;</span><br>
+<li>(Examples)<br><span class="math display"> &lt; <em>h</em><em>t</em><em>t</em><em>p</em><em>s</em> : //<em>r</em><em>o</em><em>b</em><em>o</em><em>n</em><em>o</em><em>m</em><em>i</em><em>s</em><em>t</em>.<em>g</em><em>i</em><em>t</em><em>h</em><em>u</em><em>b</em>.<em>i</em><em>o</em>/<em>r</em><em>o</em><em>b</em><em>o</em><em>n</em><em>o</em><em>m</em><em>i</em><em>s</em><em>t</em><em>C</em><em>l</em><em>i</em><em>e</em><em>n</em><em>t</em>/<em>a</em><em>r</em><em>t</em><em>i</em><em>c</em><em>l</em><em>e</em><em>s</em>/<em>e</em><em>x</em><em>a</em><em>m</em><em>p</em><em>l</em><em>e</em><em>s</em>.<em>h</em><em>t</em><em>m</em><em>l</em>&gt;</span><br>
 </li>
-<li>!(Filtering large data tables)<br><span class="math display"> &lt; <em>h</em><em>t</em><em>t</em><em>p</em><em>s</em> : //<em>r</em><em>o</em><em>b</em><em>o</em><em>n</em><em>o</em><em>m</em><em>i</em><em>s</em><em>t</em>.<em>g</em><em>i</em><em>t</em><em>h</em><em>u</em><em>b</em>.<em>i</em><em>o</em>/<em>r</em><em>o</em><em>b</em><em>o</em><em>n</em><em>o</em><em>m</em><em>i</em><em>s</em><em>t</em><em>C</em><em>l</em><em>i</em><em>e</em><em>n</em><em>t</em>/<em>a</em><em>r</em><em>t</em><em>i</em><em>c</em><em>l</em><em>e</em><em>s</em>/<em>f</em><em>i</em><em>l</em><em>t</em><em>e</em><em>r</em><em>i</em><em>n</em><em>g</em>.<em>h</em><em>t</em><em>m</em><em>l</em>&gt;</span><br>
+<li>(Filtering large data tables)<br><span class="math display"> &lt; <em>h</em><em>t</em><em>t</em><em>p</em><em>s</em> : //<em>r</em><em>o</em><em>b</em><em>o</em><em>n</em><em>o</em><em>m</em><em>i</em><em>s</em><em>t</em>.<em>g</em><em>i</em><em>t</em><em>h</em><em>u</em><em>b</em>.<em>i</em><em>o</em>/<em>r</em><em>o</em><em>b</em><em>o</em><em>n</em><em>o</em><em>m</em><em>i</em><em>s</em><em>t</em><em>C</em><em>l</em><em>i</em><em>e</em><em>n</em><em>t</em>/<em>a</em><em>r</em><em>t</em><em>i</em><em>c</em><em>l</em><em>e</em><em>s</em>/<em>f</em><em>i</em><em>l</em><em>t</em><em>e</em><em>r</em><em>i</em><em>n</em><em>g</em>.<em>h</em><em>t</em><em>m</em><em>l</em>&gt;</span><br>
 </li>
 </ul>
 </div>
