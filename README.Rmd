@@ -1,5 +1,5 @@
 ---
-output: github_document
+output: md_document
 ---
 
 ```{r, include = FALSE}
@@ -45,6 +45,8 @@ Some of the integrated datasources:
 * The Swedish National Institute of Economic Research
 * Swedish Agricultural Agency
 * Statistics Norway
+* Statistics Denmark
+* Statistics Iceland
 * Statistics Estonia
 * United Nations Economic Commission for Europe Statistical Database
 * Nordic Statistics Database

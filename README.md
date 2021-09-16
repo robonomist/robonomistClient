@@ -1,74 +1,73 @@
-
-# Robonomist Client <a href='https://robonomist.com'><img src='man/figures/logo.png' align="right" height="138.5" /></a>
+Robonomist Client <a href='https://robonomist.com'><img src='man/figures/logo.png' align="right" height="138.5" /></a>
+======================================================================================================================
 
 A client package for R to access Robonomist Data Server
 
-## Datasources
+Datasources
+-----------
 
 The `robonomistClient` package allows easy and fast access to various
 datasources connecting to a Robonomist Data Server. Currently the client
-package provides access to 64 616 up-to-date data tables from 35
-different datasources with 7 different languages.
+package provides access to 71 356 up-to-date data tables from 37
+different datasources with 9 different languages.
 
 Some of the integrated datasources:
 
-  - Statistics Finland (StatFin & StatFin archive databases)
-  - Statistics Finland municipal data (Key figures & Financial data)
-  - Paavo postal code area statistics by Statistics Finland
-  - Experimental statistics by Statistics Finland
-  - Immigrants and integration database by Statistics Finland
-  - Finnish Tax Administration
-  - Finnish Centre for Pensions
-  - Natural Resources Institute Finland (Luonnonvarakeskus LUKE)
-  - Traficom database (The Finnish Transport and Communications Agency)
-  - Customs Finland
-  - THL Sotkanet
-  - Vipunen, Education Statistics Finland
-  - Helsingin seudun aluesarjat -tilastotietokanta
-  - Helsingin ympäristötilasto
-  - Eurostat
-  - European Commission Business and consumer surveys
-  - World Bank
-  - OECD
-  - ECB Statistical data warehouse
-  - COVID-19 data (THL Epirapo, ECDC, and covid19datahub.io)
-  - Statistics Sweden
-  - The Swedish National Institute of Economic Research
-  - Swedish Agricultural Agency
-  - Statistics Norway
-  - Statistics Estonia
-  - United Nations Economic Commission for Europe Statistical Database
-  - Nordic Statistics Database
-  - Robonomist’s curated tidy data tables
+-   Statistics Finland (StatFin & StatFin archive databases)
+-   Statistics Finland municipal data (Key figures & Financial data)
+-   Paavo postal code area statistics by Statistics Finland
+-   Experimental statistics by Statistics Finland
+-   Immigrants and integration database by Statistics Finland
+-   Finnish Tax Administration
+-   Finnish Centre for Pensions
+-   Natural Resources Institute Finland (Luonnonvarakeskus LUKE)
+-   Traficom database (The Finnish Transport and Communications Agency)
+-   Customs Finland
+-   THL Sotkanet
+-   Vipunen, Education Statistics Finland
+-   Helsingin seudun aluesarjat -tilastotietokanta
+-   Helsingin ympäristötilasto
+-   Eurostat
+-   European Commission Business and consumer surveys
+-   World Bank
+-   OECD
+-   ECB Statistical data warehouse
+-   COVID-19 data (THL Epirapo, ECDC, and covid19datahub.io)
+-   Statistics Sweden
+-   The Swedish National Institute of Economic Research
+-   Swedish Agricultural Agency
+-   Statistics Norway
+-   Statistics Denmark
+-   Statistics Iceland
+-   Statistics Estonia
+-   United Nations Economic Commission for Europe Statistical Database
+-   Nordic Statistics Database
+-   Robonomist’s curated tidy data tables
 
 To setup a Robonomist Data Server for your organization, please contact
-<team@robonomist.com>.
+<a href="mailto:team@robonomist.com" class="email">team@robonomist.com</a>.
 
-## Installation
+Installation
+------------
 
 Install the development version from github:
 
-``` r
-## install.packages("devtools")
-devtools::install_github("robonomist/robonomistClient")
-```
+    ## install.packages("devtools")
+    devtools::install_github("robonomist/robonomistClient")
 
-## Getting started
+Getting started
+---------------
 
 Once installed, set the hostname of your Robonomist Data Server and
 connnect with `set_robonomist_server` function. Then you can start
 exploring the database.
 
-``` r
-library(robonomistClient)
-set_robonomist_server(hostname = "hostname.com", access_token = "xyz")
-```
+    library(robonomistClient)
+    set_robonomist_server(hostname = "hostname.com", access_token = "xyz")
 
 List all available datasources:
 
-``` r
-datasources()
-```
+    datasources()
 
     ## ℹ Processing request...✔ Processing request... ... done
     ## 
@@ -85,14 +84,12 @@ datasources()
     ##  8 tulli            Finnish Customs, Uljas Statistical Database                 
     ##  9 luke             Luonnonvarakeskus LUKE:n tilastotietokanta)                 
     ## 10 etk              Eläketurvakeskuksen tietokanta                              
-    ## # … with 25 more rows, and 1 more variable: languages <list>
+    ## # … with 27 more rows, and 1 more variable: languages <list>
 
 The `data` function is convenient way to search and get data tables.
 Print all available data tables:
 
-``` r
-data()
-```
+    data()
 
     ## ℹ Processing request...✔ Processing request... ... done
     ## 
@@ -109,13 +106,11 @@ data()
     ##  8 StatFin/asu/asas/statfin_asas_pxt_116a.… Bostadshushåll efter År, Hustyp, Om…
     ##  9 StatFin/asu/asas/statfin_asas_pxt_116a.… Household-dwelling units by Year, T…
     ## 10 StatFin/asu/asas/statfin_asas_pxt_116b.… Asuntokunnat ja asuntoväestö muuttu…
-    ## # … with 114,422 more rows, and 1 more variable: lang <chr>
+    ## # … with 124,053 more rows, and 1 more variable: lang <chr>
 
 To get a specific data table, use the tables id.
 
-``` r
-data("StatFin/vrm/synt/statfin_synt_pxt_12dx.px")
-```
+    data("StatFin/vrm/synt/statfin_synt_pxt_12dx.px")
 
     ## ℹ Processing request...✔ Processing request... ... done
 
@@ -138,13 +133,14 @@ data("StatFin/vrm/synt/statfin_synt_pxt_12dx.px")
     ## 10 1749  Kokonaismuutos                NA
     ## # … with 2,982 more rows
 
-## More information
+More information
+----------------
 
 You can find detailed information on how to use `robonomistClient` in
 the [documentation](https://robonomist.github.io/robonomistClient).
 
-  - [Basic
+-   [Basic
     features](https://robonomist.github.io/robonomistClient/articles/basic_features.html)
-  - [Examples](https://robonomist.github.io/robonomistClient/articles/examples.html)
-  - [Filtering large data
+-   [Examples](https://robonomist.github.io/robonomistClient/articles/examples.html)
+-   [Filtering large data
     tables](https://robonomist.github.io/robonomistClient/articles/filtering.html)
