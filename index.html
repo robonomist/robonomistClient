@@ -148,76 +148,78 @@
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
 <p>Install the development version from github:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co">## install.packages("devtools")</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a>devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">"robonomist/robonomistClient"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">## install.packages("devtools")</span>
+<span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"robonomist/robonomistClient"</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="getting-started" class="section level2">
 <h2 class="hasAnchor">
 <a href="#getting-started" class="anchor"></a>Getting started</h2>
 <p>Once installed, set the hostname of your Robonomist Data Server and connnect with <code>set_robonomist_server</code> function. Then you can start exploring the database.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">library</span>(robonomistClient)</span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="kw">set_robonomist_server</span>(<span class="dt">hostname =</span> <span class="st">"hostname.com"</span>, <span class="dt">access_token =</span> <span class="st">"xyz"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://robonomist.github.io/robonomistClient/">robonomistClient</a></span><span class="op">)</span>
+<span class="fu"><a href="reference/set_robonomist_server.html">set_robonomist_server</a></span><span class="op">(</span>hostname <span class="op">=</span> <span class="st">"hostname.com"</span>, access_token <span class="op">=</span> <span class="st">"xyz"</span><span class="op">)</span></code></pre></div>
 <p>List all available datasources:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">datasources</span>()</span>
-<span id="cb3-2"><a href="#cb3-2"></a></span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="co">## ℹ Processing request...✔ Processing request... ... done</span></span>
-<span id="cb3-4"><a href="#cb3-4"></a><span class="co">## </span></span>
-<span id="cb3-5"><a href="#cb3-5"></a><span class="co">## ── Robonomist Server Datasources</span></span>
-<span id="cb3-6"><a href="#cb3-6"></a></span>
-<span id="cb3-7"><a href="#cb3-7"></a><span class="co">##    dataset          title                                                       </span></span>
-<span id="cb3-8"><a href="#cb3-8"></a><span class="co">##  1 StatFin          Statistics Finland, StatFin database                        </span></span>
-<span id="cb3-9"><a href="#cb3-9"></a><span class="co">##  2 StatFin_Passiivi Statistics Finland, StatFin archive database                </span></span>
-<span id="cb3-10"><a href="#cb3-10"></a><span class="co">##  3 kunnat           Kuntien avainluvut (Tilastokeskus)                          </span></span>
-<span id="cb3-11"><a href="#cb3-11"></a><span class="co">##  4 kunnat           Kuntien ja kuntayhtymien raportoimat taloustiedot (Tilastok…</span></span>
-<span id="cb3-12"><a href="#cb3-12"></a><span class="co">##  5 paavo            Postinumeroalueittainen avoin tieto -tietokanta Paavo (Tila…</span></span>
-<span id="cb3-13"><a href="#cb3-13"></a><span class="co">##  6 Vero             Verohallinnon tilastotietokanta                             </span></span>
-<span id="cb3-14"><a href="#cb3-14"></a><span class="co">##  7 ec               European Commission's Business and consumer surveys         </span></span>
-<span id="cb3-15"><a href="#cb3-15"></a><span class="co">##  8 tulli            Finnish Customs, Uljas Statistical Database                 </span></span>
-<span id="cb3-16"><a href="#cb3-16"></a><span class="co">##  9 luke             Luonnonvarakeskus LUKE:n tilastotietokanta)                 </span></span>
-<span id="cb3-17"><a href="#cb3-17"></a><span class="co">## 10 etk              Eläketurvakeskuksen tietokanta                              </span></span>
-<span id="cb3-18"><a href="#cb3-18"></a><span class="co">## # … with 27 more rows, and 1 more variable: languages &lt;list&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="reference/datasources.html">datasources</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co">## ℹ Processing request...✔ Processing request... ... done</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="co">## </span></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="co">## ── Robonomist Server Datasources</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a></span>
+<span id="cb4-5"><a href="#cb4-5"></a><span class="co">##    dataset          title                                                       </span></span>
+<span id="cb4-6"><a href="#cb4-6"></a><span class="co">##  1 StatFin          Statistics Finland, StatFin database                        </span></span>
+<span id="cb4-7"><a href="#cb4-7"></a><span class="co">##  2 StatFin_Passiivi Statistics Finland, StatFin archive database                </span></span>
+<span id="cb4-8"><a href="#cb4-8"></a><span class="co">##  3 kunnat           Kuntien avainluvut (Tilastokeskus)                          </span></span>
+<span id="cb4-9"><a href="#cb4-9"></a><span class="co">##  4 kunnat           Kuntien ja kuntayhtymien raportoimat taloustiedot (Tilastok…</span></span>
+<span id="cb4-10"><a href="#cb4-10"></a><span class="co">##  5 paavo            Postinumeroalueittainen avoin tieto -tietokanta Paavo (Tila…</span></span>
+<span id="cb4-11"><a href="#cb4-11"></a><span class="co">##  6 Vero             Verohallinnon tilastotietokanta                             </span></span>
+<span id="cb4-12"><a href="#cb4-12"></a><span class="co">##  7 ec               European Commission's Business and consumer surveys         </span></span>
+<span id="cb4-13"><a href="#cb4-13"></a><span class="co">##  8 tulli            Finnish Customs, Uljas Statistical Database                 </span></span>
+<span id="cb4-14"><a href="#cb4-14"></a><span class="co">##  9 luke             Luonnonvarakeskus LUKE:n tilastotietokanta)                 </span></span>
+<span id="cb4-15"><a href="#cb4-15"></a><span class="co">## 10 etk              Eläketurvakeskuksen tietokanta                              </span></span>
+<span id="cb4-16"><a href="#cb4-16"></a><span class="co">## # … with 27 more rows, and 1 more variable: languages &lt;list&gt;</span></span></code></pre></div>
 <p>The <code>data</code> function is convenient way to search and get data tables. Print all available data tables:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">data</span>()</span>
-<span id="cb4-2"><a href="#cb4-2"></a></span>
-<span id="cb4-3"><a href="#cb4-3"></a><span class="co">## ℹ Processing request...✔ Processing request... ... done</span></span>
-<span id="cb4-4"><a href="#cb4-4"></a><span class="co">## </span></span>
-<span id="cb4-5"><a href="#cb4-5"></a><span class="co">## ── Robonomist Database search results</span></span>
-<span id="cb4-6"><a href="#cb4-6"></a></span>
-<span id="cb4-7"><a href="#cb4-7"></a><span class="co">##    id                                       title                               </span></span>
-<span id="cb4-8"><a href="#cb4-8"></a><span class="co">##  1 StatFin/asu/asas/statfin_asas_pxt_115a.… Asuntokunnat ja asuntoväestö muuttu…</span></span>
-<span id="cb4-9"><a href="#cb4-9"></a><span class="co">##  2 StatFin/asu/asas/statfin_asas_pxt_115a.… Bostadshushåll och boendebefolkning…</span></span>
-<span id="cb4-10"><a href="#cb4-10"></a><span class="co">##  3 StatFin/asu/asas/statfin_asas_pxt_115a.… Household-dwelling units and housin…</span></span>
-<span id="cb4-11"><a href="#cb4-11"></a><span class="co">##  4 StatFin/asu/asas/statfin_asas_pxt_115y.… Asuntokunnat ja asuntoväestö muuttu…</span></span>
-<span id="cb4-12"><a href="#cb4-12"></a><span class="co">##  5 StatFin/asu/asas/statfin_asas_pxt_115y.… Antal bostadshushåll och antal pers…</span></span>
-<span id="cb4-13"><a href="#cb4-13"></a><span class="co">##  6 StatFin/asu/asas/statfin_asas_pxt_115y.… Number of household-dwelling units …</span></span>
-<span id="cb4-14"><a href="#cb4-14"></a><span class="co">##  7 StatFin/asu/asas/statfin_asas_pxt_116a.… Asuntokunnat muuttujina Vuosi, Talo…</span></span>
-<span id="cb4-15"><a href="#cb4-15"></a><span class="co">##  8 StatFin/asu/asas/statfin_asas_pxt_116a.… Bostadshushåll efter År, Hustyp, Om…</span></span>
-<span id="cb4-16"><a href="#cb4-16"></a><span class="co">##  9 StatFin/asu/asas/statfin_asas_pxt_116a.… Household-dwelling units by Year, T…</span></span>
-<span id="cb4-17"><a href="#cb4-17"></a><span class="co">## 10 StatFin/asu/asas/statfin_asas_pxt_116b.… Asuntokunnat ja asuntoväestö muuttu…</span></span>
-<span id="cb4-18"><a href="#cb4-18"></a><span class="co">## # … with 124,053 more rows, and 1 more variable: lang &lt;chr&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="reference/data.html">data</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="co">## ℹ Processing request...✔ Processing request... ... done</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="co">## </span></span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="co">## ── Robonomist Database search results</span></span>
+<span id="cb6-4"><a href="#cb6-4"></a></span>
+<span id="cb6-5"><a href="#cb6-5"></a><span class="co">##    id                                       title                               </span></span>
+<span id="cb6-6"><a href="#cb6-6"></a><span class="co">##  1 StatFin/asu/asas/statfin_asas_pxt_115a.… Asuntokunnat ja asuntoväestö muuttu…</span></span>
+<span id="cb6-7"><a href="#cb6-7"></a><span class="co">##  2 StatFin/asu/asas/statfin_asas_pxt_115a.… Bostadshushåll och boendebefolkning…</span></span>
+<span id="cb6-8"><a href="#cb6-8"></a><span class="co">##  3 StatFin/asu/asas/statfin_asas_pxt_115a.… Household-dwelling units and housin…</span></span>
+<span id="cb6-9"><a href="#cb6-9"></a><span class="co">##  4 StatFin/asu/asas/statfin_asas_pxt_115y.… Asuntokunnat ja asuntoväestö muuttu…</span></span>
+<span id="cb6-10"><a href="#cb6-10"></a><span class="co">##  5 StatFin/asu/asas/statfin_asas_pxt_115y.… Antal bostadshushåll och antal pers…</span></span>
+<span id="cb6-11"><a href="#cb6-11"></a><span class="co">##  6 StatFin/asu/asas/statfin_asas_pxt_115y.… Number of household-dwelling units …</span></span>
+<span id="cb6-12"><a href="#cb6-12"></a><span class="co">##  7 StatFin/asu/asas/statfin_asas_pxt_116a.… Asuntokunnat muuttujina Vuosi, Talo…</span></span>
+<span id="cb6-13"><a href="#cb6-13"></a><span class="co">##  8 StatFin/asu/asas/statfin_asas_pxt_116a.… Bostadshushåll efter År, Hustyp, Om…</span></span>
+<span id="cb6-14"><a href="#cb6-14"></a><span class="co">##  9 StatFin/asu/asas/statfin_asas_pxt_116a.… Household-dwelling units by Year, T…</span></span>
+<span id="cb6-15"><a href="#cb6-15"></a><span class="co">## 10 StatFin/asu/asas/statfin_asas_pxt_116b.… Asuntokunnat ja asuntoväestö muuttu…</span></span>
+<span id="cb6-16"><a href="#cb6-16"></a><span class="co">## # … with 124,053 more rows, and 1 more variable: lang &lt;chr&gt;</span></span></code></pre></div>
 <p>To get a specific data table, use the tables id.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">data</span>(<span class="st">"StatFin/vrm/synt/statfin_synt_pxt_12dx.px"</span>)</span>
-<span id="cb5-2"><a href="#cb5-2"></a></span>
-<span id="cb5-3"><a href="#cb5-3"></a><span class="co">## ℹ Processing request...✔ Processing request... ... done</span></span>
-<span id="cb5-4"><a href="#cb5-4"></a></span>
-<span id="cb5-5"><a href="#cb5-5"></a><span class="co">## # Robonomist id: StatFin/vrm/synt/statfin_synt_pxt_12dx.px</span></span>
-<span id="cb5-6"><a href="#cb5-6"></a><span class="co">## # A tibble:      2,992 × 3</span></span>
-<span id="cb5-7"><a href="#cb5-7"></a><span class="co">## # Title:         Väestönmuutokset</span></span>
-<span id="cb5-8"><a href="#cb5-8"></a><span class="co">## # Last updated:  2021-06-18 08:00:00</span></span>
-<span id="cb5-9"><a href="#cb5-9"></a><span class="co">## # Next update:   2022-06-17 08:00:00</span></span>
-<span id="cb5-10"><a href="#cb5-10"></a><span class="co">##    Vuosi Tiedot                     value</span></span>
-<span id="cb5-11"><a href="#cb5-11"></a><span class="co">##    &lt;chr&gt; &lt;chr&gt;                      &lt;dbl&gt;</span></span>
-<span id="cb5-12"><a href="#cb5-12"></a><span class="co">##  1 1749  Elävänä syntyneet          16700</span></span>
-<span id="cb5-13"><a href="#cb5-13"></a><span class="co">##  2 1749  Kuolleet                   11600</span></span>
-<span id="cb5-14"><a href="#cb5-14"></a><span class="co">##  3 1749  Luonnollinen väestönlisäys  5100</span></span>
-<span id="cb5-15"><a href="#cb5-15"></a><span class="co">##  4 1749  Kuntien välinen muutto        NA</span></span>
-<span id="cb5-16"><a href="#cb5-16"></a><span class="co">##  5 1749  Maahanmuutto Suomeen          NA</span></span>
-<span id="cb5-17"><a href="#cb5-17"></a><span class="co">##  6 1749  Maastamuutto Suomesta         NA</span></span>
-<span id="cb5-18"><a href="#cb5-18"></a><span class="co">##  7 1749  Nettomaahanmuutto             NA</span></span>
-<span id="cb5-19"><a href="#cb5-19"></a><span class="co">##  8 1749  Solmitut avioliitot         3900</span></span>
-<span id="cb5-20"><a href="#cb5-20"></a><span class="co">##  9 1749  Avioerot                      NA</span></span>
-<span id="cb5-21"><a href="#cb5-21"></a><span class="co">## 10 1749  Kokonaismuutos                NA</span></span>
-<span id="cb5-22"><a href="#cb5-22"></a><span class="co">## # … with 2,982 more rows</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="reference/data.html">data</a></span><span class="op">(</span><span class="st">"StatFin/vrm/synt/statfin_synt_pxt_12dx.px"</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="co">## ℹ Processing request...✔ Processing request... ... done</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a></span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="co">## # Robonomist id: StatFin/vrm/synt/statfin_synt_pxt_12dx.px</span></span>
+<span id="cb8-4"><a href="#cb8-4"></a><span class="co">## # A tibble:      2,992 × 3</span></span>
+<span id="cb8-5"><a href="#cb8-5"></a><span class="co">## # Title:         Väestönmuutokset</span></span>
+<span id="cb8-6"><a href="#cb8-6"></a><span class="co">## # Last updated:  2021-06-18 08:00:00</span></span>
+<span id="cb8-7"><a href="#cb8-7"></a><span class="co">## # Next update:   2022-06-17 08:00:00</span></span>
+<span id="cb8-8"><a href="#cb8-8"></a><span class="co">##    Vuosi Tiedot                     value</span></span>
+<span id="cb8-9"><a href="#cb8-9"></a><span class="co">##    &lt;chr&gt; &lt;chr&gt;                      &lt;dbl&gt;</span></span>
+<span id="cb8-10"><a href="#cb8-10"></a><span class="co">##  1 1749  Elävänä syntyneet          16700</span></span>
+<span id="cb8-11"><a href="#cb8-11"></a><span class="co">##  2 1749  Kuolleet                   11600</span></span>
+<span id="cb8-12"><a href="#cb8-12"></a><span class="co">##  3 1749  Luonnollinen väestönlisäys  5100</span></span>
+<span id="cb8-13"><a href="#cb8-13"></a><span class="co">##  4 1749  Kuntien välinen muutto        NA</span></span>
+<span id="cb8-14"><a href="#cb8-14"></a><span class="co">##  5 1749  Maahanmuutto Suomeen          NA</span></span>
+<span id="cb8-15"><a href="#cb8-15"></a><span class="co">##  6 1749  Maastamuutto Suomesta         NA</span></span>
+<span id="cb8-16"><a href="#cb8-16"></a><span class="co">##  7 1749  Nettomaahanmuutto             NA</span></span>
+<span id="cb8-17"><a href="#cb8-17"></a><span class="co">##  8 1749  Solmitut avioliitot         3900</span></span>
+<span id="cb8-18"><a href="#cb8-18"></a><span class="co">##  9 1749  Avioerot                      NA</span></span>
+<span id="cb8-19"><a href="#cb8-19"></a><span class="co">## 10 1749  Kokonaismuutos                NA</span></span>
+<span id="cb8-20"><a href="#cb8-20"></a><span class="co">## # … with 2,982 more rows</span></span></code></pre></div>
 </div>
 <div id="more-information" class="section level2">
 <h2 class="hasAnchor">
