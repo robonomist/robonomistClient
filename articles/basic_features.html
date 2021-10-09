@@ -44,7 +44,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">robonomistClient</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.1.1</span>
       </span>
     </div>
 
@@ -118,9 +118,9 @@
 <p>You can list all available datasources:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://robonomist.github.io/robonomistClient/">robonomistClient</a></span><span class="op">)</span>
-<span class="co">#&gt; ✔ Loaded robonomistClient 2.1.0</span>
+<span class="co">#&gt; ✔ Loaded robonomistClient 2.1.1</span>
 <span class="co">#&gt; ✔ Connecting to robonomistServer at wss://data.robonomist.app</span>
-<span class="co">#&gt; ✔ Connected successfully to robonomistServer 2.0.0</span>
+<span class="co">#&gt; ✔ Connected successfully to robonomistServer 2.1.3</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Attaching package: 'robonomistClient'</span>
 <span class="co">#&gt; The following object is masked from 'package:utils':</span>
@@ -129,18 +129,18 @@
 <span class="fu"><a href="../reference/datasources.html">datasources</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; ── Robonomist Server Datasources</span>
-<span class="co">#&gt;    dataset            title                                                     </span>
-<span class="co">#&gt;  1 StatFin            Statistics Finland, StatFin database                      </span>
-<span class="co">#&gt;  2 StatFin_Passiivi   Statistics Finland, StatFin archive database              </span>
-<span class="co">#&gt;  3 Vero               Verohallinnon tilastotietokanta                           </span>
-<span class="co">#&gt;  4 kunnat             Kuntien avainluvut (Tilastokeskus)                        </span>
-<span class="co">#&gt;  5 kunnat             Kuntien ja kuntayhtymien raportoimat taloustiedot (Tilast…</span>
-<span class="co">#&gt;  6 paavo              Postinumeroalueittainen avoin tieto -tietokanta Paavo (Ti…</span>
-<span class="co">#&gt;  7 maakoto            Maahanmuuttajat ja kotoutuminen -tietokanta (Tilastokesku…</span>
-<span class="co">#&gt;  8 koto               Kototietokanta (Tilastokeskus)                            </span>
-<span class="co">#&gt;  9 toimipaikkalaskuri Toimipaikkalaskuri-tietokanta (Tilastokeskus)             </span>
-<span class="co">#&gt; 10 kokeelliset        Tilastokeskuksen kokeelliset tilastot                     </span>
-<span class="co">#&gt; # … with 18 more rows</span></code></pre></div>
+<span class="co">#&gt;    dataset          title                                                       </span>
+<span class="co">#&gt;  1 StatFin          Statistics Finland, StatFin database                        </span>
+<span class="co">#&gt;  2 StatFin_Passiivi Statistics Finland, StatFin archive database                </span>
+<span class="co">#&gt;  3 kunnat           Kuntien avainluvut (Tilastokeskus)                          </span>
+<span class="co">#&gt;  4 kunnat           Kuntien ja kuntayhtymien raportoimat taloustiedot (Tilastok…</span>
+<span class="co">#&gt;  5 paavo            Postinumeroalueittainen avoin tieto -tietokanta Paavo (Tila…</span>
+<span class="co">#&gt;  6 Vero             Verohallinnon tilastotietokanta                             </span>
+<span class="co">#&gt;  7 ec               European Commission's Business and consumer surveys         </span>
+<span class="co">#&gt;  8 tulli            Finnish Customs, Uljas Statistical Database                 </span>
+<span class="co">#&gt;  9 luke             Luonnonvarakeskus LUKE:n tilastotietokanta)                 </span>
+<span class="co">#&gt; 10 etk              Eläketurvakeskuksen tietokanta                              </span>
+<span class="co">#&gt; # … with 27 more rows, and 1 more variable: languages &lt;list&gt;</span></code></pre></div>
 </div>
 <div id="data-tables" class="section level2">
 <h2 class="hasAnchor">
@@ -152,16 +152,16 @@
 <span class="co">#&gt; ── Robonomist Database search results</span>
 <span class="co">#&gt;    id                                       title                               </span>
 <span class="co">#&gt;  1 StatFin/asu/asas/statfin_asas_pxt_115a.… Asuntokunnat ja asuntoväestö muuttu…</span>
-<span class="co">#&gt;  2 StatFin/asu/asas/statfin_asas_pxt_115y.… Asuntokunnat ja asuntoväestö muuttu…</span>
-<span class="co">#&gt;  3 StatFin/asu/asas/statfin_asas_pxt_116a.… Asuntokunnat muuttujina Vuosi, Talo…</span>
-<span class="co">#&gt;  4 StatFin/asu/asas/statfin_asas_pxt_116b.… Asuntokunnat ja asuntoväestö muuttu…</span>
-<span class="co">#&gt;  5 StatFin/asu/asas/statfin_asas_pxt_116d.… Asuntokunnat muuttujina Alue, Talot…</span>
-<span class="co">#&gt;  6 StatFin/asu/asas/statfin_asas_pxt_116e.… Asuntokunnat ja asuntoväestö muuttu…</span>
-<span class="co">#&gt;  7 StatFin/asu/asas/statfin_asas_pxt_116f.… Asunnot muuttujina Alue, Talotyyppi…</span>
-<span class="co">#&gt;  8 StatFin/asu/asvu/statfin_asvu_pxt_11x4.… Vuokraindeksi (2015=100) ja keskine…</span>
-<span class="co">#&gt;  9 StatFin/asu/asvu/statfin_asvu_pxt_11x5.… Vuokraindeksi (2015=100) ja keskine…</span>
-<span class="co">#&gt; 10 StatFin/asu/asvu/statfin_asvu_pxt_12d4.… Vapaarahoitteisten vuokra-asuntojen…</span>
-<span class="co">#&gt; # … with 39,642 more rows</span></code></pre></div>
+<span class="co">#&gt;  2 StatFin/asu/asas/statfin_asas_pxt_115a.… Bostadshushåll och boendebefolkning…</span>
+<span class="co">#&gt;  3 StatFin/asu/asas/statfin_asas_pxt_115a.… Household-dwelling units and housin…</span>
+<span class="co">#&gt;  4 StatFin/asu/asas/statfin_asas_pxt_115y.… Asuntokunnat ja asuntoväestö muuttu…</span>
+<span class="co">#&gt;  5 StatFin/asu/asas/statfin_asas_pxt_115y.… Antal bostadshushåll och antal pers…</span>
+<span class="co">#&gt;  6 StatFin/asu/asas/statfin_asas_pxt_115y.… Number of household-dwelling units …</span>
+<span class="co">#&gt;  7 StatFin/asu/asas/statfin_asas_pxt_116a.… Asuntokunnat muuttujina Vuosi, Talo…</span>
+<span class="co">#&gt;  8 StatFin/asu/asas/statfin_asas_pxt_116a.… Bostadshushåll efter År, Hustyp, Om…</span>
+<span class="co">#&gt;  9 StatFin/asu/asas/statfin_asas_pxt_116a.… Household-dwelling units by Year, T…</span>
+<span class="co">#&gt; 10 StatFin/asu/asas/statfin_asas_pxt_116b.… Asuntokunnat ja asuntoväestö muuttu…</span>
+<span class="co">#&gt; # … with 129,366 more rows, and 1 more variable: lang &lt;chr&gt;</span></code></pre></div>
 <p>The package automatically ensures that the listed data tables are the latest versions available at the datasources.</p>
 <p>To get a specific data table, use the tables id.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
@@ -197,18 +197,18 @@
 <code class="sourceCode R"><span class="fu"><a href="../reference/data.html">data</a></span><span class="op">(</span><span class="st">"Vero/"</span><span class="op">)</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; ── Robonomist Database search results</span>
-<span class="co">#&gt;    id                                       title                               </span>
-<span class="co">#&gt;  1 Vero/Kiinteistoverot/kive_101.px         1.1 Maksuunpantu kiinteistövero: as…</span>
-<span class="co">#&gt;  2 Vero/Kiinteistoverot/kive_102.px         1.2 Maksuunpantu kiinteistövero: as…</span>
-<span class="co">#&gt;  3 Vero/Kiinteistoverot/kive_201.px         2.1 Käyttötarkoituksen mukaiset kii…</span>
-<span class="co">#&gt;  4 Vero/Kiinteistoverot/kive_202.px         2.2 Kiinteistöveroprosentin mukaise…</span>
-<span class="co">#&gt;  5 Vero/Kiinteistoverot/kive_301.px         3. Rakennusten kiinteistöverot, jäl…</span>
-<span class="co">#&gt;  6 Vero/Kiinteistoverot/kive_400.px         4. Maankäyttölajitilasto muuttujina…</span>
-<span class="co">#&gt;  7 Vero/Valmistevero/valmistevero_010.px    Valmistevero muuttujina Valmistever…</span>
-<span class="co">#&gt;  8 Vero/Verotulojen_kehitys/010_alvkavamp_… 3.2. Oma-aloitteisten verojen ilmoi…</span>
-<span class="co">#&gt;  9 Vero/Verotulojen_kehitys/010_alvkavatol… 3.3. Oma-aloitteisten verojen ilmoi…</span>
-<span class="co">#&gt; 10 Vero/Verotulojen_kehitys/010_alvkava_ta… 3.1. Oma-aloitteisten verojen ilmoi…</span>
-<span class="co">#&gt; # … with 315 more rows</span></code></pre></div>
+<span class="co">#&gt;    id                               title                                       </span>
+<span class="co">#&gt;  1 Vero/Kiinteistoverot/kive_101.px 1.1 Maksuunpantu kiinteistövero: asiakkaan …</span>
+<span class="co">#&gt;  2 Vero/Kiinteistoverot/kive_101.px 1.1 Debiterad fastighetsskatt: fastighetssk…</span>
+<span class="co">#&gt;  3 Vero/Kiinteistoverot/kive_101.px 1.1 Real estate tax debited: amount of taxp…</span>
+<span class="co">#&gt;  4 Vero/Kiinteistoverot/kive_102.px 1.2 Maksuunpantu kiinteistövero: asiakkaan …</span>
+<span class="co">#&gt;  5 Vero/Kiinteistoverot/kive_102.px 1.2 Debiterad fastighetsskatt: fastighetssk…</span>
+<span class="co">#&gt;  6 Vero/Kiinteistoverot/kive_102.px 1.2 Real estate tax debited: amount of taxp…</span>
+<span class="co">#&gt;  7 Vero/Kiinteistoverot/kive_201.px 2.1 Käyttötarkoituksen mukaiset kiinteistöv…</span>
+<span class="co">#&gt;  8 Vero/Kiinteistoverot/kive_201.px 2.1 Fastighetsbeskattningsuppgifter enligt …</span>
+<span class="co">#&gt;  9 Vero/Kiinteistoverot/kive_201.px 2.1 Statistics on Real Estate Tax according…</span>
+<span class="co">#&gt; 10 Vero/Kiinteistoverot/kive_202.px 2.2 Kiinteistöveroprosentin mukaiset kiinte…</span>
+<span class="co">#&gt; # … with 944 more rows, and 1 more variable: lang &lt;chr&gt;</span></code></pre></div>
 </div>
 <div id="search-and-retrieval" class="section level2">
 <h2 class="hasAnchor">
@@ -234,9 +234,9 @@
 <span class="co">#&gt;  6 StatFin/kou/vkour/statfin_vkour_pxt_12b… 15 vuotta täyttänyt väestö koulutus…</span>
 <span class="co">#&gt;  7 StatFin/kou/vkour/statfin_vkour_pxt_12b… 15 vuotta täyttänyt väestö koulutus…</span>
 <span class="co">#&gt;  8 StatFin/sos/lasuo/statfin_lasuo_pxt_001… Kodin ulkopuolelle sijoitetut 0-17-…</span>
-<span class="co">#&gt;  9 StatFin/sos/toimtt/statfin_toimtt_pxt_0… Toimeentulotuen saajien osuus väest…</span>
-<span class="co">#&gt; 10 StatFin/ter/avtk/statfin_avtk_pxt_001.px Lihavien osuus (%) 2064-vuotiaista, itse raportoitu paino ja pituus muuttujina Vuosi ja Sukupuoli</span>
-<span class="co">#&gt; # … with 1,027 more rows</span></code></pre></div>
+<span class="co">#&gt;  9 StatFin/sos/lasuo/statfin_lasuo_pxt_001… Ungdomar i åldern 0-17 år som var p…</span>
+<span class="co">#&gt; 10 StatFin/sos/lasuo/statfin_lasuo_pxt_001… 017-year-olds placed outside the home, % of those of the same age by percentage of children placed outside the home (%) and Year</span>
+<span class="co">#&gt; # … with 972 more rows, and 1 more variable: lang &lt;chr&gt;</span></code></pre></div>
 </div>
 <div id="tidy-time-and-labels" class="section level2">
 <h2 class="hasAnchor">
@@ -248,18 +248,18 @@
 <span class="co">#&gt; # A tibble:      100,548 × 4</span>
 <span class="co">#&gt; # Title:         Bruttokansantuote ja -tulo sekä tarjonta ja kysyntä</span>
 <span class="co">#&gt; #   neljännesvuosittain</span>
-<span class="co">#&gt; # Last updated:  2021-08-31 08:00:00</span>
-<span class="co">#&gt; # Next update:   2021-09-17 08:00:00</span>
+<span class="co">#&gt; # Last updated:  2021-09-17 08:00:00</span>
+<span class="co">#&gt; # Next update:   2021-11-30 08:00:00</span>
 <span class="co">#&gt;    Vuosineljännes Taloustoimi                             Tiedot           value</span>
 <span class="co">#&gt;    &lt;chr&gt;          &lt;chr&gt;                                   &lt;chr&gt;            &lt;dbl&gt;</span>
-<span class="co">#&gt;  1 1990Q1         B1GMH Bruttokansantuote markkinahintaan Kausitasoitettu… 22883</span>
+<span class="co">#&gt;  1 1990Q1         B1GMH Bruttokansantuote markkinahintaan Kausitasoitettu… 22884</span>
 <span class="co">#&gt;  2 1990Q1         B1GMH Bruttokansantuote markkinahintaan Alkuperäinen sa… 21610</span>
 <span class="co">#&gt;  3 1990Q1         B1GMH Bruttokansantuote markkinahintaan Trendisarja käy… 22901</span>
 <span class="co">#&gt;  4 1990Q1         B1GMH Bruttokansantuote markkinahintaan Työpäiväkorjatt… 21462</span>
-<span class="co">#&gt;  5 1990Q1         B1GMH Bruttokansantuote markkinahintaan Kausitasoitettu… 35972</span>
+<span class="co">#&gt;  5 1990Q1         B1GMH Bruttokansantuote markkinahintaan Kausitasoitettu… 35966</span>
 <span class="co">#&gt;  6 1990Q1         B1GMH Bruttokansantuote markkinahintaan Alkuperäinen sa… 33876</span>
-<span class="co">#&gt;  7 1990Q1         B1GMH Bruttokansantuote markkinahintaan Trendisarja, vi… 36022</span>
-<span class="co">#&gt;  8 1990Q1         B1GMH Bruttokansantuote markkinahintaan Työpäiväkorjatt… 33954</span>
+<span class="co">#&gt;  7 1990Q1         B1GMH Bruttokansantuote markkinahintaan Trendisarja, vi… 36013</span>
+<span class="co">#&gt;  8 1990Q1         B1GMH Bruttokansantuote markkinahintaan Työpäiväkorjatt… 33950</span>
 <span class="co">#&gt;  9 1990Q1         B1GMH Bruttokansantuote markkinahintaan Kausitasoitetun…    NA</span>
 <span class="co">#&gt; 10 1990Q1         B1GMH Bruttokansantuote markkinahintaan Trendisarjan vo…    NA</span>
 <span class="co">#&gt; # … with 100,538 more rows</span>
@@ -269,8 +269,8 @@
 <span class="co">#&gt; # A tibble:      100,548 × 4</span>
 <span class="co">#&gt; # Title:         Bruttokansantuote ja -tulo sekä tarjonta ja kysyntä</span>
 <span class="co">#&gt; #   neljännesvuosittain</span>
-<span class="co">#&gt; # Last updated:  2021-08-31 08:00:00</span>
-<span class="co">#&gt; # Next update:   2021-09-17 08:00:00</span>
+<span class="co">#&gt; # Last updated:  2021-09-17 08:00:00</span>
+<span class="co">#&gt; # Next update:   2021-11-30 08:00:00</span>
 <span class="co">#&gt;    Taloustoimi                             Tiedot               time       value</span>
 <span class="co">#&gt;    &lt;chr&gt;                                   &lt;chr&gt;                &lt;date&gt;     &lt;dbl&gt;</span>
 <span class="co">#&gt;  1 B1GMH Bruttokansantuote markkinahintaan Alkuperäinen sarja … 1990-01-01 21610</span>
@@ -291,18 +291,18 @@
 <span class="co">#&gt; # A tibble:      100,548 × 4</span>
 <span class="co">#&gt; # Title:         Bruttokansantuote ja -tulo sekä tarjonta ja kysyntä</span>
 <span class="co">#&gt; #   neljännesvuosittain</span>
-<span class="co">#&gt; # Last updated:  2021-08-31 08:00:00</span>
-<span class="co">#&gt; # Next update:   2021-09-17 08:00:00</span>
+<span class="co">#&gt; # Last updated:  2021-09-17 08:00:00</span>
+<span class="co">#&gt; # Next update:   2021-11-30 08:00:00</span>
 <span class="co">#&gt;    Vuosineljännes Taloustoimi Tiedot              value</span>
 <span class="co">#&gt;    &lt;chr&gt;          &lt;chr&gt;       &lt;chr&gt;               &lt;dbl&gt;</span>
-<span class="co">#&gt;  1 1990Q1         B1GMH       kausitcp            22883</span>
+<span class="co">#&gt;  1 1990Q1         B1GMH       kausitcp            22884</span>
 <span class="co">#&gt;  2 1990Q1         B1GMH       tasmcp              21610</span>
 <span class="co">#&gt;  3 1990Q1         B1GMH       trendicp            22901</span>
 <span class="co">#&gt;  4 1990Q1         B1GMH       tyopcp              21462</span>
-<span class="co">#&gt;  5 1990Q1         B1GMH       kausitvv2015        35972</span>
+<span class="co">#&gt;  5 1990Q1         B1GMH       kausitvv2015        35966</span>
 <span class="co">#&gt;  6 1990Q1         B1GMH       tasmvv2015          33876</span>
-<span class="co">#&gt;  7 1990Q1         B1GMH       trendivv2015        36022</span>
-<span class="co">#&gt;  8 1990Q1         B1GMH       tyopvv2015          33954</span>
+<span class="co">#&gt;  7 1990Q1         B1GMH       trendivv2015        36013</span>
+<span class="co">#&gt;  8 1990Q1         B1GMH       tyopvv2015          33950</span>
 <span class="co">#&gt;  9 1990Q1         B1GMH       vol_kk_kausitvv2015    NA</span>
 <span class="co">#&gt; 10 1990Q1         B1GMH       vol_kk_trendivv2015    NA</span>
 <span class="co">#&gt; # … with 100,538 more rows</span></code></pre></div>

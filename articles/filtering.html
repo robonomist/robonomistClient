@@ -44,7 +44,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">robonomistClient</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.1.1</span>
       </span>
     </div>
 
@@ -141,7 +141,7 @@
   <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">Country</span> <span class="op">==</span> <span class="st">"Finland"</span>,
          <span class="fu">str_detect</span><span class="op">(</span><span class="va">Subject</span>, <span class="st">"Gross domestic prod"</span><span class="op">)</span>,
          <span class="va">Frequency</span><span class="op">==</span><span class="st">"Quarterly"</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="http://lubridate.tidyverse.org/reference/year.html">year</a></span><span class="op">(</span><span class="va">time</span><span class="op">)</span> <span class="op">&gt;</span> <span class="fl">2019L</span><span class="op">)</span>
+  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/year.html">year</a></span><span class="op">(</span><span class="va">time</span><span class="op">)</span> <span class="op">&gt;</span> <span class="fl">2019L</span><span class="op">)</span>
 <span class="va">x</span>
 <span class="co">#&gt; # Robonomist id: oecd/QNA</span>
 <span class="co">#&gt; # OECD:          Uncollected data structure</span>
@@ -160,6 +160,7 @@
 <span class="co">#&gt; 10 Finland Gross domestic product National curre… Quarterly 2021-01-01        ??</span>
 <span class="co">#&gt; # … with 1,286 more rows</span>
 <span class="co">#&gt; # This data has not yet been collected from OECD api, and all rows might not be available. Please use `filter` to limit the number of rows under a million,  and use `collect` to retrieve actual data.</span>
+
 <span class="fu">distinct</span><span class="op">(</span><span class="va">x</span>, <span class="va">Subject</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 6 × 1</span>
 <span class="co">#&gt;   Subject                                                  </span>
@@ -178,16 +179,16 @@
 <span class="co">#&gt; # Title:         Quarterly National Accounts</span>
 <span class="co">#&gt;    Country Subject     Measure    Frequency time       value `Time Format` Unit </span>
 <span class="co">#&gt;    &lt;chr&gt;   &lt;chr&gt;       &lt;chr&gt;      &lt;chr&gt;     &lt;date&gt;     &lt;dbl&gt; &lt;chr&gt;         &lt;chr&gt;</span>
-<span class="co">#&gt;  1 Finland Gross dome… National … Quarterly 2020-01-01 58222 Quarterly     Euro </span>
-<span class="co">#&gt;  2 Finland Gross dome… National … Quarterly 2020-04-01 57423 Quarterly     Euro </span>
-<span class="co">#&gt;  3 Finland Gross dome… National … Quarterly 2020-07-01 58512 Quarterly     Euro </span>
-<span class="co">#&gt;  4 Finland Gross dome… National … Quarterly 2020-10-01 62031 Quarterly     Euro </span>
-<span class="co">#&gt;  5 Finland Gross dome… National … Quarterly 2021-01-01 57560 Quarterly     Euro </span>
-<span class="co">#&gt;  6 Finland Gross dome… National … Quarterly 2021-04-01 62367 Quarterly     Euro </span>
-<span class="co">#&gt;  7 Finland Gross dome… National … Quarterly 2020-01-01 60435 Quarterly     Euro </span>
-<span class="co">#&gt;  8 Finland Gross dome… National … Quarterly 2020-04-01 57000 Quarterly     Euro </span>
-<span class="co">#&gt;  9 Finland Gross dome… National … Quarterly 2020-07-01 59284 Quarterly     Euro </span>
-<span class="co">#&gt; 10 Finland Gross dome… National … Quarterly 2020-10-01 59469 Quarterly     Euro </span>
+<span class="co">#&gt;  1 Finland Gross dome… National … Quarterly 2020-01-01 58225 Quarterly     Euro </span>
+<span class="co">#&gt;  2 Finland Gross dome… National … Quarterly 2020-04-01 57414 Quarterly     Euro </span>
+<span class="co">#&gt;  3 Finland Gross dome… National … Quarterly 2020-07-01 58509 Quarterly     Euro </span>
+<span class="co">#&gt;  4 Finland Gross dome… National … Quarterly 2020-10-01 62021 Quarterly     Euro </span>
+<span class="co">#&gt;  5 Finland Gross dome… National … Quarterly 2021-01-01 57575 Quarterly     Euro </span>
+<span class="co">#&gt;  6 Finland Gross dome… National … Quarterly 2021-04-01 62639 Quarterly     Euro </span>
+<span class="co">#&gt;  7 Finland Gross dome… National … Quarterly 2020-01-01 60566 Quarterly     Euro </span>
+<span class="co">#&gt;  8 Finland Gross dome… National … Quarterly 2020-04-01 56908 Quarterly     Euro </span>
+<span class="co">#&gt;  9 Finland Gross dome… National … Quarterly 2020-07-01 59196 Quarterly     Euro </span>
+<span class="co">#&gt; 10 Finland Gross dome… National … Quarterly 2020-10-01 59499 Quarterly     Euro </span>
 <span class="co">#&gt; # … with 140 more rows, and 2 more variables: Unit multiplier &lt;chr&gt;,</span>
 <span class="co">#&gt; #   Reference period &lt;chr&gt;</span></code></pre></div>
 <p>Also common <code>dplyr</code> verbs that require the actual data will trigger the <code>collect</code> function automatically.</p>
@@ -196,15 +197,15 @@
   <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">Subject</span> <span class="op">==</span> <span class="st">"Gross domestic product - expenditure approach"</span>,
          <span class="fu">str_detect</span><span class="op">(</span><span class="va">Measure</span>, <span class="st">"Growth rate.*from previous"</span><span class="op">)</span>,
          <span class="va">Frequency</span><span class="op">==</span><span class="st">"Quarterly"</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="http://lubridate.tidyverse.org/reference/year.html">year</a></span><span class="op">(</span><span class="va">time</span><span class="op">)</span> <span class="op">&gt;=</span> <span class="fl">2015L</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/year.html">year</a></span><span class="op">(</span><span class="va">time</span><span class="op">)</span> <span class="op">&gt;=</span> <span class="fl">2015L</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu">group_by</span><span class="op">(</span><span class="va">Country</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu">summarize</span><span class="op">(</span>`Average Q/Q growth rate` <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">value</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 57 × 2</span>
 <span class="co">#&gt;    Country                      `Average Q/Q growth rate`</span>
 <span class="co">#&gt;    &lt;chr&gt;                                            &lt;dbl&gt;</span>
-<span class="co">#&gt;  1 Argentina                                      -0.0551</span>
+<span class="co">#&gt;  1 Argentina                                      -0.104 </span>
 <span class="co">#&gt;  2 Australia                                       0.549 </span>
-<span class="co">#&gt;  3 Austria                                         0.276 </span>
+<span class="co">#&gt;  3 Austria                                         0.281 </span>
 <span class="co">#&gt;  4 Belgium                                         0.295 </span>
 <span class="co">#&gt;  5 Brazil                                         -0.0505</span>
 <span class="co">#&gt;  6 Bulgaria                                        0.670 </span>
