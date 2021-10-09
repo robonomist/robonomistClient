@@ -82,6 +82,7 @@ tbl_sum.px <- function(x, ...) {
   header <- NextMethod()
 
   lang <- attr(x, "output_language")
+  if (is.null(lang)) lang <- 1L
   y <- attr(x, "contents")[lang]
   if (!is.null(y))
     header <- c(header, Title = unname(y))

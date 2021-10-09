@@ -1,3 +1,7 @@
+# robonomistClient 2.1.1
+
+* Fix px print when language is unspecified
+
 # robonomistClient 2.1.0
 
 * Sync version with robonomistServer
