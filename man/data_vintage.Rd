@@ -7,7 +7,7 @@
 data_vintage(id)
 }
 \value{
-character vector
+named character vector. For original data tables the value will be a scalar. For tidy tables,
 }
 \description{
 Vintage of table, i.e. datetime of the latest update

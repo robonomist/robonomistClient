@@ -6,7 +6,7 @@
   access_token <- Sys.getenv("ROBONOMIST_ACCESS_TOKEN")
   if (nzchar(hostname)) {
     set_robonomist_server(hostname, access_token)
-  } else if ("robonomistServer" %in% installed.packages()) {
+  } else if (requireNamespace("robonomistServer", quietly = TRUE)) {
     cli::cli_alert_success("Using local {.pkg robonomistServer} {utils::packageVersion('robonomistServer')}")
   } else if (interactive()){
     connection$please_set_server()

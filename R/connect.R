@@ -1,16 +1,14 @@
 do_request <- function(fun, args) {
 
-  if (is.null(getOption("robonomist.server"))) {
-    if(suppressWarnings(require(robonomistServer))) {
-      cli::cli_process_start("Processing request...")
-      on.exit(cli::cli_process_done())
-      do.call(fun, args, env = robonomistServer::database)
-    } else {
-      please_set_server()
-      stop("Robonomist Data Server unavailable.", call. = FALSE)
-    }
-  } else {
+  if (!is.null(getOption("robonomist.server"))) {
     connection$send(fun, args)
+  } else if(requireNamespace("robonomistServer")) {
+    cli::cli_process_start("Processing request...")
+    on.exit(cli::cli_process_done())
+    do.call(fun, args, env = robonomistServer::database)
+  } else {
+    please_set_server()
+    stop("Robonomist Data Server unavailable.", call. = FALSE)
   }
 }
 
