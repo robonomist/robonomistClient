@@ -83,7 +83,7 @@ tbl_sum.px <- function(x, ...) {
 
   lang <- attr(x, "output_language")
   if (is.null(lang)) lang <- 1L
-  y <- attr(x, "contents")[lang]
+  y <- attr(x, "title")[lang]
   if (!is.null(y))
     header <- c(header, Title = unname(y))
   y <- attr(x, "last-updated")[[lang]][[1]]
