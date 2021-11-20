@@ -1,3 +1,8 @@
+# robonomistClient 2.1.2
+
+* Add connection setup option 
+* Fix startup message
+
 # robonomistClient 2.1.1
 
 * Fix px print when language is unspecified
