@@ -167,6 +167,11 @@ connection <- RobonomistConnection$new()
 
 please_set_server <- function() {
   cli::cli_alert_info(
-    "Please set the Robonomist Data Server's hostname and access token with {.fn set_robonomist_server}, e.g. {.code set_robonomist_server(hostname = \"myhost.com\", access_token =\"xyz\")}. Alternatively set the environment variables `ROBONOMIST_SERVER` and `ROBONOMIST_ACCESS_TOKEN` before loading the {.pkg robonomistClient} package."
+    "Please set the Robonomist Data Server's {.emph hostname} and {.emph access token}. There are 3 ways to do this:"
   )
+  cli::cli_ol(c(
+    "Use function {.fn set_robonomist_server}. For example:\n {.code set_robonomist_server(hostname = \"myhost.com\", access_token =\"xyz\")}",
+    "Set R's global options  `robonomist.server` and `robonomist.access.token` with the {.fn options} function before loading the {.pkg robonomistClient} package.",
+    "Set the environment variables `ROBONOMIST_SERVER` and `ROBONOMIST_ACCESS_TOKEN` before loading R or the {.pkg robonomistClient} package."
+  ))
 }

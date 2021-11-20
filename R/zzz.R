@@ -2,8 +2,8 @@
 
   cli::cli_alert_success("Loaded {.pkg robonomistClient} {utils::packageVersion('robonomistClient')}")
 
-  hostname <- Sys.getenv("ROBONOMIST_SERVER")
-  access_token <- Sys.getenv("ROBONOMIST_ACCESS_TOKEN")
+  hostname <- getOption("robonomist.server", Sys.getenv("ROBONOMIST_SERVER"))
+  access_token <- getOption("robonomist.access.token", Sys.getenv("ROBONOMIST_ACCESS_TOKEN"))
 
   if (nzchar(hostname)) {
     set_robonomist_server(hostname, access_token)
