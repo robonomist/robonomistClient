@@ -44,7 +44,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">robonomistClient</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.1.2</span>
       </span>
     </div>
 
@@ -118,9 +118,9 @@
 <p>You can list all available datasources:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://robonomist.github.io/robonomistClient/">robonomistClient</a></span><span class="op">)</span>
-<span class="co">#&gt; ✔ Loaded robonomistClient 2.1.1</span>
+<span class="co">#&gt; ✔ Loaded robonomistClient 2.1.2</span>
 <span class="co">#&gt; ✔ Connecting to robonomistServer at wss://data.robonomist.app</span>
-<span class="co">#&gt; ✔ Connected successfully to robonomistServer 2.1.3</span>
+<span class="co">#&gt; ✔ Connected successfully to robonomistServer 2.3.0</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Attaching package: 'robonomistClient'</span>
 <span class="co">#&gt; The following object is masked from 'package:utils':</span>
@@ -140,7 +140,7 @@
 <span class="co">#&gt;  8 tulli            Finnish Customs, Uljas Statistical Database                 </span>
 <span class="co">#&gt;  9 luke             Luonnonvarakeskus LUKE:n tilastotietokanta)                 </span>
 <span class="co">#&gt; 10 etk              Eläketurvakeskuksen tietokanta                              </span>
-<span class="co">#&gt; # … with 27 more rows, and 1 more variable: languages &lt;list&gt;</span></code></pre></div>
+<span class="co">#&gt; # … with 28 more rows, and 1 more variable: languages &lt;list&gt;</span></code></pre></div>
 </div>
 <div id="data-tables" class="section level2">
 <h2 class="hasAnchor">
@@ -161,14 +161,14 @@
 <span class="co">#&gt;  8 StatFin/asu/asas/statfin_asas_pxt_116a.… Bostadshushåll efter År, Hustyp, Om…</span>
 <span class="co">#&gt;  9 StatFin/asu/asas/statfin_asas_pxt_116a.… Household-dwelling units by Year, T…</span>
 <span class="co">#&gt; 10 StatFin/asu/asas/statfin_asas_pxt_116b.… Asuntokunnat ja asuntoväestö muuttu…</span>
-<span class="co">#&gt; # … with 129,366 more rows, and 1 more variable: lang &lt;chr&gt;</span></code></pre></div>
+<span class="co">#&gt; # … with 130,509 more rows, and 1 more variable: lang &lt;chr&gt;</span></code></pre></div>
 <p>The package automatically ensures that the listed data tables are the latest versions available at the datasources.</p>
 <p>To get a specific data table, use the tables id.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/data.html">data</a></span><span class="op">(</span><span class="st">"StatFin/vrm/synt/statfin_synt_pxt_12dx.px"</span><span class="op">)</span>
 <span class="co">#&gt; # Robonomist id: StatFin/vrm/synt/statfin_synt_pxt_12dx.px</span>
 <span class="co">#&gt; # A tibble:      2,992 × 3</span>
-<span class="co">#&gt; # Title:         Väestönmuutokset</span>
+<span class="co">#&gt; # Title:         12dx -- Väestönmuutokset ja väkiluku, 1749-2020</span>
 <span class="co">#&gt; # Last updated:  2021-06-18 08:00:00</span>
 <span class="co">#&gt; # Next update:   2022-06-17 08:00:00</span>
 <span class="co">#&gt;    Vuosi Tiedot                     value</span>
@@ -192,7 +192,7 @@
 <p>You can easily explore all available data tables in the Data Viewer.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/View.html">View</a></span><span class="op">(</span><span class="fu"><a href="../reference/data.html">data</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<p>To explore available data tables in the <code>Vero</code> dataset, for example, use the dataset name with a forward slash as the first argument in <code>data</code>, i.e. <code><a href="https://rdrr.io/r/utils/View.html">View(data("Vero/"))</a></code>. Or print the data table listing in your console:</p>
+<p>To explore available data tables in the <code>Vero</code> dataset, for example, use the dataset name with a forward slash as the first argument in <code>data</code>, i.e. <code>View(data("Vero/"))</code>. Or print the data table listing in your console:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/data.html">data</a></span><span class="op">(</span><span class="st">"Vero/"</span><span class="op">)</span>
 <span class="co">#&gt; </span>
@@ -218,8 +218,8 @@
 <li>When the argument matches more than one table ids or titles, the <code><a href="../reference/data.html">data()</a></code> function will return tibble of matched data tables.</li>
 <li>When exactly one matching data table is found, the <code><a href="../reference/data.html">data()</a></code> function will return that data table.</li>
 </ul>
-<p>For example, <code><a href="../reference/data.html">data("väestö")</a></code> will search data and find multible data tables, and return the matches. In contrast, <code><a href="../reference/data.html">data("StatFin/vrm/synt/statfin_synt_pxt_12dx.px")</a></code> will return a specific data table. The function <code><a href="../reference/data.html">data()</a></code> is meant for rapid exploration, and in production context it is better use more specific functions.</p>
-<p>To separate the tasks of search and retrieval, use functions <code><a href="../reference/data_search.html">data_search()</a></code> and <code><a href="../reference/data_get.html">data_get()</a></code>. Use <code><a href="../reference/data_get.html">data_get()</a></code> to return a data table for a given table id, and fail if no match exists. For example, use <code><a href="../reference/data_get.html">data_get("StatFin/vrm/synt/statfin_synt_pxt_12dx.px")</a></code> to guarantee that either a data table or an error will be returned.</p>
+<p>For example, <code>data("väestö")</code> will search data and find multible data tables, and return the matches. In contrast, <code>data("StatFin/vrm/synt/statfin_synt_pxt_12dx.px")</code> will return a specific data table. The function <code><a href="../reference/data.html">data()</a></code> is meant for rapid exploration, and in production context it is better use more specific functions.</p>
+<p>To separate the tasks of search and retrieval, use functions <code><a href="../reference/data_search.html">data_search()</a></code> and <code><a href="../reference/data_get.html">data_get()</a></code>. Use <code><a href="../reference/data_get.html">data_get()</a></code> to return a data table for a given table id, and fail if no match exists. For example, use <code>data_get("StatFin/vrm/synt/statfin_synt_pxt_12dx.px")</code> to guarantee that either a data table or an error will be returned.</p>
 <p>The function <code><a href="../reference/data_search.html">data_search()</a></code> allows to search and return matching table ids, without downloading actual data. For example, to search all data tables related to “väestö”, use:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/data_search.html">data_search</a></span><span class="op">(</span><span class="st">"väestö"</span><span class="op">)</span>
@@ -236,7 +236,7 @@
 <span class="co">#&gt;  8 StatFin/sos/lasuo/statfin_lasuo_pxt_001… Kodin ulkopuolelle sijoitetut 0-17-…</span>
 <span class="co">#&gt;  9 StatFin/sos/lasuo/statfin_lasuo_pxt_001… Ungdomar i åldern 0-17 år som var p…</span>
 <span class="co">#&gt; 10 StatFin/sos/lasuo/statfin_lasuo_pxt_001… 017-year-olds placed outside the home, % of those of the same age by percentage of children placed outside the home (%) and Year</span>
-<span class="co">#&gt; # … with 972 more rows, and 1 more variable: lang &lt;chr&gt;</span></code></pre></div>
+<span class="co">#&gt; # … with 1,085 more rows, and 1 more variable: lang &lt;chr&gt;</span></code></pre></div>
 </div>
 <div id="tidy-time-and-labels" class="section level2">
 <h2 class="hasAnchor">
@@ -246,8 +246,8 @@
 <code class="sourceCode R"><span class="fu"><a href="../reference/data_get.html">data_get</a></span><span class="op">(</span><span class="st">"StatFin/kan/ntp/statfin_ntp_pxt_132h.px"</span><span class="op">)</span>
 <span class="co">#&gt; # Robonomist id: StatFin/kan/ntp/statfin_ntp_pxt_132h.px</span>
 <span class="co">#&gt; # A tibble:      100,548 × 4</span>
-<span class="co">#&gt; # Title:         Bruttokansantuote ja -tulo sekä tarjonta ja kysyntä</span>
-<span class="co">#&gt; #   neljännesvuosittain</span>
+<span class="co">#&gt; # Title:         132h -- Bruttokansantuote ja -tulo sekä tarjonta ja kysyntä</span>
+<span class="co">#&gt; #   neljännesvuosittain, 1990Q1-2021Q2</span>
 <span class="co">#&gt; # Last updated:  2021-09-17 08:00:00</span>
 <span class="co">#&gt; # Next update:   2021-11-30 08:00:00</span>
 <span class="co">#&gt;    Vuosineljännes Taloustoimi                             Tiedot           value</span>
@@ -267,8 +267,8 @@
   <span class="fu">arrange</span><span class="op">(</span><span class="va">Taloustoimi</span>, <span class="va">Tiedot</span><span class="op">)</span>
 <span class="co">#&gt; # Robonomist id: StatFin/kan/ntp/statfin_ntp_pxt_132h.px</span>
 <span class="co">#&gt; # A tibble:      100,548 × 4</span>
-<span class="co">#&gt; # Title:         Bruttokansantuote ja -tulo sekä tarjonta ja kysyntä</span>
-<span class="co">#&gt; #   neljännesvuosittain</span>
+<span class="co">#&gt; # Title:         132h -- Bruttokansantuote ja -tulo sekä tarjonta ja kysyntä</span>
+<span class="co">#&gt; #   neljännesvuosittain, 1990Q1-2021Q2</span>
 <span class="co">#&gt; # Last updated:  2021-09-17 08:00:00</span>
 <span class="co">#&gt; # Next update:   2021-11-30 08:00:00</span>
 <span class="co">#&gt;    Taloustoimi                             Tiedot               time       value</span>
@@ -289,8 +289,8 @@
 <code class="sourceCode R"><span class="fu"><a href="../reference/data_get.html">data_get</a></span><span class="op">(</span><span class="st">"StatFin/kan/ntp/statfin_ntp_pxt_132h.px"</span>, labels <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
 <span class="co">#&gt; # Robonomist id: StatFin/kan/ntp/statfin_ntp_pxt_132h.px</span>
 <span class="co">#&gt; # A tibble:      100,548 × 4</span>
-<span class="co">#&gt; # Title:         Bruttokansantuote ja -tulo sekä tarjonta ja kysyntä</span>
-<span class="co">#&gt; #   neljännesvuosittain</span>
+<span class="co">#&gt; # Title:         132h -- Bruttokansantuote ja -tulo sekä tarjonta ja kysyntä</span>
+<span class="co">#&gt; #   neljännesvuosittain, 1990Q1-2021Q2</span>
 <span class="co">#&gt; # Last updated:  2021-09-17 08:00:00</span>
 <span class="co">#&gt; # Next update:   2021-11-30 08:00:00</span>
 <span class="co">#&gt;    Vuosineljännes Taloustoimi Tiedot              value</span>
