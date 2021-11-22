@@ -129,7 +129,9 @@ RobonomistConnection <- R6::R6Class(
         private$databuffer_hash <- hash
       }
       if(inherits(private$databuffer, "error"))
-        stop("Request failed in error:\n", conditionMessage(private$databuffer), call. = FALSE)
+        stop("Request failed in error:\n",
+             iconv(conditionMessage(private$databuffer), "UTF8"),
+             call. = FALSE)
       private$databuffer
     },
 

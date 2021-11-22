@@ -1,3 +1,7 @@
+# robonomistClient 2.1.2.9000
+
+* Fix error message encoding
+
 # robonomistClient 2.1.2
 
 * Add connection setup option 
