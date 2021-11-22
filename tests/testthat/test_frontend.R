@@ -37,9 +37,9 @@ test_that("OECDv2 api works", {
   expect_s3_class(print(y), "tbl_lazy_oecd")
   expect_s3_class({y <-
                      filter(y, Country == "Finland",
-                               stringr::str_detect(Subject, "Gross domestic prod"),
+                            grepl("Gross domestic prod", Subject),
                                Frequency=="Quarterly") %>%
-                     filter(lubridate::year(time) > 2019L)}, "tbl_lazy_oecd")
+                     filter(format(time, "%Y") > "2019")}, "tbl_lazy_oecd")
   expect_s3_class(print(y), "tbl_lazy_oecd")
   expect_s3_class(distinct(y, Subject), "tbl_df")
   expect_s3_class(collect(y), "tbl_df")

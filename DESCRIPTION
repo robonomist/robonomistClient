@@ -6,13 +6,15 @@ Authors@R:
            family = "Itkonen",
            role = c("aut", "cre"),
            email = "juha@robonomist.com")
-Description: Easy and fast access to various datasources in a unified format via Robonomist Data Server
+Description: Easy and fast access to various datasources in a unified format via Robonomist Data Server.
 URL: https://robonomist.github.io/robonomistClient/, https://github.com/robonomist/robonomistClient
-License: Proprietary
+License: LGPL-3
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.2
+Depends:
+  dplyr
 Imports: 
     websocket,
     tibble,
@@ -21,7 +23,6 @@ Imports:
     qs,
     R6,
     pillar (>= 1.5.1),
-    dplyr,
     tidyr,
     purrr,
     rlang,
