@@ -2,7 +2,7 @@ do_request <- function(fun, args) {
 
   if (!is.null(getOption("robonomist.server"))) {
     connection$send(fun, args)
-  } else if(requireNamespace("robonomistServer")) {
+  } else if (requireNamespace("robonomistServer")) {
     cli::cli_process_start("Processing request...")
     on.exit(cli::cli_process_done())
     do.call(fun, args, env = robonomistServer::database)
