@@ -1,5 +1,6 @@
-# robonomistClient 2.1.2.9000
+# robonomistClient 2.1.3
 
+* New ogle and print_filter functions
 * Fix error message encoding
 
 # robonomistClient 2.1.2
