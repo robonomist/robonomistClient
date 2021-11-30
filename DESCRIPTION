@@ -25,10 +25,12 @@ Imports:
     pillar (>= 1.5.1),
     tidyr,
     purrr,
+    lubridate,
     rlang,
     digest,
     vctrs (>= 0.3.6)
 Suggests:
+    tidyverse,
     rmarkdown,
     knitr,
     clipr,

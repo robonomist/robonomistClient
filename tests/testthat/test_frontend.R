@@ -46,17 +46,3 @@ test_that("OECDv2 api works", {
 
 })
 
-ds <- datasources()
-
-for(i in ds$dataset) {
-  test_that(paste("data() works on datasource", i), {
-    n <- switch(i, Konj = 10, DK = 2, NO = 2, 1)
-    if(i %in% c("tulli", "ecb")) {
-      expect_s3_class(data(paste0(i, "/#", n)), "list")
-    } else {
-      expect_s3_class(data(paste0(i, "/#", n)), "tbl")
-    }
-  })
-}
-
-
