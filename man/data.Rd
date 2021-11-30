@@ -14,13 +14,13 @@ data(
 )
 }
 \arguments{
-\item{pattern}{string. A sequence of regular expressions separated by section sign \code{§}, which are used to filter the database. The first expression in the sequence is matched to a table id. The following expressions match to table variables in sequence. If the last variable is a date, it is used as start date filter.}
+\item{pattern}{string, A sequence of regular expressions separated by section sign \code{§}, which are used to filter the database. The first expression in the sequence is matched to a table id. The following expressions match to table variables in sequence. If the last variable is a date, it is used as start date filter.}
 
 \item{dl_filter}{list or named vector passed to datasource download functions for filtering incoming data. Supported by tulli, OECD and ECB.}
 
 \item{labels}{logical. Some datasources can return labelled or coded data.}
 
-\item{lang}{Still experimental}
+\item{lang}{Two-letter language code, e.g. "en" or "sv".}
 
 \item{na.rm}{Px-file based datasources return a table with a combination of all categories. Missing values can be filtered when reading the file to improve preformance.}
 }

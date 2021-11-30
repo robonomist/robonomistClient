@@ -7,8 +7,8 @@
 data_get(id, dl_filter = NULL, labels = TRUE, lang = NULL, na.rm = FALSE, ...)
 }
 \arguments{
-\item{id}{string. Table id}
+\item{id}{string. Exact table id}
 }
 \description{
-Get data for table id
+Returns the objects without performing searching or pattern filters. Fails if no match exists.
 }

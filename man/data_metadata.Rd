@@ -7,11 +7,13 @@
 data_metadata(id)
 }
 \arguments{
-\item{String, }{exact id of table}
+\item{id, }{Exact table id}
 }
 \value{
 List of metadata
 }
 \description{
-Currently works only with px-based tables
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
+
+The output of this function is likely to change. Currently works only with px-based tables.
 }

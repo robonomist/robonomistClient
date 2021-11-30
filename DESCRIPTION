@@ -28,7 +28,8 @@ Imports:
     lubridate,
     rlang,
     digest,
-    vctrs (>= 0.3.6)
+    vctrs (>= 0.3.6),
+    lifecycle
 Suggests:
     tidyverse,
     rmarkdown,
