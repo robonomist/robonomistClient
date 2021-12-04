@@ -1,3 +1,8 @@
+# robonomistClient 2.1.4
+
+* More info printout on eurostat datatables
+* Multilingual metadata
+
 # robonomistClient 2.1.3
 
 * New ogle and print_filter functions

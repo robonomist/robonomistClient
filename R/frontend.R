@@ -18,7 +18,7 @@ data_vintage <- function(id) {
 #' @return List of metadata
 #'
 #' @export
-data_metadata <- function(id) {
+data_metadata <- function(id, lang = NULL) {
   do_request("metadata", as.list(environment()))
 }
 

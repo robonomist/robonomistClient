@@ -72,7 +72,6 @@ tbl_sum.robonomist_data <- function(x, ...) {
   c("Robonomist id" = crayon::cyan(attr(x, "robonomist_id")), default_header)
 }
 
-
 ## px
 
 #' @export
@@ -99,6 +98,23 @@ tbl_sum.px <- function(x, ...) {
     header <- c(header, `Next update` = as.character(y))
 
   header
+}
+
+## eurostat
+
+#' @export
+#' @importFrom tibble tbl_sum
+tbl_sum.eurostat <- function(x, ...) {
+
+  header <- NextMethod()
+
+  c(header,
+    Title = attr(x, "title"),
+    `Last updated` = attr(x, "robonomist_vintage"),
+    `Time frame` = if (!is.null(y <- attr(x, "time_frame_code"))) {
+      paste(y, collapse = "-")
+    }
+    )
 }
 
 
