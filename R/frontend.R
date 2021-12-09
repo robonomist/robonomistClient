@@ -14,6 +14,7 @@
 #' @param labels logical, Some datasources can return labelled or coded data.
 #' @param lang Two-letter language code, e.g. "en" or "sv".
 #' @param na.rm Px-file based datasources return a table with a combination of all categories. Missing values can be filtered when reading the file to improve preformance.
+#' @param ... Datasource-specific arguments. TODO 
 #'
 #' @export
 data <- function(pattern = "", dl_filter = NULL, labels = TRUE,
@@ -63,6 +64,7 @@ data_vintage <- function(id) {
 #' The output of this function is likely to change. Currently works only with px-based tables.
 #'
 #' @param id, Exact table id
+#' @param lang Two-letter language code, e.g. "en" or "sv".
 #' @return List of metadata
 #'
 #' @export

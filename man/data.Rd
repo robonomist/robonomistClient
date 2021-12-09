@@ -30,6 +30,8 @@ data_search(pattern = "")
 
 \item{na.rm}{Px-file based datasources return a table with a combination of all categories. Missing values can be filtered when reading the file to improve preformance.}
 
+\item{...}{Datasource-specific arguments. TODO}
+
 \item{id}{string, Exact table id}
 }
 \description{
