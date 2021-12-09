@@ -2,7 +2,9 @@
 % Please edit documentation in R/frontend.R
 \name{data}
 \alias{data}
-\title{Get data from Robonomist database}
+\alias{data_get}
+\alias{data_search}
+\title{Search and get data from Robonomist Data Server}
 \usage{
 data(
   pattern = "",
@@ -12,18 +14,37 @@ data(
   na.rm = FALSE,
   ...
 )
+
+data_get(id, dl_filter = NULL, labels = TRUE, lang = NULL, na.rm = FALSE, ...)
+
+data_search(pattern = "")
 }
 \arguments{
-\item{pattern}{string, A sequence of regular expressions separated by section sign \code{§}, which are used to filter the database. The first expression in the sequence is matched to a table id. The following expressions match to table variables in sequence. If the last variable is a date, it is used as start date filter.}
+\item{pattern}{string, Search query or table id, possibly followed by a \code{§}-filter.}
 
 \item{dl_filter}{list or named vector passed to datasource download functions for filtering incoming data. Supported by tulli, OECD and ECB.}
 
-\item{labels}{logical. Some datasources can return labelled or coded data.}
+\item{labels}{logical, Some datasources can return labelled or coded data.}
 
 \item{lang}{Two-letter language code, e.g. "en" or "sv".}
 
 \item{na.rm}{Px-file based datasources return a table with a combination of all categories. Missing values can be filtered when reading the file to improve preformance.}
+
+\item{id}{string, Exact table id}
 }
 \description{
-Convenience api that searches when multiple table id matches are found and filters the table using the section pattern
+\code{data()} is a convenience function that searches the database and returns
+\enumerate{
+\item search results if multiple matching tables are found, and
+\item data if only one match is found.
+}
+
+\code{data_get()} returns data without performing searching or pattern filters. It will fail, if no match exists.
+
+\code{data_search()} only performs a search and returns the results.
+}
+\details{
+The \code{data()} function allows for a special \code{§}-filter. When the pattern matches a single table and the function returns a data frame, the \code{§}-filter can be used to subset rows of data frame. The tibble is filterd by sequence of regular expressions separated by section sign \code{§}. The regular expression are applied to data frame's variables sequentially.
+
+If the last variable is a date, it is used as a start date filter.
 }

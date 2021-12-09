@@ -4,7 +4,7 @@
 \alias{data_metadata}
 \title{Metadata of table}
 \usage{
-data_metadata(id)
+data_metadata(id, lang = NULL)
 }
 \arguments{
 \item{id, }{Exact table id}

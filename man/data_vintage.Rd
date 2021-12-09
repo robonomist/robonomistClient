@@ -6,8 +6,11 @@
 \usage{
 data_vintage(id)
 }
+\arguments{
+\item{id}{string, Exact table id}
+}
 \value{
-named character vector. For original data tables the value will be a scalar. For tidy tables,
+named character vector. For original data tables the value will be a scalar.
 }
 \description{
 Vintage of table, i.e. datetime of the latest update
