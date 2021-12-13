@@ -27,7 +27,6 @@ Imports:
     purrr,
     lubridate,
     rlang,
-    digest,
     vctrs (>= 0.3.6),
     lifecycle
 Suggests:

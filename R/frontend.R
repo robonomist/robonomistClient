@@ -79,4 +79,16 @@ datasources <- function() {
   do_request("datasources", list())
 }
 
+#' @keywords internal
+do_request <- function(fun, args) {
 
+  if (!is.null(getOption("robonomist.server"))) {
+    connection$send(fun, args)
+  } else if (requireNamespace("robonomistServer")) {
+    cli_progress_step("Requesting {fun}")
+    do.call(fun, args, env = robonomistServer::database)
+  } else {
+    please_set_server()
+    stop("Robonomist Data Server unavailable.", call. = FALSE)
+  }
+}
