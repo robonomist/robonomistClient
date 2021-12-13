@@ -29,6 +29,13 @@ test_that("Frontend works remotely", {
   expect_s3_class(data("eurostat/#2"), "robonomist_data")
 })
 
+test_that("reconnect", {
+  skip_if(Sys.getenv("ROBONOMIST_TEST_SERVER") == "", "Test server not configured.")
+  expect_s3_class(data(), "tbl_df")
+  expect_true(disconnect())
+  expect_s3_class(data(), "tbl_df")
+})
+
 test_that("OECDv2 api works", {
   skip_if(Sys.getenv("ROBONOMIST_TEST_SERVER") == "", "Test server not configured.")
   expect_s3_class(y <- data("oecd/QNA"), "tbl_lazy_oecd")
@@ -37,7 +44,7 @@ test_that("OECDv2 api works", {
   expect_s3_class({y <-
                      filter(y, Country == "Finland",
                             grepl("Gross domestic prod", Subject),
-                               Frequency=="Quarterly") %>%
+                            Frequency=="Quarterly") %>%
                      filter(format(time, "%Y") > "2019")}, "tbl_lazy_oecd")
   expect_s3_class(print(y), "tbl_lazy_oecd")
   expect_s3_class(distinct(y, Subject), "tbl_df")
