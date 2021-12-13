@@ -18,8 +18,8 @@
 
 }
 
-.onUnload <- function(...) {
-  if(connection$open) try({
-    disconnect()
-  }, silent = TRUE)
-}
+## .onUnload <- function(...) {
+##   if(connection$open) try({
+##     disconnect()
+##   }, silent = TRUE)
+## }

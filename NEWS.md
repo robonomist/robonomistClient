@@ -1,3 +1,7 @@
+# robonomistClient 2.1.5
+
+* Auto-healing connection
+
 # robonomistClient 2.1.4
 
 * More info printout on eurostat datatables
