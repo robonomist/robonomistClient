@@ -132,6 +132,7 @@ RobonomistConnection <- R6::R6Class(
           cli_alert_success("{.pkg robonomistClient} disconnected successfully")
         }
       }
+      invisible(TRUE)
     },
 
     send = function(fun, args) {
@@ -153,12 +154,7 @@ RobonomistConnection <- R6::R6Class(
         }
       })
       private$cache$data
-    },
-
-    finalize = function() {
-      self$disconnect()
     }
-
   ),
 
   private = list(
