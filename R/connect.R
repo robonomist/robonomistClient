@@ -101,6 +101,7 @@ RobonomistConnection <- R6::R6Class(
           if (private$state() == "Open") break
           sleep <- 5*attempt
           cli_alert_warning("Failed to connect. Retrying in {sleep} seconds.")
+          self$set(self$hostname, self$access_token)
           Sys.sleep(sleep)
         }
       }
