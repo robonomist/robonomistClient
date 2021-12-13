@@ -22,7 +22,7 @@ print.tbl_lazy_oecd <- function(x, n = 10L, ...) {
     ## Filter out incompatible dates
     time_cols <-
       dplyr::inner_join(x$x$Frequency,
-                 select(x$x$time, date_type, time),
+                 dplyr::select(x$x$time, date_type, time),
                  by = c("code" = "date_type")) %>%
       dplyr::select(x$var_types["Frequency"], time)
     not_time <- setdiff(names(x$x), c("Frequency", "time"))

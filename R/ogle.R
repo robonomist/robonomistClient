@@ -53,7 +53,7 @@ is_summary <- function(x) {
 #'
 #' @export
 print_filter <- function(.data, ...) {
-  y <- select(.data, where(is_cat))
+  y <- dplyr::select(.data, where(is_cat))
   if (length(rlang::ensyms(...))) y <- select(y, ...)
   categories <-
     purrr::imap(y, function(x, name) {
