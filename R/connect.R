@@ -60,6 +60,10 @@ RobonomistConnection <- R6::R6Class(
         msg <- qs::qdeserialize(event$data)
         if(inherits(msg, "cli_message")) {
           cli:::cli_server_default(msg)
+        } else if (inherits(msg, "error")) {
+          private$error_flag <- TRUE
+          cli_abort("Request failed in server error:\n",
+                    iconv(conditionMessage(msg), "UTF8"))
         } else {
           private$cache$data <- msg
         }
@@ -144,12 +148,16 @@ RobonomistConnection <- R6::R6Class(
       spinner$spin()
 
       payload <- list(fun = fun, args = args)
-      private$cache$wait_for_data(payload, {
+
+      private$cache$wait_for_data(key = payload, {
         spinner$spin()
         private$ws$send(qs::qserialize(payload, preset = "balanced"))
         later::run_now()
         while (is.null(private$cache$data)) {
-          if(private$state() != "Open") cli_abort("Request failed")
+          if(private$state() != "Open" || private$error_flag) {
+            private$error_flag <- FALSE
+            cli_abort("Request failed")
+          }
           spinner$spin()
           later::run_now(timeoutSecs = 1)
         }
@@ -161,6 +169,7 @@ RobonomistConnection <- R6::R6Class(
   private = list(
     ws = NULL,
     cache = Cache$new(),
+    error_flag = FALSE,
     state = function() {
       if (is.null(private$ws)) {
         "Unset"
