@@ -8,6 +8,7 @@ set_robonomist_server <- function(hostname = getOption("robonomist.server"),
                                   access_token = getOption("robonomist.access.token")) {
   options(robonomist.server = hostname)
   options(robonomist.access.token = access_token)
+  cli_progress_step("Set to connect {hostname}")
   connection$set(hostname, access_token)
 }
 
@@ -84,8 +85,13 @@ RobonomistConnection <- R6::R6Class(
     establish_connection = function() {
 
       if (is.null(private$ws)) {
-        please_set_server()
-        cli_abort("Connection not set.")
+        hostname <- hostname = getOption("robonomist.server")
+        if (!is.character(hostname) || !nzchar(hostname)) {
+          self$set(hostname, getOption("robonomist.access.token"))
+        } else {
+          please_set_server()
+          cli_abort("Connection not set.")
+        }
       }
 
       ## Wait for transition
@@ -124,7 +130,7 @@ RobonomistConnection <- R6::R6Class(
         later::run_now(timeoutSecs = 1)
       }
       if ((private$state() == "Open")) {
-        server_version <- self$send('server_version', list())
+        server_version <- self$send(fun = 'server_version', args = list(), message = FALSE)
         cli_progress_step("Connected successfully to {server_version}")
         private$heart_beat_start()
       }
@@ -140,17 +146,14 @@ RobonomistConnection <- R6::R6Class(
       invisible(TRUE)
     },
 
-    send = function(fun, args) {
+    send = function(fun, args, message = TRUE) {
       self$establish_connection()
 
-      spinner <- make_spinner(template = paste("{spin} Requesting", fun))
-      on.exit(spinner$finish())
-      spinner$spin()
+      if (message) cli_progress_step("Requesting {fun}", spinner = TRUE)
 
       payload <- list(fun = fun, args = args)
 
       private$cache$wait_for_data(key = payload, {
-        spinner$spin()
         private$ws$send(qs::qserialize(payload, preset = "balanced"))
         later::run_now()
         while (is.null(private$cache$data)) {
@@ -158,7 +161,7 @@ RobonomistConnection <- R6::R6Class(
             private$error_flag <- FALSE
             cli_abort("Request failed")
           }
-          spinner$spin()
+          if (message) cli_progress_update()
           later::run_now(timeoutSecs = 1)
         }
       })

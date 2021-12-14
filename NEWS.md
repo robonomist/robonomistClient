@@ -1,3 +1,8 @@
+# robonomistClient 2.1.6
+
+* Auto-heal special conditions
+* Improved ui output
+
 # robonomistClient 2.1.5
 
 * Auto-healing connection
