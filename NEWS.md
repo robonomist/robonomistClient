@@ -1,3 +1,7 @@
+# robonomistClient 2.1.7
+
+* Performance improvements
+
 # robonomistClient 2.1.6
 
 * Auto-heal special conditions
