@@ -32,6 +32,8 @@
 </script>
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -44,18 +46,12 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">robonomistClient</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.1.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.1.6</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-<li>
-  <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
@@ -83,7 +79,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/robonomist/robonomistClient/">
+  <a href="https://github.com/robonomist/robonomistClient/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -104,116 +100,116 @@
       <h1 data-toc-skip>Filtering large data tables</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/robonomist/robonomistClient/blob/master/vignettes/filtering.Rmd"><code>vignettes/filtering.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/robonomist/robonomistClient/blob/HEAD/vignettes/filtering.Rmd" class="external-link"><code>vignettes/filtering.Rmd</code></a></small>
       <div class="hidden name"><code>filtering.Rmd</code></div>
 
     </div>
 
     
     
-<div id="filtering-datasources" class="section level2">
-<h2 class="hasAnchor">
-<a href="#filtering-datasources" class="anchor"></a>Filtering datasources</h2>
+<div class="section level2">
+<h2 id="filtering-datasources">Filtering datasources<a class="anchor" aria-label="anchor" href="#filtering-datasources"></a>
+</h2>
 <p>Most data tables are returned as regular <code>tibble</code> objects, but some datasources contain large tables and require filtering at the source. For example, OECD database usually requires filtering on the data before anything can be retrieved. For convenience, Robonomist provides an easy-to-use workflow to fetch data.</p>
 <p>The initial data request (e.g <code>data("oecd/QNA")</code>) returns a data structure object that acts very much like a regular tibble, but it does not yet contain the actual data. This object is printed like a tibble, and it can be handled with common <code>dplyr</code> verbs such as <code>filter</code> and <code>distinct</code> in a <code>magrittr</code> pipe using <code>%&gt;%</code>.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/data.html">data</a></span><span class="op">(</span><span class="st">"oecd/QNA"</span><span class="op">)</span>
-<span class="co">#&gt; # Robonomist id: oecd/QNA</span>
-<span class="co">#&gt; # OECD:          Uncollected data structure</span>
-<span class="co">#&gt; # Title:         Quarterly National Accounts</span>
+<span class="co">#&gt; <span style="color: #949494;"># Robonomist id: </span><span style="color: #00BBBB;">oecd/QNA</span></span>
+<span class="co">#&gt; <span style="color: #949494;"># OECD:          Uncollected data structure</span></span>
+<span class="co">#&gt; <span style="color: #949494;"># Title:         Quarterly National Accounts</span></span>
 <span class="co">#&gt;    Country   Subject                Measure       Frequency time           value</span>
-<span class="co">#&gt;    &lt;chr&gt;     &lt;chr&gt;                  &lt;chr&gt;         &lt;chr&gt;     &lt;date&gt;     &lt;collect&gt;</span>
-<span class="co">#&gt;  1 Australia Gross domestic product Current pric… Annual    1947-01-01        ??</span>
-<span class="co">#&gt;  2 Australia Gross domestic product Current pric… Quarterly 1947-01-01        ??</span>
-<span class="co">#&gt;  3 Australia Gross domestic product Current pric… Quarterly 1947-04-01        ??</span>
-<span class="co">#&gt;  4 Australia Gross domestic product Current pric… Quarterly 1947-07-01        ??</span>
-<span class="co">#&gt;  5 Australia Gross domestic product Current pric… Quarterly 1947-10-01        ??</span>
-<span class="co">#&gt;  6 Australia Gross domestic product Current pric… Annual    1948-01-01        ??</span>
-<span class="co">#&gt;  7 Australia Gross domestic product Current pric… Quarterly 1948-01-01        ??</span>
-<span class="co">#&gt;  8 Australia Gross domestic product Current pric… Quarterly 1948-04-01        ??</span>
-<span class="co">#&gt;  9 Australia Gross domestic product Current pric… Quarterly 1948-07-01        ??</span>
-<span class="co">#&gt; 10 Australia Gross domestic product Current pric… Quarterly 1948-10-01        ??</span>
-<span class="co">#&gt; # … with 182,733,398 more rows</span>
+<span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;collect&gt;</span></span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Australia Gross domestic product Current pric… Annual    1947-01-01        ??</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Australia Gross domestic product Current pric… Quarterly 1947-01-01        ??</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Australia Gross domestic product Current pric… Quarterly 1947-04-01        ??</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Australia Gross domestic product Current pric… Quarterly 1947-07-01        ??</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Australia Gross domestic product Current pric… Quarterly 1947-10-01        ??</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Australia Gross domestic product Current pric… Annual    1948-01-01        ??</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Australia Gross domestic product Current pric… Quarterly 1948-01-01        ??</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Australia Gross domestic product Current pric… Quarterly 1948-04-01        ??</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Australia Gross domestic product Current pric… Quarterly 1948-07-01        ??</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Australia Gross domestic product Current pric… Quarterly 1948-10-01        ??</span>
+<span class="co">#&gt; <span style="color: #949494;"># … with 182,733,398 more rows</span></span>
 <span class="co">#&gt; # This data has not yet been collected from OECD api, and all rows might not be available. Please use `filter` to limit the number of rows under a million,  and use `collect` to retrieve actual data.</span></code></pre></div>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span>
-  <span class="fu"><a href="../reference/data.html">data</a></span><span class="op">(</span><span class="st">"oecd/QNA"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">Country</span> <span class="op">==</span> <span class="st">"Finland"</span>,
-         <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_detect.html">str_detect</a></span><span class="op">(</span><span class="va">Subject</span>, <span class="st">"Gross domestic prod"</span><span class="op">)</span>,
-         <span class="va">Frequency</span><span class="op">==</span><span class="st">"Quarterly"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/year.html">year</a></span><span class="op">(</span><span class="va">time</span><span class="op">)</span> <span class="op">&gt;</span> <span class="fl">2019L</span><span class="op">)</span>
+  <span class="fu"><a href="../reference/data.html">data</a></span><span class="op">(</span><span class="st">"oecd/QNA"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">Country</span> <span class="op">==</span> <span class="st">"Finland"</span>,
+         <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_detect.html" class="external-link">str_detect</a></span><span class="op">(</span><span class="va">Subject</span>, <span class="st">"Gross domestic prod"</span><span class="op">)</span>,
+         <span class="va">Frequency</span><span class="op">==</span><span class="st">"Quarterly"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/year.html" class="external-link">year</a></span><span class="op">(</span><span class="va">time</span><span class="op">)</span> <span class="op">&gt;</span> <span class="fl">2019L</span><span class="op">)</span>
 <span class="va">x</span>
-<span class="co">#&gt; # Robonomist id: oecd/QNA</span>
-<span class="co">#&gt; # OECD:          Uncollected data structure</span>
-<span class="co">#&gt; # Title:         Quarterly National Accounts</span>
+<span class="co">#&gt; <span style="color: #949494;"># Robonomist id: </span><span style="color: #00BBBB;">oecd/QNA</span></span>
+<span class="co">#&gt; <span style="color: #949494;"># OECD:          Uncollected data structure</span></span>
+<span class="co">#&gt; <span style="color: #949494;"># Title:         Quarterly National Accounts</span></span>
 <span class="co">#&gt;    Country Subject                Measure         Frequency time           value</span>
-<span class="co">#&gt;    &lt;chr&gt;   &lt;chr&gt;                  &lt;chr&gt;           &lt;chr&gt;     &lt;date&gt;     &lt;collect&gt;</span>
-<span class="co">#&gt;  1 Finland Gross domestic product Current prices  Quarterly 2020-01-01        ??</span>
-<span class="co">#&gt;  2 Finland Gross domestic product National curre… Quarterly 2020-01-01        ??</span>
-<span class="co">#&gt;  3 Finland Gross domestic product Current prices  Quarterly 2020-04-01        ??</span>
-<span class="co">#&gt;  4 Finland Gross domestic product National curre… Quarterly 2020-04-01        ??</span>
-<span class="co">#&gt;  5 Finland Gross domestic product Current prices  Quarterly 2020-07-01        ??</span>
-<span class="co">#&gt;  6 Finland Gross domestic product National curre… Quarterly 2020-07-01        ??</span>
-<span class="co">#&gt;  7 Finland Gross domestic product Current prices  Quarterly 2020-10-01        ??</span>
-<span class="co">#&gt;  8 Finland Gross domestic product National curre… Quarterly 2020-10-01        ??</span>
-<span class="co">#&gt;  9 Finland Gross domestic product Current prices  Quarterly 2021-01-01        ??</span>
-<span class="co">#&gt; 10 Finland Gross domestic product National curre… Quarterly 2021-01-01        ??</span>
-<span class="co">#&gt; # … with 1,502 more rows</span>
+<span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;collect&gt;</span></span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Finland Gross domestic product Current prices  Quarterly 2020-01-01        ??</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Finland Gross domestic product National curre… Quarterly 2020-01-01        ??</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Finland Gross domestic product Current prices  Quarterly 2020-04-01        ??</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Finland Gross domestic product National curre… Quarterly 2020-04-01        ??</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Finland Gross domestic product Current prices  Quarterly 2020-07-01        ??</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Finland Gross domestic product National curre… Quarterly 2020-07-01        ??</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Finland Gross domestic product Current prices  Quarterly 2020-10-01        ??</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Finland Gross domestic product National curre… Quarterly 2020-10-01        ??</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Finland Gross domestic product Current prices  Quarterly 2021-01-01        ??</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Finland Gross domestic product National curre… Quarterly 2021-01-01        ??</span>
+<span class="co">#&gt; <span style="color: #949494;"># … with 1,502 more rows</span></span>
 <span class="co">#&gt; # This data has not yet been collected from OECD api, and all rows might not be available. Please use `filter` to limit the number of rows under a million,  and use `collect` to retrieve actual data.</span>
 
-<span class="fu"><a href="https://dplyr.tidyverse.org/reference/distinct.html">distinct</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">Subject</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 6 × 1</span>
+<span class="fu"><a href="https://dplyr.tidyverse.org/reference/distinct.html" class="external-link">distinct</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">Subject</span><span class="op">)</span>
+<span class="co">#&gt; <span style="color: #949494;"># A tibble: 6 × 1</span></span>
 <span class="co">#&gt;   Subject                                                  </span>
-<span class="co">#&gt;   &lt;chr&gt;                                                    </span>
-<span class="co">#&gt; 1 Gross domestic product                                   </span>
-<span class="co">#&gt; 2 Gross domestic product - expenditure approach            </span>
-<span class="co">#&gt; 3 Gross domestic product - income approach                 </span>
-<span class="co">#&gt; 4 Gross domestic product at market prices - output approach</span>
-<span class="co">#&gt; 5 Gross domestic product at market prices - output approach</span>
-<span class="co">#&gt; 6 Gross domestic product</span></code></pre></div>
-<p>After data structure object has been filtered, the actual data can be collected with <code><a href="https://dplyr.tidyverse.org/reference/compute.html">collect()</a></code>.</p>
+<span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                                    </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">1</span> Gross domestic product                                   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">2</span> Gross domestic product - expenditure approach            </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">3</span> Gross domestic product - income approach                 </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">4</span> Gross domestic product at market prices - output approach</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">5</span> Gross domestic product at market prices - output approach</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">6</span> Gross domestic product</span></code></pre></div>
+<p>After data structure object has been filtered, the actual data can be collected with <code><a href="https://dplyr.tidyverse.org/reference/compute.html" class="external-link">collect()</a></code>.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">x</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/compute.html">collect</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; # Robonomist id: oecd/QNA</span>
-<span class="co">#&gt; # A tibble:      158 × 11</span>
-<span class="co">#&gt; # Title:         Quarterly National Accounts</span>
+<code class="sourceCode R"><span class="va">x</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/compute.html" class="external-link">collect</a></span><span class="op">(</span><span class="op">)</span>
+<span class="co">#&gt; <span style="color: #949494;"># Robonomist id: </span><span style="color: #00BBBB;">oecd/QNA</span></span>
+<span class="co">#&gt; <span style="color: #949494;"># A tibble:      175 × 10</span></span>
+<span class="co">#&gt; <span style="color: #949494;"># Title:         Quarterly National Accounts</span></span>
 <span class="co">#&gt;    Country Subject     Measure    Frequency time       value `Time Format` Unit </span>
-<span class="co">#&gt;    &lt;chr&gt;   &lt;chr&gt;       &lt;chr&gt;      &lt;chr&gt;     &lt;date&gt;     &lt;dbl&gt; &lt;chr&gt;         &lt;chr&gt;</span>
-<span class="co">#&gt;  1 Finland Gross dome… National … Quarterly 2020-01-01 58225 Quarterly     Euro </span>
-<span class="co">#&gt;  2 Finland Gross dome… National … Quarterly 2020-04-01 57414 Quarterly     Euro </span>
-<span class="co">#&gt;  3 Finland Gross dome… National … Quarterly 2020-07-01 58509 Quarterly     Euro </span>
-<span class="co">#&gt;  4 Finland Gross dome… National … Quarterly 2020-10-01 62021 Quarterly     Euro </span>
-<span class="co">#&gt;  5 Finland Gross dome… National … Quarterly 2021-01-01 57575 Quarterly     Euro </span>
-<span class="co">#&gt;  6 Finland Gross dome… National … Quarterly 2021-04-01 62639 Quarterly     Euro </span>
-<span class="co">#&gt;  7 Finland Gross dome… National … Quarterly 2020-01-01 60566 Quarterly     Euro </span>
-<span class="co">#&gt;  8 Finland Gross dome… National … Quarterly 2020-04-01 56908 Quarterly     Euro </span>
-<span class="co">#&gt;  9 Finland Gross dome… National … Quarterly 2020-07-01 59196 Quarterly     Euro </span>
-<span class="co">#&gt; 10 Finland Gross dome… National … Quarterly 2020-10-01 59499 Quarterly     Euro </span>
-<span class="co">#&gt; # … with 148 more rows, and 3 more variables: Unit multiplier &lt;chr&gt;,</span>
-<span class="co">#&gt; #   Reference period &lt;chr&gt;, Observation Status &lt;chr&gt;</span></code></pre></div>
+<span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Finland Gross dome… National … Quarterly 2020-01-01 <span style="text-decoration: underline;">58</span>225 Quarterly     Euro </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Finland Gross dome… National … Quarterly 2020-04-01 <span style="text-decoration: underline;">57</span>414 Quarterly     Euro </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Finland Gross dome… National … Quarterly 2020-07-01 <span style="text-decoration: underline;">58</span>509 Quarterly     Euro </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Finland Gross dome… National … Quarterly 2020-10-01 <span style="text-decoration: underline;">62</span>021 Quarterly     Euro </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Finland Gross dome… National … Quarterly 2021-01-01 <span style="text-decoration: underline;">57</span>644 Quarterly     Euro </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Finland Gross dome… National … Quarterly 2021-04-01 <span style="text-decoration: underline;">62</span>756 Quarterly     Euro </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Finland Gross dome… National … Quarterly 2021-07-01 <span style="text-decoration: underline;">62</span>993 Quarterly     Euro </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Finland Gross dome… National … Quarterly 2020-01-01 <span style="text-decoration: underline;">60</span>554 Quarterly     Euro </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Finland Gross dome… National … Quarterly 2020-04-01 <span style="text-decoration: underline;">56</span>985 Quarterly     Euro </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Finland Gross dome… National … Quarterly 2020-07-01 <span style="text-decoration: underline;">59</span>168 Quarterly     Euro </span>
+<span class="co">#&gt; <span style="color: #949494;"># … with 165 more rows, and 2 more variables: Unit multiplier &lt;chr&gt;,</span></span>
+<span class="co">#&gt; <span style="color: #949494;">#   Reference period &lt;chr&gt;</span></span></code></pre></div>
 <p>Also common <code>dplyr</code> verbs that require the actual data will trigger the <code>collect</code> function automatically.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/data.html">data</a></span><span class="op">(</span><span class="st">"oecd/QNA"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">Subject</span> <span class="op">==</span> <span class="st">"Gross domestic product - expenditure approach"</span>,
-         <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_detect.html">str_detect</a></span><span class="op">(</span><span class="va">Measure</span>, <span class="st">"Growth rate.*from previous"</span><span class="op">)</span>,
-         <span class="va">Frequency</span><span class="op">==</span><span class="st">"Quarterly"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/year.html">year</a></span><span class="op">(</span><span class="va">time</span><span class="op">)</span> <span class="op">&gt;=</span> <span class="fl">2015L</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">Country</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span>`Average Q/Q growth rate` <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">value</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 57 × 2</span>
+<code class="sourceCode R"><span class="fu"><a href="../reference/data.html">data</a></span><span class="op">(</span><span class="st">"oecd/QNA"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">Subject</span> <span class="op">==</span> <span class="st">"Gross domestic product - expenditure approach"</span>,
+         <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_detect.html" class="external-link">str_detect</a></span><span class="op">(</span><span class="va">Measure</span>, <span class="st">"Growth rate.*from previous"</span><span class="op">)</span>,
+         <span class="va">Frequency</span><span class="op">==</span><span class="st">"Quarterly"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/year.html" class="external-link">year</a></span><span class="op">(</span><span class="va">time</span><span class="op">)</span> <span class="op">&gt;=</span> <span class="fl">2015L</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">Country</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarize</a></span><span class="op">(</span>`Average Q/Q growth rate` <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">value</span><span class="op">)</span><span class="op">)</span>
+<span class="co">#&gt; <span style="color: #949494;"># A tibble: 57 × 2</span></span>
 <span class="co">#&gt;    Country                      `Average Q/Q growth rate`</span>
-<span class="co">#&gt;    &lt;chr&gt;                                            &lt;dbl&gt;</span>
-<span class="co">#&gt;  1 Argentina                                      -0.104 </span>
-<span class="co">#&gt;  2 Australia                                       0.549 </span>
-<span class="co">#&gt;  3 Austria                                         0.392 </span>
-<span class="co">#&gt;  4 Belgium                                         0.397 </span>
-<span class="co">#&gt;  5 Brazil                                         -0.0505</span>
-<span class="co">#&gt;  6 Bulgaria                                        0.670 </span>
-<span class="co">#&gt;  7 Canada                                          0.291 </span>
-<span class="co">#&gt;  8 Chile                                           0.658 </span>
-<span class="co">#&gt;  9 China (People's Republic of)                    1.54  </span>
-<span class="co">#&gt; 10 Colombia                                        0.424 </span>
-<span class="co">#&gt; # … with 47 more rows</span></code></pre></div>
+<span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                            <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Argentina                                      -<span style="color: #BB0000;">0.104</span> </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Australia                                       0.462 </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Austria                                         0.417 </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Belgium                                         0.406 </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Brazil                                         -<span style="color: #BB0000;">0.056</span><span style="color: #BB0000; text-decoration: underline;">6</span></span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Bulgaria                                        0.539 </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Canada                                          0.312 </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Chile                                           0.658 </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> China (People's Republic of)                    1.54  </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Colombia                                        0.620 </span>
+<span class="co">#&gt; <span style="color: #949494;"># … with 47 more rows</span></span></code></pre></div>
 </div>
   </div>
 
@@ -228,11 +224,13 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by Juha Itkonen.</p>
+  <p></p>
+<p>Developed by Juha Itkonen.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
 </div>
 
       </footer>
@@ -240,6 +238,8 @@
 
   
 
+
+  
 
   </body>
 </html>
