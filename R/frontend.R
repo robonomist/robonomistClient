@@ -86,7 +86,7 @@ do_request <- function(fun, args) {
     connection$send(fun, args)
   } else if (requireNamespace("robonomistServer")) {
     cli_progress_step("Requesting {fun} locally")
-    do.call(fun, args, env = robonomistServer::database)
+    do.call(fun, args, envir = robonomistServer::database)
   } else {
     please_set_server()
     stop("Robonomist Data Server unavailable.", call. = FALSE)

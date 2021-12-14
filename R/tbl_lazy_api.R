@@ -1,3 +1,4 @@
+#' @importFrom vctrs vec_ptype_abbr
 #' @export
 vec_ptype_abbr.collect <- function(x) {
   "collect"
