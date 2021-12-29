@@ -3,7 +3,7 @@
 #' @description
 #' `data()` is a convenience function that searches the database and returns
 #' 1. search results if multiple matching tables are found, and
-#' 2. data if only one match is found.
+#' 1. data if only one match is found.
 #'
 #' @details The `data()` function allows for a special \code{§}-filter. When the pattern matches a single table and the function returns a data frame, the \code{§}-filter can be used to subset rows of data frame. The tibble is filterd by sequence of regular expressions separated by section sign \code{§}. The regular expression are applied to data frame's variables sequentially.
 #'
@@ -14,12 +14,17 @@
 #' @param labels logical, Some datasources can return labelled or coded data.
 #' @param lang Two-letter language code, e.g. "en" or "sv".
 #' @param na.rm Px-file based datasources return a table with a combination of all categories. Missing values can be filtered when reading the file to improve preformance.
+#' @param tidy_time logical, If TRUE, the time dimension is parsed into Date class and renamed `time`. If NULL, the datasource specific default will be used.
 #' @param ... Datasource-specific arguments. TODO 
 #'
 #' @export
 data <- function(pattern = "", dl_filter = NULL, labels = TRUE,
-                 lang = NULL, na.rm = FALSE, ...) {
-  do_request("data", c(as.list(environment()), list(...)))
+                 lang = NULL, na.rm = FALSE, tidy_time = NULL, ...) {
+  stopifnot(is.character(pattern))
+  stopifnot(is.null(lang) || is.character(lang))
+  stopifnot(is.null(tidy_time) || is.logical(tidy_time))
+  args <- c(as.list(environment()), list(...)) |> purrr::compact()
+  do_request("data", args)
 }
 
 #' Get data for table id
@@ -30,8 +35,9 @@ data <- function(pattern = "", dl_filter = NULL, labels = TRUE,
 #' @param id string, Exact table id
 #' @rdname data
 #' @export
-data_get <- function(id, dl_filter = NULL, labels = TRUE, lang = NULL, na.rm = FALSE, ...) {
-  do_request("get", c(as.list(environment()), list(...)))
+data_get <- function(id, dl_filter = NULL, labels = TRUE, lang = NULL, na.rm = FALSE, tidy_time = NULL, ...) {
+  args <- c(as.list(environment()), list(...)) |> purrr::compact()
+  do_request("get", args)
 }
 
 #' Search for data

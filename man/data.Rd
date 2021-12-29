@@ -12,10 +12,19 @@ data(
   labels = TRUE,
   lang = NULL,
   na.rm = FALSE,
+  tidy_time = NULL,
   ...
 )
 
-data_get(id, dl_filter = NULL, labels = TRUE, lang = NULL, na.rm = FALSE, ...)
+data_get(
+  id,
+  dl_filter = NULL,
+  labels = TRUE,
+  lang = NULL,
+  na.rm = FALSE,
+  tidy_time = NULL,
+  ...
+)
 
 data_search(pattern = "")
 }
@@ -29,6 +38,8 @@ data_search(pattern = "")
 \item{lang}{Two-letter language code, e.g. "en" or "sv".}
 
 \item{na.rm}{Px-file based datasources return a table with a combination of all categories. Missing values can be filtered when reading the file to improve preformance.}
+
+\item{tidy_time}{logical, If TRUE, the time dimension is parsed into Date class and renamed \code{time}. If NULL, the datasource specific default will be used.}
 
 \item{...}{Datasource-specific arguments. TODO}
 
