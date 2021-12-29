@@ -1,9 +1,6 @@
-# robonomistClient 2.1.8
-
-* More documentation
-
 # robonomistClient 2.1.7
 
+* More documentation
 * Performance improvements
 
 # robonomistClient 2.1.6
