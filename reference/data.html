@@ -29,7 +29,7 @@ data_search() only performs a search and returns the results."><meta property="o
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">robonomistClient</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.1.6</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.1.6.9000</span>
       </span>
     </div>
 
@@ -90,10 +90,19 @@ data_search() only performs a search and returns the results."><meta property="o
   labels <span class="op">=</span> <span class="cn">TRUE</span>,
   lang <span class="op">=</span> <span class="cn">NULL</span>,
   na.rm <span class="op">=</span> <span class="cn">FALSE</span>,
+  tidy_time <span class="op">=</span> <span class="cn">NULL</span>,
   <span class="va">...</span>
 <span class="op">)</span>
 
-<span class="fu">data_get</span><span class="op">(</span><span class="va">id</span>, dl_filter <span class="op">=</span> <span class="cn">NULL</span>, labels <span class="op">=</span> <span class="cn">TRUE</span>, lang <span class="op">=</span> <span class="cn">NULL</span>, na.rm <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">...</span><span class="op">)</span>
+<span class="fu">data_get</span><span class="op">(</span>
+  <span class="va">id</span>,
+  dl_filter <span class="op">=</span> <span class="cn">NULL</span>,
+  labels <span class="op">=</span> <span class="cn">TRUE</span>,
+  lang <span class="op">=</span> <span class="cn">NULL</span>,
+  na.rm <span class="op">=</span> <span class="cn">FALSE</span>,
+  tidy_time <span class="op">=</span> <span class="cn">NULL</span>,
+  <span class="va">...</span>
+<span class="op">)</span>
 
 <span class="fu">data_search</span><span class="op">(</span>pattern <span class="op">=</span> <span class="st">""</span><span class="op">)</span></code></pre></div>
     </div>
@@ -110,17 +119,49 @@ data_search() only performs a search and returns the results."><meta property="o
 <dd><p>Two-letter language code, e.g. "en" or "sv".</p></dd>
 <dt>na.rm</dt>
 <dd><p>Px-file based datasources return a table with a combination of all categories. Missing values can be filtered when reading the file to improve preformance.</p></dd>
+<dt>tidy_time</dt>
+<dd><p>logical, If TRUE, the time dimension is parsed into Date class and renamed <code>time</code>. If NULL, the datasource specific default will be used.</p></dd>
 <dt>...</dt>
 <dd><p>Datasource-specific arguments. TODO</p></dd>
 <dt>id</dt>
 <dd><p>string, Exact table id</p></dd>
 </dl></div>
-    <div id="details">
-    <h2>Details</h2>
+    <div id="-filter">
+    <h2><code>§</code>-filter</h2>
     <p>The <code>data()</code> function allows for a special <code>§</code>-filter. When the pattern matches a single table and the function returns a data frame, the <code>§</code>-filter can be used to subset rows of data frame. The tibble is filterd by sequence of regular expressions separated by section sign <code>§</code>. The regular expression are applied to data frame's variables sequentially.</p>
 <p>If the last variable is a date, it is used as a start date filter.</p>
     </div>
+    <div id="download-filter">
+    <h2>Download filter</h2>
+    <p>Some datasources (e.g. ECB &amp; Tulli) do not allow downloading full data tables, nor is it always preferred due to large table size. For these datasources the user must provide a download filter via the <code>dl_filter</code> argument. When the argument is left as <code>NULL</code>, the  <code>data</code> function will return a list of variables and potential values. This list can be used to construct a suitable download filter.</p>
+<p>Generally, <code>dl_filter</code> should be named list where names are variable names and values character vectors of selected values (see Examples). Alternatively, some datasources allow for a dot-separated string to define a download filter.</p>
+    </div>
 
+    <div id="ref-examples">
+    <h2>Examples</h2>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span>
+<span class="r-in"> <span class="co">## Return information on the data table structure</span></span>
+<span class="r-in"> <span class="fu">data</span><span class="op">(</span><span class="st">"ecb/AME"</span><span class="op">)</span></span>
+<span class="r-in"> <span class="co">## Example of download filter</span></span>
+<span class="r-in"> <span class="fu">data</span><span class="op">(</span><span class="st">"ecb/AME"</span>, dl_filter <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>ame_ref_area <span class="op">=</span> <span class="st">"FIN"</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"></span>
+<span class="r-in"> <span class="fu">data</span><span class="op">(</span></span>
+<span class="r-in">   <span class="st">"ecb/FM"</span>,</span>
+<span class="r-in">   dl_filter <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>freq <span class="op">=</span> <span class="st">"M"</span>,</span>
+<span class="r-in">                    provider_fm_id <span class="op">=</span> <span class="st">"EURIBOR1YD_"</span><span class="op">)</span></span>
+<span class="r-in"> <span class="op">)</span></span>
+<span class="r-in"> <span class="fu">data</span><span class="op">(</span><span class="st">"ecb/FM"</span>, dl_filter <span class="op">=</span> <span class="st">"M.U2.EUR.RT.MM.EURIBOR1YD_.HSTA"</span><span class="op">)</span></span>
+<span class="r-in"></span>
+<span class="r-in"> <span class="fu">data</span><span class="op">(</span><span class="st">"tulli/uljas_cpa2008"</span>,</span>
+<span class="r-in">      dl_filter <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="st">"Tavaraluokitus CPA2008_2"</span> <span class="op">=</span> <span class="st">"*A-X"</span>,</span>
+<span class="r-in">                       <span class="st">"Aika"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"201505"</span>, <span class="st">"201506"</span><span class="op">)</span>,</span>
+<span class="r-in">                       <span class="st">"Maa"</span> <span class="op">=</span> <span class="st">"=ALL"</span>,</span>
+<span class="r-in">                       <span class="st">"Suunta"</span> <span class="op">=</span> <span class="st">"=FIRST 1"</span>,</span>
+<span class="r-in">                       <span class="st">"Indikaattorit"</span> <span class="op">=</span> <span class="st">"=FIRST 1"</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span class="op">}</span></span>
+<span class="r-in"></span>
+</code></pre></div>
+    </div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top"><h2 data-toc-skip>Contents</h2>
