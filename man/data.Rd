@@ -56,8 +56,38 @@ data_search(pattern = "")
 
 \code{data_search()} only performs a search and returns the results.
 }
-\details{
+\section{\verb{§}-filter}{
 The \code{data()} function allows for a special \code{§}-filter. When the pattern matches a single table and the function returns a data frame, the \code{§}-filter can be used to subset rows of data frame. The tibble is filterd by sequence of regular expressions separated by section sign \code{§}. The regular expression are applied to data frame's variables sequentially.
 
 If the last variable is a date, it is used as a start date filter.
+}
+
+\section{Download filter}{
+Some datasources (e.g. ECB & Tulli) do not allow downloading full data tables, nor is it always preferred due to large table size. For these datasources the user must provide a download filter via the \code{dl_filter} argument. When the argument is left as \code{NULL}, the  \code{data} function will return a list of variables and potential values. This list can be used to construct a suitable download filter.
+
+Generally, \code{dl_filter} should be named list where names are variable names and values character vectors of selected values (see Examples). Alternatively, some datasources allow for a dot-separated string to define a download filter.
+}
+
+\examples{
+\dontrun{
+ ## Return information on the data table structure
+ data("ecb/AME")
+ ## Example of download filter
+ data("ecb/AME", dl_filter = list(ame_ref_area = "FIN"))
+
+ data(
+   "ecb/FM",
+   dl_filter = list(freq = "M",
+                    provider_fm_id = "EURIBOR1YD_")
+ )
+ data("ecb/FM", dl_filter = "M.U2.EUR.RT.MM.EURIBOR1YD_.HSTA")
+
+ data("tulli/uljas_cpa2008",
+      dl_filter = list("Tavaraluokitus CPA2008_2" = "*A-X",
+                       "Aika" = c("201505", "201506"),
+                       "Maa" = "=ALL",
+                       "Suunta" = "=FIRST 1",
+                       "Indikaattorit" = "=FIRST 1"))
+}
+
 }

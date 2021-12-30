@@ -5,9 +5,15 @@
 #' 1. search results if multiple matching tables are found, and
 #' 1. data if only one match is found.
 #'
-#' @details The `data()` function allows for a special \code{§}-filter. When the pattern matches a single table and the function returns a data frame, the \code{§}-filter can be used to subset rows of data frame. The tibble is filterd by sequence of regular expressions separated by section sign \code{§}. The regular expression are applied to data frame's variables sequentially.
+#' @details # `§`-filter
+#' The `data()` function allows for a special \code{§}-filter. When the pattern matches a single table and the function returns a data frame, the \code{§}-filter can be used to subset rows of data frame. The tibble is filterd by sequence of regular expressions separated by section sign \code{§}. The regular expression are applied to data frame's variables sequentially.
 #'
 #' If the last variable is a date, it is used as a start date filter.
+#'
+#' @details # Download filter
+#' Some datasources (e.g. ECB & Tulli) do not allow downloading full data tables, nor is it always preferred due to large table size. For these datasources the user must provide a download filter via the `dl_filter` argument. When the argument is left as `NULL`, the  `data` function will return a list of variables and potential values. This list can be used to construct a suitable download filter.
+#'
+#' Generally, `dl_filter` should be named list where names are variable names and values character vectors of selected values (see Examples). Alternatively, some datasources allow for a dot-separated string to define a download filter.
 #'
 #' @param pattern string, Search query or table id, possibly followed by a \code{§}-filter.
 #' @param dl_filter list or named vector passed to datasource download functions for filtering incoming data. Supported by tulli, OECD and ECB.
@@ -15,7 +21,29 @@
 #' @param lang Two-letter language code, e.g. "en" or "sv".
 #' @param na.rm Px-file based datasources return a table with a combination of all categories. Missing values can be filtered when reading the file to improve preformance.
 #' @param tidy_time logical, If TRUE, the time dimension is parsed into Date class and renamed `time`. If NULL, the datasource specific default will be used.
-#' @param ... Datasource-specific arguments. TODO 
+#' @param ... Datasource-specific arguments. TODO
+#'
+#' @examples
+#' \dontrun{
+#'  ## Return information on the data table structure
+#'  data("ecb/AME")
+#'  ## Example of download filter
+#'  data("ecb/AME", dl_filter = list(ame_ref_area = "FIN"))
+#'
+#'  data(
+#'    "ecb/FM",
+#'    dl_filter = list(freq = "M",
+#'                     provider_fm_id = "EURIBOR1YD_")
+#'  )
+#'  data("ecb/FM", dl_filter = "M.U2.EUR.RT.MM.EURIBOR1YD_.HSTA")
+#'
+#'  data("tulli/uljas_cpa2008",
+#'       dl_filter = list("Tavaraluokitus CPA2008_2" = "*A-X",
+#'                        "Aika" = c("201505", "201506"),
+#'                        "Maa" = "=ALL",
+#'                        "Suunta" = "=FIRST 1",
+#'                        "Indikaattorit" = "=FIRST 1"))
+#' }
 #'
 #' @export
 data <- function(pattern = "", dl_filter = NULL, labels = TRUE,
