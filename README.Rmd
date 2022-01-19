@@ -13,6 +13,10 @@ data()
 
 # Robonomist Client <a href='https://robonomist.com'><img src='man/figures/logo.png' align="right" height="138.5" /></a>
 
+ <!-- badges: start -->
+  [![R-CMD-check](https://github.com/robonomist/robonomistClient/workflows/R-CMD-check/badge.svg)](https://github.com/robonomist/robonomistClient/actions)
+  <!-- badges: end -->
+
 A client package for R to access Robonomist Data Server
 
 ## Datasources
@@ -66,6 +70,11 @@ devtools::install_github("robonomist/robonomistClient")
 ## Getting started
 
 Once installed, set the hostname of your Robonomist Data Server and connnect with `set_robonomist_server` function. Then you can start exploring the database. 
+
+```{r, include = FALSE}
+library(robonomistClient)
+```
+
 
 ```{r, eval = FALSE}
 library(robonomistClient)

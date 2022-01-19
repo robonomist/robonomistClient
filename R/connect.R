@@ -71,8 +71,10 @@ RobonomistConnection <- R6::R6Class(
       })
 
       private$ws$onClose(function(event) {
-        if (!is.null(private$heart_beat_loop)) later::destroy_loop(private$heart_beat_loop)
-        cli_alert_warning("Client disconnected with code {event$code} and reason {event$reason}")
+        if (!is.null(private$heart_beat_loop))
+          later::destroy_loop(private$heart_beat_loop)
+        if(event$reason != "")
+          cli_alert_warning("Client disconnected with code {event$code} and reason {event$reason}")
       })
 
       private$ws$onError(function(event) {
