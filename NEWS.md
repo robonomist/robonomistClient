@@ -1,5 +1,6 @@
 # robonomistClient 2.1.7
 
+* Fix breaking change pillar package
 * More documentation
 * Performance improvements
 

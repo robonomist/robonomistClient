@@ -19,7 +19,7 @@ tbl_format_footer.robonomist_search <- function(x, setup, ...) {
 }
 
 #' @export
-#' @importFrom pillar ctl_new_pillar pillar_component new_pillar_component
+#' @importFrom pillar ctl_new_pillar pillar_component new_pillar_component new_pillar_shaft_simple
 ctl_new_pillar.robonomist_search <- function(controller, x, width, ..., title = NULL) {
   if (title == "id") {
     extent <- pillar::get_max_extent(x)
@@ -27,8 +27,7 @@ ctl_new_pillar.robonomist_search <- function(controller, x, width, ..., title = 
       list(pillar::new_pillar_shaft_simple(crayon::cyan(x))),
       width = extent, min_width = min(extent, 40L))
   } else {
-    y <- new_pillar_component(
-      list(pillar::new_pillar_shaft_simple(x)), width = width)
+    y <- pillar_component(new_pillar_shaft_simple(x, min_width = 30L))
   }
   pillar::new_pillar(list(
     title = pillar_component(pillar::new_pillar_title(title)),
@@ -53,8 +52,7 @@ ctl_new_pillar.robonomist_datasources <- function(controller, x, width, ..., tit
       list(pillar::new_pillar_shaft_simple(crayon::blue(x))),
       width = extent, min_width = min(extent, 40L))
   } else {
-    y <- new_pillar_component(
-      list(pillar::new_pillar_shaft_simple(x)), width = width)
+    y <- pillar_component(new_pillar_shaft_simple(x, min_width = 30L))
   }
   pillar::new_pillar(list(
             title = pillar_component(pillar::new_pillar_title(title)),
