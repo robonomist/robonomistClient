@@ -46,7 +46,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">robonomistClient</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.1.6.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.1.7</span>
       </span>
     </div>
 
@@ -114,9 +114,9 @@
 <p>You can list all available datasources:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://robonomist.github.io/robonomistClient/">robonomistClient</a></span><span class="op">)</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Loaded <span style="color: #0000BB;">robonomistClient</span> 2.1.6.9000</span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Loaded <span style="color: #0000BB;">robonomistClient</span> 2.1.7</span>
 <span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Set to connect wss://data.robonomist.app</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Set to connect wss://data.robonomist.app <span style="color: #B2B2B2;">[54ms]</span></span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Set to connect wss://data.robonomist.app <span style="color: #B2B2B2;">[57ms]</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Attaching package: 'robonomistClient'</span>
@@ -127,11 +127,11 @@
 <span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Connecting to <span style="color: #0000BB;">robonomistServer</span> at wss://data.robonomist.app</span>
 <span class="co">#&gt; <span style="color: #00BB00;">✔</span> Connecting to <span style="color: #0000BB;">robonomistServer</span> at wss://data.robonomist.app <span style="color: #B2B2B2;">[1.3s]</span></span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Connected successfully to robonomistServer 2.4.7</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Connected successfully to robonomistServer 2.4.7 <span style="color: #B2B2B2;">[35ms]</span></span>
+<span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Connected successfully to robonomistServer 2.4.16</span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Connected successfully to robonomistServer 2.4.16 <span style="color: #B2B2B2;">[52ms]</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; ⠙ Requesting datasources</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting datasources <span style="color: #B2B2B2;">[198ms]</span></span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting datasources <span style="color: #B2B2B2;">[213ms]</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; ── Robonomist Server Datasources</span>
 <span class="co">#&gt;    dataset          title                                                       </span>
@@ -145,7 +145,7 @@
 <span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> <span style="color: #0000BB;">tulli</span>            Finnish Customs, Uljas Statistical Database                 </span>
 <span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> <span style="color: #0000BB;">luke</span>             Luonnonvarakeskus LUKE:n tilastotietokanta)                 </span>
 <span class="co">#&gt; <span style="color: #BCBCBC;">10</span> <span style="color: #0000BB;">etk</span>              Eläketurvakeskuksen tietokanta                              </span>
-<span class="co">#&gt; <span style="color: #949494;"># … with 26 more rows, and 1 more variable: languages &lt;list&gt;</span></span></code></pre></div>
+<span class="co">#&gt; <span style="color: #949494;"># … with 27 more rows, and 1 more variable: languages &lt;list&gt;</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="data-tables">Data tables<a class="anchor" aria-label="anchor" href="#data-tables"></a>
@@ -154,27 +154,27 @@
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/data.html">data</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; ⠙ Requesting data</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[9ms]</span></span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[10ms]</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; ── Robonomist Database search results</span>
-<span class="co">#&gt;    id                                       title                               </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> <span style="color: #00BBBB;">StatFin/asu/asas/statfin_asas_pxt_115a.</span>… Asuntokunnat ja asuntoväestö muuttu…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> <span style="color: #00BBBB;">StatFin/asu/asas/statfin_asas_pxt_115a.</span>… Bostadshushåll och boendebefolkning…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> <span style="color: #00BBBB;">StatFin/asu/asas/statfin_asas_pxt_115a.</span>… Household-dwelling units and housin…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> <span style="color: #00BBBB;">StatFin/asu/asas/statfin_asas_pxt_115y.</span>… Asuntokunnat ja asuntoväestö muuttu…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> <span style="color: #00BBBB;">StatFin/asu/asas/statfin_asas_pxt_115y.</span>… Antal bostadshushåll och antal pers…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> <span style="color: #00BBBB;">StatFin/asu/asas/statfin_asas_pxt_115y.</span>… Number of household-dwelling units …</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> <span style="color: #00BBBB;">StatFin/asu/asas/statfin_asas_pxt_116a.</span>… Asuntokunnat muuttujina Vuosi, Talo…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> <span style="color: #00BBBB;">StatFin/asu/asas/statfin_asas_pxt_116a.</span>… Bostadshushåll efter År, Hustyp, Om…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> <span style="color: #00BBBB;">StatFin/asu/asas/statfin_asas_pxt_116a.</span>… Household-dwelling units by Year, T…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">10</span> <span style="color: #00BBBB;">StatFin/asu/asas/statfin_asas_pxt_116b.</span>… Asuntokunnat ja asuntoväestö muuttu…</span>
-<span class="co">#&gt; <span style="color: #949494;"># … with 131,113 more rows, and 1 more variable: lang &lt;chr&gt;</span></span></code></pre></div>
+<span class="co">#&gt;    id                                        title                              </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> <span style="color: #00BBBB;">StatFin/asu/asas/statfin_asas_pxt_115a.px</span> Asuntokunnat ja asuntoväestö muutt…</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> <span style="color: #00BBBB;">StatFin/asu/asas/statfin_asas_pxt_115a.px</span> Bostadshushåll och boendebefolknin…</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> <span style="color: #00BBBB;">StatFin/asu/asas/statfin_asas_pxt_115a.px</span> Household-dwelling units and housi…</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> <span style="color: #00BBBB;">StatFin/asu/asas/statfin_asas_pxt_115y.px</span> Asuntokunnat ja asuntoväestö muutt…</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> <span style="color: #00BBBB;">StatFin/asu/asas/statfin_asas_pxt_115y.px</span> Antal bostadshushåll och antal per…</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> <span style="color: #00BBBB;">StatFin/asu/asas/statfin_asas_pxt_115y.px</span> Number of household-dwelling units…</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> <span style="color: #00BBBB;">StatFin/asu/asas/statfin_asas_pxt_116a.px</span> Asuntokunnat muuttujina Vuosi, Tal…</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> <span style="color: #00BBBB;">StatFin/asu/asas/statfin_asas_pxt_116a.px</span> Bostadshushåll efter År, Hustyp, O…</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> <span style="color: #00BBBB;">StatFin/asu/asas/statfin_asas_pxt_116a.px</span> Household-dwelling units by Year, …</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">10</span> <span style="color: #00BBBB;">StatFin/asu/asas/statfin_asas_pxt_116b.px</span> Asuntokunnat ja asuntoväestö muutt…</span>
+<span class="co">#&gt; <span style="color: #949494;"># … with 130,803 more rows, and 1 more variable: lang &lt;chr&gt;</span></span></code></pre></div>
 <p>The package automatically ensures that the listed data tables are the latest versions available at the datasources.</p>
 <p>To get a specific data table, use the tables id.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/data.html">data</a></span><span class="op">(</span><span class="st">"StatFin/vrm/synt/statfin_synt_pxt_12dx.px"</span><span class="op">)</span>
 <span class="co">#&gt; ⠙ Requesting data</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[578ms]</span></span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[601ms]</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; <span style="color: #949494;"># Robonomist id: </span><span style="color: #00BBBB;">StatFin/vrm/synt/statfin_synt_pxt_12dx.px</span></span>
 <span class="co">#&gt; <span style="color: #949494;"># A tibble:      2,992 × 3</span></span>
@@ -198,7 +198,7 @@
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/data_vintage.html">data_vintage</a></span><span class="op">(</span><span class="st">"StatFin/vrm/synt/statfin_synt_pxt_12dx.px"</span><span class="op">)</span>
 <span class="co">#&gt; ⠙ Requesting vintage</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting vintage <span style="color: #B2B2B2;">[208ms]</span></span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting vintage <span style="color: #B2B2B2;">[222ms]</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; StatFin/vrm/synt/statfin_synt_pxt_12dx.px </span>
 <span class="co">#&gt;                     "2021-06-18T05:00:00"</span></code></pre></div>
@@ -209,7 +209,7 @@
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/data.html">data</a></span><span class="op">(</span><span class="st">"Vero/"</span><span class="op">)</span>
 <span class="co">#&gt; ⠙ Requesting data</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[274ms]</span></span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[283ms]</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; ── Robonomist Database search results</span>
 <span class="co">#&gt;    id                               title                                       </span>
@@ -239,21 +239,22 @@
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/data.html">data_search</a></span><span class="op">(</span><span class="st">"väestö"</span><span class="op">)</span>
 <span class="co">#&gt; ⠙ Requesting search</span>
+<span class="co">#&gt; ⠹ Requesting search</span>
 <span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting search <span style="color: #B2B2B2;">[1.9s]</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; ── Robonomist Database search results</span>
-<span class="co">#&gt;    id                                       title                               </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> <span style="color: #00BBBB;">StatFin/asu/asas/statfin_asas_pxt_115a.</span>… Asuntokunnat ja asuntoväestö muuttu…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> <span style="color: #00BBBB;">StatFin/asu/asas/statfin_asas_pxt_115y.</span>… Asuntokunnat ja asuntoväestö muuttu…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> <span style="color: #00BBBB;">StatFin/asu/asas/statfin_asas_pxt_116b.</span>… Asuntokunnat ja asuntoväestö muuttu…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> <span style="color: #00BBBB;">StatFin/asu/asas/statfin_asas_pxt_116e.</span>… Asuntokunnat ja asuntoväestö muuttu…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> <span style="color: #00BBBB;">StatFin/kou/vkour/statfin_vkour_pxt_12b</span>… 15 vuotta täyttänyt väestö koulutus…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> <span style="color: #00BBBB;">StatFin/kou/vkour/statfin_vkour_pxt_12b</span>… 15 vuotta täyttänyt väestö koulutus…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> <span style="color: #00BBBB;">StatFin/kou/vkour/statfin_vkour_pxt_12b</span>… 15 vuotta täyttänyt väestö koulutus…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> <span style="color: #00BBBB;">StatFin/sos/lasuo/statfin_lasuo_pxt_001</span>… Kodin ulkopuolelle sijoitetut 0-17-…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> <span style="color: #00BBBB;">StatFin/sos/lasuo/statfin_lasuo_pxt_001</span>… Ungdomar i åldern 0-17 år som var p…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">10</span> <span style="color: #00BBBB;">StatFin/sos/lasuo/statfin_lasuo_pxt_001</span>… 017-year-olds placed outside the home, % of those of the same age by percentage of children placed outside the home (%) and Year</span>
-<span class="co">#&gt; <span style="color: #949494;"># … with 1,093 more rows, and 1 more variable: lang &lt;chr&gt;</span></span></code></pre></div>
+<span class="co">#&gt;    id                                          title                            </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> <span style="color: #00BBBB;">StatFin/asu/asas/statfin_asas_pxt_115a.px</span>   Asuntokunnat ja asuntoväestö muu…</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> <span style="color: #00BBBB;">StatFin/asu/asas/statfin_asas_pxt_115y.px</span>   Asuntokunnat ja asuntoväestö muu…</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> <span style="color: #00BBBB;">StatFin/asu/asas/statfin_asas_pxt_116b.px</span>   Asuntokunnat ja asuntoväestö muu…</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> <span style="color: #00BBBB;">StatFin/asu/asas/statfin_asas_pxt_116e.px</span>   Asuntokunnat ja asuntoväestö muu…</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> <span style="color: #00BBBB;">StatFin/kou/vkour/statfin_vkour_pxt_12bq.px</span> 15 vuotta täyttänyt väestö koulu…</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> <span style="color: #00BBBB;">StatFin/kou/vkour/statfin_vkour_pxt_12br.px</span> 15 vuotta täyttänyt väestö koulu…</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> <span style="color: #00BBBB;">StatFin/kou/vkour/statfin_vkour_pxt_12bs.px</span> 15 vuotta täyttänyt väestö koulu…</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> <span style="color: #00BBBB;">StatFin/sos/lasuo/statfin_lasuo_pxt_001.px</span>  Kodin ulkopuolelle sijoitetut 0-…</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> <span style="color: #00BBBB;">StatFin/sos/lasuo/statfin_lasuo_pxt_001.px</span>  Ungdomar i åldern 0-17 år som va…</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">10</span> <span style="color: #00BBBB;">StatFin/sos/lasuo/statfin_lasuo_pxt_001.px</span>  017-year-olds placed outside the home, % of those of the same age by percentage of children placed outside the home (%) and Year</span>
+<span class="co">#&gt; <span style="color: #949494;"># … with 1,095 more rows, and 1 more variable: lang &lt;chr&gt;</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="tidy-time-and-labels">Tidy time and labels<a class="anchor" aria-label="anchor" href="#tidy-time-and-labels"></a>
@@ -262,7 +263,7 @@
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/data.html">data_get</a></span><span class="op">(</span><span class="st">"StatFin/kan/ntp/statfin_ntp_pxt_132h.px"</span><span class="op">)</span>
 <span class="co">#&gt; ⠙ Requesting get</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[992ms]</span></span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[990ms]</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; <span style="color: #949494;"># Robonomist id: </span><span style="color: #00BBBB;">StatFin/kan/ntp/statfin_ntp_pxt_132h.px</span></span>
 <span class="co">#&gt; <span style="color: #949494;"># A tibble:      101,346 × 4</span></span>
@@ -286,7 +287,7 @@
 <span class="fu"><a href="../reference/data.html">data_get</a></span><span class="op">(</span><span class="st">"StatFin/kan/ntp/statfin_ntp_pxt_132h.px"</span>, tidy_time <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange</a></span><span class="op">(</span><span class="va">Taloustoimi</span>, <span class="va">Tiedot</span><span class="op">)</span>
 <span class="co">#&gt; ⠙ Requesting get</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[785ms]</span></span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[767ms]</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; <span style="color: #949494;"># Robonomist id: </span><span style="color: #00BBBB;">StatFin/kan/ntp/statfin_ntp_pxt_132h.px</span></span>
 <span class="co">#&gt; <span style="color: #949494;"># A tibble:      101,346 × 4</span></span>
@@ -311,7 +312,7 @@
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/data.html">data_get</a></span><span class="op">(</span><span class="st">"StatFin/kan/ntp/statfin_ntp_pxt_132h.px"</span>, labels <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
 <span class="co">#&gt; ⠙ Requesting get</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[741ms]</span></span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[919ms]</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; <span style="color: #949494;"># Robonomist id: </span><span style="color: #00BBBB;">StatFin/kan/ntp/statfin_ntp_pxt_132h.px</span></span>
 <span class="co">#&gt; <span style="color: #949494;"># A tibble:      101,346 × 4</span></span>
@@ -352,7 +353,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
 </div>
 
       </footer>
