@@ -1,3 +1,7 @@
+# robonomistClient 2.1.8
+
+* Print more row by default for robonomist_search and robonomist_datasources
+
 # robonomistClient 2.1.7
 
 * Fix breaking change pillar package

@@ -35,6 +35,12 @@ ctl_new_pillar.robonomist_search <- function(controller, x, width, ..., title = 
   ))
 }
 
+#' @export
+print.robonomist_search <- function(x, n = 30, ...) {
+  NextMethod(n = n)
+}
+
+
 ## robonomist_datasources
 
 #' @export
@@ -58,6 +64,11 @@ ctl_new_pillar.robonomist_datasources <- function(controller, x, width, ..., tit
             title = pillar_component(pillar::new_pillar_title(title)),
             data = y
           ))
+}
+
+#' @export
+print.robonomist_datasources <- function(x, n = 50, ...) {
+  NextMethod(n = n)
 }
 
 
