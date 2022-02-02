@@ -1,0 +1,104 @@
+---
+title: "Special datasources"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Special datasources}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  fig.retina = 1,
+  collapse = TRUE,
+  comment = "#>"
+)
+Sys.setlocale(locale = "fi_FI.UTF-8")
+```
+
+## Setup
+
+```{r setup, message = FALSE}
+library(robonomistClient)
+library(tidyverse)
+```
+
+## FRED
+
+The St. Louis Fed Database FRED contain about +800k time series. To avoid filling up the Robonomist Server table of content, individual time series from FRED are not directly visible in the search function. Instead, you can list all "sources" and "releases" with:
+
+```{r, message = FALSE}
+data("fred/")
+```
+
+The database hierarchy is very simple: Sources contain releases, and releases contain time series. 
+
+To list all releases, for example, in source 1 (Board of Governors of the Federal Reserve System), call:
+
+```{r}
+data("fred/source=1")
+```
+
+To list all time series in the first release on the list (Industrial Production and Capacity Utilization), call:
+
+```{r}
+data("fred/release=13")
+```
+
+To download a time series, use the `get_data` function:
+
+```{r}
+data_get("fred/CAPB00004S")
+```
+You can also retrieve multiple time series by providing a vector of ids:
+
+```{r}
+d <- data_get(c("fred/CAPB5610CS", "fred/CAPB5640CS"))
+d
+ggplot(d, aes(time, value, color = Title)) +
+  geom_line()
+```
+
+The FRED api also allows some basic time series transformations with the `units` parameter:
+
+```{r, warning = FALSE}
+data_get(c("fred/CAPB5610CS", "fred/CAPB5640CS"), units = "pc1") |>
+  ggplot(aes(time, value, color = Title)) +
+  geom_line()
+```
+
+Allowed values for `units`:
+* lin = Levels (No transformation)
+* chg = Change
+* ch1 = Change from Year Ago
+* pch = Percent Change
+* pc1 = Percent Change from Year Ago
+* pca = Compounded Annual Rate of Change
+* cch = Continuously Compounded Rate of Change
+* cca = Continuously Compounded Annual Rate of Change
+* log = Natural Log
+* 
+Similarly time series can be temporally aggregated with the `frequency` and `aggregation_method` parameters:
+
+```{r}
+data_get(c("fred/CAPB5610CS", "fred/CAPB5640CS"), units = "pc1", frequency = "a", aggregation_method = "sum") |>
+  ggplot(aes(time, value, color = Title)) +
+  geom_line()
+```
+
+Allowed values for `frequency`:
+* d = Daily
+* w = Weekly
+* bw = Biweekly
+* m = Monthly
+* q = Quarterly
+* sa = Semiannual
+* a = Annual
+* 
+Allowed values for `aggregation_method`:
+* avg = Average
+* sum = Sum
+* eop = End of Period
+* 
+
+
