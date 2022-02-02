@@ -56,7 +56,8 @@ You can also retrieve multiple time series by providing a vector of ids:
 d <- data_get(c("fred/CAPB5610CS", "fred/CAPB5640CS"))
 d
 ggplot(d, aes(time, value, color = Title)) +
-  geom_line()
+  geom_line() +
+  theme(legend.position = "bottom", legend.direction = "vertical")
 ```
 
 The FRED api also allows some basic time series transformations with the `units` parameter:
@@ -64,10 +65,12 @@ The FRED api also allows some basic time series transformations with the `units`
 ```{r, warning = FALSE}
 data_get(c("fred/CAPB5610CS", "fred/CAPB5640CS"), units = "pc1") |>
   ggplot(aes(time, value, color = Title)) +
-  geom_line()
+  geom_line() +
+  theme(legend.position = "bottom", legend.direction = "vertical")
 ```
 
 Allowed values for `units`:
+
 * lin = Levels (No transformation)
 * chg = Change
 * ch1 = Change from Year Ago
@@ -77,16 +80,18 @@ Allowed values for `units`:
 * cch = Continuously Compounded Rate of Change
 * cca = Continuously Compounded Annual Rate of Change
 * log = Natural Log
-* 
+
 Similarly time series can be temporally aggregated with the `frequency` and `aggregation_method` parameters:
 
 ```{r}
 data_get(c("fred/CAPB5610CS", "fred/CAPB5640CS"), units = "pc1", frequency = "a", aggregation_method = "sum") |>
   ggplot(aes(time, value, color = Title)) +
-  geom_line()
+  geom_line() +
+  theme(legend.position = "bottom", legend.direction = "vertical")
 ```
 
 Allowed values for `frequency`:
+
 * d = Daily
 * w = Weekly
 * bw = Biweekly
@@ -94,11 +99,32 @@ Allowed values for `frequency`:
 * q = Quarterly
 * sa = Semiannual
 * a = Annual
-* 
+
 Allowed values for `aggregation_method`:
+
 * avg = Average
 * sum = Sum
 * eop = End of Period
-* 
+
+## U.S. Energy Information Administration (EIA) database
+
+List available data tables:
+
+```{r}
+data("eia/")
+```
+
+Get data tables:
+
+```{r}
+data("eia/NG")
+```
+
+You can use `data_get()` to fetch individual time series. Time series codes can be found from the [EIA API Query Browser](https://www.eia.gov/opendata/qb.php).
+
+```{r}
+data_get("eia/NG.N3010AL2.A")
+```
+
 
 
