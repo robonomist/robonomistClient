@@ -71,6 +71,9 @@
     <li>
       <a href="../articles/filtering.html">Filtering large data tables</a>
     </li>
+    <li>
+      <a href="../articles/special.html">Special datasources</a>
+    </li>
   </ul>
 </li>
 <li>
@@ -116,7 +119,7 @@
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://robonomist.github.io/robonomistClient/">robonomistClient</a></span><span class="op">)</span>
 <span class="co">#&gt; <span style="color: #00BB00;">✔</span> Loaded <span style="color: #0000BB;">robonomistClient</span> 2.1.8</span>
 <span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Set to connect wss://data.robonomist.app</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Set to connect wss://data.robonomist.app <span style="color: #B2B2B2;">[55ms]</span></span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Set to connect wss://data.robonomist.app <span style="color: #B2B2B2;">[71ms]</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Attaching package: 'robonomistClient'</span>
@@ -125,13 +128,13 @@
 <span class="co">#&gt;     data</span>
 <span class="fu"><a href="../reference/datasources.html">datasources</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Connecting to <span style="color: #0000BB;">robonomistServer</span> at wss://data.robonomist.app</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Connecting to <span style="color: #0000BB;">robonomistServer</span> at wss://data.robonomist.app <span style="color: #B2B2B2;">[810ms]</span></span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Connecting to <span style="color: #0000BB;">robonomistServer</span> at wss://data.robonomist.app <span style="color: #B2B2B2;">[1.1s]</span></span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Connected successfully to robonomistServer 2.4.16</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Connected successfully to robonomistServer 2.4.16 <span style="color: #B2B2B2;">[51ms]</span></span>
+<span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Connected successfully to robonomistServer 2.4.21</span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Connected successfully to robonomistServer 2.4.21 <span style="color: #B2B2B2;">[56ms]</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; ⠙ Requesting datasources</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting datasources <span style="color: #B2B2B2;">[138ms]</span></span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting datasources <span style="color: #B2B2B2;">[171ms]</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; ── Robonomist Server Datasources</span>
 <span class="co">#&gt;    dataset            title                                                     </span>
@@ -171,7 +174,9 @@
 <span class="co">#&gt; <span style="color: #BCBCBC;">34</span> <span style="color: #0000BB;">unece</span>              United Nations Economic Commission for Europe Statistical…</span>
 <span class="co">#&gt; <span style="color: #BCBCBC;">35</span> <span style="color: #0000BB;">nordic</span>             Nordic Statistics                                         </span>
 <span class="co">#&gt; <span style="color: #BCBCBC;">36</span> <span style="color: #0000BB;">unctad</span>             United Nations Conference on Trade and Development        </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">37</span> <span style="color: #0000BB;">tidy</span>               Robonomistin jalostetut tietokannat                       </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">37</span> <span style="color: #0000BB;">eia</span>                U.S. Energy Information Administration database           </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">38</span> <span style="color: #0000BB;">fred</span>               FRED, Federal Reserve Economic Data, St. Louis Fed        </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">39</span> <span style="color: #0000BB;">tidy</span>               Robonomistin jalostetut tietokannat                       </span>
 <span class="co">#&gt; <span style="color: #949494;"># … with 1 more variable: languages &lt;list&gt;</span></span></code></pre></div>
 </div>
 <div class="section level2">
@@ -181,7 +186,7 @@
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/data.html">data</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; ⠙ Requesting data</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[9ms]</span></span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[15ms]</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; ── Robonomist Database search results</span>
 <span class="co">#&gt;    id                                        title                              </span>
@@ -215,13 +220,13 @@
 <span class="co">#&gt; <span style="color: #BCBCBC;">28</span> <span style="color: #00BBBB;">StatFin/asu/asvu/statfin_asvu_pxt_12d4.px</span> Vapaarahoitteisten vuokra-asuntoje…</span>
 <span class="co">#&gt; <span style="color: #BCBCBC;">29</span> <span style="color: #00BBBB;">StatFin/asu/asvu/statfin_asvu_pxt_12d4.px</span> Fördelning av totalhyror för fritt…</span>
 <span class="co">#&gt; <span style="color: #BCBCBC;">30</span> <span style="color: #00BBBB;">StatFin/asu/asvu/statfin_asvu_pxt_12d4.px</span> Distributions of total rents for n…</span>
-<span class="co">#&gt; <span style="color: #949494;"># … with 131,376 more rows, and 1 more variable: lang &lt;chr&gt;</span></span></code></pre></div>
+<span class="co">#&gt; <span style="color: #949494;"># … with 131,893 more rows, and 1 more variable: lang &lt;chr&gt;</span></span></code></pre></div>
 <p>The package automatically ensures that the listed data tables are the latest versions available at the datasources.</p>
 <p>To get a specific data table, use the tables id.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/data.html">data</a></span><span class="op">(</span><span class="st">"StatFin/vrm/synt/statfin_synt_pxt_12dx.px"</span><span class="op">)</span>
 <span class="co">#&gt; ⠙ Requesting data</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[952ms]</span></span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[310ms]</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; <span style="color: #949494;"># Robonomist id: </span><span style="color: #00BBBB;">StatFin/vrm/synt/statfin_synt_pxt_12dx.px</span></span>
 <span class="co">#&gt; <span style="color: #949494;"># A tibble:      2,992 × 3</span></span>
@@ -245,7 +250,7 @@
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/data_vintage.html">data_vintage</a></span><span class="op">(</span><span class="st">"StatFin/vrm/synt/statfin_synt_pxt_12dx.px"</span><span class="op">)</span>
 <span class="co">#&gt; ⠙ Requesting vintage</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting vintage <span style="color: #B2B2B2;">[149ms]</span></span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting vintage <span style="color: #B2B2B2;">[209ms]</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; StatFin/vrm/synt/statfin_synt_pxt_12dx.px </span>
 <span class="co">#&gt;                     "2021-06-18T05:00:00"</span></code></pre></div>
@@ -256,7 +261,7 @@
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/data.html">data</a></span><span class="op">(</span><span class="st">"Vero/"</span><span class="op">)</span>
 <span class="co">#&gt; ⠙ Requesting data</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[210ms]</span></span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[276ms]</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; ── Robonomist Database search results</span>
 <span class="co">#&gt;    id                                    title                                  </span>
@@ -306,8 +311,7 @@
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/data.html">data_search</a></span><span class="op">(</span><span class="st">"väestö"</span><span class="op">)</span>
 <span class="co">#&gt; ⠙ Requesting search</span>
-<span class="co">#&gt; ⠹ Requesting search</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting search <span style="color: #B2B2B2;">[2.4s]</span></span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting search <span style="color: #B2B2B2;">[2.3s]</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; ── Robonomist Database search results</span>
 <span class="co">#&gt;    id                                            title                          </span>
@@ -320,11 +324,11 @@
 <span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> <span style="color: #00BBBB;">StatFin/kou/vkour/statfin_vkour_pxt_12bs.px</span>   15 vuotta täyttänyt väestö kou…</span>
 <span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> <span style="color: #00BBBB;">StatFin/sos/lasuo/statfin_lasuo_pxt_001.px</span>    Kodin ulkopuolelle sijoitetut …</span>
 <span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> <span style="color: #00BBBB;">StatFin/sos/lasuo/statfin_lasuo_pxt_001.px</span>    Ungdomar i åldern 0-17 år som …</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">10</span> <span style="color: #00BBBB;">StatFin/sos/lasuo/statfin_lasuo_pxt_001.px</span>    017-year-olds placed outside the home, % of those of the same age by percentage of children placed outside the home (%) and Year</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">10</span> <span style="color: #00BBBB;">StatFin/sos/lasuo/statfin_lasuo_pxt_001.px</span>    017-year-olds placed outside t…</span>
 <span class="co">#&gt; <span style="color: #BCBCBC;">11</span> <span style="color: #00BBBB;">StatFin/sos/toimtt/statfin_toimtt_pxt_001.px</span>  Toimeentulotuen saajien osuus …</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">12</span> <span style="color: #00BBBB;">StatFin/ter/avtk/statfin_avtk_pxt_001.px</span>      Lihavien osuus (%) 2064-vuotiaista, itse raportoitu paino ja pituus muuttujina Vuosi ja Sukupuoli</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">13</span> <span style="color: #00BBBB;">StatFin/ter/avtk/statfin_avtk_pxt_002.px</span>      Vapaa-ajan liikuntaa harrastamattomien osuus (%) 2064-vuotiaista muuttujina Vuosi ja Sukupuoli</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">14</span> <span style="color: #00BBBB;">StatFin/ter/avtk/statfin_avtk_pxt_003.px</span>      Päivittäin tupakoivien osuus (%) 2064-vuotiaista muuttujina Vuosi ja Sukupuoli</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">12</span> <span style="color: #00BBBB;">StatFin/ter/avtk/statfin_avtk_pxt_001.px</span>      Lihavien osuus (%) 2064-vuotia…</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">13</span> <span style="color: #00BBBB;">StatFin/ter/avtk/statfin_avtk_pxt_002.px</span>      Vapaa-ajan liikuntaa harrastam…</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">14</span> <span style="color: #00BBBB;">StatFin/ter/avtk/statfin_avtk_pxt_003.px</span>      Päivittäin tupakoivien osuus (…</span>
 <span class="co">#&gt; <span style="color: #BCBCBC;">15</span> <span style="color: #00BBBB;">StatFin/ter/evtk/statfin_evtk_pxt_001.px</span>      Eläkeikäisen väestön terveyskä…</span>
 <span class="co">#&gt; <span style="color: #BCBCBC;">16</span> <span style="color: #00BBBB;">StatFin/ter/ksyyt/statfin_ksyyt_pxt_11br.px</span>   Kuolleet/kuolleisuus muuttujin…</span>
 <span class="co">#&gt; <span style="color: #BCBCBC;">17</span> <span style="color: #00BBBB;">StatFin/tul/vtutk/statfin_vtutk_pxt_136w.px</span>   Asuntoväestön pörssiosakkeet j…</span>
@@ -350,7 +354,7 @@
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/data.html">data_get</a></span><span class="op">(</span><span class="st">"StatFin/kan/ntp/statfin_ntp_pxt_132h.px"</span><span class="op">)</span>
 <span class="co">#&gt; ⠙ Requesting get</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[198ms]</span></span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[367ms]</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; <span style="color: #949494;"># Robonomist id: </span><span style="color: #00BBBB;">StatFin/kan/ntp/statfin_ntp_pxt_132h.px</span></span>
 <span class="co">#&gt; <span style="color: #949494;"># A tibble:      101,346 × 4</span></span>
@@ -374,7 +378,7 @@
 <span class="fu"><a href="../reference/data.html">data_get</a></span><span class="op">(</span><span class="st">"StatFin/kan/ntp/statfin_ntp_pxt_132h.px"</span>, tidy_time <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange</a></span><span class="op">(</span><span class="va">Taloustoimi</span>, <span class="va">Tiedot</span><span class="op">)</span>
 <span class="co">#&gt; ⠙ Requesting get</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[698ms]</span></span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[267ms]</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; <span style="color: #949494;"># Robonomist id: </span><span style="color: #00BBBB;">StatFin/kan/ntp/statfin_ntp_pxt_132h.px</span></span>
 <span class="co">#&gt; <span style="color: #949494;"># A tibble:      101,346 × 4</span></span>
@@ -399,7 +403,7 @@
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/data.html">data_get</a></span><span class="op">(</span><span class="st">"StatFin/kan/ntp/statfin_ntp_pxt_132h.px"</span>, labels <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
 <span class="co">#&gt; ⠙ Requesting get</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[941ms]</span></span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[239ms]</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; <span style="color: #949494;"># Robonomist id: </span><span style="color: #00BBBB;">StatFin/kan/ntp/statfin_ntp_pxt_132h.px</span></span>
 <span class="co">#&gt; <span style="color: #949494;"># A tibble:      101,346 × 4</span></span>
