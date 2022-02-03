@@ -5,4 +5,5 @@
 #' @importFrom lifecycle deprecated
 ## usethis namespace: end
 #' @import cli
+#' @import vctrs
 NULL
