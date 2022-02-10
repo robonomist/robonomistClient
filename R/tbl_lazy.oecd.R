@@ -1,4 +1,3 @@
-#' @import dplyr
 #' @export
 print.tbl_lazy_oecd <- function(x, n = 10L, ...) {
 
@@ -18,13 +17,15 @@ print.tbl_lazy_oecd <- function(x, n = 10L, ...) {
     rev(sel)
   }
 
-  if("Frequency" %in% names(x$x)) {
+  has_time <- all(c("Frequency", "time") %in% names(x$x))
+
+  if (has_time) {
     ## Filter out incompatible dates
     time_cols <-
-      dplyr::inner_join(x$x$Frequency,
-                 dplyr::select(x$x$time, date_type, time),
-                 by = c("code" = "date_type")) %>%
-      dplyr::select(x$var_types["Frequency"], time)
+      inner_join(x$x$Frequency,
+                 select(x$x$time, date_type, time),
+                 by = c("code" = "date_type")) |>
+      select(x$var_types["Frequency"], time)
     not_time <- setdiff(names(x$x), c("Frequency", "time"))
     n_categories <- c(purrr::map_int(x$x[not_time], nrow), nrow(time_cols))
     sel <- categories_needed(n_categories, n)
@@ -40,9 +41,9 @@ print.tbl_lazy_oecd <- function(x, n = 10L, ...) {
     r <- tidyr::expand_grid(!!!dims)
     n_rows <- prod(purrr::map_int(x$x, nrow))
   }
-  r <-
-    dplyr::mutate(r, value = vctrs::new_vctr("??", class = "collect"))  %>%
-    dplyr::arrange(time)
+  r <- mutate(r, value = vctrs::new_vctr("??", class = "collect"))
+  if (has_time) r <- arrange(r, time)
+
   attr(r, "n_rows") <- n_rows
   attr(r, "title") <- x$title
   attr(r, "robonomist_id") <- attr(x, "robonomist_id")

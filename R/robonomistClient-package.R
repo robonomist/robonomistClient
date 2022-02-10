@@ -6,4 +6,5 @@
 ## usethis namespace: end
 #' @import cli
 #' @import vctrs
+#' @rawNamespace import(dplyr, except = data_frame)
 NULL
