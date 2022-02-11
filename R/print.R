@@ -58,7 +58,7 @@ ctl_new_pillar.robonomist_datasources <- function(controller, x, width, ..., tit
       list(pillar::new_pillar_shaft_simple(crayon::blue(x))),
       width = extent, min_width = min(extent, 40L))
   } else {
-    y <- pillar_component(new_pillar_shaft_simple(x, min_width = 30L))
+    y <- pillar_component(pillar::new_pillar_shaft_simple(x, min_width = 30L))
   }
   pillar::new_pillar(list(
             title = pillar_component(pillar::new_pillar_title(title)),
