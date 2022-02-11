@@ -18,5 +18,4 @@ If \code{clipr} package is installed, the filter will be copied to clipboard.
 \dontrun{
 data("sotkanet/4") \%>\% print_filter(region_category, gender)
 }
-
 }
