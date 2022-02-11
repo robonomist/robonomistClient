@@ -50,7 +50,6 @@ is_summary <- function(x) {
 #' \dontrun{
 #' data("sotkanet/4") %>% print_filter(region_category, gender)
 #' }
-#' @importFrom tidyselect where
 #' @export
 print_filter <- function(.data, ...) {
   y <- dplyr::select(.data, where(is_cat))
