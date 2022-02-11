@@ -1,3 +1,7 @@
+# robonomistClient 2.2.0
+
+* Compatible with robonomistServer 2.5.0
+
 # robonomistClient 2.1.8
 
 * Print more row by default for robonomist_search and robonomist_datasources
