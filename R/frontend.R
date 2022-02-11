@@ -48,7 +48,7 @@
 #' @export
 data <- function(pattern = "", dl_filter = NULL, labels = TRUE,
                  lang = NULL, na.rm = FALSE, tidy_time = NULL, ...) {
-  stopifnot(is.character(pattern))
+  pattern <- as.character(pattern)
   stopifnot(is.null(lang) || is.character(lang))
   stopifnot(is.null(tidy_time) || is.logical(tidy_time))
   args <- c(as.list(environment()), list(...)) |> purrr::compact()

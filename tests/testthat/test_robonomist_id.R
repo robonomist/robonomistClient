@@ -1,0 +1,15 @@
+test_that("robonomist_id works", {
+
+  expect_s3_class(new_robonomist_id("foo/bar"), "robonomist_id")
+  expect_s3_class(x <- robonomist_id("foo/bar"), "robonomist_id")
+  expect_identical(x, robonomist_id("foo", "bar"))
+  expect_s3_class(x <- robonomist_id(c("foo/bar", "foo/bar2")), "robonomist_id")
+  expect_identical(x, robonomist_id("foo", c("bar", "bar2")))
+  expect_s3_class(x[1], "robonomist_id")
+  expect_s3_class(robonomist_id("foo", 1:2), "robonomist_id")
+  expect_type(as.character(x), "character")
+  expect_type(y <- as.list(x), "list")
+  expect_type(y$dataset, "character")
+  expect_type(y$table, "character")
+  expect_s3_class(pillar_shaft(x), "pillar_shaft")
+})

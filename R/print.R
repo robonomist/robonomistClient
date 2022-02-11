@@ -18,22 +18,22 @@ tbl_format_footer.robonomist_search <- function(x, setup, ...) {
   }
 }
 
-#' @export
-#' @importFrom pillar ctl_new_pillar pillar_component new_pillar_component new_pillar_shaft_simple
-ctl_new_pillar.robonomist_search <- function(controller, x, width, ..., title = NULL) {
-  if (title == "id") {
-    extent <- pillar::get_max_extent(x)
-    y <- new_pillar_component(
-      list(pillar::new_pillar_shaft_simple(crayon::cyan(x))),
-      width = extent, min_width = min(extent, 40L))
-  } else {
-    y <- pillar_component(new_pillar_shaft_simple(x, min_width = 30L))
-  }
-  pillar::new_pillar(list(
-    title = pillar_component(pillar::new_pillar_title(title)),
-    data = y
-  ))
-}
+## #' @export
+## #' @importFrom pillar ctl_new_pillar pillar_component new_pillar_component new_pillar_shaft_simple
+## ctl_new_pillar.robonomist_search <- function(controller, x, width, ..., title = NULL) {
+##   if (title == "id") {
+##     extent <- pillar::get_max_extent(x)
+##     y <- new_pillar_component(
+##       list(pillar::new_pillar_shaft_simple(crayon::cyan(x))),
+##       width = extent, min_width = min(extent, 40L))
+##   } else {
+##     y <- pillar_component(new_pillar_shaft_simple(x, min_width = 30L))
+##   }
+##   pillar::new_pillar(list(
+##     title = pillar_component(pillar::new_pillar_title(title)),
+##     data = y
+##   ))
+## }
 
 #' @export
 print.robonomist_search <- function(x, n = 30, ...) {
