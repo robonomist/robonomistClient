@@ -1,14 +1,3 @@
-## test_that("Frontend works locally", {
-##   set_robonomist_server(NULL)
-##   id <- "StatFin/asu/asas/statfin_asas_pxt_115a.px"
-##   expect_type(data_vintage(id), "character")
-##   expect_type(data_metadata(id), "list")
-##   expect_s3_class(data_search(id), "robonomist_search")
-##   expect_s3_class(datasources(), "robonomist_datasources")
-##   expect_s3_class(data_get(id), "robonomist_data")
-##   expect_s3_class(data(id), "robonomist_data")
-## })
-
 
 test_that("Frontend works remotely", {
   skip_if(Sys.getenv("ROBONOMIST_TEST_SERVER") == "", "Test server not configured.")
@@ -16,7 +5,7 @@ test_that("Frontend works remotely", {
   set_robonomist_server(Sys.getenv("ROBONOMIST_TEST_SERVER"),
                         Sys.getenv("ROBONOMIST_TEST_ACCESS_TOKEN"))
   id <- "StatFin/asu/asas/statfin_asas_pxt_115a.px"
-  expect_type(data_vintage(id), "character")
+  expect_s3_class(data_vintage(id), "POSIXct")
   expect_type(data_metadata(id), "list")
   expect_s3_class(data_search(id), "robonomist_search")
   expect_s3_class(data(), "robonomist_search")

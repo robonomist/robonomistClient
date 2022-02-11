@@ -4,7 +4,8 @@ for(i in ds$dataset) {
   cat(i, "\n")
   test_that(paste("data() works on datasource", i), {
     skip_if(!nzchar(Sys.getenv("ROBONOMIST_TEST_SERVER")), "Test server not configured.")
-    n <- switch(i, konj = 10, dk = 2, no = 2, traficom = 4, tidy = 2, 1)
+    n <- switch(i, konj = 35, dk = 2, no = 2, traficom = 4, tidy = 2,
+                se = 10, unctad = 2, eia = 15, 1)
     if(i %in% c("tulli", "ecb")) {
       expect_s3_class(data(paste0(i, "/#", n)), "list")
     } else {
