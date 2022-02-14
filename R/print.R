@@ -119,7 +119,7 @@ tbl_sum.eurostat <- function(x, ...) {
 
   c(header,
     Title = attr(x, "title"),
-    `Last updated` = attr(x, "robonomist_vintage"),
+    `Last updated` = as.character(attr(x, "robonomist_vintage")),
     `Time frame` = if (!is.null(y <- attr(x, "time_frame_code"))) {
       paste(y, collapse = "-")
     }
