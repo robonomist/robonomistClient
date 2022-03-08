@@ -83,7 +83,13 @@ filter.tbl_lazy_oecd <- function(.data, ..., .preserve = FALSE) {
   vars <- .data$vars
 
   getAST <- function(x) purrr::map_if(as.list(x), is.call, getAST)
-  symbols <- purrr::map(rlang::exprs(...), ~as.character(purrr::keep(unlist(getAST(.x)), is.symbol)))
+  symbols <- purrr::map(
+    rlang::exprs(...),
+    ~unlist(getAST(.x)) |>
+      purrr::keep(is.symbol) |>
+      map(rlang::as_string)
+  )
+
   filtered_vars <-
     purrr::map_chr(symbols, function(x) {
       i <- which(purrr::map_lgl(vars, ~any(x == .x)))
