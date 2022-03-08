@@ -1,3 +1,7 @@
+# robonomistClient 2.2.1
+
+* Fix oecd backtick bug
+
 # robonomistClient 2.2.0
 
 * Compatible with robonomistServer 2.5.0
