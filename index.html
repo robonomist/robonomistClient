@@ -46,7 +46,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">robonomistClient</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.1.8</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.2.1</span>
       </span>
     </div>
 
@@ -56,7 +56,7 @@
   <a href="reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -109,7 +109,7 @@
 <div class="section level2">
 <h2 id="datasources">Datasources<a class="anchor" aria-label="anchor" href="#datasources"></a>
 </h2>
-<p>The <code>robonomistClient</code> package allows easy and fast access to various datasources connecting to a Robonomist Data Server. Currently the client package provides access to 73 597 up-to-date data tables from 39 different datasources with 9 different languages.</p>
+<p>The <code>robonomistClient</code> package allows easy and fast access to various datasources connecting to a Robonomist Data Server. Currently the client package provides access to 71 647 up-to-date data tables from 42 different datasources with 9 different languages.</p>
 <p>Some of the integrated datasources:</p>
 <ul>
 <li>Statistics Finland (StatFin &amp; StatFin archive databases)</li>
@@ -186,30 +186,33 @@
 <span id="cb4-19"><a href="#cb4-19"></a><span class="co">## 14 wb                 World Bank Open Data                                      </span></span>
 <span id="cb4-20"><a href="#cb4-20"></a><span class="co">## 15 hsa                Helsingin seudun aluesarjat -tilastotietokanta            </span></span>
 <span id="cb4-21"><a href="#cb4-21"></a><span class="co">## 16 helymp             Helsingin ympäristötilasto                                </span></span>
-<span id="cb4-22"><a href="#cb4-22"></a><span class="co">## 17 covid              European Centre for Disease Prevention and Control COVID-…</span></span>
-<span id="cb4-23"><a href="#cb4-23"></a><span class="co">## 18 vipunen            Vipunen, Education Statistics Finland                     </span></span>
-<span id="cb4-24"><a href="#cb4-24"></a><span class="co">## 19 epirapo            THL Epirapo COVID-19 database                             </span></span>
-<span id="cb4-25"><a href="#cb4-25"></a><span class="co">## 20 sotkanet           THL Sotkanet                                              </span></span>
-<span id="cb4-26"><a href="#cb4-26"></a><span class="co">## 21 maakoto            Maahanmuuttajat ja kotoutuminen -tietokanta (Tilastokesku…</span></span>
-<span id="cb4-27"><a href="#cb4-27"></a><span class="co">## 22 koto               Kototietokanta (Tilastokeskus)                            </span></span>
-<span id="cb4-28"><a href="#cb4-28"></a><span class="co">## 23 toimipaikkalaskuri Toimipaikkalaskuri-tietokanta (Tilastokeskus)             </span></span>
-<span id="cb4-29"><a href="#cb4-29"></a><span class="co">## 24 kokeelliset        Tilastokeskuksen kokeelliset tilastot                     </span></span>
-<span id="cb4-30"><a href="#cb4-30"></a><span class="co">## 25 traficom           Traficomin tilastotietokanta (Tilastokeskus)              </span></span>
-<span id="cb4-31"><a href="#cb4-31"></a><span class="co">## 26 tk_eurostat        Eurostatin avaintaulukot -tietokanta (Tilastokeskus)      </span></span>
-<span id="cb4-32"><a href="#cb4-32"></a><span class="co">## 27 se                 Statistics Sweden                                         </span></span>
-<span id="cb4-33"><a href="#cb4-33"></a><span class="co">## 28 konj               The Swedish National Institute of Economic Research       </span></span>
-<span id="cb4-34"><a href="#cb4-34"></a><span class="co">## 29 sjv                The Swedish Agricultural Agency                           </span></span>
-<span id="cb4-35"><a href="#cb4-35"></a><span class="co">## 30 no                 Statistics Norway                                         </span></span>
-<span id="cb4-36"><a href="#cb4-36"></a><span class="co">## 31 dk                 Statistics Denmark                                        </span></span>
-<span id="cb4-37"><a href="#cb4-37"></a><span class="co">## 32 is                 Statistics Iceland                                        </span></span>
-<span id="cb4-38"><a href="#cb4-38"></a><span class="co">## 33 ee                 Statistics Estonia                                        </span></span>
-<span id="cb4-39"><a href="#cb4-39"></a><span class="co">## 34 unece              United Nations Economic Commission for Europe Statistical…</span></span>
-<span id="cb4-40"><a href="#cb4-40"></a><span class="co">## 35 nordic             Nordic Statistics                                         </span></span>
-<span id="cb4-41"><a href="#cb4-41"></a><span class="co">## 36 unctad             United Nations Conference on Trade and Development        </span></span>
-<span id="cb4-42"><a href="#cb4-42"></a><span class="co">## 37 eia                U.S. Energy Information Administration database           </span></span>
-<span id="cb4-43"><a href="#cb4-43"></a><span class="co">## 38 fred               FRED, Federal Reserve Economic Data, St. Louis Fed        </span></span>
-<span id="cb4-44"><a href="#cb4-44"></a><span class="co">## 39 tidy               Robonomistin jalostetut tietokannat                       </span></span>
-<span id="cb4-45"><a href="#cb4-45"></a><span class="co">## # … with 1 more variable: languages &lt;list&gt;</span></span></code></pre></div>
+<span id="cb4-22"><a href="#cb4-22"></a><span class="co">## 17 helhyv             Helsingin hyvinvointitilastot                             </span></span>
+<span id="cb4-23"><a href="#cb4-23"></a><span class="co">## 18 helhyv             Nordstat                                                  </span></span>
+<span id="cb4-24"><a href="#cb4-24"></a><span class="co">## 19 covid              European Centre for Disease Prevention and Control COVID-…</span></span>
+<span id="cb4-25"><a href="#cb4-25"></a><span class="co">## 20 vipunen            Vipunen, Education Statistics Finland                     </span></span>
+<span id="cb4-26"><a href="#cb4-26"></a><span class="co">## 21 epirapo            THL Epirapo COVID-19 database                             </span></span>
+<span id="cb4-27"><a href="#cb4-27"></a><span class="co">## 22 sotkanet           THL Sotkanet                                              </span></span>
+<span id="cb4-28"><a href="#cb4-28"></a><span class="co">## 23 maakoto            Maahanmuuttajat ja kotoutuminen -tietokanta (Tilastokesku…</span></span>
+<span id="cb4-29"><a href="#cb4-29"></a><span class="co">## 24 koto               Kototietokanta (Tilastokeskus)                            </span></span>
+<span id="cb4-30"><a href="#cb4-30"></a><span class="co">## 25 toimipaikkalaskuri Toimipaikkalaskuri-tietokanta (Tilastokeskus)             </span></span>
+<span id="cb4-31"><a href="#cb4-31"></a><span class="co">## 26 kokeelliset        Tilastokeskuksen kokeelliset tilastot                     </span></span>
+<span id="cb4-32"><a href="#cb4-32"></a><span class="co">## 27 traficom           Traficomin tilastotietokanta (Tilastokeskus)              </span></span>
+<span id="cb4-33"><a href="#cb4-33"></a><span class="co">## 28 tk_eurostat        Eurostatin avaintaulukot -tietokanta (Tilastokeskus)      </span></span>
+<span id="cb4-34"><a href="#cb4-34"></a><span class="co">## 29 se                 Statistics Sweden                                         </span></span>
+<span id="cb4-35"><a href="#cb4-35"></a><span class="co">## 30 konj               The Swedish National Institute of Economic Research       </span></span>
+<span id="cb4-36"><a href="#cb4-36"></a><span class="co">## 31 sjv                The Swedish Agricultural Agency                           </span></span>
+<span id="cb4-37"><a href="#cb4-37"></a><span class="co">## 32 no                 Statistics Norway                                         </span></span>
+<span id="cb4-38"><a href="#cb4-38"></a><span class="co">## 33 dk                 Statistics Denmark                                        </span></span>
+<span id="cb4-39"><a href="#cb4-39"></a><span class="co">## 34 is                 Statistics Iceland                                        </span></span>
+<span id="cb4-40"><a href="#cb4-40"></a><span class="co">## 35 ee                 Statistics Estonia                                        </span></span>
+<span id="cb4-41"><a href="#cb4-41"></a><span class="co">## 36 unece              United Nations Economic Commission for Europe Statistical…</span></span>
+<span id="cb4-42"><a href="#cb4-42"></a><span class="co">## 37 nordic             Nordic Statistics                                         </span></span>
+<span id="cb4-43"><a href="#cb4-43"></a><span class="co">## 38 unctad             United Nations Conference on Trade and Development        </span></span>
+<span id="cb4-44"><a href="#cb4-44"></a><span class="co">## 39 eia                U.S. Energy Information Administration database           </span></span>
+<span id="cb4-45"><a href="#cb4-45"></a><span class="co">## 40 fred               FRED, Federal Reserve Economic Data, St. Louis Fed        </span></span>
+<span id="cb4-46"><a href="#cb4-46"></a><span class="co">## 41 fao                Food and Agriculture Organization of the United Nations   </span></span>
+<span id="cb4-47"><a href="#cb4-47"></a><span class="co">## 42 tidy               Robonomistin jalostetut tietokannat                       </span></span>
+<span id="cb4-48"><a href="#cb4-48"></a><span class="co">## # … with 1 more variable: languages &lt;list&gt;</span></span></code></pre></div>
 <p>The <code>data</code> function is convenient way to search and get data tables. Print all available data tables:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/data.html">data</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
@@ -217,38 +220,39 @@
 <span id="cb6-2"><a href="#cb6-2"></a></span>
 <span id="cb6-3"><a href="#cb6-3"></a><span class="co">## ── Robonomist Database search results</span></span>
 <span id="cb6-4"><a href="#cb6-4"></a></span>
-<span id="cb6-5"><a href="#cb6-5"></a><span class="co">##    id                                        title                              </span></span>
-<span id="cb6-6"><a href="#cb6-6"></a><span class="co">##  1 StatFin/asu/asas/statfin_asas_pxt_115a.px Asuntokunnat ja asuntoväestö muutt…</span></span>
-<span id="cb6-7"><a href="#cb6-7"></a><span class="co">##  2 StatFin/asu/asas/statfin_asas_pxt_115a.px Bostadshushåll och boendebefolknin…</span></span>
-<span id="cb6-8"><a href="#cb6-8"></a><span class="co">##  3 StatFin/asu/asas/statfin_asas_pxt_115a.px Household-dwelling units and housi…</span></span>
-<span id="cb6-9"><a href="#cb6-9"></a><span class="co">##  4 StatFin/asu/asas/statfin_asas_pxt_115y.px Asuntokunnat ja asuntoväestö muutt…</span></span>
-<span id="cb6-10"><a href="#cb6-10"></a><span class="co">##  5 StatFin/asu/asas/statfin_asas_pxt_115y.px Antal bostadshushåll och antal per…</span></span>
-<span id="cb6-11"><a href="#cb6-11"></a><span class="co">##  6 StatFin/asu/asas/statfin_asas_pxt_115y.px Number of household-dwelling units…</span></span>
-<span id="cb6-12"><a href="#cb6-12"></a><span class="co">##  7 StatFin/asu/asas/statfin_asas_pxt_116a.px Asuntokunnat muuttujina Vuosi, Tal…</span></span>
-<span id="cb6-13"><a href="#cb6-13"></a><span class="co">##  8 StatFin/asu/asas/statfin_asas_pxt_116a.px Bostadshushåll efter År, Hustyp, O…</span></span>
-<span id="cb6-14"><a href="#cb6-14"></a><span class="co">##  9 StatFin/asu/asas/statfin_asas_pxt_116a.px Household-dwelling units by Year, …</span></span>
-<span id="cb6-15"><a href="#cb6-15"></a><span class="co">## 10 StatFin/asu/asas/statfin_asas_pxt_116b.px Asuntokunnat ja asuntoväestö muutt…</span></span>
-<span id="cb6-16"><a href="#cb6-16"></a><span class="co">## 11 StatFin/asu/asas/statfin_asas_pxt_116b.px Bostadshushåll och bostadsbefolkni…</span></span>
-<span id="cb6-17"><a href="#cb6-17"></a><span class="co">## 12 StatFin/asu/asas/statfin_asas_pxt_116b.px Household-dwelling units and dwell…</span></span>
-<span id="cb6-18"><a href="#cb6-18"></a><span class="co">## 13 StatFin/asu/asas/statfin_asas_pxt_116d.px Asuntokunnat muuttujina Alue, Talo…</span></span>
-<span id="cb6-19"><a href="#cb6-19"></a><span class="co">## 14 StatFin/asu/asas/statfin_asas_pxt_116d.px Bostadshushåll efter Område, Husty…</span></span>
-<span id="cb6-20"><a href="#cb6-20"></a><span class="co">## 15 StatFin/asu/asas/statfin_asas_pxt_116d.px Household-dwelling units by Area, …</span></span>
-<span id="cb6-21"><a href="#cb6-21"></a><span class="co">## 16 StatFin/asu/asas/statfin_asas_pxt_116e.px Asuntokunnat ja asuntoväestö muutt…</span></span>
-<span id="cb6-22"><a href="#cb6-22"></a><span class="co">## 17 StatFin/asu/asas/statfin_asas_pxt_116e.px Antal bostadshushåll och antal per…</span></span>
-<span id="cb6-23"><a href="#cb6-23"></a><span class="co">## 18 StatFin/asu/asas/statfin_asas_pxt_116e.px Number of household-dwelling units…</span></span>
-<span id="cb6-24"><a href="#cb6-24"></a><span class="co">## 19 StatFin/asu/asas/statfin_asas_pxt_116f.px Asunnot muuttujina Alue, Talotyypp…</span></span>
-<span id="cb6-25"><a href="#cb6-25"></a><span class="co">## 20 StatFin/asu/asas/statfin_asas_pxt_116f.px Bostäder efter Område, Hustyp, Byg…</span></span>
-<span id="cb6-26"><a href="#cb6-26"></a><span class="co">## 21 StatFin/asu/asas/statfin_asas_pxt_116f.px Dwellings by Area, Type of buildin…</span></span>
-<span id="cb6-27"><a href="#cb6-27"></a><span class="co">## 22 StatFin/asu/asvu/statfin_asvu_pxt_11x4.px Vuokraindeksi (2015=100) ja keskin…</span></span>
-<span id="cb6-28"><a href="#cb6-28"></a><span class="co">## 23 StatFin/asu/asvu/statfin_asvu_pxt_11x4.px Hyresindex (2015=100) och genomsni…</span></span>
-<span id="cb6-29"><a href="#cb6-29"></a><span class="co">## 24 StatFin/asu/asvu/statfin_asvu_pxt_11x4.px Rent index (2015=100) and average …</span></span>
-<span id="cb6-30"><a href="#cb6-30"></a><span class="co">## 25 StatFin/asu/asvu/statfin_asvu_pxt_11x5.px Vuokraindeksi (2015=100) ja keskin…</span></span>
-<span id="cb6-31"><a href="#cb6-31"></a><span class="co">## 26 StatFin/asu/asvu/statfin_asvu_pxt_11x5.px Hyresindex (2015=100) och genomsni…</span></span>
-<span id="cb6-32"><a href="#cb6-32"></a><span class="co">## 27 StatFin/asu/asvu/statfin_asvu_pxt_11x5.px Rent index (2015=100) and average …</span></span>
-<span id="cb6-33"><a href="#cb6-33"></a><span class="co">## 28 StatFin/asu/asvu/statfin_asvu_pxt_12d4.px Vapaarahoitteisten vuokra-asuntoje…</span></span>
-<span id="cb6-34"><a href="#cb6-34"></a><span class="co">## 29 StatFin/asu/asvu/statfin_asvu_pxt_12d4.px Fördelning av totalhyror för fritt…</span></span>
-<span id="cb6-35"><a href="#cb6-35"></a><span class="co">## 30 StatFin/asu/asvu/statfin_asvu_pxt_12d4.px Distributions of total rents for n…</span></span>
-<span id="cb6-36"><a href="#cb6-36"></a><span class="co">## # … with 131,893 more rows, and 1 more variable: lang &lt;chr&gt;</span></span></code></pre></div>
+<span id="cb6-5"><a href="#cb6-5"></a><span class="co">##    id                                        title                         lang </span></span>
+<span id="cb6-6"><a href="#cb6-6"></a><span class="co">##    &lt;r_id&gt;                                    &lt;chr&gt;                         &lt;chr&gt;</span></span>
+<span id="cb6-7"><a href="#cb6-7"></a><span class="co">##  1 StatFin/asu/asas/statfin_asas_pxt_115a.px Asuntokunnat ja asuntoväestö… fi   </span></span>
+<span id="cb6-8"><a href="#cb6-8"></a><span class="co">##  2 StatFin/asu/asas/statfin_asas_pxt_115a.px Bostadshushåll och boendebef… sv   </span></span>
+<span id="cb6-9"><a href="#cb6-9"></a><span class="co">##  3 StatFin/asu/asas/statfin_asas_pxt_115a.px Household-dwelling units and… en   </span></span>
+<span id="cb6-10"><a href="#cb6-10"></a><span class="co">##  4 StatFin/asu/asas/statfin_asas_pxt_115y.px Asuntokunnat ja asuntoväestö… fi   </span></span>
+<span id="cb6-11"><a href="#cb6-11"></a><span class="co">##  5 StatFin/asu/asas/statfin_asas_pxt_115y.px Antal bostadshushåll och ant… sv   </span></span>
+<span id="cb6-12"><a href="#cb6-12"></a><span class="co">##  6 StatFin/asu/asas/statfin_asas_pxt_115y.px Number of household-dwelling… en   </span></span>
+<span id="cb6-13"><a href="#cb6-13"></a><span class="co">##  7 StatFin/asu/asas/statfin_asas_pxt_116a.px Asuntokunnat muuttujina Vuos… fi   </span></span>
+<span id="cb6-14"><a href="#cb6-14"></a><span class="co">##  8 StatFin/asu/asas/statfin_asas_pxt_116a.px Bostadshushåll efter År, Hus… sv   </span></span>
+<span id="cb6-15"><a href="#cb6-15"></a><span class="co">##  9 StatFin/asu/asas/statfin_asas_pxt_116a.px Household-dwelling units by … en   </span></span>
+<span id="cb6-16"><a href="#cb6-16"></a><span class="co">## 10 StatFin/asu/asas/statfin_asas_pxt_116b.px Asuntokunnat ja asuntoväestö… fi   </span></span>
+<span id="cb6-17"><a href="#cb6-17"></a><span class="co">## 11 StatFin/asu/asas/statfin_asas_pxt_116b.px Bostadshushåll och bostadsbe… sv   </span></span>
+<span id="cb6-18"><a href="#cb6-18"></a><span class="co">## 12 StatFin/asu/asas/statfin_asas_pxt_116b.px Household-dwelling units and… en   </span></span>
+<span id="cb6-19"><a href="#cb6-19"></a><span class="co">## 13 StatFin/asu/asas/statfin_asas_pxt_116d.px Asuntokunnat muuttujina Alue… fi   </span></span>
+<span id="cb6-20"><a href="#cb6-20"></a><span class="co">## 14 StatFin/asu/asas/statfin_asas_pxt_116d.px Bostadshushåll efter Område,… sv   </span></span>
+<span id="cb6-21"><a href="#cb6-21"></a><span class="co">## 15 StatFin/asu/asas/statfin_asas_pxt_116d.px Household-dwelling units by … en   </span></span>
+<span id="cb6-22"><a href="#cb6-22"></a><span class="co">## 16 StatFin/asu/asas/statfin_asas_pxt_116e.px Asuntokunnat ja asuntoväestö… fi   </span></span>
+<span id="cb6-23"><a href="#cb6-23"></a><span class="co">## 17 StatFin/asu/asas/statfin_asas_pxt_116e.px Antal bostadshushåll och ant… sv   </span></span>
+<span id="cb6-24"><a href="#cb6-24"></a><span class="co">## 18 StatFin/asu/asas/statfin_asas_pxt_116e.px Number of household-dwelling… en   </span></span>
+<span id="cb6-25"><a href="#cb6-25"></a><span class="co">## 19 StatFin/asu/asas/statfin_asas_pxt_116f.px Asunnot muuttujina Alue, Tal… fi   </span></span>
+<span id="cb6-26"><a href="#cb6-26"></a><span class="co">## 20 StatFin/asu/asas/statfin_asas_pxt_116f.px Bostäder efter Område, Husty… sv   </span></span>
+<span id="cb6-27"><a href="#cb6-27"></a><span class="co">## 21 StatFin/asu/asas/statfin_asas_pxt_116f.px Dwellings by Area, Type of b… en   </span></span>
+<span id="cb6-28"><a href="#cb6-28"></a><span class="co">## 22 StatFin/asu/asvu/statfin_asvu_pxt_11x4.px Vuokraindeksi (2015=100) ja … fi   </span></span>
+<span id="cb6-29"><a href="#cb6-29"></a><span class="co">## 23 StatFin/asu/asvu/statfin_asvu_pxt_11x4.px Hyresindex (2015=100) och ge… sv   </span></span>
+<span id="cb6-30"><a href="#cb6-30"></a><span class="co">## 24 StatFin/asu/asvu/statfin_asvu_pxt_11x4.px Rent index (2015=100) and av… en   </span></span>
+<span id="cb6-31"><a href="#cb6-31"></a><span class="co">## 25 StatFin/asu/asvu/statfin_asvu_pxt_11x5.px Vuokraindeksi (2015=100) ja … fi   </span></span>
+<span id="cb6-32"><a href="#cb6-32"></a><span class="co">## 26 StatFin/asu/asvu/statfin_asvu_pxt_11x5.px Hyresindex (2015=100) och ge… sv   </span></span>
+<span id="cb6-33"><a href="#cb6-33"></a><span class="co">## 27 StatFin/asu/asvu/statfin_asvu_pxt_11x5.px Rent index (2015=100) and av… en   </span></span>
+<span id="cb6-34"><a href="#cb6-34"></a><span class="co">## 28 StatFin/asu/asvu/statfin_asvu_pxt_12d4.px Vapaarahoitteisten vuokra-as… fi   </span></span>
+<span id="cb6-35"><a href="#cb6-35"></a><span class="co">## 29 StatFin/asu/asvu/statfin_asvu_pxt_12d4.px Fördelning av totalhyror för… sv   </span></span>
+<span id="cb6-36"><a href="#cb6-36"></a><span class="co">## 30 StatFin/asu/asvu/statfin_asvu_pxt_12d4.px Distributions of total rents… en   </span></span>
+<span id="cb6-37"><a href="#cb6-37"></a><span class="co">## # … with 130,184 more rows</span></span></code></pre></div>
 <p>To get a specific data table, use the tables id.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/data.html">data</a></span><span class="op">(</span><span class="st">"StatFin/vrm/synt/statfin_synt_pxt_12dx.px"</span><span class="op">)</span></code></pre></div>

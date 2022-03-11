@@ -46,7 +46,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">robonomistClient</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.1.8</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.2.1</span>
       </span>
     </div>
 
@@ -56,7 +56,7 @@
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -123,44 +123,45 @@
 <p>The St. Louis Fed Database FRED contain about +800k time series. To avoid filling up the Robonomist Server table of content, individual time series from FRED are not directly visible in the search function. Instead, you can list all “sources” and “releases” with:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/data.html">data</a></span><span class="op">(</span><span class="st">"fred/"</span><span class="op">)</span>
-<span class="co">#&gt;    id             title                           lang</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> <span style="color: #00BBBB;">fred/source=1</span>  Board of Governors of the Fede… en  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> <span style="color: #00BBBB;">fred/source=3</span>  Federal Reserve Bank of Philad… en  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> <span style="color: #00BBBB;">fred/source=4</span>  Federal Reserve Bank of St. Lo… en  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> <span style="color: #00BBBB;">fred/source=6</span>  Federal Financial Institutions… en  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> <span style="color: #00BBBB;">fred/source=11</span> Dow Jones &amp; Company             en  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> <span style="color: #00BBBB;">fred/source=14</span> University of Michigan          en  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> <span style="color: #00BBBB;">fred/source=15</span> Council of Economic Advisers (… en  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> <span style="color: #00BBBB;">fred/source=16</span> U.S. Office of Management and … en  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> <span style="color: #00BBBB;">fred/source=17</span> U.S. Congressional Budget Offi… en  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">10</span> <span style="color: #00BBBB;">fred/source=18</span> U.S. Bureau of Economic Analys… en  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">11</span> <span style="color: #00BBBB;">fred/source=19</span> U.S. Census Bureau              en  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">12</span> <span style="color: #00BBBB;">fred/source=21</span> U.S. Department of Housing and… en  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">13</span> <span style="color: #00BBBB;">fred/source=22</span> U.S. Bureau of Labor Statistics en  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">14</span> <span style="color: #00BBBB;">fred/source=23</span> U.S. Department of the Treasur… en  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">15</span> <span style="color: #00BBBB;">fred/source=26</span> Haver Analytics                 en  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">16</span> <span style="color: #00BBBB;">fred/source=31</span> Reserve Bank of Australia       en  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">17</span> <span style="color: #00BBBB;">fred/source=32</span> Deutsche Bundesbank             en  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">18</span> <span style="color: #00BBBB;">fred/source=33</span> Bank of Italy                   en  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">19</span> <span style="color: #00BBBB;">fred/source=34</span> Swiss National Bank             en  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">20</span> <span style="color: #00BBBB;">fred/source=35</span> Central Bank of the Republic o… en  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">21</span> <span style="color: #00BBBB;">fred/source=36</span> U.S. Federal Housing Finance A… en  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">22</span> <span style="color: #00BBBB;">fred/source=37</span> Bank of Japan                   en  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">23</span> <span style="color: #00BBBB;">fred/source=38</span> Bank of Mexico                  en  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">24</span> <span style="color: #00BBBB;">fred/source=41</span> Freddie Mac                     en  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">25</span> <span style="color: #00BBBB;">fred/source=42</span> Automatic Data Processing, Inc. en  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">26</span> <span style="color: #00BBBB;">fred/source=44</span> Wilshire Associates             en  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">27</span> <span style="color: #00BBBB;">fred/source=46</span> Federal Reserve Bank of Kansas… en  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">28</span> <span style="color: #00BBBB;">fred/source=47</span> Chicago Board Options Exchange  en  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">29</span> <span style="color: #00BBBB;">fred/source=48</span> Organization for Economic Co-o… en  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">30</span> <span style="color: #00BBBB;">fred/source=50</span> U.S. Employment and Training A… en  </span>
-<span class="co">#&gt; <span style="color: #949494;"># … with 383 more rows</span></span></code></pre></div>
+<span class="co">#&gt;    id             title                                                   lang </span>
+<span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;r_id&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> <span style="color: #0000BB;">fred</span>/<span style="color: #00BBBB;">source=1</span>  Board of Governors of the Federal Reserve System (US)   en   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> <span style="color: #0000BB;">fred</span>/<span style="color: #00BBBB;">source=3</span>  Federal Reserve Bank of Philadelphia                    en   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> <span style="color: #0000BB;">fred</span>/<span style="color: #00BBBB;">source=4</span>  Federal Reserve Bank of St. Louis                       en   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> <span style="color: #0000BB;">fred</span>/<span style="color: #00BBBB;">source=6</span>  Federal Financial Institutions Examination Council (US) en   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> <span style="color: #0000BB;">fred</span>/<span style="color: #00BBBB;">source=11</span> Dow Jones &amp; Company                                     en   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> <span style="color: #0000BB;">fred</span>/<span style="color: #00BBBB;">source=14</span> University of Michigan                                  en   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> <span style="color: #0000BB;">fred</span>/<span style="color: #00BBBB;">source=15</span> Council of Economic Advisers (US)                       en   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> <span style="color: #0000BB;">fred</span>/<span style="color: #00BBBB;">source=16</span> U.S. Office of Management and Budget                    en   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> <span style="color: #0000BB;">fred</span>/<span style="color: #00BBBB;">source=17</span> U.S. Congressional Budget Office                        en   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">10</span> <span style="color: #0000BB;">fred</span>/<span style="color: #00BBBB;">source=18</span> U.S. Bureau of Economic Analysis                        en   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">11</span> <span style="color: #0000BB;">fred</span>/<span style="color: #00BBBB;">source=19</span> U.S. Census Bureau                                      en   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">12</span> <span style="color: #0000BB;">fred</span>/<span style="color: #00BBBB;">source=21</span> U.S. Department of Housing and Urban Development        en   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">13</span> <span style="color: #0000BB;">fred</span>/<span style="color: #00BBBB;">source=22</span> U.S. Bureau of Labor Statistics                         en   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">14</span> <span style="color: #0000BB;">fred</span>/<span style="color: #00BBBB;">source=23</span> U.S. Department of the Treasury. Fiscal Service         en   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">15</span> <span style="color: #0000BB;">fred</span>/<span style="color: #00BBBB;">source=26</span> Haver Analytics                                         en   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">16</span> <span style="color: #0000BB;">fred</span>/<span style="color: #00BBBB;">source=31</span> Reserve Bank of Australia                               en   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">17</span> <span style="color: #0000BB;">fred</span>/<span style="color: #00BBBB;">source=32</span> Deutsche Bundesbank                                     en   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">18</span> <span style="color: #0000BB;">fred</span>/<span style="color: #00BBBB;">source=33</span> Bank of Italy                                           en   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">19</span> <span style="color: #0000BB;">fred</span>/<span style="color: #00BBBB;">source=34</span> Swiss National Bank                                     en   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">20</span> <span style="color: #0000BB;">fred</span>/<span style="color: #00BBBB;">source=35</span> Central Bank of the Republic of Turkey                  en   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">21</span> <span style="color: #0000BB;">fred</span>/<span style="color: #00BBBB;">source=36</span> U.S. Federal Housing Finance Agency                     en   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">22</span> <span style="color: #0000BB;">fred</span>/<span style="color: #00BBBB;">source=37</span> Bank of Japan                                           en   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">23</span> <span style="color: #0000BB;">fred</span>/<span style="color: #00BBBB;">source=38</span> Bank of Mexico                                          en   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">24</span> <span style="color: #0000BB;">fred</span>/<span style="color: #00BBBB;">source=41</span> Freddie Mac                                             en   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">25</span> <span style="color: #0000BB;">fred</span>/<span style="color: #00BBBB;">source=42</span> Automatic Data Processing, Inc.                         en   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">26</span> <span style="color: #0000BB;">fred</span>/<span style="color: #00BBBB;">source=44</span> Wilshire Associates                                     en   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">27</span> <span style="color: #0000BB;">fred</span>/<span style="color: #00BBBB;">source=46</span> Federal Reserve Bank of Kansas City                     en   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">28</span> <span style="color: #0000BB;">fred</span>/<span style="color: #00BBBB;">source=47</span> Chicago Board Options Exchange                          en   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">29</span> <span style="color: #0000BB;">fred</span>/<span style="color: #00BBBB;">source=48</span> Organization for Economic Co-operation and Development  en   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">30</span> <span style="color: #0000BB;">fred</span>/<span style="color: #00BBBB;">source=50</span> U.S. Employment and Training Administration             en   </span>
+<span class="co">#&gt; <span style="color: #949494;"># … with 385 more rows</span></span></code></pre></div>
 <p>The database hierarchy is very simple: Sources contain releases, and releases contain time series.</p>
 <p>To list all releases, for example, in source 1 (Board of Governors of the Federal Reserve System), call:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/data.html">data</a></span><span class="op">(</span><span class="st">"fred/source=1"</span><span class="op">)</span>
 <span class="co">#&gt; ⠙ Requesting data</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[344ms]</span></span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[953ms]</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; <span style="color: #949494;"># A tibble: 34 × 5</span></span>
 <span class="co">#&gt;    release_id name                                     press_release link  notes</span>
@@ -180,20 +181,21 @@
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/data.html">data</a></span><span class="op">(</span><span class="st">"fred/release=13"</span><span class="op">)</span>
 <span class="co">#&gt; ⠙ Requesting data</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[1.2s]</span></span>
+<span class="co">#&gt; ⠹ Requesting data</span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[2.4s]</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; <span style="color: #949494;"># A tibble: 1,884 × 14</span></span>
 <span class="co">#&gt;    series_id    title observation_sta… observation_end frequency frequency_short</span>
 <span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> CAPB00004S   Indu… 1948-01-01       2021-12-01      Monthly   M              </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> CAPB00004S   Indu… 1948-01-01       2022-01-01      Monthly   M              </span>
 <span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> CAPB00004SQ  Indu… 1948-01-01       2021-10-01      Quarterly Q              </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> CAPB50001S   Indu… 1967-01-01       2021-12-01      Monthly   M              </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> CAPB50001S   Indu… 1967-01-01       2022-01-01      Monthly   M              </span>
 <span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> CAPB50001SQ  Indu… 1967-01-01       2021-10-01      Quarterly Q              </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> CAPB5610CS   Indu… 1967-01-01       2021-12-01      Monthly   M              </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> CAPB5610CS   Indu… 1967-01-01       2022-01-01      Monthly   M              </span>
 <span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> CAPB5610CSQ  Indu… 1967-01-01       2021-10-01      Quarterly Q              </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> CAPB562A3CS  Indu… 1948-01-01       2021-12-01      Monthly   M              </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> CAPB562A3CS  Indu… 1948-01-01       2022-01-01      Monthly   M              </span>
 <span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> CAPB562A3CSQ Indu… 1948-01-01       2021-10-01      Quarterly Q              </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> CAPB5640CS   Indu… 1948-01-01       2021-12-01      Monthly   M              </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> CAPB5640CS   Indu… 1948-01-01       2022-01-01      Monthly   M              </span>
 <span class="co">#&gt; <span style="color: #BCBCBC;">10</span> CAPB5640CSQ  Indu… 1948-01-01       2021-10-01      Quarterly Q              </span>
 <span class="co">#&gt; <span style="color: #949494;"># … with 1,874 more rows, and 8 more variables: units &lt;chr&gt;, units_short &lt;chr&gt;,</span></span>
 <span class="co">#&gt; <span style="color: #949494;">#   seasonal_adjustment &lt;chr&gt;, seasonal_adjustment_short &lt;chr&gt;,</span></span>
@@ -202,9 +204,9 @@
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/data.html">data_get</a></span><span class="op">(</span><span class="st">"fred/CAPB00004S"</span><span class="op">)</span>
 <span class="co">#&gt; ⠙ Requesting get</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[813ms]</span></span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[2.3s]</span></span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble: 888 × 7</span></span>
+<span class="co">#&gt; <span style="color: #949494;"># A tibble: 889 × 7</span></span>
 <span class="co">#&gt;    series_id  Title            Frequency Units `Seasonal adju…` time       value</span>
 <span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
 <span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> CAPB00004S Industrial Capa… Monthly   Inde… Seasonally Adju… 1948-01-01  16.3</span>
@@ -217,15 +219,16 @@
 <span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> CAPB00004S Industrial Capa… Monthly   Inde… Seasonally Adju… 1948-08-01  16.9</span>
 <span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> CAPB00004S Industrial Capa… Monthly   Inde… Seasonally Adju… 1948-09-01  17.0</span>
 <span class="co">#&gt; <span style="color: #BCBCBC;">10</span> CAPB00004S Industrial Capa… Monthly   Inde… Seasonally Adju… 1948-10-01  17.1</span>
-<span class="co">#&gt; <span style="color: #949494;"># … with 878 more rows</span></span></code></pre></div>
+<span class="co">#&gt; <span style="color: #949494;"># … with 879 more rows</span></span></code></pre></div>
 <p>You can also retrieve multiple time series by providing a vector of ids:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">d</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/data.html">data_get</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"fred/CAPB5610CS"</span>, <span class="st">"fred/CAPB5640CS"</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; ⠙ Requesting get</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[337ms]</span></span>
+<span class="co">#&gt; ⠹ Requesting get</span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[3.7s]</span></span>
 <span class="co">#&gt; </span>
 <span class="va">d</span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble: 1,548 × 7</span></span>
+<span class="co">#&gt; <span style="color: #949494;"># A tibble: 1,550 × 7</span></span>
 <span class="co">#&gt;    series_id  Title            Frequency Units `Seasonal adju…` time       value</span>
 <span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
 <span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> CAPB5610CS Industrial Capa… Monthly   Inde… Seasonally Adju… 1967-01-01  72.2</span>
@@ -238,7 +241,7 @@
 <span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> CAPB5610CS Industrial Capa… Monthly   Inde… Seasonally Adju… 1967-08-01  74.5</span>
 <span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> CAPB5610CS Industrial Capa… Monthly   Inde… Seasonally Adju… 1967-09-01  74.9</span>
 <span class="co">#&gt; <span style="color: #BCBCBC;">10</span> CAPB5610CS Industrial Capa… Monthly   Inde… Seasonally Adju… 1967-10-01  75.2</span>
-<span class="co">#&gt; <span style="color: #949494;"># … with 1,538 more rows</span></span>
+<span class="co">#&gt; <span style="color: #949494;"># … with 1,540 more rows</span></span>
 <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">d</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">time</span>, <span class="va">value</span>, color <span class="op">=</span> <span class="va">Title</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html" class="external-link">geom_line</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"bottom"</span>, legend.direction <span class="op">=</span> <span class="st">"vertical"</span><span class="op">)</span></code></pre></div>
@@ -250,7 +253,7 @@
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html" class="external-link">geom_line</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"bottom"</span>, legend.direction <span class="op">=</span> <span class="st">"vertical"</span><span class="op">)</span>
 <span class="co">#&gt; ⠙ Requesting get</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[337ms]</span></span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[1.4s]</span></span>
 <span class="co">#&gt; </span></code></pre></div>
 <p><img src="special_files/figure-html/unnamed-chunk-7-1.png"><!-- --></p>
 <p>Allowed values for <code>units</code>:</p>
@@ -272,9 +275,10 @@
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html" class="external-link">geom_line</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"bottom"</span>, legend.direction <span class="op">=</span> <span class="st">"vertical"</span><span class="op">)</span>
 <span class="co">#&gt; ⠙ Requesting get</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[318ms]</span></span>
+<span class="co">#&gt; ⠹ Requesting get</span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[1.4s]</span></span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; Warning: Removed 2 row(s) containing missing values (geom_path).</span></code></pre></div>
+<span class="co">#&gt; Warning: Removed 4 row(s) containing missing values (geom_path).</span></code></pre></div>
 <p><img src="special_files/figure-html/unnamed-chunk-8-1.png"><!-- --></p>
 <p>Allowed values for <code>frequency</code>:</p>
 <ul>
@@ -300,73 +304,81 @@
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/data.html">data</a></span><span class="op">(</span><span class="st">"eia/"</span><span class="op">)</span>
 <span class="co">#&gt; ⠙ Requesting data</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[402ms]</span></span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[156ms]</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; ── Robonomist Database search results</span>
-<span class="co">#&gt;    id              title                          lang</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> <span style="color: #00BBBB;">eia/AEO.2014</span>    Annual Energy Outlook 2014     en  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> <span style="color: #00BBBB;">eia/AEO.2015</span>    Annual Energy Outlook 2015     en  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> <span style="color: #00BBBB;">eia/AEO.2016</span>    Annual Energy Outlook 2016     en  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> <span style="color: #00BBBB;">eia/AEO.2017</span>    Annual Energy Outlook 2017     en  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> <span style="color: #00BBBB;">eia/AEO.2018</span>    Annual Energy Outlook 2018     en  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> <span style="color: #00BBBB;">eia/AEO.2019</span>    Annual Energy Outlook 2019     en  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> <span style="color: #00BBBB;">eia/AEO.2020</span>    Annual Energy Outlook 2020     en  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> <span style="color: #00BBBB;">eia/AEO.2021</span>    Annual Energy Outlook 2021     en  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> <span style="color: #00BBBB;">eia/COAL</span>        Coal                           en  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">10</span> <span style="color: #00BBBB;">eia/EBA</span>         U.S. Electric System Operatin… en  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">11</span> <span style="color: #00BBBB;">eia/ELEC</span>        Electricity                    en  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">12</span> <span style="color: #00BBBB;">eia/EMISS</span>       Emissions                      en  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">13</span> <span style="color: #00BBBB;">eia/IEO</span>         International Energy Outlook   en  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">14</span> <span style="color: #00BBBB;">eia/INTL</span>        International Energy Data      en  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">15</span> <span style="color: #00BBBB;">eia/NG</span>          Natural Gas                    en  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">16</span> <span style="color: #00BBBB;">eia/NUC_STATUS</span>  Nuclear outages                en  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">17</span> <span style="color: #00BBBB;">eia/PET</span>         Petroleum and other liquid fu… en  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">18</span> <span style="color: #00BBBB;">eia/PET_IMPORTS</span> Petroleum Imports              en  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">19</span> <span style="color: #00BBBB;">eia/SEDS</span>        State Energy Data System (SED… en  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">20</span> <span style="color: #00BBBB;">eia/STEO</span>        Short-Term Energy Outlook      en  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">21</span> <span style="color: #00BBBB;">eia/TOTAL</span>       Total Energy                   en</span></code></pre></div>
+<span class="co">#&gt;    id              title                                                   lang </span>
+<span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;r_id&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> <span style="color: #0000BB;">eia</span>/<span style="color: #00BBBB;">AEO.2014</span>    Annual Energy Outlook 2014                              en   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> <span style="color: #0000BB;">eia</span>/<span style="color: #00BBBB;">AEO.2015</span>    Annual Energy Outlook 2015                              en   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> <span style="color: #0000BB;">eia</span>/<span style="color: #00BBBB;">AEO.2016</span>    Annual Energy Outlook 2016                              en   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> <span style="color: #0000BB;">eia</span>/<span style="color: #00BBBB;">AEO.2017</span>    Annual Energy Outlook 2017                              en   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> <span style="color: #0000BB;">eia</span>/<span style="color: #00BBBB;">AEO.2018</span>    Annual Energy Outlook 2018                              en   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> <span style="color: #0000BB;">eia</span>/<span style="color: #00BBBB;">AEO.2019</span>    Annual Energy Outlook 2019                              en   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> <span style="color: #0000BB;">eia</span>/<span style="color: #00BBBB;">AEO.2020</span>    Annual Energy Outlook 2020                              en   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> <span style="color: #0000BB;">eia</span>/<span style="color: #00BBBB;">AEO.2021</span>    Annual Energy Outlook 2021                              en   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> <span style="color: #0000BB;">eia</span>/<span style="color: #00BBBB;">AEO.2022</span>    Annual Energy Outlook 2022                              en   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">10</span> <span style="color: #0000BB;">eia</span>/<span style="color: #00BBBB;">COAL</span>        Coal                                                    en   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">11</span> <span style="color: #0000BB;">eia</span>/<span style="color: #00BBBB;">EBA</span>         U.S. Electric System Operating Data (Older Than 7 Days) en   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">12</span> <span style="color: #0000BB;">eia</span>/<span style="color: #00BBBB;">ELEC</span>        Electricity                                             en   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">13</span> <span style="color: #0000BB;">eia</span>/<span style="color: #00BBBB;">EMISS</span>       Emissions                                               en   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">14</span> <span style="color: #0000BB;">eia</span>/<span style="color: #00BBBB;">IEO</span>         International Energy Outlook                            en   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">15</span> <span style="color: #0000BB;">eia</span>/<span style="color: #00BBBB;">INTL</span>        International Energy Data                               en   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">16</span> <span style="color: #0000BB;">eia</span>/<span style="color: #00BBBB;">NG</span>          Natural Gas                                             en   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">17</span> <span style="color: #0000BB;">eia</span>/<span style="color: #00BBBB;">NUC_STATUS</span>  Nuclear outages                                         en   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">18</span> <span style="color: #0000BB;">eia</span>/<span style="color: #00BBBB;">PET</span>         Petroleum and other liquid fuels                        en   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">19</span> <span style="color: #0000BB;">eia</span>/<span style="color: #00BBBB;">PET_IMPORTS</span> Petroleum Imports                                       en   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">20</span> <span style="color: #0000BB;">eia</span>/<span style="color: #00BBBB;">SEDS</span>        State Energy Data System (SEDS)                         en   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">21</span> <span style="color: #0000BB;">eia</span>/<span style="color: #00BBBB;">STEO</span>        Short-Term Energy Outlook                               en   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">22</span> <span style="color: #0000BB;">eia</span>/<span style="color: #00BBBB;">TOTAL</span>       Total Energy                                            en</span></code></pre></div>
 <p>Get data tables:</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/data.html">data</a></span><span class="op">(</span><span class="st">"eia/NG"</span><span class="op">)</span>
 <span class="co">#&gt; ⠙ Requesting data</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[1.9s]</span></span>
+<span class="co">#&gt; ⠹ Requesting data</span>
+<span class="co">#&gt; ⠸ Requesting data</span>
+<span class="co">#&gt; ⠼ Requesting data</span>
+<span class="co">#&gt; ⠴ Requesting data</span>
+<span class="co">#&gt; ⠦ Requesting data</span>
+<span class="co">#&gt; ⠧ Requesting data</span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[19.6s]</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; <span style="color: #949494;"># Robonomist id: </span><span style="color: #00BBBB;">eia/NG</span></span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble:      895,085 × 5</span></span>
+<span class="co">#&gt; <span style="color: #949494;"># A tibble:      899,082 × 5</span></span>
 <span class="co">#&gt;    Series                                       Units Frequency time       value</span>
 <span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Price of Fort Lauderdale, FL Liquefied Natu… Doll… Monthly   2021-11-01    <span style="color: #BB0000;">NA</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Price of Fort Lauderdale, FL Liquefied Natu… Doll… Monthly   2021-09-01    <span style="color: #BB0000;">NA</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Price of Fort Lauderdale, FL Liquefied Natu… Doll… Monthly   2021-11-01    <span style="color: #BB0000;">NA</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Price of Fort Lauderdale, FL Liquefied Natu… Doll… Monthly   2021-10-01    <span style="color: #BB0000;">NA</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Price of Fort Lauderdale, FL Liquefied Natu… Doll… Monthly   2021-09-01    <span style="color: #BB0000;">NA</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Price of Fort Lauderdale, FL Liquefied Natu… Doll… Monthly   2021-08-01    <span style="color: #BB0000;">NA</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Price of Fort Lauderdale, FL Liquefied Natu… Doll… Monthly   2021-07-01    <span style="color: #BB0000;">NA</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Price of Fort Lauderdale, FL Liquefied Natu… Doll… Monthly   2021-06-01    <span style="color: #BB0000;">NA</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Price of Fort Lauderdale, FL Liquefied Natu… Doll… Monthly   2021-05-01    <span style="color: #BB0000;">NA</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Price of Fort Lauderdale, FL Liquefied Natu… Doll… Monthly   2021-04-01    <span style="color: #BB0000;">NA</span></span>
-<span class="co">#&gt; <span style="color: #949494;"># … with 895,075 more rows</span></span></code></pre></div>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Weekly Nonsalt Region Natural Gas Working U… Bill… Weekly    2022-03-04   431</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Weekly Nonsalt Region Natural Gas Working U… Bill… Weekly    2022-02-25   457</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Weekly Nonsalt Region Natural Gas Working U… Bill… Weekly    2022-02-18   487</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Weekly Nonsalt Region Natural Gas Working U… Bill… Weekly    2022-02-11   516</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Weekly Nonsalt Region Natural Gas Working U… Bill… Weekly    2022-02-04   556</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Weekly Nonsalt Region Natural Gas Working U… Bill… Weekly    2022-01-28   606</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Weekly Nonsalt Region Natural Gas Working U… Bill… Weekly    2022-01-21   658</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Weekly Nonsalt Region Natural Gas Working U… Bill… Weekly    2022-01-14   711</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Weekly Nonsalt Region Natural Gas Working U… Bill… Weekly    2022-01-07   759</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Weekly Nonsalt Region Natural Gas Working U… Bill… Weekly    2021-12-31   796</span>
+<span class="co">#&gt; <span style="color: #949494;"># … with 899,072 more rows</span></span></code></pre></div>
 <p>You can use <code><a href="../reference/data.html">data_get()</a></code> to fetch individual time series. Time series codes can be found from the <a href="https://www.eia.gov/opendata/qb.php" class="external-link">EIA API Query Browser</a>.</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/data.html">data_get</a></span><span class="op">(</span><span class="st">"eia/NG.N3010AL2.A"</span><span class="op">)</span>
 <span class="co">#&gt; ⠙ Requesting get</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[370ms]</span></span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[737ms]</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; <span style="color: #949494;"># Robonomist id: </span><span style="color: #00BBBB;">eia/NG.N3010AL2.A</span></span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble:      54 × 5</span></span>
+<span class="co">#&gt; <span style="color: #949494;"># A tibble:      55 × 5</span></span>
 <span class="co">#&gt;    Series                                       Units Frequency time       value</span>
 <span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Alabama Natural Gas Residential Consumption… Mill… Annual    2020-01-01 <span style="text-decoration: underline;">28</span>178</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Alabama Natural Gas Residential Consumption… Mill… Annual    2019-01-01 <span style="text-decoration: underline;">30</span>616</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Alabama Natural Gas Residential Consumption… Mill… Annual    2018-01-01 <span style="text-decoration: underline;">34</span>726</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Alabama Natural Gas Residential Consumption… Mill… Annual    2017-01-01 <span style="text-decoration: underline;">26</span>338</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Alabama Natural Gas Residential Consumption… Mill… Annual    2016-01-01 <span style="text-decoration: underline;">28</span>407</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Alabama Natural Gas Residential Consumption… Mill… Annual    2015-01-01 <span style="text-decoration: underline;">32</span>750</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Alabama Natural Gas Residential Consumption… Mill… Annual    2014-01-01 <span style="text-decoration: underline;">39</span>006</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Alabama Natural Gas Residential Consumption… Mill… Annual    2013-01-01 <span style="text-decoration: underline;">35</span>059</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Alabama Natural Gas Residential Consumption… Mill… Annual    2012-01-01 <span style="text-decoration: underline;">27</span>580</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Alabama Natural Gas Residential Consumption… Mill… Annual    2011-01-01 <span style="text-decoration: underline;">36</span>582</span>
-<span class="co">#&gt; <span style="color: #949494;"># … with 44 more rows</span></span></code></pre></div>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Alabama Natural Gas Residential Consumption… Mill… Annual    2021-01-01 <span style="text-decoration: underline;">29</span>477</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Alabama Natural Gas Residential Consumption… Mill… Annual    2020-01-01 <span style="text-decoration: underline;">28</span>178</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Alabama Natural Gas Residential Consumption… Mill… Annual    2019-01-01 <span style="text-decoration: underline;">30</span>616</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Alabama Natural Gas Residential Consumption… Mill… Annual    2018-01-01 <span style="text-decoration: underline;">34</span>726</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Alabama Natural Gas Residential Consumption… Mill… Annual    2017-01-01 <span style="text-decoration: underline;">26</span>338</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Alabama Natural Gas Residential Consumption… Mill… Annual    2016-01-01 <span style="text-decoration: underline;">28</span>407</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Alabama Natural Gas Residential Consumption… Mill… Annual    2015-01-01 <span style="text-decoration: underline;">32</span>750</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Alabama Natural Gas Residential Consumption… Mill… Annual    2014-01-01 <span style="text-decoration: underline;">39</span>006</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Alabama Natural Gas Residential Consumption… Mill… Annual    2013-01-01 <span style="text-decoration: underline;">35</span>059</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Alabama Natural Gas Residential Consumption… Mill… Annual    2012-01-01 <span style="text-decoration: underline;">27</span>580</span>
+<span class="co">#&gt; <span style="color: #949494;"># … with 45 more rows</span></span></code></pre></div>
 </div>
   </div>
 
