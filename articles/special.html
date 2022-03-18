@@ -161,7 +161,7 @@
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/data.html">data</a></span><span class="op">(</span><span class="st">"fred/source=1"</span><span class="op">)</span>
 <span class="co">#&gt; ⠙ Requesting data</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[953ms]</span></span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[752ms]</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; <span style="color: #949494;"># A tibble: 34 × 5</span></span>
 <span class="co">#&gt;    release_id name                                     press_release link  notes</span>
@@ -181,21 +181,20 @@
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/data.html">data</a></span><span class="op">(</span><span class="st">"fred/release=13"</span><span class="op">)</span>
 <span class="co">#&gt; ⠙ Requesting data</span>
-<span class="co">#&gt; ⠹ Requesting data</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[2.4s]</span></span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[2.1s]</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; <span style="color: #949494;"># A tibble: 1,884 × 14</span></span>
 <span class="co">#&gt;    series_id    title observation_sta… observation_end frequency frequency_short</span>
 <span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> CAPB00004S   Indu… 1948-01-01       2022-01-01      Monthly   M              </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> CAPB00004S   Indu… 1948-01-01       2022-02-01      Monthly   M              </span>
 <span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> CAPB00004SQ  Indu… 1948-01-01       2021-10-01      Quarterly Q              </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> CAPB50001S   Indu… 1967-01-01       2022-01-01      Monthly   M              </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> CAPB50001S   Indu… 1967-01-01       2022-02-01      Monthly   M              </span>
 <span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> CAPB50001SQ  Indu… 1967-01-01       2021-10-01      Quarterly Q              </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> CAPB5610CS   Indu… 1967-01-01       2022-01-01      Monthly   M              </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> CAPB5610CS   Indu… 1967-01-01       2022-02-01      Monthly   M              </span>
 <span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> CAPB5610CSQ  Indu… 1967-01-01       2021-10-01      Quarterly Q              </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> CAPB562A3CS  Indu… 1948-01-01       2022-01-01      Monthly   M              </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> CAPB562A3CS  Indu… 1948-01-01       2022-02-01      Monthly   M              </span>
 <span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> CAPB562A3CSQ Indu… 1948-01-01       2021-10-01      Quarterly Q              </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> CAPB5640CS   Indu… 1948-01-01       2022-01-01      Monthly   M              </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> CAPB5640CS   Indu… 1948-01-01       2022-02-01      Monthly   M              </span>
 <span class="co">#&gt; <span style="color: #BCBCBC;">10</span> CAPB5640CSQ  Indu… 1948-01-01       2021-10-01      Quarterly Q              </span>
 <span class="co">#&gt; <span style="color: #949494;"># … with 1,874 more rows, and 8 more variables: units &lt;chr&gt;, units_short &lt;chr&gt;,</span></span>
 <span class="co">#&gt; <span style="color: #949494;">#   seasonal_adjustment &lt;chr&gt;, seasonal_adjustment_short &lt;chr&gt;,</span></span>
@@ -204,9 +203,9 @@
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/data.html">data_get</a></span><span class="op">(</span><span class="st">"fred/CAPB00004S"</span><span class="op">)</span>
 <span class="co">#&gt; ⠙ Requesting get</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[2.3s]</span></span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[2.1s]</span></span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble: 889 × 7</span></span>
+<span class="co">#&gt; <span style="color: #949494;"># A tibble: 890 × 7</span></span>
 <span class="co">#&gt;    series_id  Title            Frequency Units `Seasonal adju…` time       value</span>
 <span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
 <span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> CAPB00004S Industrial Capa… Monthly   Inde… Seasonally Adju… 1948-01-01  16.3</span>
@@ -219,16 +218,16 @@
 <span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> CAPB00004S Industrial Capa… Monthly   Inde… Seasonally Adju… 1948-08-01  16.9</span>
 <span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> CAPB00004S Industrial Capa… Monthly   Inde… Seasonally Adju… 1948-09-01  17.0</span>
 <span class="co">#&gt; <span style="color: #BCBCBC;">10</span> CAPB00004S Industrial Capa… Monthly   Inde… Seasonally Adju… 1948-10-01  17.1</span>
-<span class="co">#&gt; <span style="color: #949494;"># … with 879 more rows</span></span></code></pre></div>
+<span class="co">#&gt; <span style="color: #949494;"># … with 880 more rows</span></span></code></pre></div>
 <p>You can also retrieve multiple time series by providing a vector of ids:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">d</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/data.html">data_get</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"fred/CAPB5610CS"</span>, <span class="st">"fred/CAPB5640CS"</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; ⠙ Requesting get</span>
 <span class="co">#&gt; ⠹ Requesting get</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[3.7s]</span></span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[3.4s]</span></span>
 <span class="co">#&gt; </span>
 <span class="va">d</span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble: 1,550 × 7</span></span>
+<span class="co">#&gt; <span style="color: #949494;"># A tibble: 1,552 × 7</span></span>
 <span class="co">#&gt;    series_id  Title            Frequency Units `Seasonal adju…` time       value</span>
 <span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
 <span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> CAPB5610CS Industrial Capa… Monthly   Inde… Seasonally Adju… 1967-01-01  72.2</span>
@@ -241,7 +240,7 @@
 <span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> CAPB5610CS Industrial Capa… Monthly   Inde… Seasonally Adju… 1967-08-01  74.5</span>
 <span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> CAPB5610CS Industrial Capa… Monthly   Inde… Seasonally Adju… 1967-09-01  74.9</span>
 <span class="co">#&gt; <span style="color: #BCBCBC;">10</span> CAPB5610CS Industrial Capa… Monthly   Inde… Seasonally Adju… 1967-10-01  75.2</span>
-<span class="co">#&gt; <span style="color: #949494;"># … with 1,540 more rows</span></span>
+<span class="co">#&gt; <span style="color: #949494;"># … with 1,542 more rows</span></span>
 <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">d</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">time</span>, <span class="va">value</span>, color <span class="op">=</span> <span class="va">Title</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html" class="external-link">geom_line</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"bottom"</span>, legend.direction <span class="op">=</span> <span class="st">"vertical"</span><span class="op">)</span></code></pre></div>
@@ -276,7 +275,7 @@
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"bottom"</span>, legend.direction <span class="op">=</span> <span class="st">"vertical"</span><span class="op">)</span>
 <span class="co">#&gt; ⠙ Requesting get</span>
 <span class="co">#&gt; ⠹ Requesting get</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[1.4s]</span></span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[1.3s]</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Warning: Removed 4 row(s) containing missing values (geom_path).</span></code></pre></div>
 <p><img src="special_files/figure-html/unnamed-chunk-8-1.png"><!-- --></p>
@@ -304,7 +303,7 @@
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/data.html">data</a></span><span class="op">(</span><span class="st">"eia/"</span><span class="op">)</span>
 <span class="co">#&gt; ⠙ Requesting data</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[156ms]</span></span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[154ms]</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; ── Robonomist Database search results</span>
 <span class="co">#&gt;    id              title                                                   lang </span>
@@ -341,28 +340,28 @@
 <span class="co">#&gt; ⠴ Requesting data</span>
 <span class="co">#&gt; ⠦ Requesting data</span>
 <span class="co">#&gt; ⠧ Requesting data</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[19.6s]</span></span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[19.1s]</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; <span style="color: #949494;"># Robonomist id: </span><span style="color: #00BBBB;">eia/NG</span></span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble:      899,082 × 5</span></span>
+<span class="co">#&gt; <span style="color: #949494;"># A tibble:      899,120 × 5</span></span>
 <span class="co">#&gt;    Series                                       Units Frequency time       value</span>
 <span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Weekly Nonsalt Region Natural Gas Working U… Bill… Weekly    2022-03-04   431</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Weekly Nonsalt Region Natural Gas Working U… Bill… Weekly    2022-02-25   457</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Weekly Nonsalt Region Natural Gas Working U… Bill… Weekly    2022-02-18   487</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Weekly Nonsalt Region Natural Gas Working U… Bill… Weekly    2022-02-11   516</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Weekly Nonsalt Region Natural Gas Working U… Bill… Weekly    2022-02-04   556</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Weekly Nonsalt Region Natural Gas Working U… Bill… Weekly    2022-01-28   606</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Weekly Nonsalt Region Natural Gas Working U… Bill… Weekly    2022-01-21   658</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Weekly Nonsalt Region Natural Gas Working U… Bill… Weekly    2022-01-14   711</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Weekly Nonsalt Region Natural Gas Working U… Bill… Weekly    2022-01-07   759</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Weekly Nonsalt Region Natural Gas Working U… Bill… Weekly    2021-12-31   796</span>
-<span class="co">#&gt; <span style="color: #949494;"># … with 899,072 more rows</span></span></code></pre></div>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Weekly Nonsalt Region Natural Gas Working U… Bill… Weekly    2022-03-11   412</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Weekly Nonsalt Region Natural Gas Working U… Bill… Weekly    2022-03-04   431</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Weekly Nonsalt Region Natural Gas Working U… Bill… Weekly    2022-02-25   457</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Weekly Nonsalt Region Natural Gas Working U… Bill… Weekly    2022-02-18   487</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Weekly Nonsalt Region Natural Gas Working U… Bill… Weekly    2022-02-11   516</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Weekly Nonsalt Region Natural Gas Working U… Bill… Weekly    2022-02-04   556</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Weekly Nonsalt Region Natural Gas Working U… Bill… Weekly    2022-01-28   606</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Weekly Nonsalt Region Natural Gas Working U… Bill… Weekly    2022-01-21   658</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Weekly Nonsalt Region Natural Gas Working U… Bill… Weekly    2022-01-14   711</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Weekly Nonsalt Region Natural Gas Working U… Bill… Weekly    2022-01-07   759</span>
+<span class="co">#&gt; <span style="color: #949494;"># … with 899,110 more rows</span></span></code></pre></div>
 <p>You can use <code><a href="../reference/data.html">data_get()</a></code> to fetch individual time series. Time series codes can be found from the <a href="https://www.eia.gov/opendata/qb.php" class="external-link">EIA API Query Browser</a>.</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/data.html">data_get</a></span><span class="op">(</span><span class="st">"eia/NG.N3010AL2.A"</span><span class="op">)</span>
 <span class="co">#&gt; ⠙ Requesting get</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[737ms]</span></span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[761ms]</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; <span style="color: #949494;"># Robonomist id: </span><span style="color: #00BBBB;">eia/NG.N3010AL2.A</span></span>
 <span class="co">#&gt; <span style="color: #949494;"># A tibble:      55 × 5</span></span>
