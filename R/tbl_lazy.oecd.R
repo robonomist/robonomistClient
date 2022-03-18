@@ -87,7 +87,7 @@ filter.tbl_lazy_oecd <- function(.data, ..., .preserve = FALSE) {
     rlang::exprs(...),
     ~unlist(getAST(.x)) |>
       purrr::keep(is.symbol) |>
-      map(rlang::as_string)
+      purrr::map(rlang::as_string)
   )
 
   filtered_vars <-
