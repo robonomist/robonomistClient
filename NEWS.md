@@ -1,3 +1,7 @@
+# robonomistClient 2.2.2
+
+* Add max age to client-side cache
+
 # robonomistClient 2.2.1
 
 * Fix oecd backtick bug

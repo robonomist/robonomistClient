@@ -10,9 +10,11 @@
   } else if ("robonomistServer" %in% rownames(utils::installed.packages())) {
     ## Cannot check `requireNamespace("robonomistServer", quietly = TRUE)` as it would cause cyclic namespace dependency error when installing a new client on top of robonomistServer.
     cli_alert_success("Using local {.pkg robonomistServer} {utils::packageVersion('robonomistServer')}")
-  } else if (interactive()){
+  } else if (interactive()) {
     please_set_server()
   }
+
+  options(robonomist.client.cache.max.age = 15)
 
   invisible(NULL)
 
