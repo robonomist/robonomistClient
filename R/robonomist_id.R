@@ -98,3 +98,13 @@ robonomist_table <- function(x) {
   substr(x, i + 1L, nchar(x))
 }
 
+#' @export
+`$.robonomist_id` <- function(x, ...) {
+  switch(
+    list(...)[[1]],
+    table = robonomist_table(x),
+    dataset = robonomist_dataset(x),
+    stop('$ operator can extract only "table" or "dataset" from robonomist_id')
+  )
+}
+

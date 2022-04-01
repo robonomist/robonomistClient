@@ -1,3 +1,7 @@
+# robonomistClient 2.2.3
+
+* $ method for robonomist_id
+
 # robonomistClient 2.2.2
 
 * Add max age to client-side cache
