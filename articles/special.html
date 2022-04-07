@@ -161,7 +161,7 @@
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/data.html">data</a></span><span class="op">(</span><span class="st">"fred/source=1"</span><span class="op">)</span>
 <span class="co">#&gt; ⠙ Requesting data</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[1.2s]</span></span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[813ms]</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; <span style="color: #949494;"># A tibble: 34 × 5</span></span>
 <span class="co">#&gt;    release_id name                                     press_release link  notes</span>
@@ -181,7 +181,8 @@
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/data.html">data</a></span><span class="op">(</span><span class="st">"fred/release=13"</span><span class="op">)</span>
 <span class="co">#&gt; ⠙ Requesting data</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[852ms]</span></span>
+<span class="co">#&gt; ⠹ Requesting data</span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[2.5s]</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; <span style="color: #949494;"># A tibble: 1,884 × 14</span></span>
 <span class="co">#&gt;    series_id    title observation_sta… observation_end frequency frequency_short</span>
@@ -203,7 +204,8 @@
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/data.html">data_get</a></span><span class="op">(</span><span class="st">"fred/CAPB00004S"</span><span class="op">)</span>
 <span class="co">#&gt; ⠙ Requesting get</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[1.1s]</span></span>
+<span class="co">#&gt; ⠹ Requesting get</span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[2.2s]</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; <span style="color: #949494;"># A tibble: 890 × 7</span></span>
 <span class="co">#&gt;    series_id  Title            Frequency Units `Seasonal adju…` time       value</span>
@@ -223,7 +225,8 @@
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">d</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/data.html">data_get</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"fred/CAPB5610CS"</span>, <span class="st">"fred/CAPB5640CS"</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; ⠙ Requesting get</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[1.1s]</span></span>
+<span class="co">#&gt; ⠹ Requesting get</span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[3.4s]</span></span>
 <span class="co">#&gt; </span>
 <span class="va">d</span>
 <span class="co">#&gt; <span style="color: #949494;"># A tibble: 1,552 × 7</span></span>
@@ -251,7 +254,7 @@
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html" class="external-link">geom_line</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"bottom"</span>, legend.direction <span class="op">=</span> <span class="st">"vertical"</span><span class="op">)</span>
 <span class="co">#&gt; ⠙ Requesting get</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[186ms]</span></span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[1.5s]</span></span>
 <span class="co">#&gt; </span></code></pre></div>
 <p><img src="special_files/figure-html/unnamed-chunk-7-1.png"><!-- --></p>
 <p>Allowed values for <code>units</code>:</p>
@@ -273,7 +276,8 @@
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html" class="external-link">geom_line</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"bottom"</span>, legend.direction <span class="op">=</span> <span class="st">"vertical"</span><span class="op">)</span>
 <span class="co">#&gt; ⠙ Requesting get</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[170ms]</span></span>
+<span class="co">#&gt; ⠹ Requesting get</span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[1.3s]</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Warning: Removed 4 row(s) containing missing values (geom_path).</span></code></pre></div>
 <p><img src="special_files/figure-html/unnamed-chunk-8-1.png"><!-- --></p>
@@ -301,7 +305,7 @@
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/data.html">data</a></span><span class="op">(</span><span class="st">"eia/"</span><span class="op">)</span>
 <span class="co">#&gt; ⠙ Requesting data</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[194ms]</span></span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[216ms]</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; ── Robonomist Database search results</span>
 <span class="co">#&gt;    id              title                                                   lang </span>
@@ -339,29 +343,28 @@
 <span class="co">#&gt; ⠦ Requesting data</span>
 <span class="co">#&gt; ⠧ Requesting data</span>
 <span class="co">#&gt; ⠇ Requesting data</span>
-<span class="co">#&gt; ⠏ Requesting data</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[23.8s]</span></span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[20.7s]</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; <span style="color: #949494;"># Robonomist id: </span><span style="color: #00BBBB;">eia/NG</span></span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble:      901,426 × 5</span></span>
-<span class="co">#&gt;    Series                                       Units Frequency time       value</span>
-<span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Kansas Heat Content of Natural Gas Deliveri… BTU … Monthly   2022-01-01  <span style="text-decoration: underline;">1</span>034</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Kansas Heat Content of Natural Gas Deliveri… BTU … Monthly   2021-12-01  <span style="text-decoration: underline;">1</span>030</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Kansas Heat Content of Natural Gas Deliveri… BTU … Monthly   2021-11-01  <span style="text-decoration: underline;">1</span>036</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Kansas Heat Content of Natural Gas Deliveri… BTU … Monthly   2021-10-01  <span style="text-decoration: underline;">1</span>037</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Kansas Heat Content of Natural Gas Deliveri… BTU … Monthly   2021-09-01  <span style="text-decoration: underline;">1</span>039</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Kansas Heat Content of Natural Gas Deliveri… BTU … Monthly   2021-08-01  <span style="text-decoration: underline;">1</span>035</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Kansas Heat Content of Natural Gas Deliveri… BTU … Monthly   2021-07-01  <span style="text-decoration: underline;">1</span>040</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Kansas Heat Content of Natural Gas Deliveri… BTU … Monthly   2021-06-01  <span style="text-decoration: underline;">1</span>030</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Kansas Heat Content of Natural Gas Deliveri… BTU … Monthly   2021-05-01  <span style="text-decoration: underline;">1</span>043</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Kansas Heat Content of Natural Gas Deliveri… BTU … Monthly   2021-04-01  <span style="text-decoration: underline;">1</span>037</span>
-<span class="co">#&gt; <span style="color: #949494;"># … with 901,416 more rows</span></span></code></pre></div>
+<span class="co">#&gt; <span style="color: #949494;"># A tibble:      901,461 × 5</span></span>
+<span class="co">#&gt;    Series                                Units        Frequency time       value</span>
+<span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Natural Gas Futures Contract 1, Daily Dollars per… Daily     2022-04-05  6.03</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Natural Gas Futures Contract 1, Daily Dollars per… Daily     2022-04-04  5.71</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Natural Gas Futures Contract 1, Daily Dollars per… Daily     2022-04-01  5.72</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Natural Gas Futures Contract 1, Daily Dollars per… Daily     2022-03-31  5.64</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Natural Gas Futures Contract 1, Daily Dollars per… Daily     2022-03-30  5.60</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Natural Gas Futures Contract 1, Daily Dollars per… Daily     2022-03-29  5.34</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Natural Gas Futures Contract 1, Daily Dollars per… Daily     2022-03-28  5.51</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Natural Gas Futures Contract 1, Daily Dollars per… Daily     2022-03-25  5.57</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Natural Gas Futures Contract 1, Daily Dollars per… Daily     2022-03-24  5.40</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Natural Gas Futures Contract 1, Daily Dollars per… Daily     2022-03-23  5.23</span>
+<span class="co">#&gt; <span style="color: #949494;"># … with 901,451 more rows</span></span></code></pre></div>
 <p>You can use <code><a href="../reference/data.html">data_get()</a></code> to fetch individual time series. Time series codes can be found from the <a href="https://www.eia.gov/opendata/qb.php" class="external-link">EIA API Query Browser</a>.</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/data.html">data_get</a></span><span class="op">(</span><span class="st">"eia/NG.N3010AL2.A"</span><span class="op">)</span>
 <span class="co">#&gt; ⠙ Requesting get</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[775ms]</span></span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[858ms]</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; <span style="color: #949494;"># Robonomist id: </span><span style="color: #00BBBB;">eia/NG.N3010AL2.A</span></span>
 <span class="co">#&gt; <span style="color: #949494;"># A tibble:      55 × 5</span></span>
