@@ -6,7 +6,7 @@ for(i in ds$dataset) {
     skip_if(!nzchar(Sys.getenv("ROBONOMIST_TEST_SERVER")), "Test server not configured.")
     n <- switch(i, konj = 35, dk = 2, no = 2, traficom = 4, tidy = 2,
                 se = 10, unctad = 2, eia = 16, 1)
-    if(i %in% c("tulli", "ecb")) {
+    if(i %in% c("tulli", "ecb", "bundesbank")) {
       expect_s3_class(data(paste0(i, "/#", n)), "list")
     } else {
       expect_s3_class(data(paste0(i, "/#", n)), "tbl")
