@@ -84,5 +84,6 @@ You can also export the data, for example to an [Excel file](../../raw/main/man/
 data("ec/esi_nace2§(Fin|Swe|Ger)§§2015-01-01") %>%
   pivot_wider(names_from = Country) %>%
   split(.$Indicator) %>%
+  setNames(names(.) |> str_sub(1, 31)) |>
   writexl::write_xlsx("../man/figures/export.xlsx")
 ```
