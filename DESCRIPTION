@@ -1,6 +1,6 @@
 Package: robonomistClient
 Title: Access data from Robonomist Data Server
-Version: 2.2.3
+Version: 2.2.4
 Authors@R: 
     person(given = "Juha",
            family = "Itkonen",

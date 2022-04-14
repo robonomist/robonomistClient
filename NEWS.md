@@ -1,3 +1,7 @@
+# robonomistClient 2.2.4
+
+* Relay server warnings
+
 # robonomistClient 2.2.3
 
 * $ method for robonomist_id

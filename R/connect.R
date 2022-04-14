@@ -61,10 +61,12 @@ RobonomistConnection <- R6::R6Class(
         msg <- qs::qdeserialize(event$data)
         if(inherits(msg, "cli_message")) {
           cli:::cli_server_default(msg)
+        } else if (inherits(msg, "warning")) {
+          cli_warn(iconv(conditionMessage(msg), "UTF8"))
         } else if (inherits(msg, "error")) {
           private$error_flag <- TRUE
-          cli_abort("Request failed in server error:\n",
-                    iconv(conditionMessage(msg), "UTF8"))
+          cli_abort(c("Request failed in server error:\n",
+                      iconv(conditionMessage(msg), "UTF8")))
         } else {
           private$cache$data <- msg
         }
