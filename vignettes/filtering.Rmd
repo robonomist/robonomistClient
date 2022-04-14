@@ -52,7 +52,7 @@ data("oecd/QNA") %>%
   filter(Subject == "Gross domestic product - expenditure approach",
          str_detect(Measure, "Growth rate.*from previous"),
          Frequency=="Quarterly") %>%
-  filter(lubridate::year(time) >= 2015L) %>%
+  filter(lubridate::year(time) >= 2015) %>%
   group_by(Country) %>%
   summarize(`Average Q/Q growth rate` = mean(value))
 ```
