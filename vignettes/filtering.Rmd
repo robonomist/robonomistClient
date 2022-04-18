@@ -20,7 +20,7 @@ library(tidyverse)
 
 Most data tables are returned as regular `tibble` objects, but some datasources contain large tables and require filtering at the source. For example, OECD database usually requires filtering on the data before anything can be retrieved. For convenience, Robonomist provides an easy-to-use workflow to fetch data.
 
-The initial data request (e.g `data("oecd/QNA")`) returns a data structure object that acts very much like a regular tibble, but it does not yet contain the actual data. This object is printed like a tibble, and it can be handled with common `dplyr` verbs such as `filter` and `distinct` in a `magrittr` pipe using `%>%`.
+The initial data request (e.g `data("oecd/QNA")`) returns a data structure object that acts very much like a regular tibble, but it does not yet contain the actual data. This object is printed like a tibble, and it can be handled with common `dplyr` verbs such as `filter` and `distinct` in a pipe using `|>`.
 
 ```{r, message = FALSE, warning = FALSE}
 data("oecd/QNA")
@@ -28,10 +28,10 @@ data("oecd/QNA")
 
 ```{r, message = FALSE, warning = FALSE}
 x <-
-  data("oecd/QNA") %>%
+  data("oecd/QNA") |>
   filter(Country == "Finland",
          str_detect(Subject, "Gross domestic prod"),
-         Frequency=="Quarterly") %>%
+         Frequency=="Quarterly") |>
   filter(lubridate::year(time) > 2019L)
 x
 
@@ -42,17 +42,21 @@ distinct(x, Subject)
 After data structure object has been filtered, the actual data can be collected with `collect()`.
 
 ```{r, message = FALSE, warning = FALSE}
-x %>% collect()
+x |> collect()
 ```
 
 Also common `dplyr` verbs that require the actual data will trigger the `collect` function automatically.
 
 ```{r, message = FALSE, warning = FALSE}
-data("oecd/QNA") %>%
-  filter(Subject == "Gross domestic product - expenditure approach",
-         str_detect(Measure, "Growth rate.*from previous"),
-         Frequency=="Quarterly") %>%
-  filter(lubridate::year(time) >= 2015) %>%
-  group_by(Country) %>%
-  summarize(`Average Q/Q growth rate` = mean(value))
+data("oecd/QNA") |>
+  filter(
+    Subject == "Gross domestic product - expenditure approach",
+    ## str_detect(Measure, "Growth rate"),
+    Measure == "Growth rate based on seasonally adjusted volume data, percentage change on the previous quarter",
+    Frequency=="Quarterly"
+  ) |>
+  filter(lubridate::year(time) >= 2015) |>
+  collect() |>
+  group_by(Country) |>
+  summarize(`Average Q/Q growth rate` = mean(value, na.rm = TRUE))
 ```
