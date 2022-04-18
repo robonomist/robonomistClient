@@ -46,7 +46,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">robonomistClient</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.2.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.2.4</span>
       </span>
     </div>
 
@@ -114,7 +114,7 @@
 <h2 id="filtering-datasources">Filtering datasources<a class="anchor" aria-label="anchor" href="#filtering-datasources"></a>
 </h2>
 <p>Most data tables are returned as regular <code>tibble</code> objects, but some datasources contain large tables and require filtering at the source. For example, OECD database usually requires filtering on the data before anything can be retrieved. For convenience, Robonomist provides an easy-to-use workflow to fetch data.</p>
-<p>The initial data request (e.g <code>data("oecd/QNA")</code>) returns a data structure object that acts very much like a regular tibble, but it does not yet contain the actual data. This object is printed like a tibble, and it can be handled with common <code>dplyr</code> verbs such as <code>filter</code> and <code>distinct</code> in a <code>magrittr</code> pipe using <code>%&gt;%</code>.</p>
+<p>The initial data request (e.g <code>data("oecd/QNA")</code>) returns a data structure object that acts very much like a regular tibble, but it does not yet contain the actual data. This object is printed like a tibble, and it can be handled with common <code>dplyr</code> verbs such as <code>filter</code> and <code>distinct</code> in a pipe using <code>|&gt;</code>.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/data.html">data</a></span><span class="op">(</span><span class="st">"oecd/QNA"</span><span class="op">)</span>
 <span class="co">#&gt; <span style="color: #949494;"># Robonomist id: </span><span style="color: #00BBBB;">oecd/QNA</span></span>
@@ -132,14 +132,14 @@
 <span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Australia Gross domestic product Current pric… Quarterly 1948-04-01        ??</span>
 <span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Australia Gross domestic product Current pric… Quarterly 1948-07-01        ??</span>
 <span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Australia Gross domestic product Current pric… Quarterly 1948-10-01        ??</span>
-<span class="co">#&gt; <span style="color: #949494;"># … with 184,199,174 more rows</span></span>
+<span class="co">#&gt; <span style="color: #949494;"># … with 171,735,554 more rows</span></span>
 <span class="co">#&gt; # This data has not yet been collected from OECD api, and all rows might not be available. Please use `filter` to limit the number of rows under a million,  and use `collect` to retrieve actual data.</span></code></pre></div>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span>
-  <span class="fu"><a href="../reference/data.html">data</a></span><span class="op">(</span><span class="st">"oecd/QNA"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+  <span class="fu"><a href="../reference/data.html">data</a></span><span class="op">(</span><span class="st">"oecd/QNA"</span><span class="op">)</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">Country</span> <span class="op">==</span> <span class="st">"Finland"</span>,
          <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_detect.html" class="external-link">str_detect</a></span><span class="op">(</span><span class="va">Subject</span>, <span class="st">"Gross domestic prod"</span><span class="op">)</span>,
-         <span class="va">Frequency</span><span class="op">==</span><span class="st">"Quarterly"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+         <span class="va">Frequency</span><span class="op">==</span><span class="st">"Quarterly"</span><span class="op">)</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/year.html" class="external-link">year</a></span><span class="op">(</span><span class="va">time</span><span class="op">)</span> <span class="op">&gt;</span> <span class="fl">2019L</span><span class="op">)</span>
 <span class="va">x</span>
 <span class="co">#&gt; <span style="color: #949494;"># Robonomist id: </span><span style="color: #00BBBB;">oecd/QNA</span></span>
@@ -157,7 +157,7 @@
 <span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Finland Gross domestic product National curre… Quarterly 2020-10-01        ??</span>
 <span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Finland Gross domestic product Current prices  Quarterly 2021-01-01        ??</span>
 <span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Finland Gross domestic product National curre… Quarterly 2021-01-01        ??</span>
-<span class="co">#&gt; <span style="color: #949494;"># … with 1,934 more rows</span></span>
+<span class="co">#&gt; <span style="color: #949494;"># … with 1,826 more rows</span></span>
 <span class="co">#&gt; # This data has not yet been collected from OECD api, and all rows might not be available. Please use `filter` to limit the number of rows under a million,  and use `collect` to retrieve actual data.</span>
 
 <span class="fu"><a href="https://dplyr.tidyverse.org/reference/distinct.html" class="external-link">distinct</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">Subject</span><span class="op">)</span>
@@ -172,7 +172,7 @@
 <span class="co">#&gt; <span style="color: #BCBCBC;">6</span> Gross domestic product</span></code></pre></div>
 <p>After data structure object has been filtered, the actual data can be collected with <code><a href="https://dplyr.tidyverse.org/reference/compute.html" class="external-link">collect()</a></code>.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">x</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/compute.html" class="external-link">collect</a></span><span class="op">(</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">x</span> |&gt; <span class="fu"><a href="https://dplyr.tidyverse.org/reference/compute.html" class="external-link">collect</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; <span style="color: #949494;"># Robonomist id: </span><span style="color: #00BBBB;">oecd/QNA</span></span>
 <span class="co">#&gt; <span style="color: #949494;"># A tibble:      200 × 10</span></span>
 <span class="co">#&gt; <span style="color: #949494;"># Title:         Quarterly National Accounts</span></span>
@@ -192,13 +192,17 @@
 <span class="co">#&gt; <span style="color: #949494;">#   time &lt;date&gt;, value &lt;chr&gt;</span></span></code></pre></div>
 <p>Also common <code>dplyr</code> verbs that require the actual data will trigger the <code>collect</code> function automatically.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/data.html">data</a></span><span class="op">(</span><span class="st">"oecd/QNA"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">Subject</span> <span class="op">==</span> <span class="st">"Gross domestic product - expenditure approach"</span>,
-         <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_detect.html" class="external-link">str_detect</a></span><span class="op">(</span><span class="va">Measure</span>, <span class="st">"Growth rate.*from previous"</span><span class="op">)</span>,
-         <span class="va">Frequency</span><span class="op">==</span><span class="st">"Quarterly"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/year.html" class="external-link">year</a></span><span class="op">(</span><span class="va">time</span><span class="op">)</span> <span class="op">&gt;=</span> <span class="fl">2015L</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">Country</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarize</a></span><span class="op">(</span>`Average Q/Q growth rate` <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">value</span><span class="op">)</span><span class="op">)</span>
+<code class="sourceCode R"><span class="fu"><a href="../reference/data.html">data</a></span><span class="op">(</span><span class="st">"oecd/QNA"</span><span class="op">)</span> |&gt;
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span>
+    <span class="va">Subject</span> <span class="op">==</span> <span class="st">"Gross domestic product - expenditure approach"</span>,
+    <span class="co">## str_detect(Measure, "Growth rate"),</span>
+    <span class="va">Measure</span> <span class="op">==</span> <span class="st">"Growth rate based on seasonally adjusted volume data, percentage change on the previous quarter"</span>,
+    <span class="va">Frequency</span><span class="op">==</span><span class="st">"Quarterly"</span>
+  <span class="op">)</span> |&gt;
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/year.html" class="external-link">year</a></span><span class="op">(</span><span class="va">time</span><span class="op">)</span> <span class="op">&gt;=</span> <span class="fl">2015</span><span class="op">)</span> |&gt;
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/compute.html" class="external-link">collect</a></span><span class="op">(</span><span class="op">)</span> |&gt;
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">Country</span><span class="op">)</span> |&gt;
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarize</a></span><span class="op">(</span>`Average Q/Q growth rate` <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">value</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; <span style="color: #949494;"># A tibble: 57 × 2</span></span>
 <span class="co">#&gt;    Country                      `Average Q/Q growth rate`</span>
 <span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                            <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>

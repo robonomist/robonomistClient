@@ -46,7 +46,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">robonomistClient</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.2.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.2.4</span>
       </span>
     </div>
 
@@ -117,9 +117,9 @@
 <p>You can list all available datasources:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://robonomist.github.io/robonomistClient/">robonomistClient</a></span><span class="op">)</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Loaded <span style="color: #0000BB;">robonomistClient</span> 2.2.3</span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Loaded <span style="color: #0000BB;">robonomistClient</span> 2.2.4</span>
 <span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Set to connect wss://data.robonomist.app</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Set to connect wss://data.robonomist.app <span style="color: #B2B2B2;">[279ms]</span></span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Set to connect wss://data.robonomist.app <span style="color: #B2B2B2;">[214ms]</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Attaching package: 'robonomistClient'</span>
@@ -128,58 +128,60 @@
 <span class="co">#&gt;     data</span>
 <span class="fu"><a href="../reference/datasources.html">datasources</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Connecting to <span style="color: #0000BB;">robonomistServer</span> at wss://data.robonomist.app</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Connecting to <span style="color: #0000BB;">robonomistServer</span> at wss://data.robonomist.app <span style="color: #B2B2B2;">[965ms]</span></span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Connecting to <span style="color: #0000BB;">robonomistServer</span> at wss://data.robonomist.app <span style="color: #B2B2B2;">[940ms]</span></span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Connected successfully to robonomistServer 2.5.11</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Connected successfully to robonomistServer 2.5.11 <span style="color: #B2B2B2;">[48ms]</span></span>
+<span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Connected successfully to robonomistServer 2.6.3</span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Connected successfully to robonomistServer 2.6.3 <span style="color: #B2B2B2;">[45ms]</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; ⠙ Requesting datasources</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting datasources <span style="color: #B2B2B2;">[155ms]</span></span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting datasources <span style="color: #B2B2B2;">[149ms]</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; ── Robonomist Server Datasources</span>
 <span class="co">#&gt;    dataset            title                                                     </span>
 <span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> <span style="color: #0000BB;">StatFin</span>            Statistics Finland, StatFin database                      </span>
 <span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> <span style="color: #0000BB;">StatFin_Passiivi</span>   Statistics Finland, StatFin archive database              </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> <span style="color: #0000BB;">kunnat</span>             Kuntien avainluvut (Tilastokeskus)                        </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> <span style="color: #0000BB;">kunnat</span>             Kuntien ja kuntayhtymien raportoimat taloustiedot (Tilast…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> <span style="color: #0000BB;">paavo</span>              Postinumeroalueittainen avoin tieto -tietokanta Paavo (Ti…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> <span style="color: #0000BB;">Vero</span>               Verohallinnon tilastotietokanta                           </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> <span style="color: #0000BB;">ec</span>                 European Commission's Business and Consumer Surveys       </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> <span style="color: #0000BB;">Vero</span>               Verohallinnon tilastotietokanta                           </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> <span style="color: #0000BB;">ec</span>                 European Commission's Business and Consumer Surveys       </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> <span style="color: #0000BB;">kunnat</span>             Kuntien avainluvut (Tilastokeskus)                        </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> <span style="color: #0000BB;">kunnat</span>             Kuntien ja kuntayhtymien raportoimat taloustiedot (Tilast…</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> <span style="color: #0000BB;">paavo</span>              Postinumeroalueittainen avoin tieto -tietokanta Paavo (Ti…</span>
 <span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> <span style="color: #0000BB;">tulli</span>              Finnish Customs, Uljas Statistical Database               </span>
 <span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> <span style="color: #0000BB;">luke</span>               Luonnonvarakeskus LUKE:n tilastotietokanta)               </span>
 <span class="co">#&gt; <span style="color: #BCBCBC;">10</span> <span style="color: #0000BB;">etk</span>                Eläketurvakeskuksen tietokanta                            </span>
 <span class="co">#&gt; <span style="color: #BCBCBC;">11</span> <span style="color: #0000BB;">eurostat</span>           Eurostat database                                         </span>
 <span class="co">#&gt; <span style="color: #BCBCBC;">12</span> <span style="color: #0000BB;">ecb</span>                ECB Statistical Data Warehouse                            </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">13</span> <span style="color: #0000BB;">oecd</span>               OECD database                                             </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">14</span> <span style="color: #0000BB;">wb</span>                 World Bank Open Data                                      </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">15</span> <span style="color: #0000BB;">hsa</span>                Helsingin seudun aluesarjat -tilastotietokanta            </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">16</span> <span style="color: #0000BB;">helymp</span>             Helsingin ympäristötilasto                                </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">17</span> <span style="color: #0000BB;">helhyv</span>             Helsingin hyvinvointitilastot                             </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">18</span> <span style="color: #0000BB;">nordstat</span>           Nordstat                                                  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">19</span> <span style="color: #0000BB;">covid</span>              European Centre for Disease Prevention and Control COVID-…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">20</span> <span style="color: #0000BB;">vipunen</span>            Vipunen, Education Statistics Finland                     </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">21</span> <span style="color: #0000BB;">epirapo</span>            THL Epirapo COVID-19 database                             </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">22</span> <span style="color: #0000BB;">sotkanet</span>           THL Sotkanet                                              </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">23</span> <span style="color: #0000BB;">maakoto</span>            Maahanmuuttajat ja kotoutuminen -tietokanta (Tilastokesku…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">24</span> <span style="color: #0000BB;">koto</span>               Kototietokanta (Tilastokeskus)                            </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">25</span> <span style="color: #0000BB;">toimipaikkalaskuri</span> Toimipaikkalaskuri-tietokanta (Tilastokeskus)             </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">26</span> <span style="color: #0000BB;">kokeelliset</span>        Tilastokeskuksen kokeelliset tilastot                     </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">27</span> <span style="color: #0000BB;">traficom</span>           Traficomin tilastotietokanta (Tilastokeskus)              </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">28</span> <span style="color: #0000BB;">tk_eurostat</span>        Eurostatin avaintaulukot -tietokanta (Tilastokeskus)      </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">29</span> <span style="color: #0000BB;">se</span>                 Statistics Sweden                                         </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">30</span> <span style="color: #0000BB;">konj</span>               The Swedish National Institute of Economic Research       </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">31</span> <span style="color: #0000BB;">sjv</span>                The Swedish Agricultural Agency                           </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">32</span> <span style="color: #0000BB;">no</span>                 Statistics Norway                                         </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">33</span> <span style="color: #0000BB;">dk</span>                 Statistics Denmark                                        </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">34</span> <span style="color: #0000BB;">is</span>                 Statistics Iceland                                        </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">35</span> <span style="color: #0000BB;">ee</span>                 Statistics Estonia                                        </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">36</span> <span style="color: #0000BB;">unece</span>              United Nations Economic Commission for Europe Statistical…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">37</span> <span style="color: #0000BB;">nordic</span>             Nordic Statistics                                         </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">38</span> <span style="color: #0000BB;">unctad</span>             United Nations Conference on Trade and Development        </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">39</span> <span style="color: #0000BB;">eia</span>                U.S. Energy Information Administration database           </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">40</span> <span style="color: #0000BB;">fred</span>               FRED, Federal Reserve Economic Data, St. Louis Fed        </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">41</span> <span style="color: #0000BB;">fao</span>                Food and Agriculture Organization of the United Nations   </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">42</span> <span style="color: #0000BB;">tidy</span>               Robonomistin jalostetut tietokannat                       </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">13</span> <span style="color: #0000BB;">bundesbank</span>         Deutche Bundesbank time series database                   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">14</span> <span style="color: #0000BB;">oecd</span>               OECD database                                             </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">15</span> <span style="color: #0000BB;">wb</span>                 World Bank Open Data                                      </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">16</span> <span style="color: #0000BB;">hsa</span>                Helsingin seudun aluesarjat -tilastotietokanta            </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">17</span> <span style="color: #0000BB;">helymp</span>             Helsingin ympäristötilasto                                </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">18</span> <span style="color: #0000BB;">helhyv</span>             Helsingin hyvinvointitilastot                             </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">19</span> <span style="color: #0000BB;">nordstat</span>           Nordstat                                                  </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">20</span> <span style="color: #0000BB;">covid</span>              European Centre for Disease Prevention and Control COVID-…</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">21</span> <span style="color: #0000BB;">vipunen</span>            Vipunen, Education Statistics Finland                     </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">22</span> <span style="color: #0000BB;">epirapo</span>            THL Epirapo COVID-19 database                             </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">23</span> <span style="color: #0000BB;">sotkanet</span>           THL Sotkanet                                              </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">24</span> <span style="color: #0000BB;">maakoto</span>            Maahanmuuttajat ja kotoutuminen -tietokanta (Tilastokesku…</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">25</span> <span style="color: #0000BB;">koto</span>               Kototietokanta (Tilastokeskus)                            </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">26</span> <span style="color: #0000BB;">toimipaikkalaskuri</span> Toimipaikkalaskuri-tietokanta (Tilastokeskus)             </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">27</span> <span style="color: #0000BB;">kokeelliset</span>        Tilastokeskuksen kokeelliset tilastot                     </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">28</span> <span style="color: #0000BB;">traficom</span>           Traficomin tilastotietokanta (Tilastokeskus)              </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">29</span> <span style="color: #0000BB;">tk_eurostat</span>        Eurostatin avaintaulukot -tietokanta (Tilastokeskus)      </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">30</span> <span style="color: #0000BB;">se</span>                 Statistics Sweden                                         </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">31</span> <span style="color: #0000BB;">konj</span>               The Swedish National Institute of Economic Research       </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">32</span> <span style="color: #0000BB;">sjv</span>                The Swedish Agricultural Agency                           </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">33</span> <span style="color: #0000BB;">no</span>                 Statistics Norway                                         </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">34</span> <span style="color: #0000BB;">dk</span>                 Statistics Denmark                                        </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">35</span> <span style="color: #0000BB;">is</span>                 Statistics Iceland                                        </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">36</span> <span style="color: #0000BB;">ee</span>                 Statistics Estonia                                        </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">37</span> <span style="color: #0000BB;">unece</span>              United Nations Economic Commission for Europe Statistical…</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">38</span> <span style="color: #0000BB;">nordic</span>             Nordic Statistics                                         </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">39</span> <span style="color: #0000BB;">unctad</span>             United Nations Conference on Trade and Development        </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">40</span> <span style="color: #0000BB;">eia</span>                U.S. Energy Information Administration database           </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">41</span> <span style="color: #0000BB;">fred</span>               FRED, Federal Reserve Economic Data, St. Louis Fed        </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">42</span> <span style="color: #0000BB;">fao</span>                Food and Agriculture Organization of the United Nations   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">43</span> <span style="color: #0000BB;">fingrid</span>            Fingrid avoin data                                        </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">44</span> <span style="color: #0000BB;">tidy</span>               Robonomistin jalostetut tietokannat                       </span>
 <span class="co">#&gt; <span style="color: #949494;"># … with 1 more variable: languages &lt;list&gt;</span></span></code></pre></div>
 </div>
 <div class="section level2">
@@ -188,53 +190,53 @@
 <p>All contents are orginized as data tables, which in most cases are tibble-class objects. The <code>data</code> function is convenient way to search and get data tables. To print all available data tables:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">data</span>()</span>
 <span id="cb2-2"><a href="#cb2-2"></a><span class="co">#&gt; ⠙ Requesting data</span></span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="co">#&gt;  [36mℹ [39m Object retrieved from client cache (valid until 2022-04-07 09:40:12).</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="co">#&gt;  [36mℹ [39m Object retrieved from client cache (valid until 2022-04-18 17:26:09).</span></span>
 <span id="cb2-4"><a href="#cb2-4"></a><span class="co">#&gt; ⠙ Requesting data</span></span>
-<span id="cb2-5"><a href="#cb2-5"></a> [32m✔ [39m Requesting data  [<span class="dv">38</span>;<span class="dv">5</span>;249m[20ms] [39m</span>
+<span id="cb2-5"><a href="#cb2-5"></a> [32m✔ [39m Requesting data  [<span class="dv">38</span>;<span class="dv">5</span>;249m[17ms] [39m</span>
 <span id="cb2-6"><a href="#cb2-6"></a><span class="co">#&gt; </span></span>
 <span id="cb2-7"><a href="#cb2-7"></a><span class="co">#&gt; </span></span>
 <span id="cb2-8"><a href="#cb2-8"></a><span class="co">#&gt; ── Robonomist Database search results</span></span>
-<span id="cb2-9"><a href="#cb2-9"></a><span class="co">#&gt;    id                                        title                         lang </span></span>
-<span id="cb2-10"><a href="#cb2-10"></a><span class="co">#&gt;     [3m [38;5;246m&lt;r_id&gt; [39m [23m                                     [3m [38;5;246m&lt;chr&gt; [39m [23m                          [3m [38;5;246m&lt;chr&gt; [39m [23m</span></span>
-<span id="cb2-11"><a href="#cb2-11"></a><span class="co">#&gt;  [38;5;250m 1 [39m  [34mStatFin [39m/ [36masu/asas/statfin_asas_pxt_115a.px [39m Asuntokunnat ja asuntoväestö… fi   </span></span>
-<span id="cb2-12"><a href="#cb2-12"></a><span class="co">#&gt;  [38;5;250m 2 [39m  [34mStatFin [39m/ [36masu/asas/statfin_asas_pxt_115a.px [39m Bostadshushåll och boendebef… sv   </span></span>
-<span id="cb2-13"><a href="#cb2-13"></a><span class="co">#&gt;  [38;5;250m 3 [39m  [34mStatFin [39m/ [36masu/asas/statfin_asas_pxt_115a.px [39m Household-dwelling units and… en   </span></span>
-<span id="cb2-14"><a href="#cb2-14"></a><span class="co">#&gt;  [38;5;250m 4 [39m  [34mStatFin [39m/ [36masu/asas/statfin_asas_pxt_115y.px [39m Asuntokunnat ja asuntoväestö… fi   </span></span>
-<span id="cb2-15"><a href="#cb2-15"></a><span class="co">#&gt;  [38;5;250m 5 [39m  [34mStatFin [39m/ [36masu/asas/statfin_asas_pxt_115y.px [39m Antal bostadshushåll och ant… sv   </span></span>
-<span id="cb2-16"><a href="#cb2-16"></a><span class="co">#&gt;  [38;5;250m 6 [39m  [34mStatFin [39m/ [36masu/asas/statfin_asas_pxt_115y.px [39m Number of household-dwelling… en   </span></span>
-<span id="cb2-17"><a href="#cb2-17"></a><span class="co">#&gt;  [38;5;250m 7 [39m  [34mStatFin [39m/ [36masu/asas/statfin_asas_pxt_116a.px [39m Asuntokunnat muuttujina Vuos… fi   </span></span>
-<span id="cb2-18"><a href="#cb2-18"></a><span class="co">#&gt;  [38;5;250m 8 [39m  [34mStatFin [39m/ [36masu/asas/statfin_asas_pxt_116a.px [39m Bostadshushåll efter År, Hus… sv   </span></span>
-<span id="cb2-19"><a href="#cb2-19"></a><span class="co">#&gt;  [38;5;250m 9 [39m  [34mStatFin [39m/ [36masu/asas/statfin_asas_pxt_116a.px [39m Household-dwelling units by … en   </span></span>
-<span id="cb2-20"><a href="#cb2-20"></a><span class="co">#&gt;  [38;5;250m10 [39m  [34mStatFin [39m/ [36masu/asas/statfin_asas_pxt_116b.px [39m Asuntokunnat ja asuntoväestö… fi   </span></span>
-<span id="cb2-21"><a href="#cb2-21"></a><span class="co">#&gt;  [38;5;250m11 [39m  [34mStatFin [39m/ [36masu/asas/statfin_asas_pxt_116b.px [39m Bostadshushåll och bostadsbe… sv   </span></span>
-<span id="cb2-22"><a href="#cb2-22"></a><span class="co">#&gt;  [38;5;250m12 [39m  [34mStatFin [39m/ [36masu/asas/statfin_asas_pxt_116b.px [39m Household-dwelling units and… en   </span></span>
-<span id="cb2-23"><a href="#cb2-23"></a><span class="co">#&gt;  [38;5;250m13 [39m  [34mStatFin [39m/ [36masu/asas/statfin_asas_pxt_116d.px [39m Asuntokunnat muuttujina Alue… fi   </span></span>
-<span id="cb2-24"><a href="#cb2-24"></a><span class="co">#&gt;  [38;5;250m14 [39m  [34mStatFin [39m/ [36masu/asas/statfin_asas_pxt_116d.px [39m Bostadshushåll efter Område,… sv   </span></span>
-<span id="cb2-25"><a href="#cb2-25"></a><span class="co">#&gt;  [38;5;250m15 [39m  [34mStatFin [39m/ [36masu/asas/statfin_asas_pxt_116d.px [39m Household-dwelling units by … en   </span></span>
-<span id="cb2-26"><a href="#cb2-26"></a><span class="co">#&gt;  [38;5;250m16 [39m  [34mStatFin [39m/ [36masu/asas/statfin_asas_pxt_116e.px [39m Asuntokunnat ja asuntoväestö… fi   </span></span>
-<span id="cb2-27"><a href="#cb2-27"></a><span class="co">#&gt;  [38;5;250m17 [39m  [34mStatFin [39m/ [36masu/asas/statfin_asas_pxt_116e.px [39m Antal bostadshushåll och ant… sv   </span></span>
-<span id="cb2-28"><a href="#cb2-28"></a><span class="co">#&gt;  [38;5;250m18 [39m  [34mStatFin [39m/ [36masu/asas/statfin_asas_pxt_116e.px [39m Number of household-dwelling… en   </span></span>
-<span id="cb2-29"><a href="#cb2-29"></a><span class="co">#&gt;  [38;5;250m19 [39m  [34mStatFin [39m/ [36masu/asas/statfin_asas_pxt_116f.px [39m Asunnot muuttujina Alue, Tal… fi   </span></span>
-<span id="cb2-30"><a href="#cb2-30"></a><span class="co">#&gt;  [38;5;250m20 [39m  [34mStatFin [39m/ [36masu/asas/statfin_asas_pxt_116f.px [39m Bostäder efter Område, Husty… sv   </span></span>
-<span id="cb2-31"><a href="#cb2-31"></a><span class="co">#&gt;  [38;5;250m21 [39m  [34mStatFin [39m/ [36masu/asas/statfin_asas_pxt_116f.px [39m Dwellings by Area, Type of b… en   </span></span>
-<span id="cb2-32"><a href="#cb2-32"></a><span class="co">#&gt;  [38;5;250m22 [39m  [34mStatFin [39m/ [36masu/asvu/statfin_asvu_pxt_11x4.px [39m Vuokraindeksi (2015=100) ja … fi   </span></span>
-<span id="cb2-33"><a href="#cb2-33"></a><span class="co">#&gt;  [38;5;250m23 [39m  [34mStatFin [39m/ [36masu/asvu/statfin_asvu_pxt_11x4.px [39m Hyresindex (2015=100) och ge… sv   </span></span>
-<span id="cb2-34"><a href="#cb2-34"></a><span class="co">#&gt;  [38;5;250m24 [39m  [34mStatFin [39m/ [36masu/asvu/statfin_asvu_pxt_11x4.px [39m Rent index (2015=100) and av… en   </span></span>
-<span id="cb2-35"><a href="#cb2-35"></a><span class="co">#&gt;  [38;5;250m25 [39m  [34mStatFin [39m/ [36masu/asvu/statfin_asvu_pxt_11x5.px [39m Vuokraindeksi (2015=100) ja … fi   </span></span>
-<span id="cb2-36"><a href="#cb2-36"></a><span class="co">#&gt;  [38;5;250m26 [39m  [34mStatFin [39m/ [36masu/asvu/statfin_asvu_pxt_11x5.px [39m Hyresindex (2015=100) och ge… sv   </span></span>
-<span id="cb2-37"><a href="#cb2-37"></a><span class="co">#&gt;  [38;5;250m27 [39m  [34mStatFin [39m/ [36masu/asvu/statfin_asvu_pxt_11x5.px [39m Rent index (2015=100) and av… en   </span></span>
-<span id="cb2-38"><a href="#cb2-38"></a><span class="co">#&gt;  [38;5;250m28 [39m  [34mStatFin [39m/ [36masu/asvu/statfin_asvu_pxt_12d4.px [39m Vapaarahoitteisten vuokra-as… fi   </span></span>
-<span id="cb2-39"><a href="#cb2-39"></a><span class="co">#&gt;  [38;5;250m29 [39m  [34mStatFin [39m/ [36masu/asvu/statfin_asvu_pxt_12d4.px [39m Fördelning av totalhyror för… sv   </span></span>
-<span id="cb2-40"><a href="#cb2-40"></a><span class="co">#&gt;  [38;5;250m30 [39m  [34mStatFin [39m/ [36masu/asvu/statfin_asvu_pxt_12d4.px [39m Distributions of total rents… en   </span></span>
-<span id="cb2-41"><a href="#cb2-41"></a><span class="co">#&gt;  [38;5;246m# … with 130,769 more rows [39m</span></span></code></pre></div>
+<span id="cb2-9"><a href="#cb2-9"></a><span class="co">#&gt;    id                                      title                           lang </span></span>
+<span id="cb2-10"><a href="#cb2-10"></a><span class="co">#&gt;     [3m [38;5;246m&lt;r_id&gt; [39m [23m                                   [3m [38;5;246m&lt;chr&gt; [39m [23m                            [3m [38;5;246m&lt;chr&gt; [39m [23m</span></span>
+<span id="cb2-11"><a href="#cb2-11"></a><span class="co">#&gt;  [38;5;250m 1 [39m  [34mStatFin [39m/ [36madopt/statfin_adopt_pxt_11lv.px [39m Adoptiot muuttujina Vuosi, Syn… fi   </span></span>
+<span id="cb2-12"><a href="#cb2-12"></a><span class="co">#&gt;  [38;5;250m 2 [39m  [34mStatFin [39m/ [36madopt/statfin_adopt_pxt_11lv.px [39m Adoptioner efter År, Födelsela… sv   </span></span>
+<span id="cb2-13"><a href="#cb2-13"></a><span class="co">#&gt;  [38;5;250m 3 [39m  [34mStatFin [39m/ [36madopt/statfin_adopt_pxt_11lv.px [39m Adoptions by Year, Country of … en   </span></span>
+<span id="cb2-14"><a href="#cb2-14"></a><span class="co">#&gt;  [38;5;250m 4 [39m  [34mStatFin [39m/ [36makay/statfin_akay_pxt_001.px [39m    001 -- Ajankäyttö (26 lk) syks… fi   </span></span>
+<span id="cb2-15"><a href="#cb2-15"></a><span class="co">#&gt;  [38;5;250m 5 [39m  [34mStatFin [39m/ [36makay/statfin_akay_pxt_001.px [39m    001 -- Time Use (26 categories… en   </span></span>
+<span id="cb2-16"><a href="#cb2-16"></a><span class="co">#&gt;  [38;5;250m 6 [39m  [34mStatFin [39m/ [36makay/statfin_akay_pxt_002.px [39m    Ajankäyttö (26 lk) muuttujina … fi   </span></span>
+<span id="cb2-17"><a href="#cb2-17"></a><span class="co">#&gt;  [38;5;250m 7 [39m  [34mStatFin [39m/ [36makay/statfin_akay_pxt_002.px [39m    Time Use (26 categories) by Ac… en   </span></span>
+<span id="cb2-18"><a href="#cb2-18"></a><span class="co">#&gt;  [38;5;250m 8 [39m  [34mStatFin [39m/ [36makay/statfin_akay_pxt_003.px [39m    003 -- Työllisten miesten ja n… fi   </span></span>
+<span id="cb2-19"><a href="#cb2-19"></a><span class="co">#&gt;  [38;5;250m 9 [39m  [34mStatFin [39m/ [36makay/statfin_akay_pxt_003.px [39m    003 -- Time use (26 categories… en   </span></span>
+<span id="cb2-20"><a href="#cb2-20"></a><span class="co">#&gt;  [38;5;250m10 [39m  [34mStatFin [39m/ [36makay/statfin_akay_pxt_004.px [39m    Ajankäyttö (26 lk) muuttujina … fi   </span></span>
+<span id="cb2-21"><a href="#cb2-21"></a><span class="co">#&gt;  [38;5;250m11 [39m  [34mStatFin [39m/ [36makay/statfin_akay_pxt_004.px [39m    Time Use (26 categories) by Ac… en   </span></span>
+<span id="cb2-22"><a href="#cb2-22"></a><span class="co">#&gt;  [38;5;250m12 [39m  [34mStatFin [39m/ [36makay/statfin_akay_pxt_005.px [39m    005 -- Ajankäyttö (82 lk) suku… fi   </span></span>
+<span id="cb2-23"><a href="#cb2-23"></a><span class="co">#&gt;  [38;5;250m13 [39m  [34mStatFin [39m/ [36makay/statfin_akay_pxt_005.px [39m    005 -- Time Use (82 categories… en   </span></span>
+<span id="cb2-24"><a href="#cb2-24"></a><span class="co">#&gt;  [38;5;250m14 [39m  [34mStatFin [39m/ [36makay/statfin_akay_pxt_006.px [39m    006 -- Ajankäyttö (82 lk) iän … fi   </span></span>
+<span id="cb2-25"><a href="#cb2-25"></a><span class="co">#&gt;  [38;5;250m15 [39m  [34mStatFin [39m/ [36makay/statfin_akay_pxt_006.px [39m    006 -- Time Use (82 categories… en   </span></span>
+<span id="cb2-26"><a href="#cb2-26"></a><span class="co">#&gt;  [38;5;250m16 [39m  [34mStatFin [39m/ [36makay/statfin_akay_pxt_007.px [39m    007 -- Yli 10-vuotiaiden ajank… fi   </span></span>
+<span id="cb2-27"><a href="#cb2-27"></a><span class="co">#&gt;  [38;5;250m17 [39m  [34mStatFin [39m/ [36makay/statfin_akay_pxt_007.px [39m    007 -- Time Use (132 categorie… en   </span></span>
+<span id="cb2-28"><a href="#cb2-28"></a><span class="co">#&gt;  [38;5;250m18 [39m  [34mStatFin [39m/ [36makay/statfin_akay_pxt_008.px [39m    008 -- Kirjastossa käyminen 12… fi   </span></span>
+<span id="cb2-29"><a href="#cb2-29"></a><span class="co">#&gt;  [38;5;250m19 [39m  [34mStatFin [39m/ [36makay/statfin_akay_pxt_008.px [39m    008 -- Biblioteksbesök under d… sv   </span></span>
+<span id="cb2-30"><a href="#cb2-30"></a><span class="co">#&gt;  [38;5;250m20 [39m  [34mStatFin [39m/ [36makay/statfin_akay_pxt_008.px [39m    008 -- Visiting the library du… en   </span></span>
+<span id="cb2-31"><a href="#cb2-31"></a><span class="co">#&gt;  [38;5;250m21 [39m  [34mStatFin [39m/ [36makay/statfin_akay_pxt_009.px [39m    009 -- Kirjastossa käyminen 12… fi   </span></span>
+<span id="cb2-32"><a href="#cb2-32"></a><span class="co">#&gt;  [38;5;250m22 [39m  [34mStatFin [39m/ [36makay/statfin_akay_pxt_009.px [39m    009 -- Biblioteksbesök under d… sv   </span></span>
+<span id="cb2-33"><a href="#cb2-33"></a><span class="co">#&gt;  [38;5;250m23 [39m  [34mStatFin [39m/ [36makay/statfin_akay_pxt_009.px [39m    009 -- Visiting the library du… en   </span></span>
+<span id="cb2-34"><a href="#cb2-34"></a><span class="co">#&gt;  [38;5;250m24 [39m  [34mStatFin [39m/ [36makay/statfin_akay_pxt_010.px [39m    010 -- Kirjastossa käyminen 12… fi   </span></span>
+<span id="cb2-35"><a href="#cb2-35"></a><span class="co">#&gt;  [38;5;250m25 [39m  [34mStatFin [39m/ [36makay/statfin_akay_pxt_010.px [39m    010 -- Biblioteksbesök under d… sv   </span></span>
+<span id="cb2-36"><a href="#cb2-36"></a><span class="co">#&gt;  [38;5;250m26 [39m  [34mStatFin [39m/ [36makay/statfin_akay_pxt_010.px [39m    010 -- Visiting the library du… en   </span></span>
+<span id="cb2-37"><a href="#cb2-37"></a><span class="co">#&gt;  [38;5;250m27 [39m  [34mStatFin [39m/ [36makay/statfin_akay_pxt_011.px [39m    011 -- Lukemiseen käytetty aik… fi   </span></span>
+<span id="cb2-38"><a href="#cb2-38"></a><span class="co">#&gt;  [38;5;250m28 [39m  [34mStatFin [39m/ [36makay/statfin_akay_pxt_011.px [39m    011 -- Tid som använts till at… sv   </span></span>
+<span id="cb2-39"><a href="#cb2-39"></a><span class="co">#&gt;  [38;5;250m29 [39m  [34mStatFin [39m/ [36makay/statfin_akay_pxt_011.px [39m    011 -- Time used for reading b… en   </span></span>
+<span id="cb2-40"><a href="#cb2-40"></a><span class="co">#&gt;  [38;5;250m30 [39m  [34mStatFin [39m/ [36makay/statfin_akay_pxt_012.px [39m    012 -- Kulttuuritilaisuuksissa… fi   </span></span>
+<span id="cb2-41"><a href="#cb2-41"></a><span class="co">#&gt;  [38;5;246m# … with 130,414 more rows [39m</span></span></code></pre></div>
 <p>The package automatically ensures that the listed data tables are the latest versions available at the datasources.</p>
 <p>To get a specific data table, use the tables id.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/data.html">data</a></span><span class="op">(</span><span class="st">"StatFin/vrm/synt/statfin_synt_pxt_12dx.px"</span><span class="op">)</span>
 <span class="co">#&gt; ⠙ Requesting data</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[660ms]</span></span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[579ms]</span></span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; <span style="color: #949494;"># Robonomist id: </span><span style="color: #00BBBB;">StatFin/vrm/synt/statfin_synt_pxt_12dx.px</span></span>
+<span class="co">#&gt; <span style="color: #949494;"># Robonomist id: </span><span style="color: #00BBBB;">StatFin/synt/statfin_synt_pxt_12dx.px</span></span>
 <span class="co">#&gt; <span style="color: #949494;"># A tibble:      2,992 × 3</span></span>
 <span class="co">#&gt; <span style="color: #949494;"># Title:         12dx -- Väestönmuutokset ja väkiluku, 1749-2020</span></span>
 <span class="co">#&gt; <span style="color: #949494;"># Last updated:  2021-06-18 08:00:00</span></span>
@@ -256,7 +258,7 @@
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/data_vintage.html">data_vintage</a></span><span class="op">(</span><span class="st">"StatFin/vrm/synt/statfin_synt_pxt_12dx.px"</span><span class="op">)</span>
 <span class="co">#&gt; ⠙ Requesting vintage</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting vintage <span style="color: #B2B2B2;">[307ms]</span></span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting vintage <span style="color: #B2B2B2;">[230ms]</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; StatFin/vrm/synt/statfin_synt_pxt_12dx.px </span>
 <span class="co">#&gt;                "2021-06-18 08:00:00 EEST"</span></code></pre></div>
@@ -267,7 +269,7 @@
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/data.html">data</a></span><span class="op">(</span><span class="st">"Vero/"</span><span class="op">)</span>
 <span class="co">#&gt; ⠙ Requesting data</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[275ms]</span></span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[253ms]</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; ── Robonomist Database search results</span>
 <span class="co">#&gt;    id                               title                                  lang </span>
@@ -302,7 +304,7 @@
 <span class="co">#&gt; <span style="color: #BCBCBC;">28</span> <span style="color: #0000BB;">Vero</span>/<span style="color: #00BBBB;">Tulorekisteri/trt_030.px</span>    3. Ennakonpidätyksen alaiset ansiotul… fi   </span>
 <span class="co">#&gt; <span style="color: #BCBCBC;">29</span> <span style="color: #0000BB;">Vero</span>/<span style="color: #00BBBB;">Tulorekisteri/trt_030.px</span>    3. Förskottsinnehållningspliktiga för… sv   </span>
 <span class="co">#&gt; <span style="color: #BCBCBC;">30</span> <span style="color: #0000BB;">Vero</span>/<span style="color: #00BBBB;">Tulorekisteri/trt_030.px</span>    3. Earned income subject to withholdi… en   </span>
-<span class="co">#&gt; <span style="color: #949494;"># … with 996 more rows</span></span></code></pre></div>
+<span class="co">#&gt; <span style="color: #949494;"># … with 999 more rows</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="search-and-retrieval">Search and retrieval<a class="anchor" aria-label="anchor" href="#search-and-retrieval"></a>
@@ -318,43 +320,42 @@
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/data.html">data_search</a></span><span class="op">(</span><span class="st">"väestö"</span><span class="op">)</span>
 <span class="co">#&gt; ⠙ Requesting search</span>
-<span class="co">#&gt; ⠹ Requesting search</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting search <span style="color: #B2B2B2;">[2.7s]</span></span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting search <span style="color: #B2B2B2;">[2.9s]</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; ── Robonomist Database search results</span>
-<span class="co">#&gt;    id                                           title                      lang </span>
-<span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;r_id&gt;</span>                                       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> <span style="color: #0000BB;">StatFin</span>/<span style="color: #00BBBB;">asu/asas/statfin_asas_pxt_115a.px</span>    <span style="color: #949494;">"</span>Asuntokunnat ja asuntovä… fi   </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> <span style="color: #0000BB;">StatFin</span>/<span style="color: #00BBBB;">asu/asas/statfin_asas_pxt_115y.px</span>    <span style="color: #949494;">"</span>Asuntokunnat ja asuntovä… fi   </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> <span style="color: #0000BB;">StatFin</span>/<span style="color: #00BBBB;">asu/asas/statfin_asas_pxt_116b.px</span>    <span style="color: #949494;">"</span>Asuntokunnat ja asuntovä… fi   </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> <span style="color: #0000BB;">StatFin</span>/<span style="color: #00BBBB;">asu/asas/statfin_asas_pxt_116e.px</span>    <span style="color: #949494;">"</span>Asuntokunnat ja asuntovä… fi   </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> <span style="color: #0000BB;">StatFin</span>/<span style="color: #00BBBB;">kou/vkour/statfin_vkour_pxt_12bq.px</span>  <span style="color: #949494;">"</span>15 vuotta täyttänyt väes… fi   </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> <span style="color: #0000BB;">StatFin</span>/<span style="color: #00BBBB;">kou/vkour/statfin_vkour_pxt_12br.px</span>  <span style="color: #949494;">"</span>15 vuotta täyttänyt väes… fi   </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> <span style="color: #0000BB;">StatFin</span>/<span style="color: #00BBBB;">kou/vkour/statfin_vkour_pxt_12bs.px</span>  <span style="color: #949494;">"</span>15 vuotta täyttänyt väes… fi   </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> <span style="color: #0000BB;">StatFin</span>/<span style="color: #00BBBB;">sos/lasuo/statfin_lasuo_pxt_001.px</span>   <span style="color: #949494;">"</span>Kodin ulkopuolelle sijoi… fi   </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> <span style="color: #0000BB;">StatFin</span>/<span style="color: #00BBBB;">sos/lasuo/statfin_lasuo_pxt_001.px</span>   <span style="color: #949494;">"</span>Ungdomar i åldern 0-17 å… sv   </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">10</span> <span style="color: #0000BB;">StatFin</span>/<span style="color: #00BBBB;">sos/lasuo/statfin_lasuo_pxt_001.px</span>   <span style="color: #949494;">"</span>0\u009617-year-olds plac… en   </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">11</span> <span style="color: #0000BB;">StatFin</span>/<span style="color: #00BBBB;">sos/toimtt/statfin_toimtt_pxt_001.px</span> <span style="color: #949494;">"</span>Toimeentulotuen saajien … fi   </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">12</span> <span style="color: #0000BB;">StatFin</span>/<span style="color: #00BBBB;">ter/avtk/statfin_avtk_pxt_001.px</span>     <span style="color: #949494;">"</span>Lihavien osuus (%) 20\u0… fi   </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">13</span> <span style="color: #0000BB;">StatFin</span>/<span style="color: #00BBBB;">ter/avtk/statfin_avtk_pxt_002.px</span>     <span style="color: #949494;">"</span>Vapaa-ajan liikuntaa har… fi   </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">14</span> <span style="color: #0000BB;">StatFin</span>/<span style="color: #00BBBB;">ter/avtk/statfin_avtk_pxt_003.px</span>     <span style="color: #949494;">"</span>Päivittäin tupakoivien o… fi   </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">15</span> <span style="color: #0000BB;">StatFin</span>/<span style="color: #00BBBB;">ter/evtk/statfin_evtk_pxt_001.px</span>     <span style="color: #949494;">"</span>Eläkeikäisen väestön ter… fi   </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">16</span> <span style="color: #0000BB;">StatFin</span>/<span style="color: #00BBBB;">ter/ksyyt/statfin_ksyyt_pxt_11br.px</span>  <span style="color: #949494;">"</span>Kuolleet/kuolleisuus muu… fi   </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">17</span> <span style="color: #0000BB;">StatFin</span>/<span style="color: #00BBBB;">vrm/adopt/statfin_adopt_pxt_11lv.px</span>  <span style="color: #949494;">"</span>Adoptiot muuttujina Vuos… fi   </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">18</span> <span style="color: #0000BB;">StatFin</span>/<span style="color: #00BBBB;">vrm/kans/statfin_kans_pxt_11l3.px</span>    <span style="color: #949494;">"</span>Suomen kansalaisuuden sa… fi   </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">19</span> <span style="color: #0000BB;">StatFin</span>/<span style="color: #00BBBB;">vrm/kans/statfin_kans_pxt_11l4.px</span>    <span style="color: #949494;">"</span>Suomen kansalaisuuden sa… fi   </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">20</span> <span style="color: #0000BB;">StatFin</span>/<span style="color: #00BBBB;">vrm/kans/statfin_kans_pxt_11l5.px</span>    <span style="color: #949494;">"</span>Suomen kansalaisuuden sa… fi   </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">21</span> <span style="color: #0000BB;">StatFin</span>/<span style="color: #00BBBB;">vrm/kans/statfin_kans_pxt_11l6.px</span>    <span style="color: #949494;">"</span>Suomen kansalaiset, joil… fi   </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">22</span> <span style="color: #0000BB;">StatFin</span>/<span style="color: #00BBBB;">vrm/kuol/statfin_kuol_pxt_12af.px</span>    <span style="color: #949494;">"</span>Kuolleet muuttujina Vuos… fi   </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">23</span> <span style="color: #0000BB;">StatFin</span>/<span style="color: #00BBBB;">vrm/kuol/statfin_kuol_pxt_12ag.px</span>    <span style="color: #949494;">"</span>Kuolleet muuttujina Vuos… fi   </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">24</span> <span style="color: #0000BB;">StatFin</span>/<span style="color: #00BBBB;">vrm/kuol/statfin_kuol_pxt_12ah.px</span>    <span style="color: #949494;">"</span>Kuolleet muuttujina Vuos… fi   </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">25</span> <span style="color: #0000BB;">StatFin</span>/<span style="color: #00BBBB;">vrm/kuol/statfin_kuol_pxt_12ak.px</span>    <span style="color: #949494;">"</span>Kuolleet muuttujina Vuos… fi   </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">26</span> <span style="color: #0000BB;">StatFin</span>/<span style="color: #00BBBB;">vrm/kuol/statfin_kuol_pxt_12al.px</span>    <span style="color: #949494;">"</span>Yleinen kuolleisuusluku … fi   </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">27</span> <span style="color: #0000BB;">StatFin</span>/<span style="color: #00BBBB;">vrm/kuol/statfin_kuol_pxt_12am.px</span>    <span style="color: #949494;">"</span>Vastasyntyneen elinajano… fi   </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">28</span> <span style="color: #0000BB;">StatFin</span>/<span style="color: #00BBBB;">vrm/kuol/statfin_kuol_pxt_12an.px</span>    <span style="color: #949494;">"</span>Vastasyntyneen elinajano… fi   </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">29</span> <span style="color: #0000BB;">StatFin</span>/<span style="color: #00BBBB;">vrm/kuol/statfin_kuol_pxt_12ap.px</span>    <span style="color: #949494;">"</span>Kuolleisuus- ja eloonjää… fi   </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">30</span> <span style="color: #0000BB;">StatFin</span>/<span style="color: #00BBBB;">vrm/kuol/statfin_kuol_pxt_12aq.px</span>    <span style="color: #949494;">"</span>Imeväiskuolleisuus muutt… fi   </span>
-<span class="co">#&gt; <span style="color: #949494;"># … with 1,027 more rows</span></span></code></pre></div>
+<span class="co">#&gt;    id                                      title                           lang </span>
+<span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;r_id&gt;</span>                                  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> <span style="color: #0000BB;">StatFin</span>/<span style="color: #00BBBB;">adopt/statfin_adopt_pxt_11lv.px</span> Adoptiot muuttujina Vuosi, Syn… fi   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> <span style="color: #0000BB;">StatFin</span>/<span style="color: #00BBBB;">asas/statfin_asas_pxt_115a.px</span>   Asuntokunnat ja asuntoväestö m… fi   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> <span style="color: #0000BB;">StatFin</span>/<span style="color: #00BBBB;">asas/statfin_asas_pxt_115y.px</span>   Asuntokunnat ja asuntoväestö m… fi   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> <span style="color: #0000BB;">StatFin</span>/<span style="color: #00BBBB;">asas/statfin_asas_pxt_116b.px</span>   Asuntokunnat ja asuntoväestö m… fi   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> <span style="color: #0000BB;">StatFin</span>/<span style="color: #00BBBB;">asas/statfin_asas_pxt_116e.px</span>   Asuntokunnat ja asuntoväestö m… fi   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> <span style="color: #0000BB;">StatFin</span>/<span style="color: #00BBBB;">eot/statfin_eot_pxt_11te.px</span>     Itse koettu terveys 16 vuotta … fi   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> <span style="color: #0000BB;">StatFin</span>/<span style="color: #00BBBB;">eot/statfin_eot_pxt_11ty.px</span>     Tyytyväisyys elämään 16 vuotta… fi   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> <span style="color: #0000BB;">StatFin</span>/<span style="color: #00BBBB;">eot/statfin_eot_pxt_11ub.px</span>     Tyytyväisyys kotitalouden talo… fi   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> <span style="color: #0000BB;">StatFin</span>/<span style="color: #00BBBB;">eot/statfin_eot_pxt_11ud.px</span>     Tyytyväisyys ihmissuhteisiin 1… fi   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">10</span> <span style="color: #0000BB;">StatFin</span>/<span style="color: #00BBBB;">eot/statfin_eot_pxt_11v2.px</span>     Tyytyväisyys elämään, keskiarv… fi   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">11</span> <span style="color: #0000BB;">StatFin</span>/<span style="color: #00BBBB;">eot/statfin_eot_pxt_11wp.px</span>     Onnellisuuden tunteet neljän v… fi   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">12</span> <span style="color: #0000BB;">StatFin</span>/<span style="color: #00BBBB;">eot/statfin_eot_pxt_11z7.px</span>     Olon kokeminen tyyneksi ja lev… fi   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">13</span> <span style="color: #0000BB;">StatFin</span>/<span style="color: #00BBBB;">eot/statfin_eot_pxt_11z8.px</span>     Alakuloisuuden ja masentuneisu… fi   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">14</span> <span style="color: #0000BB;">StatFin</span>/<span style="color: #00BBBB;">eot/statfin_eot_pxt_11z9.px</span>     Yksinäisyyden tunne neljän vii… fi   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">15</span> <span style="color: #0000BB;">StatFin</span>/<span style="color: #00BBBB;">eot/statfin_eot_pxt_11za.px</span>     Hermostuneeksi olonsa tuntemin… fi   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">16</span> <span style="color: #0000BB;">StatFin</span>/<span style="color: #00BBBB;">eot/statfin_eot_pxt_11zb.px</span>     Mielialan tunteminen matalaksi… fi   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">17</span> <span style="color: #0000BB;">StatFin</span>/<span style="color: #00BBBB;">eot/statfin_eot_pxt_11zc.px</span>     Yksinäisyyden tunne neljän vii… fi   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">18</span> <span style="color: #0000BB;">StatFin</span>/<span style="color: #00BBBB;">eot/statfin_eot_pxt_11zd.px</span>     Yksinäisyyden tunne neljän vii… fi   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">19</span> <span style="color: #0000BB;">StatFin</span>/<span style="color: #00BBBB;">eot/statfin_eot_pxt_11ze.px</span>     Tyytyväisyys elämään, keskiarv… fi   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">20</span> <span style="color: #0000BB;">StatFin</span>/<span style="color: #00BBBB;">eot/statfin_eot_pxt_11zy.px</span>     Itse koettu terveys 16 vuotta … fi   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">21</span> <span style="color: #0000BB;">StatFin</span>/<span style="color: #00BBBB;">eot/statfin_eot_pxt_121a.px</span>     Tyytyväisyys elämään 16 vuotta… fi   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">22</span> <span style="color: #0000BB;">StatFin</span>/<span style="color: #00BBBB;">eot/statfin_eot_pxt_13ju.px</span>     Luottamus toisiin ihmisiin 16 … fi   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">23</span> <span style="color: #0000BB;">StatFin</span>/<span style="color: #00BBBB;">eot/statfin_eot_pxt_13jv.px</span>     Luottamus toisiin ihmisiin 16 … fi   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">24</span> <span style="color: #0000BB;">StatFin</span>/<span style="color: #00BBBB;">kans/statfin_kans_pxt_11l3.px</span>   Suomen kansalaisuuden saaneet … fi   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">25</span> <span style="color: #0000BB;">StatFin</span>/<span style="color: #00BBBB;">kans/statfin_kans_pxt_11l4.px</span>   Suomen kansalaisuuden saaneet … fi   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">26</span> <span style="color: #0000BB;">StatFin</span>/<span style="color: #00BBBB;">kans/statfin_kans_pxt_11l5.px</span>   Suomen kansalaisuuden saaneet … fi   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">27</span> <span style="color: #0000BB;">StatFin</span>/<span style="color: #00BBBB;">kans/statfin_kans_pxt_11l6.px</span>   Suomen kansalaiset, joilla kak… fi   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">28</span> <span style="color: #0000BB;">StatFin</span>/<span style="color: #00BBBB;">ksyyt/statfin_ksyyt_pxt_11br.px</span> Kuolleet/kuolleisuus muuttujin… fi   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">29</span> <span style="color: #0000BB;">StatFin</span>/<span style="color: #00BBBB;">kuol/statfin_kuol_pxt_12af.px</span>   Kuolleet muuttujina Vuosi, Suk… fi   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">30</span> <span style="color: #0000BB;">StatFin</span>/<span style="color: #00BBBB;">kuol/statfin_kuol_pxt_12ag.px</span>   Kuolleet muuttujina Vuosi, Suk… fi   </span>
+<span class="co">#&gt; <span style="color: #949494;"># … with 1,000 more rows</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="tidy-time-and-labels">Tidy time and labels<a class="anchor" aria-label="anchor" href="#tidy-time-and-labels"></a>
@@ -363,7 +364,7 @@
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/data.html">data_get</a></span><span class="op">(</span><span class="st">"StatFin/kan/ntp/statfin_ntp_pxt_132h.px"</span><span class="op">)</span>
 <span class="co">#&gt; ⠙ Requesting get</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[792ms]</span></span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[673ms]</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; <span style="color: #949494;"># Robonomist id: </span><span style="color: #00BBBB;">StatFin/kan/ntp/statfin_ntp_pxt_132h.px</span></span>
 <span class="co">#&gt; <span style="color: #949494;"># A tibble:      102,144 × 4</span></span>
@@ -387,7 +388,7 @@
 <span class="fu"><a href="../reference/data.html">data_get</a></span><span class="op">(</span><span class="st">"StatFin/kan/ntp/statfin_ntp_pxt_132h.px"</span>, tidy_time <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange</a></span><span class="op">(</span><span class="va">Taloustoimi</span>, <span class="va">Tiedot</span><span class="op">)</span>
 <span class="co">#&gt; ⠙ Requesting get</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[1.2s]</span></span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[634ms]</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; <span style="color: #949494;"># Robonomist id: </span><span style="color: #00BBBB;">StatFin/kan/ntp/statfin_ntp_pxt_132h.px</span></span>
 <span class="co">#&gt; <span style="color: #949494;"># A tibble:      102,144 × 4</span></span>
@@ -412,7 +413,8 @@
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/data.html">data_get</a></span><span class="op">(</span><span class="st">"StatFin/kan/ntp/statfin_ntp_pxt_132h.px"</span>, labels <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
 <span class="co">#&gt; ⠙ Requesting get</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[670ms]</span></span>
+<span class="co">#&gt; ⠹ Requesting get</span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[782ms]</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; <span style="color: #949494;"># Robonomist id: </span><span style="color: #00BBBB;">StatFin/kan/ntp/statfin_ntp_pxt_132h.px</span></span>
 <span class="co">#&gt; <span style="color: #949494;"># A tibble:      102,144 × 4</span></span>

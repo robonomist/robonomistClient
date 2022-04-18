@@ -46,7 +46,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">robonomistClient</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.2.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.2.4</span>
       </span>
     </div>
 
@@ -137,27 +137,32 @@
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html" class="external-link">geom_smooth</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>size <span class="op">=</span> <span class="va">Väkiluku</span><span class="op">/</span><span class="fl">1000</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_size.html" class="external-link">scale_size_continuous</a></span><span class="op">(</span>breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">50</span>, <span class="fl">200</span>, <span class="fl">500</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"Koronavirustartuntojen ilmaantuvuus ja\n"</span>,
-                      <span class="st">"kerrostaloissa asuvien asuntokuntien osuus kunnittain"</span><span class="op">)</span>,
-       subtitle <span class="op">=</span> <span class="st">"Tartuntoja 100 000 asukasta kohden"</span>,
-       size <span class="op">=</span> <span class="st">"Kunnan\nväkiluku\n(tuhatta)"</span>,
-       caption <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span>
-         <span class="st">"Lähteet: THL ja Tilastokeskus.\nTHL:n tartuntatiedot "</span>,
-         <span class="fu"><a href="https://rdrr.io/r/base/chartr.html" class="external-link">tolower</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/format.html" class="external-link">format</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/as.Date.html" class="external-link">as.Date</a></span><span class="op">(</span><span class="fu"><a href="../reference/data_vintage.html">data_vintage</a></span><span class="op">(</span><span class="st">"epirapo/covid19case"</span><span class="op">)</span><span class="op">)</span>,
-                <span class="st">"%e. %Bta %Y."</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>
+    title <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"Koronavirustartuntojen ilmaantuvuus ja\n"</span>,
+                   <span class="st">"kerrostaloissa asuvien asuntokuntien osuus kunnittain"</span><span class="op">)</span>,
+    subtitle <span class="op">=</span> <span class="st">"Tartuntoja 100 000 asukasta kohden"</span>,
+    size <span class="op">=</span> <span class="st">"Kunnan\nväkiluku\n(tuhatta)"</span>,
+    caption <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span>
+      <span class="st">"Lähteet: THL ja Tilastokeskus.\nTHL:n tartuntatiedot "</span>,
+      <span class="fu"><a href="https://rdrr.io/r/base/format.html" class="external-link">format</a></span><span class="op">(</span><span class="fu"><a href="../reference/data_vintage.html">data_vintage</a></span><span class="op">(</span><span class="st">"epirapo/covid19case"</span><span class="op">)</span>, <span class="st">"%e. %Bta %Y."</span><span class="op">)</span>
+    <span class="op">)</span>
+  <span class="op">)</span></code></pre></div>
 <p><img src="examples_files/figure-html/koronatartunnat-1.png"><!-- --></p>
 </div>
 <div class="section level2">
 <h2 id="the-history-of-births-and-deaths-in-finland">The history of births and deaths in Finland<a class="anchor" aria-label="anchor" href="#the-history-of-births-and-deaths-in-finland"></a>
 </h2>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/data.html">data</a></span><span class="op">(</span><span class="st">"StatFin/vrm/synt/statfin_synt_pxt_12dx.px"</span>, tidy_time <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+<code class="sourceCode R"><span class="fu"><a href="../reference/data.html">data</a></span><span class="op">(</span><span class="st">"StatFin/synt/statfin_synt_pxt_12dx.px"</span>, tidy_time <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">Tiedot</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Elävänä syntyneet"</span>, <span class="st">"Kuolleet"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">time</span>, <span class="va">value</span><span class="op">/</span><span class="fl">1000</span>, color <span class="op">=</span> <span class="va">Tiedot</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html" class="external-link">geom_line</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Elävänä syntyneet ja kuolleet Suomessa"</span>,
-       subtitle <span class="op">=</span> <span class="st">"Tuhatta henkeä"</span>,
-       caption <span class="op">=</span> <span class="st">"Lähde: Tilastokeskus."</span>, x<span class="op">=</span><span class="cn">NULL</span>, y<span class="op">=</span><span class="cn">NULL</span><span class="op">)</span></code></pre></div>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>
+    title <span class="op">=</span> <span class="st">"Elävänä syntyneet ja kuolleet Suomessa"</span>,
+    subtitle <span class="op">=</span> <span class="st">"Tuhatta henkeä"</span>,
+    caption <span class="op">=</span> <span class="st">"Lähde: Tilastokeskus."</span>,
+    x<span class="op">=</span><span class="cn">NULL</span>, y<span class="op">=</span><span class="cn">NULL</span>
+  <span class="op">)</span></code></pre></div>
 <p><img src="examples_files/figure-html/vaestonmuutokset-1.png"><!-- --></p>
 </div>
 <div class="section level2">
@@ -167,9 +172,12 @@
 <code class="sourceCode R"><span class="fu"><a href="../reference/data.html">data</a></span><span class="op">(</span><span class="st">"ec/esi_nace2§(Fin|Swe|Ger)§sentiment§2015-01-01"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">time</span>, <span class="va">value</span>, color <span class="op">=</span> <span class="va">Country</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html" class="external-link">geom_line</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Economic Sentiment Indicator"</span>,
-       subtitle <span class="op">=</span> <span class="st">"Composite index (average = 100)"</span>,
-       caption <span class="op">=</span> <span class="st">"Source: European Commission."</span>, x<span class="op">=</span><span class="cn">NULL</span>,y<span class="op">=</span><span class="cn">NULL</span><span class="op">)</span></code></pre></div>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>
+    title <span class="op">=</span> <span class="st">"Economic Sentiment Indicator"</span>,
+    subtitle <span class="op">=</span> <span class="st">"Composite index (average = 100)"</span>,
+    caption <span class="op">=</span> <span class="st">"Source: European Commission."</span>,
+    x<span class="op">=</span><span class="cn">NULL</span>, y<span class="op">=</span><span class="cn">NULL</span>
+  <span class="op">)</span></code></pre></div>
 <p><img src="examples_files/figure-html/sentiment-indicator-1.png"><!-- --></p>
 </div>
 <div class="section level2">
@@ -180,6 +188,7 @@
 <code class="sourceCode R"><span class="fu"><a href="../reference/data.html">data</a></span><span class="op">(</span><span class="st">"ec/esi_nace2§(Fin|Swe|Ger)§§2015-01-01"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
   <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html" class="external-link">pivot_wider</a></span><span class="op">(</span>names_from <span class="op">=</span> <span class="va">Country</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
   <span class="fu"><a href="https://rdrr.io/r/base/split.html" class="external-link">split</a></span><span class="op">(</span><span class="va">.</span><span class="op">$</span><span class="va">Indicator</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+  <span class="fu"><a href="https://rdrr.io/r/stats/setNames.html" class="external-link">setNames</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span> |&gt; <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_sub.html" class="external-link">str_sub</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">31</span><span class="op">)</span><span class="op">)</span> |&gt;
   <span class="fu">writexl</span><span class="fu">::</span><span class="fu"><a href="https://docs.ropensci.org/writexl/reference/write_xlsx.html" class="external-link">write_xlsx</a></span><span class="op">(</span><span class="st">"../man/figures/export.xlsx"</span><span class="op">)</span></code></pre></div>
 </div>
   </div>
