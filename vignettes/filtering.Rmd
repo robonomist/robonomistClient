@@ -16,19 +16,21 @@ library(robonomistClient)
 library(tidyverse)
 ```
 
-## Filtering datasources 
+## Filtering datasources
 
 Most data tables are returned as regular `tibble` objects, but some datasources contain large tables and require filtering at the source. For example, OECD database usually requires filtering on the data before anything can be retrieved. For convenience, Robonomist provides an easy-to-use workflow to fetch data.
 
-The initial data request (e.g `data("oecd/QNA")`) returns a data structure object that acts very much like a regular tibble, but it does not yet contain the actual data. This object is printed like a tibble, and it can be handled with common `dplyr` verbs such as `filter` and `distinct` in a `magrittr` pipe using `%>%`.
+> The OECD SDMX-ML api, on which the `oecd` dataset is based, has become unstable recently. We recommened to using the new `oecd3` database, which uses the SDMX-json api which is more reliable.
+
+The initial data request (e.g `data("oecd3/QNA")`) returns a data structure object that acts very much like a regular tibble, but it does not yet contain the actual data. This object is printed like a tibble, and it can be handled with common `dplyr` verbs such as `filter` and `distinct` in a `magrittr` pipe using `%>%`.
 
 ```{r, message = FALSE, warning = FALSE}
-data("oecd/QNA")
+data("oecd3/QNA")
 ```
 
 ```{r, message = FALSE, warning = FALSE}
 x <-
-  data("oecd/QNA") %>%
+  data("oecd3/QNA") %>%
   filter(Country == "Finland",
          str_detect(Subject, "Gross domestic prod"),
          Frequency=="Quarterly") %>%
@@ -48,10 +50,10 @@ x %>% collect()
 Also common `dplyr` verbs that require the actual data will trigger the `collect` function automatically.
 
 ```{r, message = FALSE, warning = FALSE}
-data("oecd/QNA") %>%
+data("oecd3/QNA") %>%
   filter(Subject == "Gross domestic product - expenditure approach",
-         str_detect(Measure, "Growth rate.*from previous"),
-         Frequency=="Quarterly") %>%
+         str_detect(Measure, "Growth rate.*year"),
+         Frequency == "Quarterly") %>%
   filter(lubridate::year(time) >= 2015) %>%
   group_by(Country) %>%
   summarize(`Average Q/Q growth rate` = mean(value))

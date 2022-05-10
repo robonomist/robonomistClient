@@ -49,7 +49,7 @@ collect.tbl_lazy_api <- function(x, ...) {
 
 #' @export
 as.data.frame.tbl_lazy_api <- function(x, ...) {
-  collect.tbl_lazy_api(x)
+  collect(x)
 }
 
 #' @export
