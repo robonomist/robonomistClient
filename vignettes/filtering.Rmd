@@ -33,7 +33,7 @@ x <-
   data("oecd3/QNA") %>%
   filter(Country == "Finland",
          str_detect(Subject, "Gross domestic prod"),
-         Frequency=="Quarterly") %>%
+         Frequency=="Quarterly") |>
   filter(lubridate::year(time) > 2019L)
 x
 
@@ -44,7 +44,7 @@ distinct(x, Subject)
 After data structure object has been filtered, the actual data can be collected with `collect()`.
 
 ```{r, message = FALSE, warning = FALSE}
-x %>% collect()
+x |> collect()
 ```
 
 Also common `dplyr` verbs that require the actual data will trigger the `collect` function automatically.
