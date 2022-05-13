@@ -1,3 +1,7 @@
+# robonomistClient 2.2.6
+
+* Fix OECD S3 methods
+
 # robonomistClient 2.2.5
 
 * Add support for OECD_v3

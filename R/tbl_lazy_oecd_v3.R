@@ -166,13 +166,13 @@ dim.tbl_lazy_oecd_v3 <- function(x) {
 }
 
 #' @export
-dimnames.tbl_lazy_api <- function(x) {
+dimnames.tbl_lazy_oecd_v3 <- function(x) {
   col_type <- if (x$options$variable_labels) "name" else "id"
   list(NULL, c(x$dimensions[[col_type]], "time", "value"))
 }
 
 #' @export
-distinct.tbl_lazy_api <- function(.data, ..., .keep_all = FALSE) {
+distinct.tbl_lazy_oecd_v3 <- function(.data, ..., .keep_all = FALSE) {
   expand_tbl_lazy_oecd_v3(.data) |>
     dplyr::distinct(..., .keep_all = .keep_all)
 }
