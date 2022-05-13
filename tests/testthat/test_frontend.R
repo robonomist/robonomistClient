@@ -4,7 +4,7 @@ test_that("Frontend works remotely", {
   cat(Sys.getenv("ROBONOMIST_TEST_SERVER"), "\n")
   set_robonomist_server(Sys.getenv("ROBONOMIST_TEST_SERVER"),
                         Sys.getenv("ROBONOMIST_TEST_ACCESS_TOKEN"))
-  id <- "StatFin/asu/asas/statfin_asas_pxt_115a.px"
+  id <- "StatFin/asas/statfin_asas_pxt_115a.px"
   expect_s3_class(data_vintage(id), "POSIXct")
   expect_type(data_metadata(id), "list")
   expect_s3_class(data_search(id), "robonomist_search")
@@ -24,21 +24,5 @@ test_that("reconnect", {
   expect_s3_class(data(), "tbl_df")
   expect_true(disconnect())
   expect_s3_class(data(), "tbl_df")
-})
-
-test_that("OECDv2 api works", {
-  skip_if(Sys.getenv("ROBONOMIST_TEST_SERVER") == "", "Test server not configured.")
-  expect_s3_class(y <- data("oecd/QNA"), "tbl_lazy_oecd")
-  expect_s3_class(y <- data_get("oecd/QNA"), "tbl_lazy_oecd")
-  expect_s3_class(print(y), "tbl_lazy_oecd")
-  expect_s3_class({y <-
-                     dplyr::filter(y, Country == "Finland",
-                            grepl("Gross domestic prod", Subject),
-                            Frequency=="Quarterly") |>
-                     dplyr::filter(format(time, "%Y") > "2019")}, "tbl_lazy_oecd")
-  expect_s3_class(print(y), "tbl_lazy_oecd")
-  expect_s3_class(distinct(y, Subject), "tbl_df")
-  expect_s3_class(collect(y), "tbl_df")
-
 })
 

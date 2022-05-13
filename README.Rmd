@@ -13,10 +13,6 @@ data()
 
 # Robonomist Client <a href='https://robonomist.com'><img src='man/figures/logo.png' align="right" height="138.5" /></a>
 
- <!-- badges: start -->
-  [![R-CMD-check](https://github.com/robonomist/robonomistClient/workflows/R-CMD-check/badge.svg)](https://github.com/robonomist/robonomistClient/actions)
-  <!-- badges: end -->
-
 A client package for R to access Robonomist Data Server
 
 ## Datasources
@@ -39,6 +35,7 @@ Some of the integrated datasources:
 * Vipunen, Education Statistics Finland
 * Helsingin seudun aluesarjat -tilastotietokanta
 * Helsingin ympäristötilasto
+* Fingrid
 * Eurostat
 * European Commission Business and consumer surveys
 * World Bank
@@ -53,6 +50,8 @@ Some of the integrated datasources:
 * Statistics Iceland
 * Statistics Estonia
 * United Nations Economic Commission for Europe Statistical Database
+* United Nations Conference on Trade and Development
+* FAO, Food and Agriculture Organization of the United Nations
 * Nordic Statistics Database
 * U.S. Energy Information Administration database
 * FRED, Federal Reserve Economic Data, St. Louis Fed
@@ -95,7 +94,7 @@ data()
 
 To get a specific data table, use the tables id.
 ```{r}
-data("StatFin/vrm/synt/statfin_synt_pxt_12dx.px")
+data("StatFin/synt/statfin_synt_pxt_12dx.px")
 ```
 
 ## More information

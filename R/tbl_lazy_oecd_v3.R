@@ -1,10 +1,11 @@
+#' @importFrom readr read_delim cols col_integer
 expand_tbl_lazy_oecd_v3 <- function(x) {
   opts <- x$options
   col_type <- if (opts$variable_labels) "name" else "id"
   value_type <- if (opts$labels) "name" else "id"
   time_type <- if (opts$tidy_time) "time" else if (labels) "name" else "id"
   tbl <-
-    readr::read_delim(
+    read_delim(
       I(names(x$series) %||% x$observations),
       delim = ":",
       col_types = cols(.default = col_integer()),
@@ -15,7 +16,7 @@ expand_tbl_lazy_oecd_v3 <- function(x) {
     tbl <-
       tbl |>
       dplyr::mutate(time = unname(x$series)) |>
-      unnest(time) |>
+      tidyr::unnest(time) |>
       dplyr::mutate(time = x$series_dimension$values[[time_type]][time+1L])
   }
 
@@ -131,8 +132,8 @@ collect.tbl_lazy_oecd_v3 <- function(x, ...) {
     values <-
       values |>
       dplyr::mutate(
-        values = imap(values, ~{if (.y == i) "" else .x}),
-        nchar = map_int(values, f_length)
+        values = purrr::imap(values, ~{if (.y == i) "" else .x}),
+        nchar = purrr::map_int(values, f_length)
       )
   }
 
