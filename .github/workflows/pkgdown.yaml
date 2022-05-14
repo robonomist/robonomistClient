@@ -32,7 +32,7 @@ jobs:
             pkgdown
             tidyverse
             writexl
-            package=robonomistServer?ignore
+            robonomistServer?ignore
           needs: website
 
       - name: Deploy package
