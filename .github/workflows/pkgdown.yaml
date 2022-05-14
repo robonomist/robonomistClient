@@ -32,8 +32,8 @@ jobs:
             any::pkgdown
             any::tidyverse
             any::writexl
-            package=robonomistServer?ignore
           needs: website
+          dependencies: hard
 
       - name: Deploy package
         run: |
