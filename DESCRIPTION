@@ -1,6 +1,6 @@
 Package: robonomistClient
 Title: Access data from Robonomist Data Server
-Version: 2.2.4
+Version: 2.2.7
 Authors@R: 
     person(given = "Juha",
            family = "Itkonen",
@@ -27,6 +27,7 @@ Imports:
     purrr,
     lubridate,
     rlang,
+    readr,
     vctrs (>= 0.3.6),
     lifecycle
 Suggests:

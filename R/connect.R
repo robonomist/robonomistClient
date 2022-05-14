@@ -8,8 +8,10 @@ set_robonomist_server <- function(hostname = getOption("robonomist.server"),
                                   access_token = getOption("robonomist.access.token")) {
   options(robonomist.server = hostname)
   options(robonomist.access.token = access_token)
-  cli_progress_step("Set to connect {hostname}")
-  connection$set(hostname, access_token)
+  if (!is.null(hostname)) {
+    cli_progress_step("Set to connect {hostname}")
+    connection$set(hostname, access_token)
+  }
 }
 
 #' Disconnect from Robonomist Data Server

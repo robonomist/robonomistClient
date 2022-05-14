@@ -1,3 +1,15 @@
+# robonomistClient 2.2.7
+
+* Fix dependencies
+
+# robonomistClient 2.2.6
+
+* Fix OECD S3 methods
+
+# robonomistClient 2.2.5
+
+* Add support for OECD_v3
+
 # robonomistClient 2.2.4
 
 * Relay server warnings
