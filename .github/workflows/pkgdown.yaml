@@ -33,7 +33,7 @@ jobs:
             any::tidyverse
             any::writexl
           needs: website
-          dependencies: hard
+          dependencies: '"hard"'
 
       - name: Deploy package
         run: |
