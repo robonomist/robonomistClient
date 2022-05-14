@@ -32,7 +32,7 @@ jobs:
             any::pkgdown
             any::tidyverse
             any::writexl
-            robonomistServer?ignore
+            package=robonomistServer?ignore
           needs: website
 
       - name: Deploy package
