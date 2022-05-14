@@ -28,10 +28,10 @@ jobs:
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          extra-packages:
-            pkgdown
-            tidyverse
-            writexl
+          extra-packages: |
+            any::pkgdown
+            any::tidyverse
+            any::writexl
             robonomistServer?ignore
           needs: website
 
