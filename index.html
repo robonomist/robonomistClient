@@ -4,7 +4,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="Easy and fast access to various datasources in a unified format via Robonomist Data Server.">
 <title>Access data from Robonomist Data Server • robonomistClient</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -12,12 +13,11 @@
 <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="apple-touch-icon-120x120.png">
 <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="apple-touch-icon-76x76.png">
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="apple-touch-icon-60x60.png">
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="bootstrap-toc.css">
-<script src="bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
+<script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="deps/bootstrap-5.1.0/bootstrap.min.css" rel="stylesheet">
+<script src="deps/bootstrap-5.1.0/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
-<script src="pkgdown.js"></script><meta property="og:title" content="Access data from Robonomist Data Server">
+<!-- bootstrap-toc --><script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Access data from Robonomist Data Server">
 <meta property="og:description" content="Easy and fast access to various datasources in a unified format via Robonomist Data Server.">
 <meta property="og:image" content="https://robonomist.github.io/robonomistClient/logo.png">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
@@ -31,85 +31,68 @@
   gtag('config', 'UA-133826983-1');
 </script>
 </head>
-<body data-spy="scroll" data-target="#toc">
+<body>
+    <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
     
 
-    <div class="container template-home">
-      <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <span class="navbar-brand">
-        <a class="navbar-link" href="index.html">robonomistClient</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.2.4</span>
-      </span>
-    </div>
+    <nav class="navbar fixed-top navbar-light navbar-expand-lg bg-light"><div class="container">
+    
+    <a class="navbar-brand me-2" href="index.html">robonomistClient</a>
 
-    <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-<li>
-  <a href="reference/index.html">Reference</a>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">2.2.7</small>
+
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar" class="collapse navbar-collapse ms-3">
+      <ul class="navbar-nav me-auto">
+<li class="nav-item">
+  <a class="nav-link" href="reference/index.html">Reference</a>
 </li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Articles
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-<li>
-      <a href="articles/basic_features.html">Basic features</a>
-    </li>
-    <li>
-      <a href="articles/examples.html">Examples</a>
-    </li>
-    <li>
-      <a href="articles/filtering.html">Filtering large data tables</a>
-    </li>
-    <li>
-      <a href="articles/special.html">Special datasources</a>
-    </li>
-  </ul>
-</li>
-<li>
-  <a href="news/index.html">Changelog</a>
-</li>
-      </ul>
-<ul class="nav navbar-nav navbar-right">
-<li>
-  <a href="https://github.com/robonomist/robonomistClient/" class="external-link">
-    <span class="fab fa-github fa-lg"></span>
-     
-  </a>
-</li>
-      </ul>
-</div>
-<!--/.nav-collapse -->
+<li class="nav-item dropdown">
+  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
+  <div class="dropdown-menu" aria-labelledby="dropdown-articles">
+    <a class="dropdown-item" href="articles/basic_features.html">Basic features</a>
+    <a class="dropdown-item" href="articles/examples.html">Examples</a>
+    <a class="dropdown-item" href="articles/filtering.html">Filtering large data tables</a>
+    <a class="dropdown-item" href="articles/special.html">Special datasources</a>
   </div>
-<!--/.container -->
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="news/index.html">Changelog</a>
+</li>
+      </ul>
+<form class="form-inline my-2 my-lg-0" role="search">
+        <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="search.json" id="search-input" placeholder="Search for" autocomplete="off">
+</form>
+
+      <ul class="navbar-nav">
+<li class="nav-item">
+  <a class="external-link nav-link" href="https://github.com/robonomist/robonomistClient/" aria-label="github">
+    <span class="fab fa fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
 </div>
-<!--/.navbar -->
 
-      
-
-      </header><div class="row">
-  <div class="contents col-md-9">
-<div class="section level1">
-<div class="page-header"><h1 id="robonomist-client-">Robonomist Client <a href="https://robonomist.com" class="external-link"><img src="reference/figures/logo.png" align="right" height="138.5"></a>
+    
+  </div>
+</nav><div class="container template-home">
+<div class="row">
+  <main id="main" class="col-md-9"><div class="section level1">
+<div class="page-header">
+<img src="logo.png" class="logo" alt=""><h1 id="robonomist-client-">Robonomist Client 
 <a class="anchor" aria-label="anchor" href="#robonomist-client-"></a>
-</h1></div>
-<!-- badges: start -->
-
+</h1>
+</div>
 <p>A client package for R to access Robonomist Data Server</p>
 <div class="section level2">
 <h2 id="datasources">Datasources<a class="anchor" aria-label="anchor" href="#datasources"></a>
 </h2>
-<p>The <code>robonomistClient</code> package allows easy and fast access to various datasources connecting to a Robonomist Data Server. Currently the client package provides access to 71 647 up-to-date data tables from 42 different datasources with 9 different languages.</p>
+<p>The <code>robonomistClient</code> package allows easy and fast access to various datasources connecting to a Robonomist Data Server. Currently the client package provides access to 73 612 up-to-date data tables from 45 different datasources with 9 different languages.</p>
 <p>Some of the integrated datasources:</p>
 <ul>
 <li>Statistics Finland (StatFin &amp; StatFin archive databases)</li>
@@ -126,6 +109,7 @@
 <li>Vipunen, Education Statistics Finland</li>
 <li>Helsingin seudun aluesarjat -tilastotietokanta</li>
 <li>Helsingin ympäristötilasto</li>
+<li>Fingrid</li>
 <li>Eurostat</li>
 <li>European Commission Business and consumer surveys</li>
 <li>World Bank</li>
@@ -140,6 +124,8 @@
 <li>Statistics Iceland</li>
 <li>Statistics Estonia</li>
 <li>United Nations Economic Commission for Europe Statistical Database</li>
+<li>United Nations Conference on Trade and Development</li>
+<li>FAO, Food and Agriculture Organization of the United Nations</li>
 <li>Nordic Statistics Database</li>
 <li>U.S. Energy Information Administration database</li>
 <li>FRED, Federal Reserve Economic Data, St. Louis Fed</li>
@@ -165,115 +151,121 @@
 <p>List all available datasources:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/datasources.html">datasources</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co">## </span></span>
-<span id="cb4-2"><a href="#cb4-2"></a></span>
-<span id="cb4-3"><a href="#cb4-3"></a><span class="co">## ── Robonomist Server Datasources</span></span>
-<span id="cb4-4"><a href="#cb4-4"></a></span>
-<span id="cb4-5"><a href="#cb4-5"></a><span class="co">##    dataset            title                                                     </span></span>
-<span id="cb4-6"><a href="#cb4-6"></a><span class="co">##  1 StatFin            Statistics Finland, StatFin database                      </span></span>
-<span id="cb4-7"><a href="#cb4-7"></a><span class="co">##  2 StatFin_Passiivi   Statistics Finland, StatFin archive database              </span></span>
-<span id="cb4-8"><a href="#cb4-8"></a><span class="co">##  3 kunnat             Kuntien avainluvut (Tilastokeskus)                        </span></span>
-<span id="cb4-9"><a href="#cb4-9"></a><span class="co">##  4 kunnat             Kuntien ja kuntayhtymien raportoimat taloustiedot (Tilast…</span></span>
-<span id="cb4-10"><a href="#cb4-10"></a><span class="co">##  5 paavo              Postinumeroalueittainen avoin tieto -tietokanta Paavo (Ti…</span></span>
-<span id="cb4-11"><a href="#cb4-11"></a><span class="co">##  6 Vero               Verohallinnon tilastotietokanta                           </span></span>
-<span id="cb4-12"><a href="#cb4-12"></a><span class="co">##  7 ec                 European Commission's Business and Consumer Surveys       </span></span>
-<span id="cb4-13"><a href="#cb4-13"></a><span class="co">##  8 tulli              Finnish Customs, Uljas Statistical Database               </span></span>
-<span id="cb4-14"><a href="#cb4-14"></a><span class="co">##  9 luke               Luonnonvarakeskus LUKE:n tilastotietokanta)               </span></span>
-<span id="cb4-15"><a href="#cb4-15"></a><span class="co">## 10 etk                Eläketurvakeskuksen tietokanta                            </span></span>
-<span id="cb4-16"><a href="#cb4-16"></a><span class="co">## 11 eurostat           Eurostat database                                         </span></span>
-<span id="cb4-17"><a href="#cb4-17"></a><span class="co">## 12 ecb                ECB Statistical Data Warehouse                            </span></span>
-<span id="cb4-18"><a href="#cb4-18"></a><span class="co">## 13 oecd               OECD database                                             </span></span>
-<span id="cb4-19"><a href="#cb4-19"></a><span class="co">## 14 wb                 World Bank Open Data                                      </span></span>
-<span id="cb4-20"><a href="#cb4-20"></a><span class="co">## 15 hsa                Helsingin seudun aluesarjat -tilastotietokanta            </span></span>
-<span id="cb4-21"><a href="#cb4-21"></a><span class="co">## 16 helymp             Helsingin ympäristötilasto                                </span></span>
-<span id="cb4-22"><a href="#cb4-22"></a><span class="co">## 17 helhyv             Helsingin hyvinvointitilastot                             </span></span>
-<span id="cb4-23"><a href="#cb4-23"></a><span class="co">## 18 helhyv             Nordstat                                                  </span></span>
-<span id="cb4-24"><a href="#cb4-24"></a><span class="co">## 19 covid              European Centre for Disease Prevention and Control COVID-…</span></span>
-<span id="cb4-25"><a href="#cb4-25"></a><span class="co">## 20 vipunen            Vipunen, Education Statistics Finland                     </span></span>
-<span id="cb4-26"><a href="#cb4-26"></a><span class="co">## 21 epirapo            THL Epirapo COVID-19 database                             </span></span>
-<span id="cb4-27"><a href="#cb4-27"></a><span class="co">## 22 sotkanet           THL Sotkanet                                              </span></span>
-<span id="cb4-28"><a href="#cb4-28"></a><span class="co">## 23 maakoto            Maahanmuuttajat ja kotoutuminen -tietokanta (Tilastokesku…</span></span>
-<span id="cb4-29"><a href="#cb4-29"></a><span class="co">## 24 koto               Kototietokanta (Tilastokeskus)                            </span></span>
-<span id="cb4-30"><a href="#cb4-30"></a><span class="co">## 25 toimipaikkalaskuri Toimipaikkalaskuri-tietokanta (Tilastokeskus)             </span></span>
-<span id="cb4-31"><a href="#cb4-31"></a><span class="co">## 26 kokeelliset        Tilastokeskuksen kokeelliset tilastot                     </span></span>
-<span id="cb4-32"><a href="#cb4-32"></a><span class="co">## 27 traficom           Traficomin tilastotietokanta (Tilastokeskus)              </span></span>
-<span id="cb4-33"><a href="#cb4-33"></a><span class="co">## 28 tk_eurostat        Eurostatin avaintaulukot -tietokanta (Tilastokeskus)      </span></span>
-<span id="cb4-34"><a href="#cb4-34"></a><span class="co">## 29 se                 Statistics Sweden                                         </span></span>
-<span id="cb4-35"><a href="#cb4-35"></a><span class="co">## 30 konj               The Swedish National Institute of Economic Research       </span></span>
-<span id="cb4-36"><a href="#cb4-36"></a><span class="co">## 31 sjv                The Swedish Agricultural Agency                           </span></span>
-<span id="cb4-37"><a href="#cb4-37"></a><span class="co">## 32 no                 Statistics Norway                                         </span></span>
-<span id="cb4-38"><a href="#cb4-38"></a><span class="co">## 33 dk                 Statistics Denmark                                        </span></span>
-<span id="cb4-39"><a href="#cb4-39"></a><span class="co">## 34 is                 Statistics Iceland                                        </span></span>
-<span id="cb4-40"><a href="#cb4-40"></a><span class="co">## 35 ee                 Statistics Estonia                                        </span></span>
-<span id="cb4-41"><a href="#cb4-41"></a><span class="co">## 36 unece              United Nations Economic Commission for Europe Statistical…</span></span>
-<span id="cb4-42"><a href="#cb4-42"></a><span class="co">## 37 nordic             Nordic Statistics                                         </span></span>
-<span id="cb4-43"><a href="#cb4-43"></a><span class="co">## 38 unctad             United Nations Conference on Trade and Development        </span></span>
-<span id="cb4-44"><a href="#cb4-44"></a><span class="co">## 39 eia                U.S. Energy Information Administration database           </span></span>
-<span id="cb4-45"><a href="#cb4-45"></a><span class="co">## 40 fred               FRED, Federal Reserve Economic Data, St. Louis Fed        </span></span>
-<span id="cb4-46"><a href="#cb4-46"></a><span class="co">## 41 fao                Food and Agriculture Organization of the United Nations   </span></span>
-<span id="cb4-47"><a href="#cb4-47"></a><span class="co">## 42 tidy               Robonomistin jalostetut tietokannat                       </span></span>
-<span id="cb4-48"><a href="#cb4-48"></a><span class="co">## # … with 1 more variable: languages &lt;list&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co">## ⠙ Requesting datasources                        ℹ Object retrieved from client cache (valid until 2022-05-13 18:07:07).</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="co">## ⠙ Requesting datasources✔ Requesting datasources [14ms]</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="co">## </span></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="co">## ── Robonomist Server Datasources</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a></span>
+<span id="cb4-6"><a href="#cb4-6"></a><span class="co">##    dataset            title                                                     </span></span>
+<span id="cb4-7"><a href="#cb4-7"></a><span class="co">##  1 StatFin            Statistics Finland, StatFin database                      </span></span>
+<span id="cb4-8"><a href="#cb4-8"></a><span class="co">##  2 StatFin_Passiivi   Statistics Finland, StatFin archive database              </span></span>
+<span id="cb4-9"><a href="#cb4-9"></a><span class="co">##  3 Vero               Verohallinnon tilastotietokanta                           </span></span>
+<span id="cb4-10"><a href="#cb4-10"></a><span class="co">##  4 ec                 European Commission's Business and Consumer Surveys       </span></span>
+<span id="cb4-11"><a href="#cb4-11"></a><span class="co">##  5 kunnat             Kuntien avainluvut (Tilastokeskus)                        </span></span>
+<span id="cb4-12"><a href="#cb4-12"></a><span class="co">##  6 kunnat             Kuntien ja kuntayhtymien raportoimat taloustiedot (Tilast…</span></span>
+<span id="cb4-13"><a href="#cb4-13"></a><span class="co">##  7 paavo              Postinumeroalueittainen avoin tieto -tietokanta Paavo (Ti…</span></span>
+<span id="cb4-14"><a href="#cb4-14"></a><span class="co">##  8 tulli              Finnish Customs, Uljas Statistical Database               </span></span>
+<span id="cb4-15"><a href="#cb4-15"></a><span class="co">##  9 luke               Luonnonvarakeskus LUKE:n tilastotietokanta)               </span></span>
+<span id="cb4-16"><a href="#cb4-16"></a><span class="co">## 10 etk                Eläketurvakeskuksen tietokanta                            </span></span>
+<span id="cb4-17"><a href="#cb4-17"></a><span class="co">## 11 eurostat           Eurostat database                                         </span></span>
+<span id="cb4-18"><a href="#cb4-18"></a><span class="co">## 12 ecb                ECB Statistical Data Warehouse                            </span></span>
+<span id="cb4-19"><a href="#cb4-19"></a><span class="co">## 13 bundesbank         Deutche Bundesbank time series database                   </span></span>
+<span id="cb4-20"><a href="#cb4-20"></a><span class="co">## 14 oecd               OECD database                                             </span></span>
+<span id="cb4-21"><a href="#cb4-21"></a><span class="co">## 15 oecd3              OECD database                                             </span></span>
+<span id="cb4-22"><a href="#cb4-22"></a><span class="co">## 16 wb                 World Bank Open Data                                      </span></span>
+<span id="cb4-23"><a href="#cb4-23"></a><span class="co">## 17 hsa                Helsingin seudun aluesarjat -tilastotietokanta            </span></span>
+<span id="cb4-24"><a href="#cb4-24"></a><span class="co">## 18 helymp             Helsingin ympäristötilasto                                </span></span>
+<span id="cb4-25"><a href="#cb4-25"></a><span class="co">## 19 helhyv             Helsingin hyvinvointitilastot                             </span></span>
+<span id="cb4-26"><a href="#cb4-26"></a><span class="co">## 20 nordstat           Nordstat                                                  </span></span>
+<span id="cb4-27"><a href="#cb4-27"></a><span class="co">## 21 covid              European Centre for Disease Prevention and Control COVID-…</span></span>
+<span id="cb4-28"><a href="#cb4-28"></a><span class="co">## 22 vipunen            Vipunen, Education Statistics Finland                     </span></span>
+<span id="cb4-29"><a href="#cb4-29"></a><span class="co">## 23 epirapo            THL Epirapo COVID-19 database                             </span></span>
+<span id="cb4-30"><a href="#cb4-30"></a><span class="co">## 24 sotkanet           THL Sotkanet                                              </span></span>
+<span id="cb4-31"><a href="#cb4-31"></a><span class="co">## 25 maakoto            Maahanmuuttajat ja kotoutuminen -tietokanta (Tilastokesku…</span></span>
+<span id="cb4-32"><a href="#cb4-32"></a><span class="co">## 26 koto               Kototietokanta (Tilastokeskus)                            </span></span>
+<span id="cb4-33"><a href="#cb4-33"></a><span class="co">## 27 toimipaikkalaskuri Toimipaikkalaskuri-tietokanta (Tilastokeskus)             </span></span>
+<span id="cb4-34"><a href="#cb4-34"></a><span class="co">## 28 kokeelliset        Tilastokeskuksen kokeelliset tilastot                     </span></span>
+<span id="cb4-35"><a href="#cb4-35"></a><span class="co">## 29 traficom           Traficomin tilastotietokanta (Tilastokeskus)              </span></span>
+<span id="cb4-36"><a href="#cb4-36"></a><span class="co">## 30 tk_eurostat        Eurostatin avaintaulukot -tietokanta (Tilastokeskus)      </span></span>
+<span id="cb4-37"><a href="#cb4-37"></a><span class="co">## 31 se                 Statistics Sweden                                         </span></span>
+<span id="cb4-38"><a href="#cb4-38"></a><span class="co">## 32 konj               The Swedish National Institute of Economic Research       </span></span>
+<span id="cb4-39"><a href="#cb4-39"></a><span class="co">## 33 sjv                The Swedish Agricultural Agency                           </span></span>
+<span id="cb4-40"><a href="#cb4-40"></a><span class="co">## 34 no                 Statistics Norway                                         </span></span>
+<span id="cb4-41"><a href="#cb4-41"></a><span class="co">## 35 dk                 Statistics Denmark                                        </span></span>
+<span id="cb4-42"><a href="#cb4-42"></a><span class="co">## 36 is                 Statistics Iceland                                        </span></span>
+<span id="cb4-43"><a href="#cb4-43"></a><span class="co">## 37 ee                 Statistics Estonia                                        </span></span>
+<span id="cb4-44"><a href="#cb4-44"></a><span class="co">## 38 unece              United Nations Economic Commission for Europe Statistical…</span></span>
+<span id="cb4-45"><a href="#cb4-45"></a><span class="co">## 39 nordic             Nordic Statistics                                         </span></span>
+<span id="cb4-46"><a href="#cb4-46"></a><span class="co">## 40 unctad             United Nations Conference on Trade and Development        </span></span>
+<span id="cb4-47"><a href="#cb4-47"></a><span class="co">## 41 eia                U.S. Energy Information Administration database           </span></span>
+<span id="cb4-48"><a href="#cb4-48"></a><span class="co">## 42 fred               FRED, Federal Reserve Economic Data, St. Louis Fed        </span></span>
+<span id="cb4-49"><a href="#cb4-49"></a><span class="co">## 43 fao                Food and Agriculture Organization of the United Nations   </span></span>
+<span id="cb4-50"><a href="#cb4-50"></a><span class="co">## 44 fingrid            Fingrid avoin data                                        </span></span>
+<span id="cb4-51"><a href="#cb4-51"></a><span class="co">## 45 tidy               Robonomistin jalostetut tietokannat                       </span></span>
+<span id="cb4-52"><a href="#cb4-52"></a><span class="co">## # … with 1 more variable: languages &lt;list&gt;</span></span></code></pre></div>
 <p>The <code>data</code> function is convenient way to search and get data tables. Print all available data tables:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/data.html">data</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="co">## </span></span>
-<span id="cb6-2"><a href="#cb6-2"></a></span>
+<div class="sourceCode" id="cb6"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="co">## ⠙ Requesting data⠹ Requesting data✔ Requesting data [1.8s]</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="co">## </span></span>
 <span id="cb6-3"><a href="#cb6-3"></a><span class="co">## ── Robonomist Database search results</span></span>
 <span id="cb6-4"><a href="#cb6-4"></a></span>
-<span id="cb6-5"><a href="#cb6-5"></a><span class="co">##    id                                        title                         lang </span></span>
-<span id="cb6-6"><a href="#cb6-6"></a><span class="co">##    &lt;r_id&gt;                                    &lt;chr&gt;                         &lt;chr&gt;</span></span>
-<span id="cb6-7"><a href="#cb6-7"></a><span class="co">##  1 StatFin/asu/asas/statfin_asas_pxt_115a.px Asuntokunnat ja asuntoväestö… fi   </span></span>
-<span id="cb6-8"><a href="#cb6-8"></a><span class="co">##  2 StatFin/asu/asas/statfin_asas_pxt_115a.px Bostadshushåll och boendebef… sv   </span></span>
-<span id="cb6-9"><a href="#cb6-9"></a><span class="co">##  3 StatFin/asu/asas/statfin_asas_pxt_115a.px Household-dwelling units and… en   </span></span>
-<span id="cb6-10"><a href="#cb6-10"></a><span class="co">##  4 StatFin/asu/asas/statfin_asas_pxt_115y.px Asuntokunnat ja asuntoväestö… fi   </span></span>
-<span id="cb6-11"><a href="#cb6-11"></a><span class="co">##  5 StatFin/asu/asas/statfin_asas_pxt_115y.px Antal bostadshushåll och ant… sv   </span></span>
-<span id="cb6-12"><a href="#cb6-12"></a><span class="co">##  6 StatFin/asu/asas/statfin_asas_pxt_115y.px Number of household-dwelling… en   </span></span>
-<span id="cb6-13"><a href="#cb6-13"></a><span class="co">##  7 StatFin/asu/asas/statfin_asas_pxt_116a.px Asuntokunnat muuttujina Vuos… fi   </span></span>
-<span id="cb6-14"><a href="#cb6-14"></a><span class="co">##  8 StatFin/asu/asas/statfin_asas_pxt_116a.px Bostadshushåll efter År, Hus… sv   </span></span>
-<span id="cb6-15"><a href="#cb6-15"></a><span class="co">##  9 StatFin/asu/asas/statfin_asas_pxt_116a.px Household-dwelling units by … en   </span></span>
-<span id="cb6-16"><a href="#cb6-16"></a><span class="co">## 10 StatFin/asu/asas/statfin_asas_pxt_116b.px Asuntokunnat ja asuntoväestö… fi   </span></span>
-<span id="cb6-17"><a href="#cb6-17"></a><span class="co">## 11 StatFin/asu/asas/statfin_asas_pxt_116b.px Bostadshushåll och bostadsbe… sv   </span></span>
-<span id="cb6-18"><a href="#cb6-18"></a><span class="co">## 12 StatFin/asu/asas/statfin_asas_pxt_116b.px Household-dwelling units and… en   </span></span>
-<span id="cb6-19"><a href="#cb6-19"></a><span class="co">## 13 StatFin/asu/asas/statfin_asas_pxt_116d.px Asuntokunnat muuttujina Alue… fi   </span></span>
-<span id="cb6-20"><a href="#cb6-20"></a><span class="co">## 14 StatFin/asu/asas/statfin_asas_pxt_116d.px Bostadshushåll efter Område,… sv   </span></span>
-<span id="cb6-21"><a href="#cb6-21"></a><span class="co">## 15 StatFin/asu/asas/statfin_asas_pxt_116d.px Household-dwelling units by … en   </span></span>
-<span id="cb6-22"><a href="#cb6-22"></a><span class="co">## 16 StatFin/asu/asas/statfin_asas_pxt_116e.px Asuntokunnat ja asuntoväestö… fi   </span></span>
-<span id="cb6-23"><a href="#cb6-23"></a><span class="co">## 17 StatFin/asu/asas/statfin_asas_pxt_116e.px Antal bostadshushåll och ant… sv   </span></span>
-<span id="cb6-24"><a href="#cb6-24"></a><span class="co">## 18 StatFin/asu/asas/statfin_asas_pxt_116e.px Number of household-dwelling… en   </span></span>
-<span id="cb6-25"><a href="#cb6-25"></a><span class="co">## 19 StatFin/asu/asas/statfin_asas_pxt_116f.px Asunnot muuttujina Alue, Tal… fi   </span></span>
-<span id="cb6-26"><a href="#cb6-26"></a><span class="co">## 20 StatFin/asu/asas/statfin_asas_pxt_116f.px Bostäder efter Område, Husty… sv   </span></span>
-<span id="cb6-27"><a href="#cb6-27"></a><span class="co">## 21 StatFin/asu/asas/statfin_asas_pxt_116f.px Dwellings by Area, Type of b… en   </span></span>
-<span id="cb6-28"><a href="#cb6-28"></a><span class="co">## 22 StatFin/asu/asvu/statfin_asvu_pxt_11x4.px Vuokraindeksi (2015=100) ja … fi   </span></span>
-<span id="cb6-29"><a href="#cb6-29"></a><span class="co">## 23 StatFin/asu/asvu/statfin_asvu_pxt_11x4.px Hyresindex (2015=100) och ge… sv   </span></span>
-<span id="cb6-30"><a href="#cb6-30"></a><span class="co">## 24 StatFin/asu/asvu/statfin_asvu_pxt_11x4.px Rent index (2015=100) and av… en   </span></span>
-<span id="cb6-31"><a href="#cb6-31"></a><span class="co">## 25 StatFin/asu/asvu/statfin_asvu_pxt_11x5.px Vuokraindeksi (2015=100) ja … fi   </span></span>
-<span id="cb6-32"><a href="#cb6-32"></a><span class="co">## 26 StatFin/asu/asvu/statfin_asvu_pxt_11x5.px Hyresindex (2015=100) och ge… sv   </span></span>
-<span id="cb6-33"><a href="#cb6-33"></a><span class="co">## 27 StatFin/asu/asvu/statfin_asvu_pxt_11x5.px Rent index (2015=100) and av… en   </span></span>
-<span id="cb6-34"><a href="#cb6-34"></a><span class="co">## 28 StatFin/asu/asvu/statfin_asvu_pxt_12d4.px Vapaarahoitteisten vuokra-as… fi   </span></span>
-<span id="cb6-35"><a href="#cb6-35"></a><span class="co">## 29 StatFin/asu/asvu/statfin_asvu_pxt_12d4.px Fördelning av totalhyror för… sv   </span></span>
-<span id="cb6-36"><a href="#cb6-36"></a><span class="co">## 30 StatFin/asu/asvu/statfin_asvu_pxt_12d4.px Distributions of total rents… en   </span></span>
-<span id="cb6-37"><a href="#cb6-37"></a><span class="co">## # … with 130,184 more rows</span></span></code></pre></div>
+<span id="cb6-5"><a href="#cb6-5"></a><span class="co">##    id                                      title                           lang </span></span>
+<span id="cb6-6"><a href="#cb6-6"></a><span class="co">##    &lt;r_id&gt;                                  &lt;chr&gt;                           &lt;chr&gt;</span></span>
+<span id="cb6-7"><a href="#cb6-7"></a><span class="co">##  1 StatFin/adopt/statfin_adopt_pxt_11lv.px Adoptiot muuttujina Vuosi, Syn… fi   </span></span>
+<span id="cb6-8"><a href="#cb6-8"></a><span class="co">##  2 StatFin/adopt/statfin_adopt_pxt_11lv.px Adoptioner efter År, Födelsela… sv   </span></span>
+<span id="cb6-9"><a href="#cb6-9"></a><span class="co">##  3 StatFin/adopt/statfin_adopt_pxt_11lv.px Adoptions by Year, Country of … en   </span></span>
+<span id="cb6-10"><a href="#cb6-10"></a><span class="co">##  4 StatFin/akay/statfin_akay_pxt_001.px    001 -- Ajankäyttö (26 lk) syks… fi   </span></span>
+<span id="cb6-11"><a href="#cb6-11"></a><span class="co">##  5 StatFin/akay/statfin_akay_pxt_001.px    001 -- Time Use (26 categories… en   </span></span>
+<span id="cb6-12"><a href="#cb6-12"></a><span class="co">##  6 StatFin/akay/statfin_akay_pxt_002.px    Ajankäyttö (26 lk) muuttujina … fi   </span></span>
+<span id="cb6-13"><a href="#cb6-13"></a><span class="co">##  7 StatFin/akay/statfin_akay_pxt_002.px    Time Use (26 categories) by Ac… en   </span></span>
+<span id="cb6-14"><a href="#cb6-14"></a><span class="co">##  8 StatFin/akay/statfin_akay_pxt_003.px    003 -- Työllisten miesten ja n… fi   </span></span>
+<span id="cb6-15"><a href="#cb6-15"></a><span class="co">##  9 StatFin/akay/statfin_akay_pxt_003.px    003 -- Time use (26 categories… en   </span></span>
+<span id="cb6-16"><a href="#cb6-16"></a><span class="co">## 10 StatFin/akay/statfin_akay_pxt_004.px    Ajankäyttö (26 lk) muuttujina … fi   </span></span>
+<span id="cb6-17"><a href="#cb6-17"></a><span class="co">## 11 StatFin/akay/statfin_akay_pxt_004.px    Time Use (26 categories) by Ac… en   </span></span>
+<span id="cb6-18"><a href="#cb6-18"></a><span class="co">## 12 StatFin/akay/statfin_akay_pxt_005.px    005 -- Ajankäyttö (82 lk) suku… fi   </span></span>
+<span id="cb6-19"><a href="#cb6-19"></a><span class="co">## 13 StatFin/akay/statfin_akay_pxt_005.px    005 -- Time Use (82 categories… en   </span></span>
+<span id="cb6-20"><a href="#cb6-20"></a><span class="co">## 14 StatFin/akay/statfin_akay_pxt_006.px    006 -- Ajankäyttö (82 lk) iän … fi   </span></span>
+<span id="cb6-21"><a href="#cb6-21"></a><span class="co">## 15 StatFin/akay/statfin_akay_pxt_006.px    006 -- Time Use (82 categories… en   </span></span>
+<span id="cb6-22"><a href="#cb6-22"></a><span class="co">## 16 StatFin/akay/statfin_akay_pxt_007.px    007 -- Yli 10-vuotiaiden ajank… fi   </span></span>
+<span id="cb6-23"><a href="#cb6-23"></a><span class="co">## 17 StatFin/akay/statfin_akay_pxt_007.px    007 -- Time Use (132 categorie… en   </span></span>
+<span id="cb6-24"><a href="#cb6-24"></a><span class="co">## 18 StatFin/akay/statfin_akay_pxt_008.px    008 -- Kirjastossa käyminen 12… fi   </span></span>
+<span id="cb6-25"><a href="#cb6-25"></a><span class="co">## 19 StatFin/akay/statfin_akay_pxt_008.px    008 -- Biblioteksbesök under d… sv   </span></span>
+<span id="cb6-26"><a href="#cb6-26"></a><span class="co">## 20 StatFin/akay/statfin_akay_pxt_008.px    008 -- Visiting the library du… en   </span></span>
+<span id="cb6-27"><a href="#cb6-27"></a><span class="co">## 21 StatFin/akay/statfin_akay_pxt_009.px    009 -- Kirjastossa käyminen 12… fi   </span></span>
+<span id="cb6-28"><a href="#cb6-28"></a><span class="co">## 22 StatFin/akay/statfin_akay_pxt_009.px    009 -- Biblioteksbesök under d… sv   </span></span>
+<span id="cb6-29"><a href="#cb6-29"></a><span class="co">## 23 StatFin/akay/statfin_akay_pxt_009.px    009 -- Visiting the library du… en   </span></span>
+<span id="cb6-30"><a href="#cb6-30"></a><span class="co">## 24 StatFin/akay/statfin_akay_pxt_010.px    010 -- Kirjastossa käyminen 12… fi   </span></span>
+<span id="cb6-31"><a href="#cb6-31"></a><span class="co">## 25 StatFin/akay/statfin_akay_pxt_010.px    010 -- Biblioteksbesök under d… sv   </span></span>
+<span id="cb6-32"><a href="#cb6-32"></a><span class="co">## 26 StatFin/akay/statfin_akay_pxt_010.px    010 -- Visiting the library du… en   </span></span>
+<span id="cb6-33"><a href="#cb6-33"></a><span class="co">## 27 StatFin/akay/statfin_akay_pxt_011.px    011 -- Lukemiseen käytetty aik… fi   </span></span>
+<span id="cb6-34"><a href="#cb6-34"></a><span class="co">## 28 StatFin/akay/statfin_akay_pxt_011.px    011 -- Tid som använts till at… sv   </span></span>
+<span id="cb6-35"><a href="#cb6-35"></a><span class="co">## 29 StatFin/akay/statfin_akay_pxt_011.px    011 -- Time used for reading b… en   </span></span>
+<span id="cb6-36"><a href="#cb6-36"></a><span class="co">## 30 StatFin/akay/statfin_akay_pxt_012.px    012 -- Kulttuuritilaisuuksissa… fi   </span></span>
+<span id="cb6-37"><a href="#cb6-37"></a><span class="co">## # … with 132,637 more rows</span></span></code></pre></div>
 <p>To get a specific data table, use the tables id.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/data.html">data</a></span><span class="op">(</span><span class="st">"StatFin/vrm/synt/statfin_synt_pxt_12dx.px"</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb8"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="co">## # Robonomist id: StatFin/vrm/synt/statfin_synt_pxt_12dx.px</span></span>
-<span id="cb8-2"><a href="#cb8-2"></a><span class="co">## # A tibble:      2,992 × 3</span></span>
-<span id="cb8-3"><a href="#cb8-3"></a><span class="co">## # Title:         12dx -- Väestönmuutokset ja väkiluku, 1749-2020</span></span>
-<span id="cb8-4"><a href="#cb8-4"></a><span class="co">## # Last updated:  2021-06-18 08:00:00</span></span>
-<span id="cb8-5"><a href="#cb8-5"></a><span class="co">## # Next update:   2022-06-17 08:00:00</span></span>
-<span id="cb8-6"><a href="#cb8-6"></a><span class="co">##    Vuosi Tiedot                     value</span></span>
-<span id="cb8-7"><a href="#cb8-7"></a><span class="co">##    &lt;chr&gt; &lt;chr&gt;                      &lt;dbl&gt;</span></span>
-<span id="cb8-8"><a href="#cb8-8"></a><span class="co">##  1 1749  Elävänä syntyneet          16700</span></span>
-<span id="cb8-9"><a href="#cb8-9"></a><span class="co">##  2 1749  Kuolleet                   11600</span></span>
-<span id="cb8-10"><a href="#cb8-10"></a><span class="co">##  3 1749  Luonnollinen väestönlisäys  5100</span></span>
-<span id="cb8-11"><a href="#cb8-11"></a><span class="co">##  4 1749  Kuntien välinen muutto        NA</span></span>
-<span id="cb8-12"><a href="#cb8-12"></a><span class="co">##  5 1749  Maahanmuutto Suomeen          NA</span></span>
-<span id="cb8-13"><a href="#cb8-13"></a><span class="co">##  6 1749  Maastamuutto Suomesta         NA</span></span>
-<span id="cb8-14"><a href="#cb8-14"></a><span class="co">##  7 1749  Nettomaahanmuutto             NA</span></span>
-<span id="cb8-15"><a href="#cb8-15"></a><span class="co">##  8 1749  Solmitut avioliitot         3900</span></span>
-<span id="cb8-16"><a href="#cb8-16"></a><span class="co">##  9 1749  Avioerot                      NA</span></span>
-<span id="cb8-17"><a href="#cb8-17"></a><span class="co">## 10 1749  Kokonaismuutos                NA</span></span>
-<span id="cb8-18"><a href="#cb8-18"></a><span class="co">## # … with 2,982 more rows</span></span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="reference/data.html">data</a></span><span class="op">(</span><span class="st">"StatFin/synt/statfin_synt_pxt_12dx.px"</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="co">## ⠙ Requesting data✔ Requesting data [136ms]</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a></span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="co">## # Robonomist id: StatFin/synt/statfin_synt_pxt_12dx.px</span></span>
+<span id="cb8-4"><a href="#cb8-4"></a><span class="co">## # A tibble:      2,992 × 3</span></span>
+<span id="cb8-5"><a href="#cb8-5"></a><span class="co">## # Title:         12dx -- Väestönmuutokset ja väkiluku, 1749-2020</span></span>
+<span id="cb8-6"><a href="#cb8-6"></a><span class="co">## # Last updated:  2021-06-18 08:00:00</span></span>
+<span id="cb8-7"><a href="#cb8-7"></a><span class="co">## # Next update:   2022-06-17 08:00:00</span></span>
+<span id="cb8-8"><a href="#cb8-8"></a><span class="co">##    Vuosi Tiedot                     value</span></span>
+<span id="cb8-9"><a href="#cb8-9"></a><span class="co">##    &lt;chr&gt; &lt;chr&gt;                      &lt;dbl&gt;</span></span>
+<span id="cb8-10"><a href="#cb8-10"></a><span class="co">##  1 1749  Elävänä syntyneet          16700</span></span>
+<span id="cb8-11"><a href="#cb8-11"></a><span class="co">##  2 1749  Kuolleet                   11600</span></span>
+<span id="cb8-12"><a href="#cb8-12"></a><span class="co">##  3 1749  Luonnollinen väestönlisäys  5100</span></span>
+<span id="cb8-13"><a href="#cb8-13"></a><span class="co">##  4 1749  Kuntien välinen muutto        NA</span></span>
+<span id="cb8-14"><a href="#cb8-14"></a><span class="co">##  5 1749  Maahanmuutto Suomeen          NA</span></span>
+<span id="cb8-15"><a href="#cb8-15"></a><span class="co">##  6 1749  Maastamuutto Suomesta         NA</span></span>
+<span id="cb8-16"><a href="#cb8-16"></a><span class="co">##  7 1749  Nettomaahanmuutto             NA</span></span>
+<span id="cb8-17"><a href="#cb8-17"></a><span class="co">##  8 1749  Solmitut avioliitot         3900</span></span>
+<span id="cb8-18"><a href="#cb8-18"></a><span class="co">##  9 1749  Avioerot                      NA</span></span>
+<span id="cb8-19"><a href="#cb8-19"></a><span class="co">## 10 1749  Kokonaismuutos                NA</span></span>
+<span id="cb8-20"><a href="#cb8-20"></a><span class="co">## # … with 2,982 more rows</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="more-information">More information<a class="anchor" aria-label="anchor" href="#more-information"></a>
@@ -286,10 +278,7 @@
 </ul>
 </div>
 </div>
-  </div>
-
-  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
-    <div class="links">
+  </main><aside class="col-md-3"><div class="links">
 <h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
 <li><a href="https://github.com/robonomist/robonomistClient/" class="external-link">Browse source code</a></li>
@@ -318,32 +307,26 @@
 </ul>
 </div>
 
-<div class="dev-status">
-<h2 data-toc-skip>Dev status</h2>
-<ul class="list-unstyled">
-<li><a href="https://github.com/robonomist/robonomistClient/actions" class="external-link"><img src="https://github.com/robonomist/robonomistClient/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></li>
-</ul>
-</div>
 
-  </div>
+
+  </aside>
 </div>
 
 
-      <footer><div class="copyright">
+    <footer><div class="pkgdown-footer-left">
   <p></p>
 <p>Developed by Juha Itkonen.</p>
 </div>
 
-<div class="pkgdown">
+<div class="pkgdown-footer-right">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
 </div>
 
-      </footer>
+    </footer>
 </div>
 
   
-
 
   
 
