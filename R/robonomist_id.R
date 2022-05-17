@@ -73,11 +73,10 @@ as_robonomist_id <- function(x) {
 #' @importFrom pillar pillar_shaft
 #' @export
 pillar_shaft.robonomist_id <- function(x, ...) {
-  l <- vec_cast(x, list())
   out <-
     paste0(
-      crayon::blue(l$dataset), "/",
-      crayon::cyan(l$table)
+      crayon::blue(robonomist_dataset(x)), "/",
+      crayon::cyan(robonomist_table(x))
     )
   extent <- pillar::get_max_extent(out)
   pillar::new_pillar_shaft_simple(out, align = "left",
@@ -107,4 +106,3 @@ robonomist_table <- function(x) {
     stop('$ operator can extract only "table" or "dataset" from robonomist_id')
   )
 }
-
