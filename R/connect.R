@@ -67,8 +67,8 @@ RobonomistConnection <- R6::R6Class(
           cli_warn(iconv(conditionMessage(msg), "UTF8"))
         } else if (inherits(msg, "error")) {
           private$error_flag <- TRUE
-          cli_abort(c("Request failed in server error:\n",
-                      iconv(conditionMessage(msg), "UTF8")))
+          error_msg <- iconv(conditionMessage(msg), "UTF8")
+          cli_alert(paste("Request failed in server error:\n", error_msg))
         } else {
           private$cache$data <- msg
         }
@@ -163,9 +163,12 @@ RobonomistConnection <- R6::R6Class(
         private$ws$send(qs::qserialize(payload, preset = "balanced"))
         later::run_now()
         while (is.null(private$cache$data)) {
-          if(private$state() != "Open" || private$error_flag) {
+          if(private$state() != "Open") {
+            cli_abort("Connection was lost!")
+          }
+          if(private$error_flag) {
             private$error_flag <- FALSE
-            cli_abort("Request failed")
+            stop("Request failed", call. = FALSE)
           }
           if (message) cli_progress_update()
           later::run_now(timeoutSecs = 1)
