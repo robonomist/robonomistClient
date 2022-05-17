@@ -27,7 +27,7 @@ new_robonomist_id <- function(x = character()) {
 validate_robonomist_id <- function(x) {
   stopifnot(
     nchar(x) > 2,
-    !grepl("(§| |#)", x)
+    !grepl("(\u00a7| |#)", x)
   )
 }
 
@@ -74,6 +74,7 @@ as.list.robonomist_id <- function(x, ...) {
 
 #' Cast object into a robonomist id
 #'
+#' @param x object to be cast
 #' @export
 as_robonomist_id <- function(x) {
   vec_cast(x, robonomist_id())
@@ -109,7 +110,9 @@ robonomist_table <- function(x) {
 }
 
 #' Extract components of robonomist_id with $-operator
+#'
 #' @param x robonomist_id
+#' @param ... for compatibility
 #' @export
 `$.robonomist_id` <- function(x, ...) {
   switch(

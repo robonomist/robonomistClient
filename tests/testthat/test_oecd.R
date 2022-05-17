@@ -1,5 +1,5 @@
 test_that("OECDv2 api works", {
-  skip_if(Sys.getenv("ROBONOMIST_TEST_SERVER") == "", "Test server not configured.")
+  skip_if(getOption("robonomist.skip.server.test", FALSE), "Test server not configured.")
   expect_s3_class(y <- data("oecd/QNA"), "tbl_lazy_oecd")
   expect_s3_class(y <- data_get("oecd/QNA"), "tbl_lazy_oecd")
   expect_s3_class(print(y), "tbl_lazy_oecd")
@@ -14,7 +14,7 @@ test_that("OECDv2 api works", {
 })
 
 test_that("OECDv3 api works", {
-  skip_if(Sys.getenv("ROBONOMIST_TEST_SERVER") == "", "Test server not configured.")
+  skip_if(getOption("robonomist.skip.server.test", FALSE), "Test server not configured.")
   expect_s3_class(y <- data("oecd3/QNA"), "tbl_lazy_oecd_v3")
   expect_s3_class(y <- data_get("oecd3/QNA"), "tbl_lazy_oecd_v3")
   expect_s3_class(print(y), "tbl_lazy_oecd_v3_printout")

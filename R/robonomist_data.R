@@ -1,5 +1,5 @@
-#' @export
-#' @importFrom tibble new_tibble is_tibble
+## @export
+## @importFrom tibble new_tibble is_tibble
 new_robonomist_data <- function(x = new_data_frame(),
                                 id = new_robonomist_id(),
                                 title = character(),
@@ -34,7 +34,7 @@ validate_robonomist_data <- function(x) {
   x
 }
 
-#' @export
+## @export
 robonomist_data <- function(x = new_data_frame(),
                             id = new_robonomist_id(),
                             title = character(),

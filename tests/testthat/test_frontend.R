@@ -1,9 +1,6 @@
 
 test_that("Frontend works remotely", {
-  skip_if(Sys.getenv("ROBONOMIST_TEST_SERVER") == "", "Test server not configured.")
-  cat(Sys.getenv("ROBONOMIST_TEST_SERVER"), "\n")
-  set_robonomist_server(Sys.getenv("ROBONOMIST_TEST_SERVER"),
-                        Sys.getenv("ROBONOMIST_TEST_ACCESS_TOKEN"))
+  skip_if(getOption("robonomist.skip.server.test", FALSE), "Test server not configured.")
   id <- "StatFin/asas/statfin_asas_pxt_115a.px"
   expect_s3_class(data_vintage(id), "POSIXct")
   expect_type(data_metadata(id), "list")
@@ -20,7 +17,7 @@ test_that("Frontend works remotely", {
 })
 
 test_that("reconnect", {
-  skip_if(Sys.getenv("ROBONOMIST_TEST_SERVER") == "", "Test server not configured.")
+  skip_if(getOption("robonomist.skip.server.test", FALSE), "Test server not configured.")
   expect_s3_class(data(), "tbl_df")
   expect_true(disconnect())
   expect_s3_class(data(), "tbl_df")
