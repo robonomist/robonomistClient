@@ -2,3 +2,4 @@ url: https://robonomist.github.io/robonomistClient/
 template:
   params:
     ganalytics: UA-133826983-1
+  bootstrap: 5

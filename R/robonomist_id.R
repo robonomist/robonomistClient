@@ -1,17 +1,9 @@
-#' @export
-new_robonomist_id <- function(x = character()) {
-  vec_assert(x, character())
-  new_vctr(x, class = "robonomist_id")
-}
-
-validate_robonomist_id <- function(x) {
-  stopifnot(
-    nchar(x) > 2,
-    !grepl("(§| |#)", x)#,
-    ## grepl("^[a-zA-Z0-9_-]*$", x)
-  )
-}
-
+#' robonomist_id class
+#'
+#' robonomist_id objects are character vectors composed dataset and table names which are separated by "/".
+#'
+#' @param x character vector, Dataset name, or complete id string if `table` is NULL.
+#' @param table character, Table name.
 #' @export
 robonomist_id <- function(x = character(), table = NULL) {
   x <- vec_cast(x, character())
@@ -22,6 +14,21 @@ robonomist_id <- function(x = character(), table = NULL) {
   x <- enc2utf8(x)
   validate_robonomist_id(x)
   new_robonomist_id(x)
+}
+
+#' @describeIn robonomist_id Constructor for robonomist_id class
+#'
+#' @export
+new_robonomist_id <- function(x = character()) {
+  vec_assert(x, character())
+  new_vctr(x, class = "robonomist_id")
+}
+
+validate_robonomist_id <- function(x) {
+  stopifnot(
+    nchar(x) > 2,
+    !grepl("(§| |#)", x)
+  )
 }
 
 #' @export
@@ -65,6 +72,8 @@ as.list.robonomist_id <- function(x, ...) {
   vec_cast(x, list())
 }
 
+#' Cast object into a robonomist id
+#'
 #' @export
 as_robonomist_id <- function(x) {
   vec_cast(x, robonomist_id())
@@ -83,6 +92,7 @@ pillar_shaft.robonomist_id <- function(x, ...) {
                                   width = extent, min_width = min(extent, 40L))
 }
 
+#' @describeIn robonomist_id Extract dataset component from robonomist_id
 #' @export
 robonomist_dataset <- function(x) {
   x <- vec_cast(x, character())
@@ -90,6 +100,7 @@ robonomist_dataset <- function(x) {
   substr(x, 1L, i - 1L)
 }
 
+#' @describeIn robonomist_id Extract table component from robonomist_id
 #' @export
 robonomist_table <- function(x) {
   x <- vec_cast(x, character())
@@ -97,6 +108,8 @@ robonomist_table <- function(x) {
   substr(x, i + 1L, nchar(x))
 }
 
+#' Extract components of robonomist_id with $-operator
+#' @param x robonomist_id
 #' @export
 `$.robonomist_id` <- function(x, ...) {
   switch(
