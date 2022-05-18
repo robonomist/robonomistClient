@@ -104,7 +104,7 @@
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://robonomist.github.io/robonomistClient/">robonomistClient</a></span><span class="op">)</span>
 <span class="co">#&gt; <span style="color: #00BB00;">✔</span> Loaded <span style="color: #0000BB;">robonomistClient</span> 2.2.7</span>
 <span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Set to connect wss://data.robonomist.app</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Set to connect wss://data.robonomist.app <span style="color: #B2B2B2;">[229ms]</span></span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Set to connect wss://data.robonomist.app <span style="color: #B2B2B2;">[204ms]</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Attaching package: 'robonomistClient'</span>
@@ -113,13 +113,13 @@
 <span class="co">#&gt;     data</span>
 <span class="fu"><a href="../reference/datasources.html">datasources</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Connecting to <span style="color: #0000BB;">robonomistServer</span> at wss://data.robonomist.app</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Connecting to <span style="color: #0000BB;">robonomistServer</span> at wss://data.robonomist.app <span style="color: #B2B2B2;">[361ms]</span></span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Connecting to <span style="color: #0000BB;">robonomistServer</span> at wss://data.robonomist.app <span style="color: #B2B2B2;">[501ms]</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Connected successfully to robonomistServer 2.6.13</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Connected successfully to robonomistServer 2.6.13 <span style="color: #B2B2B2;">[46ms]</span></span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Connected successfully to robonomistServer 2.6.13 <span style="color: #B2B2B2;">[37ms]</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; ⠙ Requesting datasources</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting datasources <span style="color: #B2B2B2;">[131ms]</span></span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting datasources <span style="color: #B2B2B2;">[172ms]</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; ── Robonomist Server Datasources</span>
 <span class="co">#&gt;    dataset            title                                                     </span>
@@ -176,9 +176,9 @@
 <p>All contents are orginized as data tables, which in most cases are tibble-class objects. The <code>data</code> function is convenient way to search and get data tables. To print all available data tables:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">data</span>()</span>
 <span id="cb2-2"><a href="#cb2-2"></a><span class="co">#&gt; ⠙ Requesting data</span></span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="co">#&gt;  [36mℹ [39m Object retrieved from client cache (valid until 2022-05-18 10:28:00).</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="co">#&gt;  [36mℹ [39m Object retrieved from client cache (valid until 2022-05-18 11:02:15).</span></span>
 <span id="cb2-4"><a href="#cb2-4"></a><span class="co">#&gt; ⠙ Requesting data</span></span>
-<span id="cb2-5"><a href="#cb2-5"></a> [32m✔ [39m Requesting data  [<span class="dv">38</span>;<span class="dv">5</span>;249m[15ms] [39m</span>
+<span id="cb2-5"><a href="#cb2-5"></a> [32m✔ [39m Requesting data  [<span class="dv">38</span>;<span class="dv">5</span>;249m[13ms] [39m</span>
 <span id="cb2-6"><a href="#cb2-6"></a><span class="co">#&gt; </span></span>
 <span id="cb2-7"><a href="#cb2-7"></a><span class="co">#&gt; </span></span>
 <span id="cb2-8"><a href="#cb2-8"></a><span class="co">#&gt; ── Robonomist Database search results</span></span>
@@ -218,9 +218,9 @@
 <p>The package automatically ensures that the listed data tables are the latest versions available at the datasources.</p>
 <p>To get a specific data table, use the tables id.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/data.html">data</a></span><span class="op">(</span><span class="st">"StatFin/vrm/synt/statfin_synt_pxt_12dx.px"</span><span class="op">)</span>
+<code class="sourceCode R"><span class="fu"><a href="../reference/data.html">data</a></span><span class="op">(</span><span class="st">"StatFin/synt/statfin_synt_pxt_12dx.px"</span><span class="op">)</span>
 <span class="co">#&gt; ⠙ Requesting data</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[258ms]</span></span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[282ms]</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; <span style="color: #949494;"># Robonomist id: </span><span style="color: #00BBBB;">StatFin/synt/statfin_synt_pxt_12dx.px</span></span>
 <span class="co">#&gt; <span style="color: #949494;"># A tibble:      2,992 × 3</span></span>
@@ -242,12 +242,12 @@
 <span class="co">#&gt; <span style="color: #949494;"># … with 2,982 more rows</span></span></code></pre></div>
 <p>You can access the version information, or vintage, of a data table with</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/data_vintage.html">data_vintage</a></span><span class="op">(</span><span class="st">"StatFin/vrm/synt/statfin_synt_pxt_12dx.px"</span><span class="op">)</span>
+<code class="sourceCode R"><span class="fu"><a href="../reference/data_vintage.html">data_vintage</a></span><span class="op">(</span><span class="st">"StatFin/synt/statfin_synt_pxt_12dx.px"</span><span class="op">)</span>
 <span class="co">#&gt; ⠙ Requesting vintage</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting vintage <span style="color: #B2B2B2;">[187ms]</span></span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting vintage <span style="color: #B2B2B2;">[217ms]</span></span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; StatFin/vrm/synt/statfin_synt_pxt_12dx.px </span>
-<span class="co">#&gt;                "2021-06-18 08:00:00 EEST"</span></code></pre></div>
+<span class="co">#&gt; StatFin/synt/statfin_synt_pxt_12dx.px </span>
+<span class="co">#&gt;            "2021-06-18 08:00:00 EEST"</span></code></pre></div>
 <p>You can easily explore all available data tables in the Data Viewer.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/View.html" class="external-link">View</a></span><span class="op">(</span><span class="fu"><a href="../reference/data.html">data</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></code></pre></div>
@@ -255,7 +255,7 @@
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/data.html">data</a></span><span class="op">(</span><span class="st">"Vero/"</span><span class="op">)</span>
 <span class="co">#&gt; ⠙ Requesting data</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[237ms]</span></span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[271ms]</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; ── Robonomist Database search results</span>
 <span class="co">#&gt;    id                               title                                  lang </span>
@@ -300,14 +300,13 @@
 <li>When the argument matches more than one table ids or titles, the <code><a href="../reference/data.html">data()</a></code> function will return tibble of matched data tables.</li>
 <li>When exactly one matching data table is found, the <code><a href="../reference/data.html">data()</a></code> function will return that data table.</li>
 </ul>
-<p>For example, <code>data("väestö")</code> will search data and find multible data tables, and return the matches. In contrast, <code>data("StatFin/vrm/synt/statfin_synt_pxt_12dx.px")</code> will return a specific data table. The function <code><a href="../reference/data.html">data()</a></code> is meant for rapid exploration, and in production context it is better use more specific functions.</p>
-<p>To separate the tasks of search and retrieval, use functions <code><a href="../reference/data.html">data_search()</a></code> and <code><a href="../reference/data.html">data_get()</a></code>. Use <code><a href="../reference/data.html">data_get()</a></code> to return a data table for a given table id, and fail if no match exists. For example, use <code>data_get("StatFin/vrm/synt/statfin_synt_pxt_12dx.px")</code> to guarantee that either a data table or an error will be returned.</p>
+<p>For example, <code>data("väestö")</code> will search data and find multible data tables, and return the matches. In contrast, <code>data("StatFin/synt/statfin_synt_pxt_12dx.px")</code> will return a specific data table. The function <code><a href="../reference/data.html">data()</a></code> is meant for rapid exploration, and in production context it is better use more specific functions.</p>
+<p>To separate the tasks of search and retrieval, use functions <code><a href="../reference/data.html">data_search()</a></code> and <code><a href="../reference/data.html">data_get()</a></code>. Use <code><a href="../reference/data.html">data_get()</a></code> to return a data table for a given table id, and fail if no match exists. For example, use <code>data_get("StatFin/synt/statfin_synt_pxt_12dx.px")</code> to guarantee that either a data table or an error will be returned.</p>
 <p>The function <code><a href="../reference/data.html">data_search()</a></code> allows to search and return matching table ids, without downloading actual data. For example, to search all data tables related to “väestö”, use:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/data.html">data_search</a></span><span class="op">(</span><span class="st">"väestö"</span><span class="op">)</span>
 <span class="co">#&gt; ⠙ Requesting search</span>
-<span class="co">#&gt; ⠹ Requesting search</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting search <span style="color: #B2B2B2;">[3.1s]</span></span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting search <span style="color: #B2B2B2;">[2.9s]</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; ── Robonomist Database search results</span>
 <span class="co">#&gt;    id                                      title                           lang </span>
@@ -349,11 +348,11 @@
 </h2>
 <p>For some datasources we are able to automatically parse the time dimension of the data into a more convenient format. When the <code>tidy_time</code> argument is set to <code>TRUE</code>, data tables are formatted so that time dimension is named <code>time</code>, the class is set to <code>Date</code>, and the variable is relocated next to <code>value</code>, i.e. second from the right.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/data.html">data_get</a></span><span class="op">(</span><span class="st">"StatFin/kan/ntp/statfin_ntp_pxt_132h.px"</span><span class="op">)</span>
+<code class="sourceCode R"><span class="fu"><a href="../reference/data.html">data_get</a></span><span class="op">(</span><span class="st">"StatFin/ntp/statfin_ntp_pxt_132h.px"</span><span class="op">)</span>
 <span class="co">#&gt; ⠙ Requesting get</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[319ms]</span></span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[626ms]</span></span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; <span style="color: #949494;"># Robonomist id: </span><span style="color: #00BBBB;">StatFin/kan/ntp/statfin_ntp_pxt_132h.px</span></span>
+<span class="co">#&gt; <span style="color: #949494;"># Robonomist id: </span><span style="color: #00BBBB;">StatFin/ntp/statfin_ntp_pxt_132h.px</span></span>
 <span class="co">#&gt; <span style="color: #949494;"># A tibble:      102,144 × 4</span></span>
 <span class="co">#&gt; <span style="color: #949494;"># Title:         132h -- Bruttokansantuote ja -tulo sekä tarjonta ja kysyntä</span></span>
 <span class="co"><span style="color: #949494;">#&gt; #   neljännesvuosittain, 1990Q1-2021Q4</span></span>
@@ -372,12 +371,12 @@
 <span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 1990Q1         B1GMH Bruttokansantuote markkinahintaan Kausitasoitetun…    <span style="color: #BB0000;">NA</span></span>
 <span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 1990Q1         B1GMH Bruttokansantuote markkinahintaan Trendisarjan vo…    <span style="color: #BB0000;">NA</span></span>
 <span class="co">#&gt; <span style="color: #949494;"># … with 102,134 more rows</span></span>
-<span class="fu"><a href="../reference/data.html">data_get</a></span><span class="op">(</span><span class="st">"StatFin/kan/ntp/statfin_ntp_pxt_132h.px"</span>, tidy_time <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> |&gt;
+<span class="fu"><a href="../reference/data.html">data_get</a></span><span class="op">(</span><span class="st">"StatFin/ntp/statfin_ntp_pxt_132h.px"</span>, tidy_time <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange</a></span><span class="op">(</span><span class="va">Taloustoimi</span>, <span class="va">Tiedot</span><span class="op">)</span>
 <span class="co">#&gt; ⠙ Requesting get</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[256ms]</span></span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[596ms]</span></span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; <span style="color: #949494;"># Robonomist id: </span><span style="color: #00BBBB;">StatFin/kan/ntp/statfin_ntp_pxt_132h.px</span></span>
+<span class="co">#&gt; <span style="color: #949494;"># Robonomist id: </span><span style="color: #00BBBB;">StatFin/ntp/statfin_ntp_pxt_132h.px</span></span>
 <span class="co">#&gt; <span style="color: #949494;"># A tibble:      102,144 × 4</span></span>
 <span class="co">#&gt; <span style="color: #949494;"># Title:         132h -- Bruttokansantuote ja -tulo sekä tarjonta ja kysyntä</span></span>
 <span class="co"><span style="color: #949494;">#&gt; #   neljännesvuosittain, 1990Q1-2021Q4</span></span>
@@ -398,11 +397,11 @@
 <span class="co">#&gt; <span style="color: #949494;"># … with 102,134 more rows</span></span></code></pre></div>
 <p>Similarly, some datasources provide both labelled and coded versions of tha data tables:</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/data.html">data_get</a></span><span class="op">(</span><span class="st">"StatFin/kan/ntp/statfin_ntp_pxt_132h.px"</span>, labels <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
+<code class="sourceCode R"><span class="fu"><a href="../reference/data.html">data_get</a></span><span class="op">(</span><span class="st">"StatFin/ntp/statfin_ntp_pxt_132h.px"</span>, labels <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
 <span class="co">#&gt; ⠙ Requesting get</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[252ms]</span></span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[577ms]</span></span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; <span style="color: #949494;"># Robonomist id: </span><span style="color: #00BBBB;">StatFin/kan/ntp/statfin_ntp_pxt_132h.px</span></span>
+<span class="co">#&gt; <span style="color: #949494;"># Robonomist id: </span><span style="color: #00BBBB;">StatFin/ntp/statfin_ntp_pxt_132h.px</span></span>
 <span class="co">#&gt; <span style="color: #949494;"># A tibble:      102,144 × 4</span></span>
 <span class="co">#&gt; <span style="color: #949494;"># Title:         132h -- Bruttokansantuote ja -tulo sekä tarjonta ja kysyntä</span></span>
 <span class="co"><span style="color: #949494;">#&gt; #   neljännesvuosittain, 1990Q1-2021Q4</span></span>

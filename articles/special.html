@@ -146,7 +146,7 @@
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/data.html">data</a></span><span class="op">(</span><span class="st">"fred/source=1"</span><span class="op">)</span>
 <span class="co">#&gt; ⠙ Requesting data</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[1.1s]</span></span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[869ms]</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; <span style="color: #949494;"># A tibble: 34 × 5</span></span>
 <span class="co">#&gt;    release_id name                                     press_release link  notes</span>
@@ -166,8 +166,7 @@
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/data.html">data</a></span><span class="op">(</span><span class="st">"fred/release=13"</span><span class="op">)</span>
 <span class="co">#&gt; ⠙ Requesting data</span>
-<span class="co">#&gt; ⠹ Requesting data</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[2.2s]</span></span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[2.7s]</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; <span style="color: #949494;"># A tibble: 1,884 × 14</span></span>
 <span class="co">#&gt;    series_id    title observation_sta… observation_end frequency frequency_short</span>
@@ -189,7 +188,7 @@
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/data.html">data_get</a></span><span class="op">(</span><span class="st">"fred/CAPB00004S"</span><span class="op">)</span>
 <span class="co">#&gt; ⠙ Requesting get</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[2.1s]</span></span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[2.3s]</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; <span style="color: #949494;"># A tibble: 892 × 7</span></span>
 <span class="co">#&gt;    series_id  Title            Frequency Units `Seasonal adju…` time       value</span>
@@ -210,7 +209,7 @@
 <code class="sourceCode R"><span class="va">d</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/data.html">data_get</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"fred/CAPB5610CS"</span>, <span class="st">"fred/CAPB5640CS"</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; ⠙ Requesting get</span>
 <span class="co">#&gt; ⠹ Requesting get</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[3.3s]</span></span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[3.1s]</span></span>
 <span class="co">#&gt; </span>
 <span class="va">d</span>
 <span class="co">#&gt; <span style="color: #949494;"># A tibble: 1,556 × 7</span></span>
@@ -239,7 +238,7 @@
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html" class="external-link">geom_line</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"bottom"</span>, legend.direction <span class="op">=</span> <span class="st">"vertical"</span><span class="op">)</span>
 <span class="co">#&gt; ⠙ Requesting get</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[1.3s]</span></span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[1.4s]</span></span>
 <span class="co">#&gt; </span></code></pre></div>
 <p><img src="special_files/figure-html/unnamed-chunk-7-1.png"><!-- --></p>
 <p>Allowed values for <code>units</code>:</p>
@@ -263,7 +262,7 @@
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"bottom"</span>, legend.direction <span class="op">=</span> <span class="st">"vertical"</span><span class="op">)</span>
 <span class="co">#&gt; ⠙ Requesting get</span>
 <span class="co">#&gt; ⠹ Requesting get</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[1.2s]</span></span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[1.8s]</span></span>
 <span class="co">#&gt; </span></code></pre></div>
 <p><img src="special_files/figure-html/unnamed-chunk-8-1.png"><!-- --></p>
 <p>Allowed values for <code>frequency</code>:</p>
@@ -290,7 +289,7 @@
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/data.html">data</a></span><span class="op">(</span><span class="st">"eia/"</span><span class="op">)</span>
 <span class="co">#&gt; ⠙ Requesting data</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[158ms]</span></span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[219ms]</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; ── Robonomist Database search results</span>
 <span class="co">#&gt;    id              title                                                   lang </span>
@@ -321,14 +320,7 @@
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/data.html">data</a></span><span class="op">(</span><span class="st">"eia/NG"</span><span class="op">)</span>
 <span class="co">#&gt; ⠙ Requesting data</span>
-<span class="co">#&gt; ⠹ Requesting data</span>
-<span class="co">#&gt; ⠸ Requesting data</span>
-<span class="co">#&gt; ⠼ Requesting data</span>
-<span class="co">#&gt; ⠴ Requesting data</span>
-<span class="co">#&gt; ⠦ Requesting data</span>
-<span class="co">#&gt; ⠧ Requesting data</span>
-<span class="co">#&gt; ⠇ Requesting data</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[23s]</span></span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[1.6s]</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; <span style="color: #949494;"># Robonomist id: </span><span style="color: #00BBBB;">eia/NG</span></span>
 <span class="co">#&gt; <span style="color: #949494;"># A tibble:      903,786 × 5</span></span>
@@ -349,7 +341,7 @@
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/data.html">data_get</a></span><span class="op">(</span><span class="st">"eia/NG.N3010AL2.A"</span><span class="op">)</span>
 <span class="co">#&gt; ⠙ Requesting get</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[553ms]</span></span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[270ms]</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; <span style="color: #949494;"># Robonomist id: </span><span style="color: #00BBBB;">eia/NG.N3010AL2.A</span></span>
 <span class="co">#&gt; <span style="color: #949494;"># A tibble:      55 × 5</span></span>
