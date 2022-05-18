@@ -28,6 +28,12 @@
     <loc>https://robonomist.github.io/robonomistClient/news/index.html</loc>
   </url>
   <url>
+    <loc>https://robonomist.github.io/robonomistClient/reference/as_robonomist_id.html</loc>
+  </url>
+  <url>
+    <loc>https://robonomist.github.io/robonomistClient/reference/cash-.robonomist_id.html</loc>
+  </url>
+  <url>
     <loc>https://robonomist.github.io/robonomistClient/reference/data.html</loc>
   </url>
   <url>
@@ -53,6 +59,9 @@
   </url>
   <url>
     <loc>https://robonomist.github.io/robonomistClient/reference/robonomistClient-package.html</loc>
+  </url>
+  <url>
+    <loc>https://robonomist.github.io/robonomistClient/reference/robonomist_id.html</loc>
   </url>
   <url>
     <loc>https://robonomist.github.io/robonomistClient/reference/set_robonomist_server.html</loc>

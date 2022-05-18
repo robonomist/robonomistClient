@@ -160,7 +160,7 @@
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">x</span> |&gt; <span class="fu"><a href="https://dplyr.tidyverse.org/reference/compute.html" class="external-link">collect</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; <span style="color: #949494;"># Robonomist id: </span><span style="color: #00BBBB;">oecd3/QNA</span></span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble:      200 × 6</span></span>
+<span class="co">#&gt; <span style="color: #949494;"># A tibble:      208 × 6</span></span>
 <span class="co">#&gt;    Country Subject                            Measure Frequency time       value</span>
 <span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
 <span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Finland Gross domestic product at market … Nation… Quarterly 2020-01-01 <span style="text-decoration: underline;">58</span>315</span>
@@ -173,7 +173,7 @@
 <span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Finland Gross domestic product at market … Nation… Quarterly 2021-10-01 <span style="text-decoration: underline;">68</span>474</span>
 <span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Finland Gross domestic product at market … Nation… Quarterly 2020-01-01 <span style="text-decoration: underline;">60</span>721</span>
 <span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Finland Gross domestic product at market … Nation… Quarterly 2020-04-01 <span style="text-decoration: underline;">57</span>286</span>
-<span class="co">#&gt; <span style="color: #949494;"># … with 190 more rows</span></span></code></pre></div>
+<span class="co">#&gt; <span style="color: #949494;"># … with 198 more rows</span></span></code></pre></div>
 <p>Also common <code>dplyr</code> verbs that require the actual data will trigger the <code>collect</code> function automatically.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/data.html">data</a></span><span class="op">(</span><span class="st">"oecd3/QNA"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
