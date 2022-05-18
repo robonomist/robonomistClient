@@ -26,7 +26,7 @@ datasources()
 ```
 
 ```{r, include = FALSE}
-data()
+data(comment = "Avoid update messages")
 ```
 
 ## Data tables
