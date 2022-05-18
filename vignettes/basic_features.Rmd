@@ -40,12 +40,12 @@ The package automatically ensures that the listed data tables are the latest ver
 
 To get a specific data table, use the tables id.
 ```{r}
-data("StatFin/vrm/synt/statfin_synt_pxt_12dx.px")
+data("StatFin/synt/statfin_synt_pxt_12dx.px")
 ```
 
 You can access the version information, or vintage, of a data table with
 ```{r}
-data_vintage("StatFin/vrm/synt/statfin_synt_pxt_12dx.px")
+data_vintage("StatFin/synt/statfin_synt_pxt_12dx.px")
 ```
 
 You can easily explore all available data tables in the Data Viewer.
@@ -65,9 +65,9 @@ The `data()` function a conveniance function that works for two tasks: search an
 * When the argument matches more than one table ids or titles, the `data()` function will return tibble of matched data tables. 
 * When exactly one matching data table is found, the `data()` function will return that data table. 
 
-For example, `data("väestö")` will search data and find multible data tables, and return the matches. In contrast, `data("StatFin/vrm/synt/statfin_synt_pxt_12dx.px")` will return a specific data table. The function `data()` is meant for rapid exploration, and in production context it is better use more specific functions. 
+For example, `data("väestö")` will search data and find multible data tables, and return the matches. In contrast, `data("StatFin/synt/statfin_synt_pxt_12dx.px")` will return a specific data table. The function `data()` is meant for rapid exploration, and in production context it is better use more specific functions. 
 
-To separate the tasks of search and retrieval, use functions `data_search()` and `data_get()`. Use `data_get()` to return a data table for a given table id, and fail if no match exists. For example, use `data_get("StatFin/vrm/synt/statfin_synt_pxt_12dx.px")` to guarantee that either a data table or an error will be returned.
+To separate the tasks of search and retrieval, use functions `data_search()` and `data_get()`. Use `data_get()` to return a data table for a given table id, and fail if no match exists. For example, use `data_get("StatFin/synt/statfin_synt_pxt_12dx.px")` to guarantee that either a data table or an error will be returned.
 
 The function `data_search()` allows to search and return matching table ids, without downloading actual data. For example, to search all data tables related to "väestö", use:
 ```{r}
@@ -79,15 +79,15 @@ data_search("väestö")
 For some datasources we are able to automatically parse the time dimension of the data into a more convenient format. When the `tidy_time` argument is set to `TRUE`, data tables are formatted so that time dimension is named `time`, the class is set to `Date`, and the variable is relocated next to `value`, i.e. second from the right.
 
 ```{r}
-data_get("StatFin/kan/ntp/statfin_ntp_pxt_132h.px")
-data_get("StatFin/kan/ntp/statfin_ntp_pxt_132h.px", tidy_time = TRUE) |>
+data_get("StatFin/ntp/statfin_ntp_pxt_132h.px")
+data_get("StatFin/ntp/statfin_ntp_pxt_132h.px", tidy_time = TRUE) |>
   arrange(Taloustoimi, Tiedot)
 ```
 
 Similarly, some datasources provide both labelled and coded versions of tha data tables:
 
 ```{r}
-data_get("StatFin/kan/ntp/statfin_ntp_pxt_132h.px", labels = FALSE)
+data_get("StatFin/ntp/statfin_ntp_pxt_132h.px", labels = FALSE)
 ```
 
 
