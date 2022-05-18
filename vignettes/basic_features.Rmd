@@ -35,6 +35,7 @@ All contents are orginized as data tables, which in most cases are tibble-class 
 ```{r}
 data()
 ```
+
 The package automatically ensures that the listed data tables are the latest versions available at the datasources. 
 
 To get a specific data table, use the tables id.
