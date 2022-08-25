@@ -6,7 +6,7 @@
 \alias{robonomistClient-package}
 \title{robonomistClient: Access data from Robonomist Data Server}
 \description{
-\if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
+\if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
 Easy and fast access to various datasources in a unified format via Robonomist Data Server.
 }

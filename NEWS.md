@@ -1,3 +1,8 @@
+# robonomistClient 2.2.8
+
+* Print more details for robonomist_data
+* Stricter typing of robonomist_data
+
 # robonomistClient 2.2.7
 
 * Fix dependencies

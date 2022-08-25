@@ -25,10 +25,10 @@ robonomist_id objects are character vectors composed dataset and table names whi
 }
 \section{Functions}{
 \itemize{
-\item \code{new_robonomist_id}: Constructor for robonomist_id class
+\item \code{new_robonomist_id()}: Constructor for robonomist_id class
 
-\item \code{robonomist_dataset}: Extract dataset component from robonomist_id
+\item \code{robonomist_dataset()}: Extract dataset component from robonomist_id
 
-\item \code{robonomist_table}: Extract table component from robonomist_id
+\item \code{robonomist_table()}: Extract table component from robonomist_id
+
 }}
-

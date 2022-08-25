@@ -1,53 +1,53 @@
-## @export
-## @importFrom tibble new_tibble is_tibble
-new_robonomist_data <- function(x = new_data_frame(),
-                                id = new_robonomist_id(),
-                                title = character(),
-                                vintage = new_datetime()
-                                ) {
-  ## vec_assert(x, new_data_frame())
-  is.data.frame(x)
-  vec_assert(id, new_robonomist_id())
-  vec_assert(title, character())
-  vec_assert(vintage, new_datetime())
-  new_data_frame(
-    x,
-    robonomist_id = id,
-    robonomist_title = title,
-    robonomist_vintage = vintage,
-    class = c("robonomist_data", "tbl_df", "tbl")
-  )
-}
+## ## @export
+## ## @importFrom tibble new_tibble is_tibble
+## new_robonomist_data <- function(x = new_data_frame(),
+##                                 id = new_robonomist_id(),
+##                                 title = character(),
+##                                 vintage = new_datetime()
+##                                 ) {
+##   ## vec_assert(x, new_data_frame())
+##   is.data.frame(x)
+##   vec_assert(id, new_robonomist_id())
+##   vec_assert(title, character())
+##   vec_assert(vintage, new_datetime())
+##   new_data_frame(
+##     x,
+##     robonomist_id = id,
+##     robonomist_title = title,
+##     robonomist_vintage = vintage,
+##     class = c("robonomist_data", "tbl_df", "tbl")
+##   )
+## }
 
-validate_robonomist_data <- function(x) {
-  stopifnot(
-    is_tibble(x),
-    vec_size(attr(x, "robonomist_id")) == 1,
-    vec_size(attr(x, "robonomist_title")) == 1,
-    vec_size(attr(x, "robonomist_vintage")) == 1
-  ##   all(
-  ##     !is.na(strptime(field(x, "vintage"), "%F %T")) |
-  ##       !is.na(strptime(field(x, "vintage"), "%F")) |
-  ##        field(x, "hash")
-  ##   )
-  )
-  x
-}
+## validate_robonomist_data <- function(x) {
+##   stopifnot(
+##     is_tibble(x),
+##     vec_size(attr(x, "robonomist_id")) == 1,
+##     vec_size(attr(x, "robonomist_title")) == 1,
+##     vec_size(attr(x, "robonomist_vintage")) == 1
+##   ##   all(
+##   ##     !is.na(strptime(field(x, "vintage"), "%F %T")) |
+##   ##       !is.na(strptime(field(x, "vintage"), "%F")) |
+##   ##        field(x, "hash")
+##   ##   )
+##   )
+##   x
+## }
 
-## @export
-robonomist_data <- function(x = new_data_frame(),
-                            id = new_robonomist_id(),
-                            title = character(),
-                            vintage = new_datetime()
-                            ) {
-  x <- as_tibble(x, .name_repair = "minimal")
-  ## x <- vec_cast(x, new_data_frame())
-  id <- vec_cast(id, new_robonomist_id())
-  vintage <- vec_cast(vintage, new_datetime())
-  title <- vec_cast(title, character())
-  new_robonomist_data(x, id, title, vintage) |>
-    validate_robonomist_data()
-}
+## ## @export
+## robonomist_data <- function(x = new_data_frame(),
+##                             id = new_robonomist_id(),
+##                             title = character(),
+##                             vintage = new_datetime()
+##                             ) {
+##   x <- as_tibble(x, .name_repair = "minimal")
+##   ## x <- vec_cast(x, new_data_frame())
+##   id <- vec_cast(id, new_robonomist_id())
+##   vintage <- vec_cast(vintage, new_datetime())
+##   title <- vec_cast(title, character())
+##   new_robonomist_data(x, id, title, vintage) |>
+##     validate_robonomist_data()
+## }
 
 ## #' @export
 ## format.robonomist_vintage <- function(x, ...) {

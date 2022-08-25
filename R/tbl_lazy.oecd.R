@@ -111,12 +111,12 @@ filter.tbl_lazy_oecd <- function(.data, ..., .preserve = FALSE) {
   .data
 }
 
-#' @export
-#' @importFrom tibble tbl_sum
-tbl_sum.robonomist_oecd_data <- function(x, ...) {
-  header <- NextMethod()
-  y <- attr(x, "oecd_title", exact = FALSE)
-  if (!is.null(y))
-    header <- c(header, Title = unname(y))
-}
+## #' @export
+## #' @importFrom tibble tbl_sum
+## tbl_sum.robonomist_oecd_data <- function(x, ...) {
+##   header <- NextMethod()
+##   y <- attr(x, "oecd_title", exact = FALSE)
+##   if (!is.null(y))
+##     header <- c(header, Title = unname(y))
+## }
 

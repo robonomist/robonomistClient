@@ -78,7 +78,11 @@ print.robonomist_datasources <- function(x, n = 50, ...) {
 #' @importFrom tibble tbl_sum
 tbl_sum.robonomist_data <- function(x, ...) {
   default_header <- NextMethod()
-  c("Robonomist id" = crayon::cyan(attr(x, "robonomist_id")), default_header)
+  c("Robonomist id" = crayon::cyan(attr(x, "robonomist_id")),
+    "Title" = attr(x, "robonomist_title"),
+    "Vintage" = if(is.na(default_header["Last updated"]))
+      as.character(attr(x, "robonomist_vintage")),
+    default_header)
 }
 
 ## px
@@ -86,27 +90,12 @@ tbl_sum.robonomist_data <- function(x, ...) {
 #' @export
 #' @importFrom tibble tbl_sum
 tbl_sum.px <- function(x, ...) {
-
   header <- NextMethod()
-
-  lang <- attr(x, "output_language")
-  if (is.null(lang)) lang <- 1L
-  y <- attr(x, "description")[lang]
-  z <- attr(x, "contents")[lang]
-  if (!is.null(y)) {
-    header <- c(header, Title = unname(y))
-  } else if (!is.null(z)) {
-    header <- c(header, Title = unname(z))
-  }
-  y <- attr(x, "last-updated")[[lang]][[1]]
-  if (!is.null(y))
-    header <- c(header, `Last updated` = as.character(y))
-
-  y <- attr(x, "next-update")
-  if (!is.null(y))
-    header <- c(header, `Next update` = as.character(y))
-
-  header
+  lang <- attr(x, "output_language") %||% 1L
+  ## if (is.null(lang)) lang <- 1L
+  c("Last updated" = as.character(attr(x, "last-updated")[[lang]][[1]]),
+    "Next update" = as.character(attr(x, "next-update")),
+    header)
 }
 
 ## eurostat
@@ -114,16 +103,11 @@ tbl_sum.px <- function(x, ...) {
 #' @export
 #' @importFrom tibble tbl_sum
 tbl_sum.eurostat <- function(x, ...) {
-
   header <- NextMethod()
-
-  c(header,
-    Title = attr(x, "title"),
-    `Last updated` = as.character(attr(x, "robonomist_vintage")),
-    `Time frame` = if (!is.null(y <- attr(x, "time_frame_code"))) {
-      paste(y, collapse = "-")
-    }
-    )
+  tf <- if (!is.null(y <- attr(x, "time_frame_code"))) {
+    paste(y, collapse = "-")
+  }
+  c(`Time frame` = tf, header)
 }
 
 
