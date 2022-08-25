@@ -4,7 +4,7 @@
 #' @export
 #' @importFrom tibble tbl_sum
 tbl_sum.robonomist_search <- function(x, ...) {
-  cli::cli_h3("Robonomist Database search results"); NULL
+  if (nrow(x) > 0) "Robonomist Database search results"
 }
 
 #' @export
@@ -46,13 +46,13 @@ print.robonomist_search <- function(x, n = 30, ...) {
 #' @export
 #' @importFrom tibble tbl_sum
 tbl_sum.robonomist_datasources <- function(x, ...) {
-  cli::cli_h3("Robonomist Server Datasources"); NULL
+  "Robonomist Server Datasources"
 }
 
 #' @export
 #' @importFrom pillar ctl_new_pillar pillar_component new_pillar_component
 ctl_new_pillar.robonomist_datasources <- function(controller, x, width, ..., title = NULL) {
-  if (title == "dataset") {
+  if (!is.null(title) && title == "dataset") {
     extent <- pillar::get_max_extent(x)
     y <- new_pillar_component(
       list(pillar::new_pillar_shaft_simple(crayon::blue(x))),

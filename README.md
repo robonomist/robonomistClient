@@ -7,7 +7,7 @@ A client package for R to access Robonomist Data Server
 
 The `robonomistClient` package allows easy and fast access to various
 datasources connecting to a Robonomist Data Server. Currently the client
-package provides access to 73 612 up-to-date data tables from 45
+package provides access to 74 684 up-to-date data tables from 47
 different datasources with 9 different languages.
 
 Some of the integrated datasources:
@@ -27,11 +27,13 @@ Some of the integrated datasources:
   - Helsingin seudun aluesarjat -tilastotietokanta
   - Helsingin ympäristötilasto
   - Fingrid
+  - TutkiHallintoa.fi (Valtiokonttori)
   - Eurostat
   - European Commission Business and consumer surveys
   - World Bank
   - OECD
-  - ECB Statistical data warehouse
+  - European Central Bank (ECB) Statistical data warehouse
+  - Deutsche Bundesbank time series database
   - COVID-19 data (THL Epirapo, ECDC, and covid19datahub.io)
   - Statistics Sweden
   - The Swedish National Institute of Economic Research
@@ -77,11 +79,7 @@ List all available datasources:
 datasources()
 ```
 
-    ## ⠙ Requesting datasources                        ℹ Object retrieved from client cache (valid until 2022-05-13 18:07:07).
-    ## ⠙ Requesting datasources✔ Requesting datasources [14ms]
-    ## 
-    ## ── Robonomist Server Datasources
-
+    ## # Robonomist Server Datasources
     ##    dataset            title                                                     
     ##  1 StatFin            Statistics Finland, StatFin database                      
     ##  2 StatFin_Passiivi   Statistics Finland, StatFin archive database              
@@ -124,11 +122,14 @@ datasources()
     ## 39 nordic             Nordic Statistics                                         
     ## 40 unctad             United Nations Conference on Trade and Development        
     ## 41 eia                U.S. Energy Information Administration database           
-    ## 42 fred               FRED, Federal Reserve Economic Data, St. Louis Fed        
-    ## 43 fao                Food and Agriculture Organization of the United Nations   
-    ## 44 fingrid            Fingrid avoin data                                        
-    ## 45 tidy               Robonomistin jalostetut tietokannat                       
+    ## 42 eia                U.S. Energy Information Administration database           
+    ## 43 fred               FRED, Federal Reserve Economic Data, St. Louis Fed        
+    ## 44 fao                Food and Agriculture Organization of the United Nations   
+    ## 45 fingrid            Fingrid avoin data                                        
+    ## 46 tutkihallintoa     Tutkihallintoa.fi, Valtiokonttori                         
+    ## 47 tidy               Robonomistin jalostetut tietokannat                       
     ## # … with 1 more variable: languages <list>
+    ## # ℹ Use `colnames()` to see all variable names
 
 The `data` function is convenient way to search and get data tables.
 Print all available data tables:
@@ -137,10 +138,7 @@ Print all available data tables:
 data()
 ```
 
-    ## ⠙ Requesting data⠹ Requesting data✔ Requesting data [1.8s]
-    ## 
-    ## ── Robonomist Database search results
-
+    ## # Robonomist Database search results
     ##    id                                      title                           lang 
     ##    <r_id>                                  <chr>                           <chr>
     ##  1 StatFin/adopt/statfin_adopt_pxt_11lv.px Adoptiot muuttujina Vuosi, Syn… fi   
@@ -173,7 +171,8 @@ data()
     ## 28 StatFin/akay/statfin_akay_pxt_011.px    011 -- Tid som använts till at… sv   
     ## 29 StatFin/akay/statfin_akay_pxt_011.px    011 -- Time used for reading b… en   
     ## 30 StatFin/akay/statfin_akay_pxt_012.px    012 -- Kulttuuritilaisuuksissa… fi   
-    ## # … with 132,637 more rows
+    ## # … with 134,493 more rows
+    ## # ℹ Use `print(n = ...)` to see more rows
 
 To get a specific data table, use the tables id.
 
@@ -181,13 +180,11 @@ To get a specific data table, use the tables id.
 data("StatFin/synt/statfin_synt_pxt_12dx.px")
 ```
 
-    ## ⠙ Requesting data✔ Requesting data [136ms]
-
     ## # Robonomist id: StatFin/synt/statfin_synt_pxt_12dx.px
-    ## # A tibble:      2,992 × 3
-    ## # Title:         12dx -- Väestönmuutokset ja väkiluku, 1749-2020
-    ## # Last updated:  2021-06-18 08:00:00
+    ## # Title:         Väestönmuutokset muuttujina Vuosi ja Tiedot
+    ## # Last updated:  2022-05-27 08:00:00
     ## # Next update:   2022-06-17 08:00:00
+    ## # A tibble:      3,003 × 3
     ##    Vuosi Tiedot                     value
     ##    <chr> <chr>                      <dbl>
     ##  1 1749  Elävänä syntyneet          16700
@@ -200,7 +197,8 @@ data("StatFin/synt/statfin_synt_pxt_12dx.px")
     ##  8 1749  Solmitut avioliitot         3900
     ##  9 1749  Avioerot                      NA
     ## 10 1749  Kokonaismuutos                NA
-    ## # … with 2,982 more rows
+    ## # … with 2,993 more rows
+    ## # ℹ Use `print(n = ...)` to see more rows
 
 ## More information
 

@@ -36,11 +36,13 @@ Some of the integrated datasources:
 * Helsingin seudun aluesarjat -tilastotietokanta
 * Helsingin ympäristötilasto
 * Fingrid
+* TutkiHallintoa.fi (Valtiokonttori)
 * Eurostat
 * European Commission Business and consumer surveys
 * World Bank
 * OECD
-* ECB Statistical data warehouse
+* European Central Bank (ECB) Statistical data warehouse
+* Deutsche Bundesbank time series database
 * COVID-19 data (THL Epirapo, ECDC, and covid19datahub.io)
 * Statistics Sweden
 * The Swedish National Institute of Economic Research
