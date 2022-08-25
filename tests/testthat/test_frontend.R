@@ -6,7 +6,9 @@ test_that("Frontend works remotely", {
   expect_type(data_metadata(id), "list")
   expect_s3_class(data_search(id), "robonomist_search")
   expect_s3_class(data(), "robonomist_search")
+  expect_s3_class(data("flknglknglnd"), "robonomist_search")
   expect_s3_class(datasources(), "robonomist_datasources")
+  expect_output(print(datasources()))
   expect_s3_class(data_get(id), "robonomist_data")
   expect_s3_class(data(id), "robonomist_data")
   expect_s3_class(data("tidy/jali"), "robonomist_data")
@@ -22,4 +24,3 @@ test_that("reconnect", {
   expect_true(disconnect())
   expect_s3_class(data(), "tbl_df")
 })
-
