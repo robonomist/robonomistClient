@@ -65,7 +65,7 @@ devtools::install_github("robonomist/robonomistClient")
 ## Getting started
 
 Once installed, set the hostname of your Robonomist Data Server and
-connnect with `set_robonomist_server` function. Then you can start
+connect with `set_robonomist_server` function. Then you can start
 exploring the database.
 
 ``` r
