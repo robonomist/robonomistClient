@@ -27,7 +27,8 @@ new_robonomist_id <- function(x = character()) {
 validate_robonomist_id <- function(x) {
   stopifnot(
     nchar(x) > 2,
-    !grepl("(\u00a7| |#)", x)
+    !grepl("(\u00a7| |#)", x),
+    grepl("/", x)
   )
 }
 
