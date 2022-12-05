@@ -32,14 +32,13 @@ laaja_kuutio <-
     Tiedot %in% c("Kerrostaloissa asuvat asuntokunnat, %", "Väkiluku"),
   ) %>%
   group_by(`Alue 2021`, Tiedot) %>%
-  filter(time == max(time)) %>%
-  select(`Alue 2021`, Tiedot, value) %>%
-  pivot_wider(names_from = Tiedot)
-inner_join(
-  data("tidy/thl_kunnat"),
-  laaja_kuutio,
-  by = c("Alue" = "Alue 2021")
-) %>%
+    filter(time == max(time)) %>%
+    select(`Alue 2021`, Tiedot, value) %>%
+    pivot_wider(names_from = Tiedot)
+tartunnat <-
+  data("tidy/thl_kunnat") |>
+  filter(time == max(time))
+inner_join(tartunnat, laaja_kuutio, by = c("Alue" = "Alue 2021")) %>%
   mutate(Ilmaantuvuus = 100*1000*value/Väkiluku) %>%
   drop_na() %>%
   ggplot(aes(`Kerrostaloissa asuvat asuntokunnat, %`, Ilmaantuvuus)) +

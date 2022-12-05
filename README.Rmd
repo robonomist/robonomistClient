@@ -57,6 +57,7 @@ Some of the integrated datasources:
 * Nordic Statistics Database
 * U.S. Energy Information Administration database
 * FRED, Federal Reserve Economic Data, St. Louis Fed
+* Entso-E Transperancy Platform
 * Robonomist's curated tidy data tables
 
 To setup a Robonomist Data Server for your organization, please contact <team@robonomist.com>.
