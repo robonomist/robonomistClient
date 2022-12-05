@@ -9,8 +9,7 @@ if (isTRUE(getOption("robonomist.test.local"))) {
   set_robonomist_server(NULL)
 } else if (!is.null(getOption("robonomist.test.server"))) {
   set_robonomist_server(
-    host = getOption("robonomist.test.server"),
-    access_token = getOption("robonomist.test.access_token", "")
+    host = getOption("robonomist.test.server")
   )
 } else if (requireNamespace("robonomistServer")) {
   message("Starting test server...")
@@ -18,8 +17,7 @@ if (isTRUE(getOption("robonomist.test.local"))) {
   rb <- start_test_server(port)
   withr::defer(rb$kill(), teardown_env())
   set_robonomist_server(
-    host = paste0("127.0.0.1:", port),
-    access_token = "abc"
+    host = paste0("127.0.0.1:", port)
   )
   Sys.sleep(3)
 } else {
