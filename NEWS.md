@@ -1,3 +1,7 @@
+# robonomistClient 2.2.9
+
+* Switch to with dplyr 1.1.0
+
 # robonomistClient 2.2.8
 
 * Print more details for robonomist_data

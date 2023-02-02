@@ -63,15 +63,20 @@ tbl_format_footer.tbl_lazy_oecd_v3_printout <- function(x, setup, ...) {
 #' @importFrom dplyr filter
 #' @export
 filter.tbl_lazy_oecd_v3 <- function(.data, ..., .preserve = FALSE) {
-  ## dots <- rlang::enexprs(...)
   .data$ops <- .data$ops |> append(
     list(function(.data) {
       filter(.data, ..., .preserve = .preserve)
     })
   )
-  loc <- dplyr:::filter_rows(expand_tbl_lazy_oecd_v3(.data), ..., caller_env = rlang::caller_env())
+  loc <-
+    dplyr:::dplyr_quosures(...) |>
+    purrr::map(rlang::eval_tidy,
+               data = expand_tbl_lazy_oecd_v3(.data)) |>
+    Reduce("&", x = _)
+
+  pos <- cumsum(purrr::map_int(unname(.data$series), length))
   .data$series <-
-    purrr::map2(.data$series, cumsum(purrr::map_int(unname(.data$series), length)), ~{
+    purrr::map2(.data$series, pos, ~{
       i <- loc[(.y-length(.x)+1L):.y]
       if (any(i)) .x[i]
     }) |> purrr::compact()
