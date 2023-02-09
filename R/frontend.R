@@ -60,7 +60,7 @@ data <- function(pattern = "", dl_filter = NULL, labels = TRUE,
 #' @description
 #' `data_get()` returns data without performing searching or pattern filters. It will fail, if no match exists.
 #'
-#' @param id string, Exact table id
+#' @param id, string, Exact robonomist_id
 #' @rdname data
 #' @export
 data_get <- function(id, dl_filter = NULL, labels = TRUE, lang = NULL, na.rm = FALSE, tidy_time = NULL, ...) {
@@ -98,7 +98,7 @@ data_vintage <- function(id) {
 #' The output of this function is likely to change. Currently works only with px-based tables.
 #'
 #' @param id, Exact table id
-#' @param lang Two-letter language code, e.g. "en" or "sv".
+#' @param lang, Two-letter language code, e.g. "en" or "sv".
 #' @return List of metadata
 #'
 #' @export
@@ -113,9 +113,18 @@ datasources <- function() {
   do_request("datasources", list())
 }
 
+#' Structured menu of available datasources and data tables
+#'
+#' @param datasource, character, Datasource name
+#' @param lang, Two-letter language code, e.g. "en" or "sv".
+#' @return Nested list of datasource_menu and datasource_menu_item objects
+#' @export
+datasource_menu <- function(datasource = NULL, lang = NULL) {
+  do_request("datasource_menu", as.list(environment()))
+}
+
 #' @keywords internal
 do_request <- function(fun, args) {
-
   if (!is.null(getOption("robonomist.server"))) {
     connection$send(fun, args)
   } else if (requireNamespace("robonomistServer")) {

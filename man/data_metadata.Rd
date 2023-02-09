@@ -9,7 +9,7 @@ data_metadata(id, lang = NULL)
 \arguments{
 \item{id, }{Exact table id}
 
-\item{lang}{Two-letter language code, e.g. "en" or "sv".}
+\item{lang, }{Two-letter language code, e.g. "en" or "sv".}
 }
 \value{
 List of metadata

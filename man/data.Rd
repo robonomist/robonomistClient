@@ -43,7 +43,7 @@ data_search(pattern = "")
 
 \item{...}{Datasource-specific arguments. TODO}
 
-\item{id}{string, Exact table id}
+\item{id, }{string, Exact robonomist_id}
 }
 \description{
 \code{data()} is a convenience function that searches the database and returns

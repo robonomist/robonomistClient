@@ -22,6 +22,7 @@ if (isTRUE(getOption("robonomist.test.local"))) {
   Sys.sleep(3)
 } else {
   op_skip_test <- options(robonomist.skip.server.test = TRUE)
-  withr::defer(options(robonomist.skip.server.test = op_skip_test), teardown_env())
+  withr::defer(options(robonomist.skip.server.test = op_skip_test),
+               teardown_env())
 }
 
