@@ -16,6 +16,9 @@ test_that("Frontend works remotely", {
   expect_s3_class(data("wb/#1"), "robonomist_data")
   expect_s3_class(data("oecd/#1"), "robonomist_data")
   expect_s3_class(data("eurostat/#2"), "robonomist_data")
+  expect_s3_class(datasource_menu("StatFin"), "datasource_menu")
+  expect_s3_class(datasource_menu("StatFin", lang = "sv"), "datasource_menu")
+  expect_s3_class(datasource_menu(), "datasource_menu")
 })
 
 test_that("reconnect", {
