@@ -22,9 +22,12 @@ print.tbl_lazy_oecd <- function(x, n = 10L, ...) {
   if (has_time) {
     ## Filter out incompatible dates
     time_cols <-
-      inner_join(x$x$Frequency,
-                 select(x$x$time, date_type, time),
-                 by = c("code" = "date_type")) |>
+      inner_join(
+        x$x$Frequency,
+        select(x$x$time, date_type, time),
+        by = c("code" = "date_type"),
+        multiple = "all"
+      ) |>
       select(x$var_types["Frequency"], time)
     not_time <- setdiff(names(x$x), c("Frequency", "time"))
     n_categories <- c(purrr::map_int(x$x[not_time], nrow), nrow(time_cols))
