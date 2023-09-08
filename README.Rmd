@@ -51,6 +51,8 @@ Some of the integrated datasources:
 * Statistics Denmark
 * Statistics Iceland
 * Statistics Estonia
+* Bank for International Settlements (BIS)
+* International Monetary Fund (IMF)
 * United Nations Economic Commission for Europe Statistical Database
 * United Nations Conference on Trade and Development
 * FAO, Food and Agriculture Organization of the United Nations
