@@ -52,7 +52,7 @@ data_search(pattern = "")
 \item data if only one match is found.
 }
 
-\code{data_get()} returns data without performing searching or pattern filters. It will fail, if no match exists.
+\code{data_get()} returns data without performing searching or pattern filters. In production code it is better to use \code{data_get()} instead of \code{data()} as it slightly faster and does not depend on the search mechanism.  \code{data_get()} will result in error, if no match exists.
 
 \code{data_search()} only performs a search and returns the results.
 }
@@ -63,7 +63,7 @@ If the last variable is a date, it is used as a start date filter.
 }
 
 \section{Download filter}{
-Some datasources (e.g. ECB & Tulli) do not allow downloading full data tables, nor is it always preferred due to large table size. For these datasources the user must provide a download filter via the \code{dl_filter} argument. When the argument is left as \code{NULL}, the  \code{data} function will return a list of variables and potential values. This list can be used to construct a suitable download filter.
+Some datasources (e.g. datasets "ecb" & "tulli") do not allow downloading full data tables, nor is it always preferred due to the large large size of table. For these datasources the user must provide a download filter via the \code{dl_filter} argument. When the argument is left as \code{NULL}, the  \code{data} function will return a list of variables and potential values. This list can be used to construct a suitable download filter.
 
 Generally, \code{dl_filter} should be named list where names are variable names and values character vectors of selected values (see Examples). Alternatively, some datasources allow for a dot-separated string to define a download filter.
 }

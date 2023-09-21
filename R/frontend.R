@@ -11,7 +11,7 @@
 #' If the last variable is a date, it is used as a start date filter.
 #'
 #' @details # Download filter
-#' Some datasources (e.g. ECB & Tulli) do not allow downloading full data tables, nor is it always preferred due to large table size. For these datasources the user must provide a download filter via the `dl_filter` argument. When the argument is left as `NULL`, the  `data` function will return a list of variables and potential values. This list can be used to construct a suitable download filter.
+#' Some datasources (e.g. datasets "ecb" & "tulli") do not allow downloading full data tables, nor is it always preferred due to the large large size of table. For these datasources the user must provide a download filter via the `dl_filter` argument. When the argument is left as `NULL`, the  `data` function will return a list of variables and potential values. This list can be used to construct a suitable download filter.
 #'
 #' Generally, `dl_filter` should be named list where names are variable names and values character vectors of selected values (see Examples). Alternatively, some datasources allow for a dot-separated string to define a download filter.
 #'
@@ -58,7 +58,7 @@ data <- function(pattern = "", dl_filter = NULL, labels = TRUE,
 #' Get data for table id
 #'
 #' @description
-#' `data_get()` returns data without performing searching or pattern filters. It will fail, if no match exists.
+#' `data_get()` returns data without performing searching or pattern filters. In production code it is better to use `data_get()` instead of `data()` as it slightly faster and does not depend on the search mechanism.  `data_get()` will result in error, if no match exists.
 #'
 #' @param id, string, Exact robonomist_id
 #' @rdname data
@@ -80,7 +80,10 @@ data_search <- function(pattern = "") {
 }
 
 
-#' Vintage of table, i.e. datetime of the latest update
+#' Vintage of a table, i.e. POSIXct-class datetime of the latest update
+#'
+#' @description
+#' The vintage indicates the time when the table of was last updated, if this information is provided by the datasource, which is not allways the case. If that time of the last update is not available, the vintage will be the time of last scheduled an update for the data table. In such cases the vintage might change without any actual changes in the data, as we have reloaded the data to check if there has been any changes.
 #'
 #' @param id string, Exact table id
 #' @return named character vector. For original data tables the value will be a scalar.
@@ -108,9 +111,14 @@ data_metadata <- function(id, lang = NULL) {
 
 #' List available datasources
 #'
+#' @param lang, Two-letter language code, e.g. "en" or "sv".
 #' @export
-datasources <- function() {
-  do_request("datasources", list())
+datasources <- function(lang = NULL) {
+  if (protocol_version() >= package_version("2.9.11")) {
+    do_request("datasources", as.list(environment()))
+  } else {
+    do_request("datasources", list())
+  }
 }
 
 #' Structured menu of available datasources and data tables
@@ -125,12 +133,13 @@ datasource_menu <- function(datasource = NULL, lang = NULL) {
 
 #' @keywords internal
 do_request <- function(fun, args) {
-  if (!is.null(getOption("robonomist.server"))) {
-    connection$send(fun, args)
-  } else if (requireNamespace("robonomistServer")) {
-    do.call(fun, args, envir = robonomistServer::database)
-  } else {
-    please_set_server()
-    stop("Robonomist Data Server unavailable.", call. = FALSE)
-  }
+  switch(
+    server_mode(),
+    remote = connection$send(fun, args),
+    local = do.call(fun, args, envir = robonomistServer::database),
+    unavailable = {
+      please_set_server()
+      stop("Robonomist Data Server unavailable.", call. = FALSE)
+    }
+  )
 }

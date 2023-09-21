@@ -4,7 +4,10 @@
 \alias{datasources}
 \title{List available datasources}
 \usage{
-datasources()
+datasources(lang = NULL)
+}
+\arguments{
+\item{lang, }{Two-letter language code, e.g. "en" or "sv".}
 }
 \description{
 List available datasources
