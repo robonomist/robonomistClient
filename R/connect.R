@@ -23,7 +23,8 @@ RobonomistConnection <- R6::R6Class(
         paste0("ws://", hostname)
       }
 
-      user_agent <- paste0("R/robonomistClient/", utils::packageVersion("robonomistClient"))
+      user_agent <-
+        paste0("R/robonomistClient/", utils::packageVersion("robonomistClient"))
 
       private$ws <- websocket::WebSocket$new(
         url,
@@ -54,7 +55,7 @@ RobonomistConnection <- R6::R6Class(
       private$ws$onClose(function(event) {
         if (!is.null(private$heart_beat_loop))
           later::destroy_loop(private$heart_beat_loop)
-        if(event$reason != "")
+        if (event$reason != "")
           cli_alert_warning("Client disconnected with code {event$code} and reason {event$reason}")
       })
 
@@ -129,7 +130,7 @@ RobonomistConnection <- R6::R6Class(
           cli_alert_success("{.pkg robonomistClient} disconnected successfully")
         }
       }
-      .private$server_version <- NULL
+      private$.server_version <- NULL
       invisible(TRUE)
     },
 

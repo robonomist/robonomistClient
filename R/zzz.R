@@ -42,7 +42,8 @@ set_robonomist_server <- function(hostname = getOption("robonomist.server"),
   hostname <- hostname %||% ""
   options(robonomist.server = hostname)
   options(robonomist.access.token = access_token)
-  switch(server_mode(),
+  switch(
+    server_mode(),
     remote = {
       cli_progress_step("Set to connect {hostname}")
       connection$set(hostname, access_token)
@@ -64,6 +65,7 @@ set_robonomist_server <- function(hostname = getOption("robonomist.server"),
       }
     }
   )
+  invisible(NULL)
 }
 
 #' Disconnect from Robonomist Data Server
@@ -75,9 +77,9 @@ disconnect <- function() {
 
 #' @keywords internal
 server_mode <- function() {
-  if (nzchar(getOption("robonomist.server"))) {
+  if (nzchar(getOption("robonomist.server", ""))) {
     "remote"
-  } else if (getOption("robonomist.server.installed")) {
+  } else if (getOption("robonomist.server.installed", TRUE)) {
     "local"
   } else {
     "unavailable"
