@@ -91,7 +91,7 @@ RobonomistConnection <- R6::R6Class(
     establish_connection = function() {
 
       if (is.null(private$ws)) {
-        hostname <- hostname = getOption("robonomist.server")
+        hostname <- getOption("robonomist.server")
         if (!is.character(hostname) || !nzchar(hostname)) {
           self$set(hostname, getOption("robonomist.access.token"))
         } else {
