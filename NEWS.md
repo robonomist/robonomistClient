@@ -1,6 +1,6 @@
 # robonomistClient 2.2.10
 
-* Add `lang` parameter to datasoruces function()
+* Add `lang` parameter to datasources function
 
 # robonomistClient 2.2.9
 
