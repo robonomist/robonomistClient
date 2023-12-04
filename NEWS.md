@@ -1,3 +1,7 @@
+# robonomistClient 2.2.10
+
+* Add `lang` parameter to datasoruces function()
+
 # robonomistClient 2.2.9
 
 * Switch to with dplyr 1.1.0

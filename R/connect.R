@@ -1,26 +1,3 @@
-#' Set the hostname of Robonomist Data Server
-#'
-#' @param hostname character, Set the hostname in format "data.example.com". To use secure websocket, also set the protocol, e.g. "wss://data.example.com".
-#' @param access_token, character, Bearer token
-#'
-#' @export
-set_robonomist_server <- function(hostname = getOption("robonomist.server"),
-                                  access_token = getOption("robonomist.access.token")) {
-  options(robonomist.server = hostname)
-  options(robonomist.access.token = access_token)
-  if (!is.null(hostname)) {
-    cli_progress_step("Set to connect {hostname}")
-    connection$set(hostname, access_token)
-  }
-}
-
-#' Disconnect from Robonomist Data Server
-#'
-#' @export
-disconnect <- function() {
-  connection$disconnect()
-}
-
 RobonomistConnection <- R6::R6Class(
   "RobonomistConnection",
 
@@ -46,7 +23,8 @@ RobonomistConnection <- R6::R6Class(
         paste0("ws://", hostname)
       }
 
-      user_agent <- paste0("R/robonomistClient/", utils::packageVersion("robonomistClient"))
+      user_agent <-
+        paste0("R/robonomistClient/", utils::packageVersion("robonomistClient"))
 
       private$ws <- websocket::WebSocket$new(
         url,
@@ -61,7 +39,7 @@ RobonomistConnection <- R6::R6Class(
 
       private$ws$onMessage(function(event) {
         msg <- qs::qdeserialize(event$data)
-        if(inherits(msg, "cli_message")) {
+        if (inherits(msg, "cli_message")) {
           cli:::cli_server_default(msg)
         } else if (inherits(msg, "warning")) {
           cli_warn(iconv(conditionMessage(msg), "UTF8"))
@@ -77,7 +55,7 @@ RobonomistConnection <- R6::R6Class(
       private$ws$onClose(function(event) {
         if (!is.null(private$heart_beat_loop))
           later::destroy_loop(private$heart_beat_loop)
-        if(event$reason != "")
+        if (event$reason != "")
           cli_alert_warning("Client disconnected with code {event$code} and reason {event$reason}")
       })
 
@@ -115,7 +93,7 @@ RobonomistConnection <- R6::R6Class(
         for (attempt in 1:3) {
           self$connect()
           if (private$state() == "Open") break
-          sleep <- 5*attempt
+          sleep <- 5 * attempt
           cli_alert_warning("Failed to connect. Retrying in {sleep} seconds.")
           self$set(self$hostname, self$access_token)
           Sys.sleep(sleep)
@@ -136,8 +114,11 @@ RobonomistConnection <- R6::R6Class(
         later::run_now(timeoutSecs = 1)
       }
       if ((private$state() == "Open")) {
-        server_version <- self$send(fun = 'server_version', args = list(), message = FALSE)
-        cli_progress_step("Connected successfully to {server_version}")
+        private$.server_version <-
+          self$send(fun = 'server_version', args = list(), message = FALSE) |>
+          gsub("[^0-9.]", "", x = _) |>
+          package_version()
+        cli_progress_step("Connected successfully to robonomistServer {private$.server_version}")
         private$heart_beat_start()
       }
     },
@@ -149,6 +130,7 @@ RobonomistConnection <- R6::R6Class(
           cli_alert_success("{.pkg robonomistClient} disconnected successfully")
         }
       }
+      private$.server_version <- NULL
       invisible(TRUE)
     },
 
@@ -175,12 +157,20 @@ RobonomistConnection <- R6::R6Class(
         }
       })
       private$cache$data
+    },
+
+    server_version = function() {
+      if (is.null(private$.server_version)) {
+        self$establish_connection()
+      }
+      private$.server_version
     }
   ),
 
   private = list(
     ws = NULL,
     cache = Cache$new(),
+    .server_version = NULL,
     error_flag = FALSE,
     state = function() {
       if (is.null(private$ws)) {
