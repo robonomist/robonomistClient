@@ -7,8 +7,8 @@ A client package for R to access Robonomist Data Server
 
 The `robonomistClient` package allows easy and fast access to various
 datasources connecting to a Robonomist Data Server. Currently the client
-package provides access to 80 244 up-to-date data tables from 50
-different datasources with 9 different languages.
+package provides access to 95 476 up-to-date data tables from 58
+different datasources with 13 different languages.
 
 Some of the integrated datasources:
 
@@ -86,54 +86,55 @@ datasources()
     ##    dataset                  title                                       languages          
     ##  1 StatFin                  Statistics Finland, StatFin database        c("fi", "sv", "en")
     ##  2 StatFin_Passiivi         Statistics Finland, StatFin archive databa… c("fi", "sv", "en")
-    ##  3 Vero                     Verohallinnon tilastotietokanta             c("fi", "sv", "en")
+    ##  3 Vero                     Finnish Tax Administration statistical dat… c("fi", "sv", "en")
     ##  4 ec                       European Commission's Business and Consume… en                 
-    ##  5 kunnat                   Kuntien avainluvut (Tilastokeskus)          c("fi", "sv", "en")
-    ##  6 kunnat                   Kuntien ja kuntayhtymien raportoimat talou… c("fi", "sv", "en")
-    ##  7 paavo                    Postinumeroalueittainen avoin tieto -tieto… c("fi", "sv", "en")
+    ##  5 kunnat                   Key statistics of municipalities, Statisti… c("fi", "sv", "en")
+    ##  6 kunnat                   Financial data reported by municipalities … c("fi", "sv", "en")
+    ##  7 paavo                    Statistics Finland's Paavo database         c("fi", "sv", "en")
     ##  8 tulli                    Finnish Customs, Uljas Statistical Database c("fi", "sv", "en")
-    ##  9 luke                     Luonnonvarakeskus LUKE:n tilastotietokanta  c("fi", "sv", "en")
-    ## 10 etk                      Eläketurvakeskuksen tietokanta              c("fi", "sv", "en")
+    ##  9 luke                     Statistics database of Natural Resources I… c("fi", "sv", "en")
+    ## 10 etk                      Finnish Centre for Pensions' statistical d… c("fi", "sv", "en")
     ## 11 eurostat                 Eurostat database                           c("en", "de", "fr")
     ## 12 ecb                      ECB Statistical Data Warehouse              en                 
-    ## 13 bundesbank               Deutche Bundesbank time series database     c("en", "de")      
+    ## 13 bundesbank               Deutsche Bundesbank time series database    c("en", "de")      
     ## 14 oecd                     OECD database                               en                 
     ## 15 oecd3                    OECD database (SDMX-JSON API)               en                 
     ## 16 wb                       World Bank Open Data                        en                 
-    ## 17 hsa                      Helsingin seudun aluesarjat -tilastotietok… fi                 
-    ## 18 helymp                   Helsingin ympäristötilasto                  c("fi", "en", "sv")
-    ## 19 helhyv                   Helsingin hyvinvointitilastot               fi                 
+    ## 17 hsa                      Greater Helsinki Open Statistical Database… c("fi", "sv", "en")
+    ## 18 helymp                   Helsinki environmental statistics           c("fi", "en", "sv")
+    ## 19 helhyv                   Helsinki wellbeing statistics               fi                 
     ## 20 nordstat                 Nordstat                                    c("fi", "en", "sv")
     ## 21 covid                    European Centre for Disease Prevention and… en                 
     ## 22 vipunen                  Vipunen, Education Statistics Finland       fi                 
     ## 23 epirapo                  THL Epirapo COVID-19 database               fi                 
-    ## 24 sotkanet                 THL Sotkanet                                c("fi", "en", "sv")
-    ## 25 maakoto                  Maahanmuuttajat ja kotoutuminen -tietokant… c("fi", "sv", "en")
-    ## 26 koto                     Kototietokanta (Tilastokeskus)              c("fi", "sv", "en")
-    ## 27 toimipaikkalaskuri       Toimipaikkalaskuri-tietokanta (Tilastokesk… fi                 
-    ## 28 kokeelliset              Tilastokeskuksen kokeelliset tilastot       c("fi", "sv", "en")
-    ## 29 traficom                 Traficomin tilastotietokanta (Tilastokesku… c("fi", "sv", "en")
-    ## 30 tieliikenneonnettomuudet Tieliikenneonnettomuudet-tietokanta (Tilas… c("fi", "sv", "en")
-    ## 31 rudolf                   Tilastopalvelu Rudolf (Business Finland)    c("fi", "en")      
+    ## 24 sotkanet                 Sotkanet indicator bank of the Finnish Ins… c("fi", "en", "sv")
+    ## 25 maakoto                  Immigrants and integration statistics, Sta… c("fi", "sv", "en")
+    ## 26 koto                     Integration database, Finnish Ministry of … c("fi", "sv", "en")
+    ## 27 toimipaikkalaskuri       Toimipaikkalaskuri database, Statitstics F… fi                 
+    ## 28 kokeelliset              Statistics Finland's experimental statisti… c("fi", "sv", "en")
+    ## 29 traficom                 Traficom statistics database                c("fi", "sv", "en")
+    ## 30 tieliikenneonnettomuudet Road traffic accidents statistical database c("fi", "sv", "en")
+    ## 31 rudolf                   Rudolf statistical database, Business Finl… c("fi", "en")      
     ## 32 se                       Statistics Sweden                           c("en", "sv")      
     ## 33 konj                     The Swedish National Institute of Economic… c("en", "sv")      
-    ## 34 sjv                      The Swedish Agricultural Agency             sv                 
-    ## 35 no                       Statistics Norway                           c("en", "no")      
-    ## 36 dk                       Statistics Denmark                          c("en", "da")      
-    ## 37 is                       Statistics Iceland                          c("en", "is")      
-    ## 38 ee                       Statistics Estonia                          c("en", "et")      
-    ## 39 unece                    United Nations Economic Commission for Eur… en                 
-    ## 40 nordic                   Nordic Statistics                           en                 
-    ## 41 unctad                   United Nations Conference on Trade and Dev… en                 
-    ## 42 eia                      U.S. Energy Information Administration dat… en                 
-    ## 43 fred                     FRED, Federal Reserve Economic Data, St. L… en                 
-    ## 44 fao                      Food and Agriculture Organization of the U… en                 
-    ## 45 fingrid                  Fingrid avoin data                          c("fi", "en")      
-    ## 46 tutkihallintoa           Tutkihallintoa.fi, Valtiokonttori           fi                 
-    ## 47 tidy                     Robonomistin jalostetut tietokannat         c("fi", "en")      
-    ## 48 entsoe                   ENTSO-E Transperancy Platform               en                 
-    ## 49 imf                      IMF                                         en                 
-    ## 50 bis                      Bank for International Settlements (BIS) D… en                 
+    ## 34 konj                     The Swedish National Institute of Economic… c("en", "sv")      
+    ## 35 sjv                      The Swedish Board of Agriculture            sv                 
+    ## 36 fohm                     The Public Health Agency of Sweden          c("en", "sv")      
+    ## 37 no                       Statistics Norway                           c("en", "no")      
+    ## 38 dk                       Statistics Denmark                          c("en", "da")      
+    ## 39 is                       Statistics Iceland                          c("en", "is")      
+    ## 40 ee                       Statistics Estonia                          c("en", "et")      
+    ## 41 lv                       Statistics Latvia                           c("en", "lv")      
+    ## 42 mk                       State Statistical Office of the Republic o… c("en", "mk")      
+    ## 43 md                       Statistics Moldova                          c("en", "ro")      
+    ## 44 si                       Statistics Slovenia                         c("en", "sl")      
+    ## 45 is                       Statistics Åland                            c("en", "sv")      
+    ## 46 unece                    United Nations Economic Commission for Eur… en                 
+    ## 47 nordic                   Nordic Statistics database                  en                 
+    ## 48 unctad                   United Nations Conference on Trade and Dev… en                 
+    ## 49 eia                      U.S. Energy Information Administration dat… en                 
+    ## 50 fred                     FRED, Federal Reserve Economic Data, St. L… en                 
+    ## # ℹ 8 more rows
     ## # ℹ 2 more variables: datasource <chr>, available <lgl>
 
 The `data` function is convenient way to search and get data tables.
@@ -176,7 +177,7 @@ data()
     ## 28 StatFin/akay/statfin_akay_pxt_010.px    010 -- Biblioteksbesök under de senaste 12 månaderna… sv   
     ## 29 StatFin/akay/statfin_akay_pxt_010.px    010 -- Visiting the library during the past 12 month… en   
     ## 30 StatFin/akay/statfin_akay_pxt_011.px    011 -- Lukemiseen käytetty aika sukupuolen ja iän mu… fi   
-    ## # ℹ 141,417 more rows
+    ## # ℹ 167,749 more rows
 
 To get a specific data table, use the tables id.
 
