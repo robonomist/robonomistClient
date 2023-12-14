@@ -108,25 +108,3 @@ Allowed values for `aggregation_method`:
 * sum = Sum
 * eop = End of Period
 
-## U.S. Energy Information Administration (EIA) database
-
-List available data tables:
-
-```{r}
-data("eia/")
-```
-
-Get data tables:
-
-```{r}
-data("eia/NG")
-```
-
-You can use `data_get()` to fetch individual time series. Time series codes can be found from the [EIA API Query Browser](https://www.eia.gov/opendata/qb.php).
-
-```{r}
-data_get("eia/NG.N3010AL2.A")
-```
-
-
-

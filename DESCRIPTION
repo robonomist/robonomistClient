@@ -42,6 +42,8 @@ Suggests:
     withr,
     parallelly,
     robonomistServer,
+    roboplotr,
     testthat (>= 3.0.0)
+Remotes: robonomist/roboplotr
 Config/testthat/edition: 3
 VignetteBuilder: knitr

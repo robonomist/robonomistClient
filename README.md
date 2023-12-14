@@ -7,8 +7,8 @@ A client package for R to access Robonomist Data Server
 
 The `robonomistClient` package allows easy and fast access to various
 datasources connecting to a Robonomist Data Server. Currently the client
-package provides access to 80 244 up-to-date data tables from 50
-different datasources with 9 different languages.
+package provides access to 95 606 up-to-date data tables from 58
+different datasources with 13 different languages.
 
 Some of the integrated datasources:
 
@@ -83,58 +83,59 @@ datasources()
 ```
 
     ## # Robonomist Server Datasources
-    ##    dataset                  title                                       languages          
-    ##  1 StatFin                  Statistics Finland, StatFin database        c("fi", "sv", "en")
-    ##  2 StatFin_Passiivi         Statistics Finland, StatFin archive databa… c("fi", "sv", "en")
-    ##  3 Vero                     Verohallinnon tilastotietokanta             c("fi", "sv", "en")
-    ##  4 ec                       European Commission's Business and Consume… en                 
-    ##  5 kunnat                   Kuntien avainluvut (Tilastokeskus)          c("fi", "sv", "en")
-    ##  6 kunnat                   Kuntien ja kuntayhtymien raportoimat talou… c("fi", "sv", "en")
-    ##  7 paavo                    Postinumeroalueittainen avoin tieto -tieto… c("fi", "sv", "en")
-    ##  8 tulli                    Finnish Customs, Uljas Statistical Database c("fi", "sv", "en")
-    ##  9 luke                     Luonnonvarakeskus LUKE:n tilastotietokanta  c("fi", "sv", "en")
-    ## 10 etk                      Eläketurvakeskuksen tietokanta              c("fi", "sv", "en")
-    ## 11 eurostat                 Eurostat database                           c("en", "de", "fr")
-    ## 12 ecb                      ECB Statistical Data Warehouse              en                 
-    ## 13 bundesbank               Deutche Bundesbank time series database     c("en", "de")      
-    ## 14 oecd                     OECD database                               en                 
-    ## 15 oecd3                    OECD database (SDMX-JSON API)               en                 
-    ## 16 wb                       World Bank Open Data                        en                 
-    ## 17 hsa                      Helsingin seudun aluesarjat -tilastotietok… fi                 
-    ## 18 helymp                   Helsingin ympäristötilasto                  c("fi", "en", "sv")
-    ## 19 helhyv                   Helsingin hyvinvointitilastot               fi                 
-    ## 20 nordstat                 Nordstat                                    c("fi", "en", "sv")
-    ## 21 covid                    European Centre for Disease Prevention and… en                 
-    ## 22 vipunen                  Vipunen, Education Statistics Finland       fi                 
-    ## 23 epirapo                  THL Epirapo COVID-19 database               fi                 
-    ## 24 sotkanet                 THL Sotkanet                                c("fi", "en", "sv")
-    ## 25 maakoto                  Maahanmuuttajat ja kotoutuminen -tietokant… c("fi", "sv", "en")
-    ## 26 koto                     Kototietokanta (Tilastokeskus)              c("fi", "sv", "en")
-    ## 27 toimipaikkalaskuri       Toimipaikkalaskuri-tietokanta (Tilastokesk… fi                 
-    ## 28 kokeelliset              Tilastokeskuksen kokeelliset tilastot       c("fi", "sv", "en")
-    ## 29 traficom                 Traficomin tilastotietokanta (Tilastokesku… c("fi", "sv", "en")
-    ## 30 tieliikenneonnettomuudet Tieliikenneonnettomuudet-tietokanta (Tilas… c("fi", "sv", "en")
-    ## 31 rudolf                   Tilastopalvelu Rudolf (Business Finland)    c("fi", "en")      
-    ## 32 se                       Statistics Sweden                           c("en", "sv")      
-    ## 33 konj                     The Swedish National Institute of Economic… c("en", "sv")      
-    ## 34 sjv                      The Swedish Agricultural Agency             sv                 
-    ## 35 no                       Statistics Norway                           c("en", "no")      
-    ## 36 dk                       Statistics Denmark                          c("en", "da")      
-    ## 37 is                       Statistics Iceland                          c("en", "is")      
-    ## 38 ee                       Statistics Estonia                          c("en", "et")      
-    ## 39 unece                    United Nations Economic Commission for Eur… en                 
-    ## 40 nordic                   Nordic Statistics                           en                 
-    ## 41 unctad                   United Nations Conference on Trade and Dev… en                 
-    ## 42 eia                      U.S. Energy Information Administration dat… en                 
-    ## 43 fred                     FRED, Federal Reserve Economic Data, St. L… en                 
-    ## 44 fao                      Food and Agriculture Organization of the U… en                 
-    ## 45 fingrid                  Fingrid avoin data                          c("fi", "en")      
-    ## 46 tutkihallintoa           Tutkihallintoa.fi, Valtiokonttori           fi                 
-    ## 47 tidy                     Robonomistin jalostetut tietokannat         c("fi", "en")      
-    ## 48 entsoe                   ENTSO-E Transperancy Platform               en                 
-    ## 49 imf                      IMF                                         en                 
-    ## 50 bis                      Bank for International Settlements (BIS) D… en                 
-    ## # ℹ 2 more variables: datasource <chr>, available <lgl>
+    ##    dataset                  title                                               
+    ##  1 StatFin                  Statistics Finland, StatFin database                
+    ##  2 StatFin_Passiivi         Statistics Finland, StatFin archive database        
+    ##  3 Vero                     Finnish Tax Administration statistical database     
+    ##  4 ec                       European Commission's Business and Consumer Surveys 
+    ##  5 kunnat                   Key statistics of municipalities, Statistics Finland
+    ##  6 kunnat                   Financial data reported by municipalities and joint…
+    ##  7 paavo                    Statistics Finland's Paavo database                 
+    ##  8 tulli                    Finnish Customs, Uljas Statistical Database         
+    ##  9 luke                     Statistics database of Natural Resources Institute …
+    ## 10 etk                      Finnish Centre for Pensions' statistical database   
+    ## 11 eurostat                 Eurostat database                                   
+    ## 12 ecb                      ECB Statistical Data Warehouse                      
+    ## 13 bundesbank               Deutsche Bundesbank time series database            
+    ## 14 oecd                     OECD database                                       
+    ## 15 oecd3                    OECD database (SDMX-JSON API)                       
+    ## 16 wb                       World Bank Open Data                                
+    ## 17 hsa                      Greater Helsinki Open Statistical Databases, Aluesa…
+    ## 18 helymp                   Helsinki environmental statistics                   
+    ## 19 helhyv                   Helsinki wellbeing statistics                       
+    ## 20 nordstat                 Nordstat                                            
+    ## 21 covid                    European Centre for Disease Prevention and Control …
+    ## 22 vipunen                  Vipunen, Education Statistics Finland               
+    ## 23 epirapo                  THL Epirapo COVID-19 database                       
+    ## 24 sotkanet                 Sotkanet indicator bank of the Finnish Institute fo…
+    ## 25 maakoto                  Immigrants and integration statistics, Statistics F…
+    ## 26 koto                     Integration database, Finnish Ministry of Economic …
+    ## 27 toimipaikkalaskuri       Toimipaikkalaskuri database, Statitstics Finland    
+    ## 28 kokeelliset              Statistics Finland's experimental statistics        
+    ## 29 traficom                 Traficom statistics database                        
+    ## 30 tieliikenneonnettomuudet Road traffic accidents statistical database         
+    ## 31 rudolf                   Rudolf statistical database, Business Finland       
+    ## 32 se                       Statistics Sweden                                   
+    ## 33 konj                     The Swedish National Institute of Economic Research…
+    ## 34 konj                     The Swedish National Institute of Economic Research…
+    ## 35 sjv                      The Swedish Board of Agriculture                    
+    ## 36 fohm                     The Public Health Agency of Sweden                  
+    ## 37 no                       Statistics Norway                                   
+    ## 38 dk                       Statistics Denmark                                  
+    ## 39 is                       Statistics Iceland                                  
+    ## 40 ee                       Statistics Estonia                                  
+    ## 41 lv                       Statistics Latvia                                   
+    ## 42 mk                       State Statistical Office of the Republic of Macedon…
+    ## 43 md                       Statistics Moldova                                  
+    ## 44 si                       Statistics Slovenia                                 
+    ## 45 is                       Statistics Åland                                    
+    ## 46 unece                    United Nations Economic Commission for Europe Stati…
+    ## 47 nordic                   Nordic Statistics database                          
+    ## 48 unctad                   United Nations Conference on Trade and Development  
+    ## 49 eia                      U.S. Energy Information Administration database     
+    ## 50 fred                     FRED, Federal Reserve Economic Data, St. Louis Fed  
+    ## # ℹ 8 more rows
+    ## # ℹ 3 more variables: languages <list>, datasource <chr>, available <lgl>
 
 The `data` function is convenient way to search and get data tables.
 Print all available data tables:
@@ -144,39 +145,39 @@ data()
 ```
 
     ## # Robonomist Database search results
-    ##    id                                      title                                                 lang 
-    ##    <r_id>                                  <chr>                                                 <chr>
-    ##  1 StatFin/adopt/statfin_adopt_pxt_11lv.px Adoptiot muuttujina Vuosi, Syntymävaltio, Adoptiotyy… fi   
-    ##  2 StatFin/adopt/statfin_adopt_pxt_11lv.px Adoptioner efter År, Födelseland, Typ av adoption, Å… sv   
-    ##  3 StatFin/adopt/statfin_adopt_pxt_11lv.px Adoptions by Year, Country of birth, Adoption type, … en   
-    ##  4 StatFin/adopt/statfin_adopt_pxt_13qh.px Adoptiot muuttujina Vuosi, Adoptoitavan vanhemmat ja… fi   
-    ##  5 StatFin/adopt/statfin_adopt_pxt_13qh.px Adoptioner efter År, Föräldrarna till den som adopte… sv   
-    ##  6 StatFin/adopt/statfin_adopt_pxt_13qh.px Adoptions by Year, Parents of the adopted person and… en   
-    ##  7 StatFin/akay/statfin_akay_pxt_001.px    001 -- Ajankäyttö (26 lk) syksyllä                    fi   
-    ##  8 StatFin/akay/statfin_akay_pxt_001.px    001 -- Time Use (26 categories) in autumn 1979, 1987… en   
-    ##  9 StatFin/akay/statfin_akay_pxt_002.px    Ajankäyttö (26 lk) muuttujina Toiminto, Pääasialline… fi   
-    ## 10 StatFin/akay/statfin_akay_pxt_002.px    Time Use (26 categories) by Activity, Labour market … en   
-    ## 11 StatFin/akay/statfin_akay_pxt_003.px    003 -- Työllisten miesten ja naisten ajankäyttö sosi… fi   
-    ## 12 StatFin/akay/statfin_akay_pxt_003.px    003 -- Time use (26 categories) of employed men by s… en   
-    ## 13 StatFin/akay/statfin_akay_pxt_004.px    Ajankäyttö (26 lk) muuttujina Toiminto, Elinvaihe, S… fi   
-    ## 14 StatFin/akay/statfin_akay_pxt_004.px    Time Use (26 categories) by Activity, Stage in famil… en   
-    ## 15 StatFin/akay/statfin_akay_pxt_005.px    005 -- Ajankäyttö (82 lk) sukupuolen mukaan           fi   
-    ## 16 StatFin/akay/statfin_akay_pxt_005.px    005 -- Time Use (82 categories) by sex in 1987-1988,… en   
-    ## 17 StatFin/akay/statfin_akay_pxt_006.px    006 -- Ajankäyttö (82 lk) iän mukaan                  fi   
-    ## 18 StatFin/akay/statfin_akay_pxt_006.px    006 -- Time Use (82 categories) by age in 1987-1988,… en   
-    ## 19 StatFin/akay/statfin_akay_pxt_007.px    007 -- Yli 10-vuotiaiden ajankäyttö (132 lk) sukupuo… fi   
-    ## 20 StatFin/akay/statfin_akay_pxt_007.px    007 -- Time Use (132 categories) by sex in 1999-2000… en   
-    ## 21 StatFin/akay/statfin_akay_pxt_008.px    008 -- Kirjastossa käyminen 12 kuukauden aikana suku… fi   
-    ## 22 StatFin/akay/statfin_akay_pxt_008.px    008 -- Biblioteksbesök under de senaste 12 månaderna… sv   
-    ## 23 StatFin/akay/statfin_akay_pxt_008.px    008 -- Visiting the library during the past 12 month… en   
-    ## 24 StatFin/akay/statfin_akay_pxt_009.px    009 -- Kirjastossa käyminen 12 kuukauden aikana suku… fi   
-    ## 25 StatFin/akay/statfin_akay_pxt_009.px    009 -- Biblioteksbesök under de senaste 12 månaderna… sv   
-    ## 26 StatFin/akay/statfin_akay_pxt_009.px    009 -- Visiting the library during the past 12 month… en   
-    ## 27 StatFin/akay/statfin_akay_pxt_010.px    010 -- Kirjastossa käyminen 12 kuukauden aikana suku… fi   
-    ## 28 StatFin/akay/statfin_akay_pxt_010.px    010 -- Biblioteksbesök under de senaste 12 månaderna… sv   
-    ## 29 StatFin/akay/statfin_akay_pxt_010.px    010 -- Visiting the library during the past 12 month… en   
-    ## 30 StatFin/akay/statfin_akay_pxt_011.px    011 -- Lukemiseen käytetty aika sukupuolen ja iän mu… fi   
-    ## # ℹ 141,417 more rows
+    ##    id                                      title                           lang 
+    ##    <r_id>                                  <chr>                           <chr>
+    ##  1 StatFin/adopt/statfin_adopt_pxt_11lv.px Adoptiot muuttujina Vuosi, Syn… fi   
+    ##  2 StatFin/adopt/statfin_adopt_pxt_11lv.px Adoptioner efter År, Födelsela… sv   
+    ##  3 StatFin/adopt/statfin_adopt_pxt_11lv.px Adoptions by Year, Country of … en   
+    ##  4 StatFin/adopt/statfin_adopt_pxt_13qh.px Adoptiot muuttujina Vuosi, Ado… fi   
+    ##  5 StatFin/adopt/statfin_adopt_pxt_13qh.px Adoptioner efter År, Föräldrar… sv   
+    ##  6 StatFin/adopt/statfin_adopt_pxt_13qh.px Adoptions by Year, Parents of … en   
+    ##  7 StatFin/akay/statfin_akay_pxt_001.px    001 -- Ajankäyttö (26 lk) syks… fi   
+    ##  8 StatFin/akay/statfin_akay_pxt_001.px    001 -- Time Use (26 categories… en   
+    ##  9 StatFin/akay/statfin_akay_pxt_002.px    Ajankäyttö (26 lk) muuttujina … fi   
+    ## 10 StatFin/akay/statfin_akay_pxt_002.px    Time Use (26 categories) by Ac… en   
+    ## 11 StatFin/akay/statfin_akay_pxt_003.px    003 -- Työllisten miesten ja n… fi   
+    ## 12 StatFin/akay/statfin_akay_pxt_003.px    003 -- Time use (26 categories… en   
+    ## 13 StatFin/akay/statfin_akay_pxt_004.px    Ajankäyttö (26 lk) muuttujina … fi   
+    ## 14 StatFin/akay/statfin_akay_pxt_004.px    Time Use (26 categories) by Ac… en   
+    ## 15 StatFin/akay/statfin_akay_pxt_005.px    005 -- Ajankäyttö (82 lk) suku… fi   
+    ## 16 StatFin/akay/statfin_akay_pxt_005.px    005 -- Time Use (82 categories… en   
+    ## 17 StatFin/akay/statfin_akay_pxt_006.px    006 -- Ajankäyttö (82 lk) iän … fi   
+    ## 18 StatFin/akay/statfin_akay_pxt_006.px    006 -- Time Use (82 categories… en   
+    ## 19 StatFin/akay/statfin_akay_pxt_007.px    007 -- Yli 10-vuotiaiden ajank… fi   
+    ## 20 StatFin/akay/statfin_akay_pxt_007.px    007 -- Time Use (132 categorie… en   
+    ## 21 StatFin/akay/statfin_akay_pxt_008.px    008 -- Kirjastossa käyminen 12… fi   
+    ## 22 StatFin/akay/statfin_akay_pxt_008.px    008 -- Biblioteksbesök under d… sv   
+    ## 23 StatFin/akay/statfin_akay_pxt_008.px    008 -- Visiting the library du… en   
+    ## 24 StatFin/akay/statfin_akay_pxt_009.px    009 -- Kirjastossa käyminen 12… fi   
+    ## 25 StatFin/akay/statfin_akay_pxt_009.px    009 -- Biblioteksbesök under d… sv   
+    ## 26 StatFin/akay/statfin_akay_pxt_009.px    009 -- Visiting the library du… en   
+    ## 27 StatFin/akay/statfin_akay_pxt_010.px    010 -- Kirjastossa käyminen 12… fi   
+    ## 28 StatFin/akay/statfin_akay_pxt_010.px    010 -- Biblioteksbesök under d… sv   
+    ## 29 StatFin/akay/statfin_akay_pxt_010.px    010 -- Visiting the library du… en   
+    ## 30 StatFin/akay/statfin_akay_pxt_011.px    011 -- Lukemiseen käytetty aik… fi   
+    ## # ℹ 168,131 more rows
 
 To get a specific data table, use the tables id.
 
