@@ -35,7 +35,6 @@ jobs:
         with:
           extra-packages: any::pkgdown, any::tidyverse, any::writexl, local::.
           needs: website
-          dependencies: '"hard"'
 
       - name: fi_FI.UTF-8
         run: |
