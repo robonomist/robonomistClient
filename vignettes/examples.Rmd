@@ -22,7 +22,10 @@ Sys.setlocale(locale = "fi_FI.UTF-8")
 library(robonomistClient)
 library(tidyverse)
 library(roboplotr)
-set_roboplot_options(xaxis_ceiling = "years")
+set_roboplot_options(
+  xaxis_ceiling = "years",
+  modebar = c("home", "closest", "compare", "zoom", "img_n", "img_w", "data_dl")
+)
 ```
 
 ## Electricity prices in Finland
