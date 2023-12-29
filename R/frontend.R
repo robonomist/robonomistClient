@@ -25,24 +25,29 @@
 #'
 #' @examples
 #' \dontrun{
-#'  ## Return information on the data table structure
-#'  data("ecb/AME")
-#'  ## Example of download filter
-#'  data("ecb/AME", dl_filter = list(ame_ref_area = "FIN"))
+#' ## Return information on the data table structure
+#' data("ecb/AME")
+#' ## Example of download filter
+#' data("ecb/AME", dl_filter = list(ame_ref_area = "FIN"))
 #'
-#'  data(
-#'    "ecb/FM",
-#'    dl_filter = list(freq = "M",
-#'                     provider_fm_id = "EURIBOR1YD_")
-#'  )
-#'  data("ecb/FM", dl_filter = "M.U2.EUR.RT.MM.EURIBOR1YD_.HSTA")
+#' data(
+#'   "ecb/FM",
+#'   dl_filter = list(
+#'     freq = "M",
+#'     provider_fm_id = "EURIBOR1YD_"
+#'   )
+#' )
+#' data("ecb/FM", dl_filter = "M.U2.EUR.RT.MM.EURIBOR1YD_.HSTA")
 #'
-#'  data("tulli/uljas_cpa2008",
-#'       dl_filter = list("Tavaraluokitus CPA2008_2" = "*A-X",
-#'                        "Aika" = c("201505", "201506"),
-#'                        "Maa" = "=ALL",
-#'                        "Suunta" = "=FIRST 1",
-#'                        "Indikaattorit" = "=FIRST 1"))
+#' data("tulli/uljas_cpa2008",
+#'   dl_filter = list(
+#'     "Tavaraluokitus CPA2008_2" = "*A-X",
+#'     "Aika" = c("201505", "201506"),
+#'     "Maa" = "=ALL",
+#'     "Suunta" = "=FIRST 1",
+#'     "Indikaattorit" = "=FIRST 1"
+#'   )
+#' )
 #' }
 #'
 #' @export
@@ -112,13 +117,19 @@ data_metadata <- function(id, lang = NULL) {
 #' List available datasources
 #'
 #' @param lang, Two-letter language code, e.g. "en" or "sv".
+#' @param available_only, If TRUE (default), then list only those datasources which are available for the current subscription.
 #' @export
-datasources <- function(lang = NULL) {
-  if (protocol_version() >= package_version("2.9.11")) {
-    do_request("datasources", as.list(environment()))
-  } else {
-    do_request("datasources", list())
+datasources <- function(lang = NULL, available_only = TRUE) {
+  ds <-
+    if (protocol_version() >= package_version("2.9.11")) {
+      do_request("datasources", list(lang = lang))
+    } else {
+      do_request("datasources", list())
+    }
+  if (available_only) {
+    ds <- ds[ds$available, ]
   }
+  ds
 }
 
 #' Structured menu of available datasources and data tables
@@ -133,8 +144,7 @@ datasource_menu <- function(datasource = NULL, lang = NULL) {
 
 #' @keywords internal
 do_request <- function(fun, args) {
-  switch(
-    server_mode(),
+  switch(server_mode(),
     remote = connection$send(fun, args),
     local = do.call(fun, args, envir = robonomistServer::database),
     unavailable = {

@@ -70,24 +70,29 @@ Generally, \code{dl_filter} should be named list where names are variable names 
 
 \examples{
 \dontrun{
- ## Return information on the data table structure
- data("ecb/AME")
- ## Example of download filter
- data("ecb/AME", dl_filter = list(ame_ref_area = "FIN"))
+## Return information on the data table structure
+data("ecb/AME")
+## Example of download filter
+data("ecb/AME", dl_filter = list(ame_ref_area = "FIN"))
 
- data(
-   "ecb/FM",
-   dl_filter = list(freq = "M",
-                    provider_fm_id = "EURIBOR1YD_")
- )
- data("ecb/FM", dl_filter = "M.U2.EUR.RT.MM.EURIBOR1YD_.HSTA")
+data(
+  "ecb/FM",
+  dl_filter = list(
+    freq = "M",
+    provider_fm_id = "EURIBOR1YD_"
+  )
+)
+data("ecb/FM", dl_filter = "M.U2.EUR.RT.MM.EURIBOR1YD_.HSTA")
 
- data("tulli/uljas_cpa2008",
-      dl_filter = list("Tavaraluokitus CPA2008_2" = "*A-X",
-                       "Aika" = c("201505", "201506"),
-                       "Maa" = "=ALL",
-                       "Suunta" = "=FIRST 1",
-                       "Indikaattorit" = "=FIRST 1"))
+data("tulli/uljas_cpa2008",
+  dl_filter = list(
+    "Tavaraluokitus CPA2008_2" = "*A-X",
+    "Aika" = c("201505", "201506"),
+    "Maa" = "=ALL",
+    "Suunta" = "=FIRST 1",
+    "Indikaattorit" = "=FIRST 1"
+  )
+)
 }
 
 }

@@ -1,3 +1,7 @@
+# robonomistClient 2.2.12
+
+* Filter available datasources
+
 # robonomistClient 2.2.11
 
 * Improve backward compatibility
