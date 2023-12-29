@@ -28,7 +28,7 @@ data_search() only performs a search and returns the results."><meta property="o
     
     <a class="navbar-brand me-2" href="../index.html">robonomistClient</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">2.2.11</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">2.2.12</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -152,24 +152,29 @@ data_search() only performs a search and returns the results."><meta property="o
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
-<span class="r-in"><span> <span class="co">## Return information on the data table structure</span></span></span>
-<span class="r-in"><span> <span class="fu">data</span><span class="op">(</span><span class="st">"ecb/AME"</span><span class="op">)</span></span></span>
-<span class="r-in"><span> <span class="co">## Example of download filter</span></span></span>
-<span class="r-in"><span> <span class="fu">data</span><span class="op">(</span><span class="st">"ecb/AME"</span>, dl_filter <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>ame_ref_area <span class="op">=</span> <span class="st">"FIN"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co">## Return information on the data table structure</span></span></span>
+<span class="r-in"><span><span class="fu">data</span><span class="op">(</span><span class="st">"ecb/AME"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co">## Example of download filter</span></span></span>
+<span class="r-in"><span><span class="fu">data</span><span class="op">(</span><span class="st">"ecb/AME"</span>, dl_filter <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>ame_ref_area <span class="op">=</span> <span class="st">"FIN"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span> <span class="fu">data</span><span class="op">(</span></span></span>
-<span class="r-in"><span>   <span class="st">"ecb/FM"</span>,</span></span>
-<span class="r-in"><span>   dl_filter <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>freq <span class="op">=</span> <span class="st">"M"</span>,</span></span>
-<span class="r-in"><span>                    provider_fm_id <span class="op">=</span> <span class="st">"EURIBOR1YD_"</span><span class="op">)</span></span></span>
-<span class="r-in"><span> <span class="op">)</span></span></span>
-<span class="r-in"><span> <span class="fu">data</span><span class="op">(</span><span class="st">"ecb/FM"</span>, dl_filter <span class="op">=</span> <span class="st">"M.U2.EUR.RT.MM.EURIBOR1YD_.HSTA"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">data</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="st">"ecb/FM"</span>,</span></span>
+<span class="r-in"><span>  dl_filter <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    freq <span class="op">=</span> <span class="st">"M"</span>,</span></span>
+<span class="r-in"><span>    provider_fm_id <span class="op">=</span> <span class="st">"EURIBOR1YD_"</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">data</span><span class="op">(</span><span class="st">"ecb/FM"</span>, dl_filter <span class="op">=</span> <span class="st">"M.U2.EUR.RT.MM.EURIBOR1YD_.HSTA"</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span> <span class="fu">data</span><span class="op">(</span><span class="st">"tulli/uljas_cpa2008"</span>,</span></span>
-<span class="r-in"><span>      dl_filter <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="st">"Tavaraluokitus CPA2008_2"</span> <span class="op">=</span> <span class="st">"*A-X"</span>,</span></span>
-<span class="r-in"><span>                       <span class="st">"Aika"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"201505"</span>, <span class="st">"201506"</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>                       <span class="st">"Maa"</span> <span class="op">=</span> <span class="st">"=ALL"</span>,</span></span>
-<span class="r-in"><span>                       <span class="st">"Suunta"</span> <span class="op">=</span> <span class="st">"=FIRST 1"</span>,</span></span>
-<span class="r-in"><span>                       <span class="st">"Indikaattorit"</span> <span class="op">=</span> <span class="st">"=FIRST 1"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">data</span><span class="op">(</span><span class="st">"tulli/uljas_cpa2008"</span>,</span></span>
+<span class="r-in"><span>  dl_filter <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    <span class="st">"Tavaraluokitus CPA2008_2"</span> <span class="op">=</span> <span class="st">"*A-X"</span>,</span></span>
+<span class="r-in"><span>    <span class="st">"Aika"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"201505"</span>, <span class="st">"201506"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>    <span class="st">"Maa"</span> <span class="op">=</span> <span class="st">"=ALL"</span>,</span></span>
+<span class="r-in"><span>    <span class="st">"Suunta"</span> <span class="op">=</span> <span class="st">"=FIRST 1"</span>,</span></span>
+<span class="r-in"><span>    <span class="st">"Indikaattorit"</span> <span class="op">=</span> <span class="st">"=FIRST 1"</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
