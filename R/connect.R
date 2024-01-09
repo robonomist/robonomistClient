@@ -1,3 +1,6 @@
+#' @importFrom qs qdeserialize qserialize
+#' @importFrom websocket WebSocket
+#' @importFrom R6 R6Class
 RobonomistConnection <- R6::R6Class(
   "RobonomistConnection",
 
@@ -38,7 +41,7 @@ RobonomistConnection <- R6::R6Class(
       )
 
       private$ws$onMessage(function(event) {
-        msg <- qs::qdeserialize(event$data)
+        msg <- qdeserialize(event$data)
         if (inherits(msg, "cli_message")) {
           cli:::cli_server_default(msg)
         } else if (inherits(msg, "warning")) {
@@ -142,7 +145,7 @@ RobonomistConnection <- R6::R6Class(
       payload <- list(fun = fun, args = args)
 
       private$cache$wait_for_data(key = payload, {
-        private$ws$send(qs::qserialize(payload, preset = "balanced"))
+        private$ws$send(qserialize(payload, preset = "balanced"))
         later::run_now()
         while (is.null(private$cache$data)) {
           if(private$state() != "Open") {
