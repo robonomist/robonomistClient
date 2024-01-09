@@ -1,3 +1,7 @@
+# robonomistClient 2.2.13
+
+* Fix cran notes
+
 # robonomistClient 2.2.12
 
 * Filter available datasources
