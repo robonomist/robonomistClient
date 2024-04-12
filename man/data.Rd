@@ -9,20 +9,20 @@
 data(
   pattern = "",
   dl_filter = NULL,
-  labels = TRUE,
+  labels = getOption("robonomistClient.labels"),
   lang = NULL,
   na.rm = FALSE,
-  tidy_time = NULL,
+  tidy_time = getOption("robonomistClient.tidy_time"),
   ...
 )
 
 data_get(
   id,
   dl_filter = NULL,
-  labels = TRUE,
+  labels = getOption("robonomistClient.labels"),
   lang = NULL,
   na.rm = FALSE,
-  tidy_time = NULL,
+  tidy_time = getOption("robonomistClient.tidy_time"),
   ...
 )
 

@@ -1,3 +1,7 @@
+# robonomistClient 2.2.14
+
+* Add global options for tidy_time and labels
+
 # robonomistClient 2.2.13
 
 * Fix cran notes

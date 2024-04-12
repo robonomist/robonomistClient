@@ -51,8 +51,13 @@
 #' }
 #'
 #' @export
-data <- function(pattern = "", dl_filter = NULL, labels = TRUE,
-                 lang = NULL, na.rm = FALSE, tidy_time = NULL, ...) {
+data <- function(pattern = "",
+                 dl_filter = NULL,
+                 labels = getOption("robonomistClient.labels"),
+                 lang = NULL,
+                 na.rm = FALSE,
+                 tidy_time = getOption("robonomistClient.tidy_time"),
+                 ...) {
   pattern <- as.character(pattern)
   stopifnot(is.null(lang) || is.character(lang))
   stopifnot(is.null(tidy_time) || is.logical(tidy_time))
@@ -68,7 +73,13 @@ data <- function(pattern = "", dl_filter = NULL, labels = TRUE,
 #' @param id, string, Exact robonomist_id
 #' @rdname data
 #' @export
-data_get <- function(id, dl_filter = NULL, labels = TRUE, lang = NULL, na.rm = FALSE, tidy_time = NULL, ...) {
+data_get <- function(id,
+                     dl_filter = NULL,
+                     labels = getOption("robonomistClient.labels"),
+                     lang = NULL,
+                     na.rm = FALSE,
+                     tidy_time = getOption("robonomistClient.tidy_time"),
+                     ...) {
   args <- c(as.list(environment()), list(...)) |> purrr::compact()
   do_request("get", args)
 }
