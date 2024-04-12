@@ -1,3 +1,7 @@
+# robonomistClient 2.2.15
+
+* Workaround for inline tables in Rmd's
+
 # robonomistClient 2.2.14
 
 * Add global options for tidy_time and labels
