@@ -30,7 +30,10 @@ RobonomistConnection <- R6::R6Class(
         url,
         headers = list(
           Authorization = paste("bearer", access_token),
-          User_Agent = user_agent),
+          User_Agent = user_agent,
+          r_version = with(R.Version(), paste(major, minor, sep = ".")),
+          timezone = Sys.timezone()
+        ),
         autoConnect = FALSE,
         accessLogChannels = "none",
         errorLogChannels = "none",
