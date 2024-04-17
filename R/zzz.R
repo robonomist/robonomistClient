@@ -20,12 +20,13 @@
 }
 
 is_robonomist_server_installed <- function() {
-  opt <- getOption("robonomist.server.installed")
-  if (is.null(opt)) {
-    opt <- "robonomistServer" %in% rownames(utils::installed.packages())
-    options(robonomist.server.installed = opt)
+  is_installed <- getOption("robonomist.server.installed")
+  if (is.null(is_installed)) {
+    is_installed <-
+      tryCatch(is.character(find.package("robonomistServer")), error = function(e) FALSE)
+    options(robonomist.server.installed = is_installed)
   }
-  opt
+  is_installed
 }
 
 #' Set the hostname of Robonomist Data Server

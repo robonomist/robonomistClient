@@ -1,3 +1,7 @@
+# robonomistClient 2.2.16
+
+* Remove dependency on stats::install.packages() and tempdir() to allow caching
+
 # robonomistClient 2.2.15
 
 * Workaround for inline tables in Rmd's
