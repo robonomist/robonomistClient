@@ -1,8 +1,9 @@
+#' @importFrom rlang hash
 Cache <- R6::R6Class(
   "Cache",
   public = list(
     wait_for_data = function(key, expr) {
-      new_hash <- rlang::hash(key)
+      new_hash <- hash(key)
       age <- difftime(Sys.time(), self$time, units = "secs")
       stale <- age > getOption("robonomist.client.cache.max.age")
       if (stale || new_hash != self$hash) {

@@ -15,14 +15,18 @@ if (isTRUE(getOption("robonomist.test.local"))) {
   message("Starting test server...")
   port <- parallelly::freePort()
   rb <- start_test_server(port)
-  withr::defer(rb$kill(), teardown_env())
+  withr::defer({
+    rb$kill()
+    set_robonomist_server(NULL)
+  }, teardown_env())
   set_robonomist_server(
     host = paste0("127.0.0.1:", port)
   )
   Sys.sleep(3)
 } else {
   op_skip_test <- options(robonomist.skip.server.test = TRUE)
-  withr::defer(options(robonomist.skip.server.test = op_skip_test),
-               teardown_env())
+  withr::defer({
+    options(robonomist.skip.server.test = op_skip_test)
+  }, teardown_env())
 }
 

@@ -1,3 +1,7 @@
+# robonomistClient 2.2.17
+
+* Add `datalock()` -function
+
 # robonomistClient 2.2.16
 
 * Remove dependency on stats::install.packages() and tempdir() to allow caching
