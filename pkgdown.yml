@@ -1,12 +1,12 @@
 pandoc: 3.1.11
-pkgdown: 2.0.8
+pkgdown: 2.0.9
 pkgdown_sha: ~
 articles:
   basic_features: basic_features.html
   examples: examples.html
   filtering: filtering.html
   special: special.html
-last_built: 2024-04-18T10:43Z
+last_built: 2024-06-12T11:52Z
 urls:
   reference: https://robonomist.github.io/robonomistClient/reference
   article: https://robonomist.github.io/robonomistClient/articles
