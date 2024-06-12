@@ -19,7 +19,7 @@ The \code{fetch_oecd_data_from_url()} function is designed to facilitate easy ac
 }
 \examples{
 # Example usage:
-url <- ""https://data-explorer.oecd.org/vis?tm=sna&pg=0&fs[0]=Measure\%2C0\%7CAquaculture\%20production\%23AQUA_PD\%23&fc=Measure&snb=1&vw=tb&df[ds]=dsDisseminateFinalDMZ&df[id]=DSD_FISH_PROD\%40DF_FISH_AQUA&df[ag]=OECD.TAD.ARP&df[vs]=1.0&pd=2010\%2C&dq=.A.._T.T&ly[rw]=REF_AREA&ly[cl]=TIME_PERIOD&to[TIME_PERIOD]=false""
+url <- "https://data-explorer.oecd.org/vis?tm=sna&pg=0&fs[0]=Measure\%2C0\%7CAquaculture\%20production\%23AQUA_PD\%23&fc=Measure&snb=1&vw=tb&df[ds]=dsDisseminateFinalDMZ&df[id]=DSD_FISH_PROD\%40DF_FISH_AQUA&df[ag]=OECD.TAD.ARP&df[vs]=1.0&pd=2010\%2C&dq=.A.._T.T&ly[rw]=REF_AREA&ly[cl]=TIME_PERIOD&to[TIME_PERIOD]=false"
 data <- fetch_oecd_data_from_url(url)
 query_string <- fetch_oecd_data_from_url(url, get = FALSE)
 }

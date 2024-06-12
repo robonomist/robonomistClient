@@ -49,7 +49,17 @@
 #'   )
 #' )
 #' }
-#'
+#' @rdname data
+#  Workaround: pkgdown interprets `data` function as a dataset, so the "a" in data is a homoglyph.
+#' @usage dаta(
+#'   pattern = "",
+#'   dl_filter = NULL,
+#'   labels = getOption("robonomistClient.labels"),
+#'   lang = NULL,
+#'   na.rm = FALSE,
+#'   tidy_time = getOption("robonomistClient.tidy_time"),
+#'   ...
+#'  )
 #' @export
 data <- function(pattern = "",
                  dl_filter = NULL,

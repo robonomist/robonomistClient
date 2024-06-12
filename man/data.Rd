@@ -6,7 +6,7 @@
 \alias{data_search}
 \title{Search and get data from Robonomist Data Server}
 \usage{
-data(
+dаta(
   pattern = "",
   dl_filter = NULL,
   labels = getOption("robonomistClient.labels"),
@@ -14,7 +14,7 @@ data(
   na.rm = FALSE,
   tidy_time = getOption("robonomistClient.tidy_time"),
   ...
-)
+ )
 
 data_get(
   id,
@@ -94,5 +94,4 @@ data("tulli/uljas_cpa2008",
   )
 )
 }
-
 }
