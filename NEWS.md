@@ -1,6 +1,10 @@
+# robonomistClient 2.2.18
+
+* Add `fetch_oecd_data_from_url()` function
+
 # robonomistClient 2.2.17
 
-* Add `datalock()` -function
+* Add `datalock()` function
 
 # robonomistClient 2.2.16
 
