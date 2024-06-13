@@ -1,3 +1,8 @@
+# robonomistClient 2.2.19
+
+* Add `fetch_data_from_url()` function to help data fetching from statistical websites
+* depricate `fetch_oecd_data_from_url()` function
+
 # robonomistClient 2.2.18
 
 * Add `fetch_oecd_data_from_url()` function

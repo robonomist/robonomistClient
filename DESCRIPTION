@@ -1,6 +1,6 @@
 Package: robonomistClient
 Title: Access data from Robonomist Data Server
-Version: 2.2.18
+Version: 2.2.19
 Authors@R: 
     person(given = "Juha",
            family = "Itkonen",
@@ -26,6 +26,7 @@ Imports:
     R6,
     pillar (>= 1.5.1),
     tidyr,
+    stringr,
     purrr,
     lubridate,
     rlang,

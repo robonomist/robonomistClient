@@ -14,16 +14,16 @@ reference:
 
   - title: Metadata functions
     contents:
-      - data_metadata
       - data_vintage
+      - data_metadata
       - datasource_menu
 
   - title: Helper functions
     contents:
-      - datalock
-      - fetch_oecd_data_from_url
+      - fetch_data_from_url
       - ogle
       - print_filter
+      - datalock
 
   - title: Server connection
     contents:
