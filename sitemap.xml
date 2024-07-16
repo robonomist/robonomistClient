@@ -1,78 +1,28 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://robonomist.github.io/robonomistClient/404.html</loc>
-  </url>
-  <url>
-    <loc>https://robonomist.github.io/robonomistClient/articles/basic_features.html</loc>
-  </url>
-  <url>
-    <loc>https://robonomist.github.io/robonomistClient/articles/examples.html</loc>
-  </url>
-  <url>
-    <loc>https://robonomist.github.io/robonomistClient/articles/filtering.html</loc>
-  </url>
-  <url>
-    <loc>https://robonomist.github.io/robonomistClient/articles/index.html</loc>
-  </url>
-  <url>
-    <loc>https://robonomist.github.io/robonomistClient/articles/special.html</loc>
-  </url>
-  <url>
-    <loc>https://robonomist.github.io/robonomistClient/authors.html</loc>
-  </url>
-  <url>
-    <loc>https://robonomist.github.io/robonomistClient/index.html</loc>
-  </url>
-  <url>
-    <loc>https://robonomist.github.io/robonomistClient/news/index.html</loc>
-  </url>
-  <url>
-    <loc>https://robonomist.github.io/robonomistClient/reference/as_robonomist_id.html</loc>
-  </url>
-  <url>
-    <loc>https://robonomist.github.io/robonomistClient/reference/cash-.robonomist_id.html</loc>
-  </url>
-  <url>
-    <loc>https://robonomist.github.io/robonomistClient/reference/data.html</loc>
-  </url>
-  <url>
-    <loc>https://robonomist.github.io/robonomistClient/reference/data_metadata.html</loc>
-  </url>
-  <url>
-    <loc>https://robonomist.github.io/robonomistClient/reference/data_vintage.html</loc>
-  </url>
-  <url>
-    <loc>https://robonomist.github.io/robonomistClient/reference/datalock.html</loc>
-  </url>
-  <url>
-    <loc>https://robonomist.github.io/robonomistClient/reference/datasource_menu.html</loc>
-  </url>
-  <url>
-    <loc>https://robonomist.github.io/robonomistClient/reference/datasources.html</loc>
-  </url>
-  <url>
-    <loc>https://robonomist.github.io/robonomistClient/reference/disconnect.html</loc>
-  </url>
-  <url>
-    <loc>https://robonomist.github.io/robonomistClient/reference/fetch_data_from_url.html</loc>
-  </url>
-  <url>
-    <loc>https://robonomist.github.io/robonomistClient/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>https://robonomist.github.io/robonomistClient/reference/ogle.html</loc>
-  </url>
-  <url>
-    <loc>https://robonomist.github.io/robonomistClient/reference/print_filter.html</loc>
-  </url>
-  <url>
-    <loc>https://robonomist.github.io/robonomistClient/reference/robonomistClient-package.html</loc>
-  </url>
-  <url>
-    <loc>https://robonomist.github.io/robonomistClient/reference/robonomist_id.html</loc>
-  </url>
-  <url>
-    <loc>https://robonomist.github.io/robonomistClient/reference/set_robonomist_server.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://robonomist.github.io/robonomistClient/404.html</loc></url>
+<url><loc>https://robonomist.github.io/robonomistClient/articles/basic_features.html</loc></url>
+<url><loc>https://robonomist.github.io/robonomistClient/articles/examples.html</loc></url>
+<url><loc>https://robonomist.github.io/robonomistClient/articles/filtering.html</loc></url>
+<url><loc>https://robonomist.github.io/robonomistClient/articles/index.html</loc></url>
+<url><loc>https://robonomist.github.io/robonomistClient/articles/special.html</loc></url>
+<url><loc>https://robonomist.github.io/robonomistClient/authors.html</loc></url>
+<url><loc>https://robonomist.github.io/robonomistClient/index.html</loc></url>
+<url><loc>https://robonomist.github.io/robonomistClient/news/index.html</loc></url>
+<url><loc>https://robonomist.github.io/robonomistClient/reference/as_robonomist_id.html</loc></url>
+<url><loc>https://robonomist.github.io/robonomistClient/reference/cash-.robonomist_id.html</loc></url>
+<url><loc>https://robonomist.github.io/robonomistClient/reference/data.html</loc></url>
+<url><loc>https://robonomist.github.io/robonomistClient/reference/data_metadata.html</loc></url>
+<url><loc>https://robonomist.github.io/robonomistClient/reference/data_vintage.html</loc></url>
+<url><loc>https://robonomist.github.io/robonomistClient/reference/datalock.html</loc></url>
+<url><loc>https://robonomist.github.io/robonomistClient/reference/datasource_menu.html</loc></url>
+<url><loc>https://robonomist.github.io/robonomistClient/reference/datasources.html</loc></url>
+<url><loc>https://robonomist.github.io/robonomistClient/reference/disconnect.html</loc></url>
+<url><loc>https://robonomist.github.io/robonomistClient/reference/fetch_data_from_url.html</loc></url>
+<url><loc>https://robonomist.github.io/robonomistClient/reference/index.html</loc></url>
+<url><loc>https://robonomist.github.io/robonomistClient/reference/ogle.html</loc></url>
+<url><loc>https://robonomist.github.io/robonomistClient/reference/print_filter.html</loc></url>
+<url><loc>https://robonomist.github.io/robonomistClient/reference/robonomistClient-package.html</loc></url>
+<url><loc>https://robonomist.github.io/robonomistClient/reference/robonomist_id.html</loc></url>
+<url><loc>https://robonomist.github.io/robonomistClient/reference/set_robonomist_server.html</loc></url>
 </urlset>
+
