@@ -21,62 +21,35 @@ Sys.setlocale(locale = "fi_FI.UTF-8")
 ```{r setup, message = FALSE}
 library(robonomistClient)
 library(tidyverse)
+library(roboplotr)
+set_roboplot_options(
+  xaxis_ceiling = "years",
+  modebar = c("home", "closest", "compare", "zoom", "img_n", "img_w", "data_dl")
+)
 ```
 
-## Covid and housing conditions in Finnish municipalities
+## Electricity prices in Finland
 
-```{r koronatartunnat, message = FALSE, warning = FALSE}
-laaja_kuutio <-
-  data("tidy/laaja_kuutio") %>%
-  filter(
-    Tiedot %in% c("Kerrostaloissa asuvat asuntokunnat, %", "Väkiluku"),
-  ) %>%
-  group_by(`Alue 2021`, Tiedot) %>%
-    filter(time == max(time)) %>%
-    select(`Alue 2021`, Tiedot, value) %>%
-    pivot_wider(names_from = Tiedot)
-tartunnat <-
-  data("tidy/thl_kunnat") |>
-  filter(time == max(time))
-inner_join(tartunnat, laaja_kuutio, by = c("Alue" = "Alue 2021")) %>%
-  mutate(Ilmaantuvuus = 100*1000*value/Väkiluku) %>%
-  drop_na() %>%
-  ggplot(aes(`Kerrostaloissa asuvat asuntokunnat, %`, Ilmaantuvuus)) +
-  geom_smooth() +
-  geom_point(aes(size = Väkiluku/1000)) +
-  scale_size_continuous(breaks = c(10, 50, 200, 500)) +
-  labs(
-    title = paste0("Koronavirustartuntojen ilmaantuvuus ja\n",
-                   "kerrostaloissa asuvien asuntokuntien osuus kunnittain"),
-    subtitle = "Tartuntoja 100 000 asukasta kohden",
-    size = "Kunnan\nväkiluku\n(tuhatta)",
-    caption = paste0(
-      "Lähteet: THL ja Tilastokeskus.\nTHL:n tartuntatiedot ",
-      format(data_vintage("epirapo/covid19case"), "%e. %Bta %Y.")
-    )
-  )
+```{r electricity, message = FALSE, warning = FALSE}
+data("entsoe/dap_fi") |> roboplot()
 ```
 
-## The history of births and deaths in Finland
+## FAO food price index
 
-```{r vaestonmuutokset, message = FALSE}
-data("StatFin/synt/statfin_synt_pxt_12dx.px", tidy_time = TRUE) %>%
-  filter(Tiedot %in% c("Elävänä syntyneet", "Kuolleet")) %>%
-  ggplot(aes(time, value/1000, color = Tiedot)) +
-  geom_line() +
-  labs(
-    title = "Elävänä syntyneet ja kuolleet Suomessa",
-    subtitle = "Tuhatta henkeä",
-    caption = "Lähde: Tilastokeskus.",
-    x=NULL, y=NULL
-  )
-
+```{r fao, message = FALSE, warning = FALSE}
+data("tidy/fao_food_price_index§§Food")  |>
+  roboplot(Type)
 ```
 
-## Economic sentiment in selected European countries
+## Economic sentiment indicator
 
-```{r sentiment-indicator, message = FALSE}
-data("ec/esi_nace2§(Fin|Swe|Ger)§sentiment§2015-01-01") %>%
+```{r sentiment-indicator, message = FALSE, warning = FALSE}
+data("ec/esi_nace§(Fin|Euro area)§sentiment§2000-01-01")  |>
+  roboplot(Country, caption = "European Commission")
+```
+
+```{r sentiment-indicator2, message = FALSE}
+data("ec/esi_nace2§(Fin|Swe|Ger)§sentiment§2015-01-01") |>
   ggplot(aes(time, value, color = Country)) +
   geom_line() +
   labs(
@@ -86,6 +59,34 @@ data("ec/esi_nace2§(Fin|Swe|Ger)§sentiment§2015-01-01") %>%
     x=NULL, y=NULL
   )
 ```
+
+## Inflation
+
+```{r}
+data("eurostat/prc_hicp_manr") |>
+  filter(
+    coicop %in% c("All-items HICP"),
+    geo %in% c("Germany", "Finland", "Sweden"),
+    time >= "2015-01-01"
+  ) |>
+  roboplot(geo, title = "Consumer price inflation", subtitle = "Annual change, %")
+```
+
+## The history of births and deaths in Finland
+
+```{r vaestonmuutokset, message = FALSE}
+data("StatFin/synt/statfin_synt_pxt_12dx.px", tidy_time = TRUE) |>
+  filter(Tiedot %in% c("Elävänä syntyneet", "Kuolleet")) |>
+  ggplot(aes(time, value/1000, color = Tiedot)) +
+  geom_line() +
+  labs(
+    title = "Elävänä syntyneet ja kuolleet Suomessa",
+    subtitle = "Tuhatta henkeä",
+    caption = "Lähde: Tilastokeskus.",
+    x=NULL, y=NULL
+  )
+```
+
 
 ## Exporting data to Excel
 

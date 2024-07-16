@@ -10,7 +10,19 @@ test_that("Frontend works remotely", {
   expect_s3_class(datasources(), "robonomist_datasources")
   expect_output(print(datasources()))
   expect_s3_class(data_get(id), "robonomist_data")
+  withr::with_options(
+    list(robonomistClient.tidy_time = TRUE),
+    {
+      expect_s3_class(d <- data_get(id), "robonomist_data")
+      expect_s3_class(d$time, "Date")
+    }
+  )
   expect_s3_class(data(id), "robonomist_data")
+  withr::with_options(
+    list(robonomistClient.tidy_time = TRUE), {
+    expect_s3_class(d <- data(id), "robonomist_data")
+    expect_s3_class(d$time, "Date")
+  })
   expect_s3_class(data("tidy/jali"), "robonomist_data")
   expect_s3_class(data("tidy/devel_echo", args = list(x = "hei")), "robonomist_data")
   expect_s3_class(data("wb/#1"), "robonomist_data")

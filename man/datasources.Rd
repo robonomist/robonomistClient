@@ -4,7 +4,12 @@
 \alias{datasources}
 \title{List available datasources}
 \usage{
-datasources()
+datasources(lang = NULL, available_only = TRUE)
+}
+\arguments{
+\item{lang, }{Two-letter language code, e.g. "en" or "sv".}
+
+\item{available_only, }{If TRUE (default), then list only those datasources which are available for the current subscription.}
 }
 \description{
 List available datasources

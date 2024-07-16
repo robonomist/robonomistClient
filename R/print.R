@@ -36,7 +36,7 @@ tbl_format_footer.robonomist_search <- function(x, setup, ...) {
 ## }
 
 #' @export
-print.robonomist_search <- function(x, n = 30, ...) {
+print.robonomist_search <- function(x, n = getOption("robonomistClient.search_print_n", 30), ...) {
   NextMethod(n = n)
 }
 
@@ -67,7 +67,7 @@ ctl_new_pillar.robonomist_datasources <- function(controller, x, width, ..., tit
 }
 
 #' @export
-print.robonomist_datasources <- function(x, n = 50, ...) {
+print.robonomist_datasources <- function(x, n = getOption("robonomistClient.datasources_print_n", 30), ...) {
   NextMethod(n = n)
 }
 

@@ -7,8 +7,8 @@ A client package for R to access Robonomist Data Server
 
 The `robonomistClient` package allows easy and fast access to various
 datasources connecting to a Robonomist Data Server. Currently the client
-package provides access to 78 913 up-to-date data tables from 49
-different datasources with 9 different languages.
+package provides access to 98 253 up-to-date data tables from 60
+different datasources with 13 different languages.
 
 Some of the integrated datasources:
 
@@ -42,6 +42,8 @@ Some of the integrated datasources:
   - Statistics Denmark
   - Statistics Iceland
   - Statistics Estonia
+  - Bank for International Settlements (BIS)
+  - International Monetary Fund (IMF)
   - United Nations Economic Commission for Europe Statistical Database
   - United Nations Conference on Trade and Development
   - FAO, Food and Agriculture Organization of the United Nations
@@ -81,57 +83,39 @@ datasources()
 ```
 
     ## # Robonomist Server Datasources
-    ##    dataset                  title                                               
-    ##  1 StatFin                  Statistics Finland, StatFin database                
-    ##  2 StatFin_Passiivi         Statistics Finland, StatFin archive database        
-    ##  3 Vero                     Verohallinnon tilastotietokanta                     
-    ##  4 ec                       European Commission's Business and Consumer Surveys 
-    ##  5 kunnat                   Kuntien avainluvut (Tilastokeskus)                  
-    ##  6 kunnat                   Kuntien ja kuntayhtymien raportoimat taloustiedot (…
-    ##  7 paavo                    Postinumeroalueittainen avoin tieto -tietokanta Paa…
-    ##  8 tulli                    Finnish Customs, Uljas Statistical Database         
-    ##  9 luke                     Luonnonvarakeskus LUKE:n tilastotietokanta          
-    ## 10 etk                      Eläketurvakeskuksen tietokanta                      
-    ## 11 eurostat                 Eurostat database                                   
-    ## 12 ecb                      ECB Statistical Data Warehouse                      
-    ## 13 bundesbank               Deutche Bundesbank time series database             
-    ## 14 oecd                     OECD database                                       
-    ## 15 oecd3                    OECD database                                       
-    ## 16 wb                       World Bank Open Data                                
-    ## 17 hsa                      Helsingin seudun aluesarjat -tilastotietokanta      
-    ## 18 helymp                   Helsingin ympäristötilasto                          
-    ## 19 helhyv                   Helsingin hyvinvointitilastot                       
-    ## 20 nordstat                 Nordstat                                            
-    ## 21 covid                    European Centre for Disease Prevention and Control …
-    ## 22 vipunen                  Vipunen, Education Statistics Finland               
-    ## 23 epirapo                  THL Epirapo COVID-19 database                       
-    ## 24 sotkanet                 THL Sotkanet                                        
-    ## 25 maakoto                  Maahanmuuttajat ja kotoutuminen -tietokanta (Tilast…
-    ## 26 koto                     Kototietokanta (Tilastokeskus)                      
-    ## 27 toimipaikkalaskuri       Toimipaikkalaskuri-tietokanta (Tilastokeskus)       
-    ## 28 kokeelliset              Tilastokeskuksen kokeelliset tilastot               
-    ## 29 traficom                 Traficomin tilastotietokanta (Tilastokeskus)        
-    ## 30 tieliikenneonnettomuudet Tieliikenneonnettomuudet-tietokanta (Tilastokeskus) 
-    ## 31 rudolf                   Tilastopalvelu Rudolf (Business Finland)            
-    ## 32 se                       Statistics Sweden                                   
-    ## 33 konj                     The Swedish National Institute of Economic Research 
-    ## 34 sjv                      The Swedish Agricultural Agency                     
-    ## 35 no                       Statistics Norway                                   
-    ## 36 dk                       Statistics Denmark                                  
-    ## 37 is                       Statistics Iceland                                  
-    ## 38 ee                       Statistics Estonia                                  
-    ## 39 unece                    United Nations Economic Commission for Europe Stati…
-    ## 40 nordic                   Nordic Statistics                                   
-    ## 41 unctad                   United Nations Conference on Trade and Development  
-    ## 42 eia                      U.S. Energy Information Administration database     
-    ## 43 eia                      U.S. Energy Information Administration database     
-    ## 44 fred                     FRED, Federal Reserve Economic Data, St. Louis Fed  
-    ## 45 fao                      Food and Agriculture Organization of the United Nat…
-    ## 46 fingrid                  Fingrid avoin data                                  
-    ## 47 tutkihallintoa           Tutkihallintoa.fi, Valtiokonttori                   
-    ## 48 tidy                     Robonomistin jalostetut tietokannat                 
-    ## 49 entsoe                   ENTSO-E Transperancy Platform                       
-    ## # … with 3 more variables: languages <list>, datasource <chr>, available <lgl>
+    ##    dataset            title                           languages           datasource                 
+    ##  1 StatFin            Statistics Finland, StatFin da… c("fi", "sv", "en") StatFin                    
+    ##  2 StatFin_Passiivi   Statistics Finland, StatFin ar… c("fi", "sv", "en") StatFin_Passiivi           
+    ##  3 Vero               Finnish Tax Administration sta… c("fi", "sv", "en") Vero                       
+    ##  4 ec                 European Commission's Business… en                  EC                         
+    ##  5 kunnat             Key statistics of municipaliti… c("fi", "sv", "en") KuntienAvainluvut          
+    ##  6 kunnat             Financial data reported by mun… c("fi", "sv", "en") KuntienTalous              
+    ##  7 paavo              Statistics Finland's Paavo dat… c("fi", "sv", "en") Paavo                      
+    ##  8 tulli              Finnish Customs, Uljas Statist… c("fi", "sv", "en") Tulli                      
+    ##  9 luke               Statistics database of Natural… c("fi", "sv", "en") Luke                       
+    ## 10 etk                Finnish Centre for Pensions' s… c("fi", "sv", "en") ETK                        
+    ## 11 eurostat           Eurostat database               c("en", "de", "fr") eurostat                   
+    ## 12 ecb                ECB Statistical Data Warehouse  en                  ECB                        
+    ## 13 bundesbank         Deutsche Bundesbank time serie… c("en", "de")       Bundesbank                 
+    ## 14 oecd               OECD database                   en                  OECD                       
+    ## 15 oecd3              OECD database (SDMX-JSON API)   en                  OECD3                      
+    ## 16 oecd               OECD database                   en                  OECD4                      
+    ## 17 wb                 World Bank Open Data            en                  WB                         
+    ## 18 hsa                Greater Helsinki Open Statisti… c("fi", "sv", "en") HSA                        
+    ## 19 helymp             Helsinki environmental statist… c("fi", "en", "sv") HelsinginYmpäristötilasto  
+    ## 20 helhyv             Helsinki wellbeing statistics   fi                  HelsinginHyvinvointitilasto
+    ## 21 nordstat           Nordstat                        c("fi", "en", "sv") Nordstat                   
+    ## 22 covid              European Centre for Disease Pr… en                  ECDC                       
+    ## 23 vipunen            Vipunen, Education Statistics … fi                  Vipunen                    
+    ## 24 epirapo            THL Epirapo COVID-19 database   fi                  Epirapo                    
+    ## 25 sotkanet           Sotkanet indicator bank of the… c("fi", "en", "sv") Sotkanet                   
+    ## 26 maakoto            Immigrants and integration sta… c("fi", "sv", "en") Maakoto                    
+    ## 27 koto               Integration database, Finnish … c("fi", "sv", "en") Koto                       
+    ## 28 toimipaikkalaskuri Toimipaikkalaskuri database, S… fi                  Toimipaikkalaskuri         
+    ## 29 kokeelliset        Statistics Finland's experimen… c("fi", "sv", "en") KokeellisetTilastot        
+    ## 30 traficom           Traficom statistics database    c("fi", "sv", "en") Traficom                   
+    ## # ℹ 30 more rows
+    ## # ℹ 1 more variable: available <lgl>
 
 The `data` function is convenient way to search and get data tables.
 Print all available data tables:
@@ -141,39 +125,39 @@ data()
 ```
 
     ## # Robonomist Database search results
-    ##    id                                      title                           lang 
-    ##    <r_id>                                  <chr>                           <chr>
-    ##  1 StatFin/adopt/statfin_adopt_pxt_11lv.px Adoptiot muuttujina Vuosi, Syn… fi   
-    ##  2 StatFin/adopt/statfin_adopt_pxt_11lv.px Adoptioner efter År, Födelsela… sv   
-    ##  3 StatFin/adopt/statfin_adopt_pxt_11lv.px Adoptions by Year, Country of … en   
-    ##  4 StatFin/adopt/statfin_adopt_pxt_13qh.px Adoptiot muuttujina Vuosi, Ado… fi   
-    ##  5 StatFin/adopt/statfin_adopt_pxt_13qh.px Adoptioner efter År, Föräldrar… sv   
-    ##  6 StatFin/adopt/statfin_adopt_pxt_13qh.px Adoptions by Year, Parents of … en   
-    ##  7 StatFin/akay/statfin_akay_pxt_001.px    001 -- Ajankäyttö (26 lk) syks… fi   
-    ##  8 StatFin/akay/statfin_akay_pxt_001.px    001 -- Time Use (26 categories… en   
-    ##  9 StatFin/akay/statfin_akay_pxt_002.px    Ajankäyttö (26 lk) muuttujina … fi   
-    ## 10 StatFin/akay/statfin_akay_pxt_002.px    Time Use (26 categories) by Ac… en   
-    ## 11 StatFin/akay/statfin_akay_pxt_003.px    003 -- Työllisten miesten ja n… fi   
-    ## 12 StatFin/akay/statfin_akay_pxt_003.px    003 -- Time use (26 categories… en   
-    ## 13 StatFin/akay/statfin_akay_pxt_004.px    Ajankäyttö (26 lk) muuttujina … fi   
-    ## 14 StatFin/akay/statfin_akay_pxt_004.px    Time Use (26 categories) by Ac… en   
-    ## 15 StatFin/akay/statfin_akay_pxt_005.px    005 -- Ajankäyttö (82 lk) suku… fi   
-    ## 16 StatFin/akay/statfin_akay_pxt_005.px    005 -- Time Use (82 categories… en   
-    ## 17 StatFin/akay/statfin_akay_pxt_006.px    006 -- Ajankäyttö (82 lk) iän … fi   
-    ## 18 StatFin/akay/statfin_akay_pxt_006.px    006 -- Time Use (82 categories… en   
-    ## 19 StatFin/akay/statfin_akay_pxt_007.px    007 -- Yli 10-vuotiaiden ajank… fi   
-    ## 20 StatFin/akay/statfin_akay_pxt_007.px    007 -- Time Use (132 categorie… en   
-    ## 21 StatFin/akay/statfin_akay_pxt_008.px    008 -- Kirjastossa käyminen 12… fi   
-    ## 22 StatFin/akay/statfin_akay_pxt_008.px    008 -- Biblioteksbesök under d… sv   
-    ## 23 StatFin/akay/statfin_akay_pxt_008.px    008 -- Visiting the library du… en   
-    ## 24 StatFin/akay/statfin_akay_pxt_009.px    009 -- Kirjastossa käyminen 12… fi   
-    ## 25 StatFin/akay/statfin_akay_pxt_009.px    009 -- Biblioteksbesök under d… sv   
-    ## 26 StatFin/akay/statfin_akay_pxt_009.px    009 -- Visiting the library du… en   
-    ## 27 StatFin/akay/statfin_akay_pxt_010.px    010 -- Kirjastossa käyminen 12… fi   
-    ## 28 StatFin/akay/statfin_akay_pxt_010.px    010 -- Biblioteksbesök under d… sv   
-    ## 29 StatFin/akay/statfin_akay_pxt_010.px    010 -- Visiting the library du… en   
-    ## 30 StatFin/akay/statfin_akay_pxt_011.px    011 -- Lukemiseen käytetty aik… fi   
-    ## # … with 138,363 more rows
+    ##    id                                      title                                                              lang 
+    ##    <r_id>                                  <chr>                                                              <chr>
+    ##  1 StatFin/adopt/statfin_adopt_pxt_11lv.px Adoptiot muuttujina Vuosi, Syntymävaltio, Adoptiotyyppi, Ikä, Suk… fi   
+    ##  2 StatFin/adopt/statfin_adopt_pxt_11lv.px Adoptioner efter År, Födelseland, Typ av adoption, Ålder, Kön och… sv   
+    ##  3 StatFin/adopt/statfin_adopt_pxt_11lv.px Adoptions by Year, Country of birth, Adoption type, Age, Sex and … en   
+    ##  4 StatFin/adopt/statfin_adopt_pxt_13qh.px Adoptiot muuttujina Vuosi, Adoptoitavan vanhemmat ja Tiedot        fi   
+    ##  5 StatFin/adopt/statfin_adopt_pxt_13qh.px Adoptioner efter År, Föräldrarna till den som adopteras och Uppgi… sv   
+    ##  6 StatFin/adopt/statfin_adopt_pxt_13qh.px Adoptions by Year, Parents of the adopted person and Information   en   
+    ##  7 StatFin/aku/statfin_aku_pxt_12dz.px     Aikuiskoulutukseen osallistuminen (ml. työhön tai ammattiin liitt… fi   
+    ##  8 StatFin/aku/statfin_aku_pxt_12dz.px     Deltagande i vuxenutbildning (inkl. arbets- eller yrkesinriktad, … sv   
+    ##  9 StatFin/aku/statfin_aku_pxt_12dz.px     Participation in adult education (incl. adult education and train… en   
+    ## 10 StatFin/aku/statfin_aku_pxt_12ea.px     Aikuiskoulutukseen osallistuminen (ml. työhön tai ammattiin liitt… fi   
+    ## 11 StatFin/aku/statfin_aku_pxt_12ea.px     Deltagande i vuxenutbildning (inkl. arbets- eller yrkesinriktad, … sv   
+    ## 12 StatFin/aku/statfin_aku_pxt_12ea.px     Participation in adult education (incl. adult education and train… en   
+    ## 13 StatFin/aku/statfin_aku_pxt_14bu.px     Aikuiskoulutukseen osallistuminen (ml. työhön tai ammattiin liitt… fi   
+    ## 14 StatFin/aku/statfin_aku_pxt_14bu.px     Deltagande i vuxenutbildning (inkl. arbets- eller yrkesinriktad, … sv   
+    ## 15 StatFin/aku/statfin_aku_pxt_14bu.px     Participation in adult education and training (incl. adult educat… en   
+    ## 16 StatFin/aku/statfin_aku_pxt_14bv.px     Aikuiskoulutukseen osallistuminen (ml. työhön tai ammattiin liitt… fi   
+    ## 17 StatFin/aku/statfin_aku_pxt_14bv.px     Deltagande i vuxenutbildning (inkl. arbets- eller yrkesinriktad, … sv   
+    ## 18 StatFin/aku/statfin_aku_pxt_14bv.px     Participation in adult education and training (incl. adult educat… en   
+    ## 19 StatFin/altp/statfin_altp_pxt_12bc.px   Bruttokansantuote henkeä kohden kohden alueittain, vuosittain muu… fi   
+    ## 20 StatFin/altp/statfin_altp_pxt_12bc.px   Bruttonationalprodukt per person och region, årsvis efter Region,… sv   
+    ## 21 StatFin/altp/statfin_altp_pxt_12bc.px   Gross domestic product per capita by area, annually by Area, Year… en   
+    ## 22 StatFin/altp/statfin_altp_pxt_12bd.px   Tulot ja tuotanto alueittain, vuosittain muuttujina Alue, Taloust… fi   
+    ## 23 StatFin/altp/statfin_altp_pxt_12bd.px   Inkomster och produktion per region, årsvis efter Region, Transak… sv   
+    ## 24 StatFin/altp/statfin_altp_pxt_12bd.px   Income and production by area, annually by Area, Transaction, Ind… en   
+    ## 25 StatFin/altp/statfin_altp_pxt_12be.px   Investoinnit ja kiinteä pääoma alueittain, vuosittain muuttujina … fi   
+    ## 26 StatFin/altp/statfin_altp_pxt_12be.px   Investeringar och fast kapital per region, årsvis efter Region, T… sv   
+    ## 27 StatFin/altp/statfin_altp_pxt_12be.px   Investments and fixed capital by area, annually by Area, Transact… en   
+    ## 28 StatFin/altp/statfin_altp_pxt_12bf.px   Kotitalouksien tulot ja menot alueittain, vuosittain muuttujina S… fi   
+    ## 29 StatFin/altp/statfin_altp_pxt_12bf.px   Hushållens inkomster och utgifter per region, årsvis efter Sektor… sv   
+    ## 30 StatFin/altp/statfin_altp_pxt_12bf.px   Household income and expenditure by area, annually by Sector, Are… en   
+    ## # ℹ 172,382 more rows
 
 To get a specific data table, use the tables id.
 
@@ -183,9 +167,9 @@ data("StatFin/synt/statfin_synt_pxt_12dx.px")
 
     ## # Robonomist id: StatFin/synt/statfin_synt_pxt_12dx.px
     ## # Title:         Väestönmuutokset muuttujina Vuosi ja Tiedot
-    ## # Last updated:  2022-05-27 08:00:00
-    ## # Next update:   2022-06-17 08:00:00
-    ## # A tibble:      3,003 × 3
+    ## # Last updated:  2024-05-28 08:00:00
+    ## # Next update:   2025-05-20 08:00:00
+    ## # A tibble:      3,025 × 3
     ##    Vuosi Tiedot                     value
     ##  * <chr> <chr>                      <dbl>
     ##  1 1749  Elävänä syntyneet          16700
@@ -198,7 +182,33 @@ data("StatFin/synt/statfin_synt_pxt_12dx.px")
     ##  8 1749  Solmitut avioliitot         3900
     ##  9 1749  Avioerot                      NA
     ## 10 1749  Kokonaismuutos                NA
-    ## # … with 2,993 more rows
+    ## # ℹ 3,015 more rows
+
+Get data using a link from the datasources website:
+
+``` r
+fetch_data_from_url("https://data-explorer.oecd.org/vis?tm=sna&pg=0&fs[0]=Measure%2C0%7CAquaculture%20production%23AQUA_PD%23&fc=Measure&snb=1&vw=tb&df[ds]=dsDisseminateFinalDMZ&df[id]=DSD_FISH_PROD%40DF_FISH_AQUA&df[ag]=OECD.TAD.ARP&df[vs]=1.0&pd=2010%2C&dq=.A.._T.T&ly[rw]=REF_AREA&ly[cl]=TIME_PERIOD&to[TIME_PERIOD]=false")
+```
+
+    ## data_get("oecd/DSD_FISH_PROD@DF_FISH_AQUA", dl_filter = ".A.._T.T")
+
+    ## # Robonomist id: oecd/DSD_FISH_PROD@DF_FISH_AQUA
+    ## # Title:         Aquaculture production
+    ## # Vintage:       2024-03-08 18:57:12
+    ## # A tibble:      1,431 × 10
+    ##    REF_AREA FREQ   MEASURE                SPECIES UNIT_MEASURE time         value UNIT_MULT DECIMALS CONVENTION
+    ##  * <chr>    <chr>  <chr>                  <chr>   <chr>        <date>       <dbl> <chr>     <chr>    <chr>     
+    ##  1 Israel   Annual Aquaculture production Total   Tonnes       2021-01-01  14875  0         0        LW        
+    ##  2 Sweden   Annual Aquaculture production Total   Tonnes       1995-01-01   7554  0         0        LW        
+    ##  3 France   Annual Aquaculture production Total   Tonnes       1995-01-01 280786  0         0        LW        
+    ##  4 Denmark  Annual Aquaculture production Total   Tonnes       2003-01-01  37772  0         0        LW        
+    ##  5 Denmark  Annual Aquaculture production Total   Tonnes       2002-01-01  32026  0         0        LW        
+    ##  6 Denmark  Annual Aquaculture production Total   Tonnes       2001-01-01  41573  0         0        LW        
+    ##  7 Sweden   Annual Aquaculture production Total   Tonnes       2005-01-01   5880  0         0        LW        
+    ##  8 Sweden   Annual Aquaculture production Total   Tonnes       2004-01-01   5989  0         0        LW        
+    ##  9 Sweden   Annual Aquaculture production Total   Tonnes       2003-01-01   6334  0         0        LW        
+    ## 10 Denmark  Annual Aquaculture production Total   Tonnes       2019-01-01  40221. 0         0        LW        
+    ## # ℹ 1,421 more rows
 
 ## More information
 

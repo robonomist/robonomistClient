@@ -2,7 +2,7 @@
 % Please edit documentation in R/frontend.R
 \name{data_vintage}
 \alias{data_vintage}
-\title{Vintage of table, i.e. datetime of the latest update}
+\title{Vintage of a table, i.e. POSIXct-class datetime of the latest update}
 \usage{
 data_vintage(id)
 }
@@ -13,5 +13,5 @@ data_vintage(id)
 named character vector. For original data tables the value will be a scalar.
 }
 \description{
-Vintage of table, i.e. datetime of the latest update
+The vintage indicates the time when the table of was last updated, if this information is provided by the datasource, which is not allways the case. If that time of the last update is not available, the vintage will be the time of last scheduled an update for the data table. In such cases the vintage might change without any actual changes in the data, as we have reloaded the data to check if there has been any changes.
 }

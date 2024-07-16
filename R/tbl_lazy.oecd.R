@@ -24,11 +24,10 @@ print.tbl_lazy_oecd <- function(x, n = 10L, ...) {
     time_cols <-
       inner_join(
         x$x$Frequency,
-        select(x$x$time, date_type, time),
-        by = c("code" = "date_type"),
-        multiple = "all"
+        x$x$time[c("date_type", "time")],
+        by = c("code" = "date_type")
       ) |>
-      select(x$var_types["Frequency"], time)
+      select(any_of(c(x$var_types["Frequency"], "time")))
     not_time <- setdiff(names(x$x), c("Frequency", "time"))
     n_categories <- c(purrr::map_int(x$x[not_time], nrow), nrow(time_cols))
     sel <- categories_needed(n_categories, n)
@@ -45,7 +44,7 @@ print.tbl_lazy_oecd <- function(x, n = 10L, ...) {
     n_rows <- prod(purrr::map_int(x$x, nrow))
   }
   r <- mutate(r, value = vctrs::new_vctr("??", class = "collect"))
-  if (has_time) r <- arrange(r, time)
+  if (has_time) r <- arrange(r, all_of("time"))
 
   attr(r, "n_rows") <- n_rows
   attr(r, "title") <- x$title

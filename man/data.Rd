@@ -6,23 +6,23 @@
 \alias{data_search}
 \title{Search and get data from Robonomist Data Server}
 \usage{
-data(
+dаta(
   pattern = "",
   dl_filter = NULL,
-  labels = TRUE,
+  labels = getOption("robonomistClient.labels"),
   lang = NULL,
   na.rm = FALSE,
-  tidy_time = NULL,
+  tidy_time = getOption("robonomistClient.tidy_time"),
   ...
-)
+ )
 
 data_get(
   id,
   dl_filter = NULL,
-  labels = TRUE,
+  labels = getOption("robonomistClient.labels"),
   lang = NULL,
   na.rm = FALSE,
-  tidy_time = NULL,
+  tidy_time = getOption("robonomistClient.tidy_time"),
   ...
 )
 
@@ -52,7 +52,7 @@ data_search(pattern = "")
 \item data if only one match is found.
 }
 
-\code{data_get()} returns data without performing searching or pattern filters. It will fail, if no match exists.
+\code{data_get()} returns data without performing searching or pattern filters. In production code it is better to use \code{data_get()} instead of \code{data()} as it slightly faster and does not depend on the search mechanism.  \code{data_get()} will result in error, if no match exists.
 
 \code{data_search()} only performs a search and returns the results.
 }
@@ -63,31 +63,35 @@ If the last variable is a date, it is used as a start date filter.
 }
 
 \section{Download filter}{
-Some datasources (e.g. ECB & Tulli) do not allow downloading full data tables, nor is it always preferred due to large table size. For these datasources the user must provide a download filter via the \code{dl_filter} argument. When the argument is left as \code{NULL}, the  \code{data} function will return a list of variables and potential values. This list can be used to construct a suitable download filter.
+Some datasources (e.g. datasets "ecb" & "tulli") do not allow downloading full data tables, nor is it always preferred due to the large large size of table. For these datasources the user must provide a download filter via the \code{dl_filter} argument. When the argument is left as \code{NULL}, the  \code{data} function will return a list of variables and potential values. This list can be used to construct a suitable download filter.
 
 Generally, \code{dl_filter} should be named list where names are variable names and values character vectors of selected values (see Examples). Alternatively, some datasources allow for a dot-separated string to define a download filter.
 }
 
 \examples{
 \dontrun{
- ## Return information on the data table structure
- data("ecb/AME")
- ## Example of download filter
- data("ecb/AME", dl_filter = list(ame_ref_area = "FIN"))
+## Return information on the data table structure
+data("ecb/AME")
+## Example of download filter
+data("ecb/AME", dl_filter = list(ame_ref_area = "FIN"))
 
- data(
-   "ecb/FM",
-   dl_filter = list(freq = "M",
-                    provider_fm_id = "EURIBOR1YD_")
- )
- data("ecb/FM", dl_filter = "M.U2.EUR.RT.MM.EURIBOR1YD_.HSTA")
+data(
+  "ecb/FM",
+  dl_filter = list(
+    freq = "M",
+    provider_fm_id = "EURIBOR1YD_"
+  )
+)
+data("ecb/FM", dl_filter = "M.U2.EUR.RT.MM.EURIBOR1YD_.HSTA")
 
- data("tulli/uljas_cpa2008",
-      dl_filter = list("Tavaraluokitus CPA2008_2" = "*A-X",
-                       "Aika" = c("201505", "201506"),
-                       "Maa" = "=ALL",
-                       "Suunta" = "=FIRST 1",
-                       "Indikaattorit" = "=FIRST 1"))
+data("tulli/uljas_cpa2008",
+  dl_filter = list(
+    "Tavaraluokitus CPA2008_2" = "*A-X",
+    "Aika" = c("201505", "201506"),
+    "Maa" = "=ALL",
+    "Suunta" = "=FIRST 1",
+    "Indikaattorit" = "=FIRST 1"
+  )
+)
 }
-
 }

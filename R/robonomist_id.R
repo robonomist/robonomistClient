@@ -25,6 +25,10 @@ new_robonomist_id <- function(x = character()) {
 }
 
 validate_robonomist_id <- function(x) {
+  if (all(x == "__NA__") || all(x == "NA")) {
+    ## Workaround for inline tables in Rmd's
+    return()
+  }
   stopifnot(
     nchar(x) > 2,
     !grepl("(\u00a7| |#)", x),
@@ -58,9 +62,9 @@ vec_cast.list.robonomist_id <- function(x, to, ...) {
   x <- vec_cast(x, character())
   i <- regexpr("/", x)
   list(
-      dataset = substr(x, 1L, i - 1L),
-      table = substr(x, i + 1L, nchar(x))
-    )
+    dataset = substr(x, 1L, i - 1L),
+    table = substr(x, i + 1L, nchar(x))
+  )
 }
 #' @export
 vec_ptype2.robonomist_id.list <- function(x, y, ...) list()
@@ -90,8 +94,10 @@ pillar_shaft.robonomist_id <- function(x, ...) {
       crayon::cyan(robonomist_table(x))
     )
   extent <- pillar::get_max_extent(out)
-  pillar::new_pillar_shaft_simple(out, align = "left",
-                                  width = extent, min_width = min(extent, 40L))
+  pillar::new_pillar_shaft_simple(out,
+    align = "left",
+    width = extent, min_width = min(extent, 40L)
+  )
 }
 
 #' @describeIn robonomist_id Extract dataset component from robonomist_id
@@ -116,8 +122,7 @@ robonomist_table <- function(x) {
 #' @param ... for compatibility
 #' @export
 `$.robonomist_id` <- function(x, ...) {
-  switch(
-    list(...)[[1]],
+  switch(list(...)[[1]],
     table = robonomist_table(x),
     dataset = robonomist_dataset(x),
     stop('$ operator can extract only "table" or "dataset" from robonomist_id')

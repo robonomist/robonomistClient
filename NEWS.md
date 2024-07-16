@@ -1,3 +1,44 @@
+# robonomistClient 2.2.19
+
+* Add `fetch_data_from_url()` function to help data fetching from statistical websites
+* depricate `fetch_oecd_data_from_url()` function
+
+# robonomistClient 2.2.18
+
+* Add `fetch_oecd_data_from_url()` function
+
+# robonomistClient 2.2.17
+
+* Add `datalock()` function
+
+# robonomistClient 2.2.16
+
+* Remove dependency on stats::install.packages() and tempdir() to allow caching
+
+# robonomistClient 2.2.15
+
+* Workaround for inline tables in Rmd's
+
+# robonomistClient 2.2.14
+
+* Add global options for tidy_time and labels
+
+# robonomistClient 2.2.13
+
+* Fix cran notes
+
+# robonomistClient 2.2.12
+
+* Filter available datasources
+
+# robonomistClient 2.2.11
+
+* Improve backward compatibility
+
+# robonomistClient 2.2.10
+
+* Add `lang` parameter to datasources function
+
 # robonomistClient 2.2.9
 
 * Switch to with dplyr 1.1.0

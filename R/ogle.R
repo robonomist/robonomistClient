@@ -1,11 +1,20 @@
-#' List all distinct values of categorical variables and summarise other variables
+#' Explore data by listing distinct categorical values and summarizing other variables
 #'
-#' @description The `ogle` function can be helpful in exploring tibble before filtering them.
+#' @description
+#' The `ogle` function provides a quick overview of the contents within a tibble,
+#' specifically targeting the exploration of categorical variables by listing their
+#' distinct values and summarizing other variable types. This function is useful for
+#' preliminary data exploration before proceeding with more specific data filtering or analysis.
 #'
-#' @param .data A tibble
-#' @param ... <'data-masking'> Optional variables to limit ogling. If omitted, all variables will be ogled.
+#' @param .data A tibble to explore.
+#' @param ... <'data-masking'> Additional arguments, specifying the variables to be
+#'            included in the exploration. When no variables are specified, all
+#'            variables in the tibble are explored.
 #'
-#' @return List of distinct values for character and factor variables
+#' @return A list where each element corresponds to a variable in the tibble.
+#'         For character and factor variables, it returns their distinct values.
+#'         For variables that meet a summary condition (as defined by `robonomistClient:::is_summary`),
+#'         a statistical summary is returned.
 #'
 #' @examples
 #' \dontrun{
@@ -39,12 +48,23 @@ is_summary <- function(x) {
       is.numeric(x)
 }
 
-#' Print full filter for categorical variables of a tibble
+#' Print all filtering criteria for categorical variables of a tibble
 #'
-#' @description If `clipr` package is installed, the filter will be copied to clipboard.
+#' @description
+#' This function generates and prints a filtering criteria string for categorical variables
+#' in a tibble. If running in an interactive session and the `clipr` package is installed,
+#' the generated filter string will also be copied to the clipboard for easy pasting into
+#' scripts or reports. This is particularly useful for quickly generating filter conditions
+#' for subsequent data manipulation tasks.
 #'
-#' @param .data A tibble
-#' @param ... <'data-masking'> Optional variables to limit the printout. If omitted, will print all variables.
+#' @param .data A tibble containing the data.
+#' @param ... <'data-masking'> Optional variables to specify which categorical variables
+#'            to include in the filter printout. If omitted, filter criteria for all
+#'            categorical variables will be generated and printed.
+#'
+#' @return The function prints the filtering criteria to the console and, if applicable,
+#'         copies it to the clipboard. It returns the original tibble invisibly for further
+#'         chaining of functions.
 #'
 #' @examples
 #' \dontrun{
@@ -60,7 +80,7 @@ print_filter <- function(.data, ...) {
       paste0(rlang::expr_deparse(sym(name)), " %in% c(\n", values, "\n  )")
     })
   text <- paste0("filter(\n", paste0("  ", categories, collapse = ",\n"), "\n)\n")
-  if(interactive() && requireNamespace("clipr")) clipr::write_clip(text)
+  if (interactive() && requireNamespace("clipr")) clipr::write_clip(text)
   cat(text)
   invisible(.data)
 }

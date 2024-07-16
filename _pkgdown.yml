@@ -3,3 +3,35 @@ template:
   params:
     ganalytics: UA-133826983-1
   bootstrap: 5
+
+reference:
+  - title: Data retrieval functions
+    contents:
+      - data
+      - data_get
+      - data_search
+      - datasources
+
+  - title: Metadata functions
+    contents:
+      - data_vintage
+      - data_metadata
+      - datasource_menu
+
+  - title: Helper functions
+    contents:
+      - fetch_data_from_url
+      - ogle
+      - print_filter
+      - datalock
+
+  - title: Server connection
+    contents:
+      - set_robonomist_server
+      - disconnect
+
+  - title: Other functions
+    contents:
+      - robonomist_id
+      - as_robonomist_id
+      - $.robonomist_id
