@@ -13,7 +13,7 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
-Sys.setlocale(locale = "fi_FI.UTF-8")
+# Sys.setlocale(locale = "fi_FI.UTF-8")
 ```
 
 ## Setup
@@ -31,7 +31,17 @@ set_roboplot_options(
 ## Electricity prices in Finland
 
 ```{r electricity, message = FALSE, warning = FALSE}
-data("entsoe/dap_fi") |> roboplot()
+data("entsoe/dap_FI")
+
+data("entsoe/dap_FI") |>
+  ggplot(aes(time, value)) +
+  geom_line() +
+  labs(
+    title = "Electricity prices in Finland",
+    subtitle = "Day-ahead market price, €/MWh",
+    caption = "Source: ENTSO-E Transparency Platform.",
+    x = NULL, y = NULL
+  )
 ```
 
 ## FAO food price index
@@ -56,7 +66,7 @@ data("ec/esi_nace2§(Fin|Swe|Ger)§sentiment§2015-01-01") |>
     title = "Economic Sentiment Indicator",
     subtitle = "Composite index (average = 100)",
     caption = "Source: European Commission.",
-    x=NULL, y=NULL
+    x = NULL, y = NULL
   )
 ```
 
@@ -93,9 +103,16 @@ data("StatFin/synt/statfin_synt_pxt_12dx.px", tidy_time = TRUE) |>
 You can also export the data, for example to an [Excel file](../../raw/main/man/figures/export.xlsx):
 
 ```{r, message = FALSE, warning = FALSE}
-data("ec/esi_nace2§(Fin|Swe|Ger)§§2015-01-01") %>%
-  pivot_wider(names_from = Country) %>%
-  split(.$Indicator) %>%
-  setNames(names(.) |> str_sub(1, 31)) |>
-  writexl::write_xlsx("../man/figures/export.xlsx")
+tbl <-
+  data("ec/esi_nace2§(Fin|Swe|Ger)§§2020-01-01") |>
+  pivot_wider(names_from = Country)
+tbl
+
+writexl::write_xlsx(tbl, "export.xlsx")
+```
+
+```{r move_for_pkgdown, include = FALSE}
+if (basename(getwd()) == "vignette") {
+  file.rename("export.xlsx", "../man/figures/export.xlsx")
+}
 ```

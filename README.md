@@ -7,51 +7,51 @@ A client package for R to access Robonomist Data Server
 
 The `robonomistClient` package allows easy and fast access to various
 datasources connecting to a Robonomist Data Server. Currently the client
-package provides access to 98 253 up-to-date data tables from 60
+package provides access to 96 420 up-to-date data tables from 58
 different datasources with 13 different languages.
 
 Some of the integrated datasources:
 
-  - Statistics Finland (StatFin & StatFin archive databases)
-  - Statistics Finland municipal data (Key figures & Financial data)
-  - Paavo postal code area statistics by Statistics Finland
-  - Experimental statistics by Statistics Finland
-  - Immigrants and integration database by Statistics Finland
-  - Finnish Tax Administration
-  - Finnish Centre for Pensions
-  - Natural Resources Institute Finland (Luonnonvarakeskus LUKE)
-  - Traficom database (The Finnish Transport and Communications Agency)
-  - Customs Finland
-  - THL Sotkanet
-  - Vipunen, Education Statistics Finland
-  - Helsingin seudun aluesarjat -tilastotietokanta
-  - Helsingin ympäristötilasto
-  - Fingrid
-  - TutkiHallintoa.fi (Valtiokonttori)
-  - Eurostat
-  - European Commission Business and consumer surveys
-  - World Bank
-  - OECD
-  - European Central Bank (ECB) Statistical data warehouse
-  - Deutsche Bundesbank time series database
-  - COVID-19 data (THL Epirapo, ECDC, and covid19datahub.io)
-  - Statistics Sweden
-  - The Swedish National Institute of Economic Research
-  - Swedish Agricultural Agency
-  - Statistics Norway
-  - Statistics Denmark
-  - Statistics Iceland
-  - Statistics Estonia
-  - Bank for International Settlements (BIS)
-  - International Monetary Fund (IMF)
-  - United Nations Economic Commission for Europe Statistical Database
-  - United Nations Conference on Trade and Development
-  - FAO, Food and Agriculture Organization of the United Nations
-  - Nordic Statistics Database
-  - U.S. Energy Information Administration database
-  - FRED, Federal Reserve Economic Data, St. Louis Fed
-  - Entso-E Transperancy Platform
-  - Robonomist’s curated tidy data tables
+- Statistics Finland (StatFin & StatFin archive databases)
+- Statistics Finland municipal data (Key figures & Financial data)
+- Paavo postal code area statistics by Statistics Finland
+- Experimental statistics by Statistics Finland
+- Immigrants and integration database by Statistics Finland
+- Finnish Tax Administration
+- Finnish Centre for Pensions
+- Natural Resources Institute Finland (Luonnonvarakeskus LUKE)
+- Traficom database (The Finnish Transport and Communications Agency)
+- Customs Finland
+- THL Sotkanet
+- Vipunen, Education Statistics Finland
+- Helsingin seudun aluesarjat -tilastotietokanta
+- Helsingin ympäristötilasto
+- Fingrid
+- TutkiHallintoa.fi (Valtiokonttori)
+- Eurostat
+- European Commission Business and consumer surveys
+- World Bank
+- OECD
+- European Central Bank (ECB) Statistical data warehouse
+- Deutsche Bundesbank time series database
+- COVID-19 data (THL Epirapo, ECDC, and covid19datahub.io)
+- Statistics Sweden
+- The Swedish National Institute of Economic Research
+- Swedish Agricultural Agency
+- Statistics Norway
+- Statistics Denmark
+- Statistics Iceland
+- Statistics Estonia
+- Bank for International Settlements (BIS)
+- International Monetary Fund (IMF)
+- United Nations Economic Commission for Europe Statistical Database
+- United Nations Conference on Trade and Development
+- FAO, Food and Agriculture Organization of the United Nations
+- Nordic Statistics Database
+- U.S. Energy Information Administration database
+- FRED, Federal Reserve Economic Data, St. Louis Fed
+- Entso-E Transperancy Platform
+- Robonomist’s curated tidy data tables
 
 To setup a Robonomist Data Server for your organization, please contact
 <team@robonomist.com>.
@@ -83,39 +83,39 @@ datasources()
 ```
 
     ## # Robonomist Server Datasources
-    ##    dataset            title                           languages           datasource                 
-    ##  1 StatFin            Statistics Finland, StatFin da… c("fi", "sv", "en") StatFin                    
-    ##  2 StatFin_Passiivi   Statistics Finland, StatFin ar… c("fi", "sv", "en") StatFin_Passiivi           
-    ##  3 Vero               Finnish Tax Administration sta… c("fi", "sv", "en") Vero                       
-    ##  4 ec                 European Commission's Business… en                  EC                         
-    ##  5 kunnat             Key statistics of municipaliti… c("fi", "sv", "en") KuntienAvainluvut          
-    ##  6 kunnat             Financial data reported by mun… c("fi", "sv", "en") KuntienTalous              
-    ##  7 paavo              Statistics Finland's Paavo dat… c("fi", "sv", "en") Paavo                      
-    ##  8 tulli              Finnish Customs, Uljas Statist… c("fi", "sv", "en") Tulli                      
-    ##  9 luke               Statistics database of Natural… c("fi", "sv", "en") Luke                       
-    ## 10 etk                Finnish Centre for Pensions' s… c("fi", "sv", "en") ETK                        
-    ## 11 eurostat           Eurostat database               c("en", "de", "fr") eurostat                   
-    ## 12 ecb                ECB Statistical Data Warehouse  en                  ECB                        
-    ## 13 bundesbank         Deutsche Bundesbank time serie… c("en", "de")       Bundesbank                 
-    ## 14 oecd               OECD database                   en                  OECD                       
-    ## 15 oecd3              OECD database (SDMX-JSON API)   en                  OECD3                      
-    ## 16 oecd               OECD database                   en                  OECD4                      
-    ## 17 wb                 World Bank Open Data            en                  WB                         
-    ## 18 hsa                Greater Helsinki Open Statisti… c("fi", "sv", "en") HSA                        
-    ## 19 helymp             Helsinki environmental statist… c("fi", "en", "sv") HelsinginYmpäristötilasto  
-    ## 20 helhyv             Helsinki wellbeing statistics   fi                  HelsinginHyvinvointitilasto
-    ## 21 nordstat           Nordstat                        c("fi", "en", "sv") Nordstat                   
-    ## 22 covid              European Centre for Disease Pr… en                  ECDC                       
-    ## 23 vipunen            Vipunen, Education Statistics … fi                  Vipunen                    
-    ## 24 epirapo            THL Epirapo COVID-19 database   fi                  Epirapo                    
-    ## 25 sotkanet           Sotkanet indicator bank of the… c("fi", "en", "sv") Sotkanet                   
-    ## 26 maakoto            Immigrants and integration sta… c("fi", "sv", "en") Maakoto                    
-    ## 27 koto               Integration database, Finnish … c("fi", "sv", "en") Koto                       
-    ## 28 toimipaikkalaskuri Toimipaikkalaskuri database, S… fi                  Toimipaikkalaskuri         
-    ## 29 kokeelliset        Statistics Finland's experimen… c("fi", "sv", "en") KokeellisetTilastot        
-    ## 30 traficom           Traficom statistics database    c("fi", "sv", "en") Traficom                   
-    ## # ℹ 30 more rows
-    ## # ℹ 1 more variable: available <lgl>
+    ##    dataset                  title                                                    languages          
+    ##  1 StatFin                  Statistics Finland, StatFin database                     c("fi", "sv", "en")
+    ##  2 StatFin_Passiivi         Statistics Finland, StatFin archive database             c("fi", "sv", "en")
+    ##  3 Vero                     Finnish Tax Administration statistical database          c("fi", "sv", "en")
+    ##  4 ec                       European Commission's Business and Consumer Surveys      en                 
+    ##  5 kunnat                   Key statistics of municipalities, Statistics Finland     c("fi", "sv", "en")
+    ##  6 kunnat                   Financial data reported by municipalities and joint mun… c("fi", "sv", "en")
+    ##  7 paavo                    Statistics Finland's Paavo database                      c("fi", "sv", "en")
+    ##  8 tulli                    Finnish Customs, Uljas Statistical Database              c("fi", "sv", "en")
+    ##  9 luke                     Statistics database of Natural Resources Institute Finl… c("fi", "sv", "en")
+    ## 10 etk                      Finnish Centre for Pensions' statistical database        c("fi", "sv", "en")
+    ## 11 eurostat                 Eurostat database                                        c("en", "de", "fr")
+    ## 12 ecb                      ECB Statistical Data Warehouse                           en                 
+    ## 13 bundesbank               Deutsche Bundesbank time series database                 c("en", "de")      
+    ## 14 oecd                     OECD database                                            en                 
+    ## 15 wb                       World Bank Open Data                                     en                 
+    ## 16 hsa                      Greater Helsinki Open Statistical Databases, Aluesarjat  c("fi", "sv", "en")
+    ## 17 helymp                   Helsinki environmental statistics                        c("fi", "en", "sv")
+    ## 18 helhyv                   Helsinki wellbeing statistics                            fi                 
+    ## 19 nordstat                 Nordstat                                                 c("fi", "en", "sv")
+    ## 20 covid                    European Centre for Disease Prevention and Control COVI… en                 
+    ## 21 vipunen                  Vipunen, Education Statistics Finland                    fi                 
+    ## 22 epirapo                  THL Epirapo COVID-19 database                            fi                 
+    ## 23 sotkanet                 Sotkanet indicator bank of the Finnish Institute for He… c("fi", "en", "sv")
+    ## 24 maakoto                  Immigrants and integration statistics, Statistics Finla… c("fi", "sv", "en")
+    ## 25 koto                     Integration database, Finnish Ministry of Economic Affa… c("fi", "sv", "en")
+    ## 26 toimipaikkalaskuri       Toimipaikkalaskuri database, Statitstics Finland         fi                 
+    ## 27 kokeelliset              Statistics Finland's experimental statistics             c("fi", "sv", "en")
+    ## 28 traficom                 Traficom statistics database                             c("fi", "sv", "en")
+    ## 29 tieliikenneonnettomuudet Road traffic accidents statistical database, Statistics… c("fi", "sv", "en")
+    ## 30 rudolf                   Rudolf statistical database, Business Finland            c("fi", "en")      
+    ## # ℹ 28 more rows
+    ## # ℹ 2 more variables: datasource <chr>, available <lgl>
 
 The `data` function is convenient way to search and get data tables.
 Print all available data tables:
@@ -157,7 +157,7 @@ data()
     ## 28 StatFin/altp/statfin_altp_pxt_12bf.px   Kotitalouksien tulot ja menot alueittain, vuosittain muuttujina S… fi   
     ## 29 StatFin/altp/statfin_altp_pxt_12bf.px   Hushållens inkomster och utgifter per region, årsvis efter Sektor… sv   
     ## 30 StatFin/altp/statfin_altp_pxt_12bf.px   Household income and expenditure by area, annually by Sector, Are… en   
-    ## # ℹ 172,382 more rows
+    ## # ℹ 171,700 more rows
 
 To get a specific data table, use the tables id.
 
@@ -194,20 +194,20 @@ fetch_data_from_url("https://data-explorer.oecd.org/vis?tm=sna&pg=0&fs[0]=Measur
 
     ## # Robonomist id: oecd/DSD_FISH_PROD@DF_FISH_AQUA
     ## # Title:         Aquaculture production
-    ## # Vintage:       2024-03-08 18:57:12
+    ## # Vintage:       2024-07-25 09:39:34
     ## # A tibble:      1,431 × 10
-    ##    REF_AREA FREQ   MEASURE                SPECIES UNIT_MEASURE time         value UNIT_MULT DECIMALS CONVENTION
-    ##  * <chr>    <chr>  <chr>                  <chr>   <chr>        <date>       <dbl> <chr>     <chr>    <chr>     
-    ##  1 Israel   Annual Aquaculture production Total   Tonnes       2021-01-01  14875  0         0        LW        
-    ##  2 Sweden   Annual Aquaculture production Total   Tonnes       1995-01-01   7554  0         0        LW        
-    ##  3 France   Annual Aquaculture production Total   Tonnes       1995-01-01 280786  0         0        LW        
-    ##  4 Denmark  Annual Aquaculture production Total   Tonnes       2003-01-01  37772  0         0        LW        
-    ##  5 Denmark  Annual Aquaculture production Total   Tonnes       2002-01-01  32026  0         0        LW        
-    ##  6 Denmark  Annual Aquaculture production Total   Tonnes       2001-01-01  41573  0         0        LW        
-    ##  7 Sweden   Annual Aquaculture production Total   Tonnes       2005-01-01   5880  0         0        LW        
-    ##  8 Sweden   Annual Aquaculture production Total   Tonnes       2004-01-01   5989  0         0        LW        
-    ##  9 Sweden   Annual Aquaculture production Total   Tonnes       2003-01-01   6334  0         0        LW        
-    ## 10 Denmark  Annual Aquaculture production Total   Tonnes       2019-01-01  40221. 0         0        LW        
+    ##    REF_AREA  FREQ   MEASURE                SPECIES UNIT_MEASURE time       value UNIT_MULT DECIMALS CONVENTION
+    ##  * <chr>     <chr>  <chr>                  <chr>   <chr>        <date>     <dbl> <chr>     <chr>    <chr>     
+    ##  1 Argentina Annual Aquaculture production Total   Tonnes       1995-01-01  1474 0         0        LW        
+    ##  2 Argentina Annual Aquaculture production Total   Tonnes       1996-01-01  1322 0         0        LW        
+    ##  3 Argentina Annual Aquaculture production Total   Tonnes       1997-01-01  1314 0         0        LW        
+    ##  4 Argentina Annual Aquaculture production Total   Tonnes       1998-01-01  1040 0         0        LW        
+    ##  5 Argentina Annual Aquaculture production Total   Tonnes       1999-01-01  1218 0         0        LW        
+    ##  6 Argentina Annual Aquaculture production Total   Tonnes       2000-01-01  1784 0         0        LW        
+    ##  7 Argentina Annual Aquaculture production Total   Tonnes       2001-01-01  1340 0         0        LW        
+    ##  8 Argentina Annual Aquaculture production Total   Tonnes       2002-01-01  1457 0         0        LW        
+    ##  9 Argentina Annual Aquaculture production Total   Tonnes       2003-01-01  1647 0         0        LW        
+    ## 10 Argentina Annual Aquaculture production Total   Tonnes       2004-01-01  1848 0         0        LW        
     ## # ℹ 1,421 more rows
 
 ## More information
@@ -215,8 +215,8 @@ fetch_data_from_url("https://data-explorer.oecd.org/vis?tm=sna&pg=0&fs[0]=Measur
 You can find detailed information on how to use `robonomistClient` in
 the [documentation](https://robonomist.github.io/robonomistClient).
 
-  - [Basic
-    features](https://robonomist.github.io/robonomistClient/articles/basic_features.html)
-  - [Examples](https://robonomist.github.io/robonomistClient/articles/examples.html)
-  - [Filtering large data
-    tables](https://robonomist.github.io/robonomistClient/articles/filtering.html)
+- [Basic
+  features](https://robonomist.github.io/robonomistClient/articles/basic_features.html)
+- [Examples](https://robonomist.github.io/robonomistClient/articles/examples.html)
+- [Filtering large data
+  tables](https://robonomist.github.io/robonomistClient/articles/filtering.html)

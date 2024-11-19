@@ -7,4 +7,5 @@
 #' @import cli
 #' @import vctrs
 #' @rawNamespace import(dplyr, except = data_frame)
+#' @rawNamespace import(pillar, except = c(style_bold, dim_desc))
 NULL
