@@ -72,7 +72,7 @@ data <- function(pattern = "",
   stopifnot(is.null(lang) || is.character(lang))
   stopifnot(is.null(tidy_time) || is.logical(tidy_time))
   args <- c(as.list(environment()), list(...)) |> purrr::compact()
-  do_request("data", args)
+  do_request("data", args) |> signal_data_get()
 }
 
 #' Get data for table id
@@ -91,7 +91,7 @@ data_get <- function(id,
                      tidy_time = getOption("robonomistClient.tidy_time"),
                      ...) {
   args <- c(as.list(environment()), list(...)) |> purrr::compact()
-  do_request("get", args)
+  do_request("get", args) |> signal_data_get()
 }
 
 #' Search for data
