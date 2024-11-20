@@ -35,19 +35,19 @@ tbl_sum.robonomist_datasources <- function(x, ...) {
 ctl_new_pillar.robonomist_datasources <- function(controller, x, width, ..., title = NULL) {
   pillar_data <-
     if (!is.null(title) && title == "dataset") {
-    extent <- get_max_extent(x)
-     new_pillar_component(
-      list(new_pillar_shaft_simple(crayon::blue(x))),
-      width = extent, min_width = min(extent, 40L)
-    )
-  } else if (!is.null(title) && title == "languages") {
-    pillar_component(new_pillar_shaft_simple(
-      lapply(x, paste, collapse = ",") |> unlist(),
-      min_width = 30L
-    ))
-  } else {
-     pillar_component(new_pillar_shaft_simple(x, min_width = 30L))
-  }
+      extent <- get_max_extent(x)
+      new_pillar_component(
+        list(new_pillar_shaft_simple(crayon::blue(x))),
+        width = extent, min_width = min(extent, 40L)
+      )
+    } else if (!is.null(title) && title == "languages") {
+      pillar_component(new_pillar_shaft_simple(
+        lapply(x, paste, collapse = ",") |> unlist(),
+        min_width = 30L
+      ))
+    } else {
+      pillar_component(new_pillar_shaft_simple(x, min_width = 30L))
+    }
   new_pillar(list(
     title = pillar_component(new_pillar_title(title)),
     data = pillar_data
@@ -61,44 +61,3 @@ print.robonomist_datasources <- function(x, n = getOption("robonomistClient.data
 
 
 ## robonomist_data
-
-#' @export
-#' @importFrom tibble tbl_sum
-tbl_sum.robonomist_data <- function(x, ...) {
-  default_header <- NextMethod()
-  c(
-    "Robonomist id" = crayon::cyan(attr(x, "robonomist_id")),
-    "Title" = attr(x, "robonomist_title"),
-    "Vintage" = if (is.na(default_header["Last updated"])) {
-      as.character(attr(x, "robonomist_vintage"))
-    },
-    default_header
-  )
-}
-
-## px
-
-#' @export
-#' @importFrom tibble tbl_sum
-tbl_sum.px <- function(x, ...) {
-  header <- NextMethod()
-  lang <- attr(x, "output_language") %||% 1L
-  ## if (is.null(lang)) lang <- 1L
-  c(
-    "Last updated" = as.character(attr(x, "last-updated")[[lang]][[1]]),
-    "Next update" = as.character(attr(x, "next-update")),
-    header
-  )
-}
-
-## eurostat
-
-#' @export
-#' @importFrom tibble tbl_sum
-tbl_sum.eurostat <- function(x, ...) {
-  header <- NextMethod()
-  tf <- if (!is.null(y <- attr(x, "time_frame_code"))) {
-    paste(y, collapse = "-")
-  }
-  c(`Time frame` = tf, header)
-}

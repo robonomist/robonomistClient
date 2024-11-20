@@ -1,23 +1,43 @@
-## ## @export
-## ## @importFrom tibble new_tibble is_tibble
-## new_robonomist_data <- function(x = new_data_frame(),
-##                                 id = new_robonomist_id(),
-##                                 title = character(),
-##                                 vintage = new_datetime()
-##                                 ) {
-##   ## vec_assert(x, new_data_frame())
-##   is.data.frame(x)
-##   vec_assert(id, new_robonomist_id())
-##   vec_assert(title, character())
-##   vec_assert(vintage, new_datetime())
-##   new_data_frame(
-##     x,
-##     robonomist_id = id,
-##     robonomist_title = title,
-##     robonomist_vintage = vintage,
-##     class = c("robonomist_data", "tbl_df", "tbl")
-##   )
-## }
+#' @export
+#' @importFrom tibble tbl_sum
+tbl_sum.robonomist_data <- function(x, ...) {
+  default_header <- NextMethod()
+  c(
+    "Robonomist id" = crayon::cyan(attr(x, "robonomist_id")),
+    "Title" = attr(x, "robonomist_title"),
+    "Vintage" = if (is.na(default_header["Last updated"])) {
+      as.character(attr(x, "robonomist_vintage"))
+    },
+    default_header
+  )
+}
+
+## px
+
+#' @export
+#' @importFrom tibble tbl_sum
+tbl_sum.px <- function(x, ...) {
+  header <- NextMethod()
+  lang <- attr(x, "output_language") %||% 1L
+  ## if (is.null(lang)) lang <- 1L
+  c(
+    "Last updated" = as.character(attr(x, "last-updated")[[lang]][[1]]),
+    "Next update" = as.character(attr(x, "next-update")),
+    header
+  )
+}
+
+## eurostat
+
+#' @export
+#' @importFrom tibble tbl_sum
+tbl_sum.eurostat <- function(x, ...) {
+  header <- NextMethod()
+  tf <- if (!is.null(y <- attr(x, "time_frame_code"))) {
+    paste(y, collapse = "-")
+  }
+  c(`Time frame` = tf, header)
+}
 
 ## validate_robonomist_data <- function(x) {
 ##   stopifnot(
