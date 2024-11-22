@@ -110,7 +110,7 @@ the Federal Reserve System), call:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/data.html">data</a></span><span class="op">(</span><span class="st">"fred/source=1"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; ⠙ Requesting data</span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[217ms]</span></span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[231ms]</span></span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># Robonomist id: </span><span style="color: #00BBBB;">fred/source=1</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># Title:         Board of Governors of the Federal Reserve System (US)</span></span></span>
@@ -134,7 +134,7 @@ Production and Capacity Utilization), call:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/data.html">data</a></span><span class="op">(</span><span class="st">"fred/release=13"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; ⠙ Requesting data</span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[740ms]</span></span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[887ms]</span></span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># Robonomist id: </span><span style="color: #00BBBB;">fred/release=13</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># Title:         G.17 Industrial Production and Capacity Utilization</span></span></span>
@@ -161,7 +161,7 @@ function:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/data.html">data_get</a></span><span class="op">(</span><span class="st">"fred/CAPB00004S"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; ⠙ Requesting get</span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[534ms]</span></span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[585ms]</span></span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># Robonomist id: </span><span style="color: #00BBBB;">fred/CAPB00004S</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># Title:         Industrial Capacity: Manufacturing (SIC)</span></span></span>
@@ -185,7 +185,7 @@ ids:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">d</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/data.html">data_get</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"fred/CAPB5610CS"</span>, <span class="st">"fred/CAPB5640CS"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; ⠙ Requesting get</span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[183ms]</span></span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[235ms]</span></span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="va">d</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># Robonomist id: </span><span style="color: #00BBBB;">fred/CAPB5610CS</span></span></span>
@@ -218,7 +218,7 @@ the <code>units</code> parameter:</p>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html" class="external-link">geom_line</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"bottom"</span>, legend.direction <span class="op">=</span> <span class="st">"vertical"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; ⠙ Requesting get</span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[186ms]</span></span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[237ms]</span></span></span>
 <span><span class="co">#&gt; </span></span></code></pre></div>
 <p><img src="special_files/figure-html/unnamed-chunk-7-1.png"><!-- --></p>
 <p>Allowed values for <code>units</code>:</p>
@@ -243,7 +243,7 @@ parameters:</p>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html" class="external-link">geom_line</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"bottom"</span>, legend.direction <span class="op">=</span> <span class="st">"vertical"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; ⠙ Requesting get</span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[171ms]</span></span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[219ms]</span></span></span>
 <span><span class="co">#&gt; </span></span></code></pre></div>
 <p><img src="special_files/figure-html/unnamed-chunk-8-1.png"><!-- --></p>
 <p>Allowed values for <code>frequency</code>:</p>
