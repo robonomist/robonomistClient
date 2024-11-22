@@ -150,7 +150,7 @@ datasources <- function(lang = NULL, available_only = TRUE) {
   if (available_only) {
     ds <- ds[ds$available, ]
   }
-  ds
+  as_robonomist_datasources(ds)
 }
 
 #' Structured menu of available datasources and data tables
