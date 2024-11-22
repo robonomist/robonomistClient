@@ -15,7 +15,7 @@ The robonomistClient package is designed to deliver:
 **Comprehensive Data Coverage**
 
 Access data from national statistical agencies, international
-organizations, and regional sources—all in one place. This means less
+organizations, and regional sources — all in one place. This means less
 time spent searching for data and more time for analysis.
 
 - Statistics Finland, OECD, World Bank, European Central Bank, and more.
@@ -50,9 +50,9 @@ stable API:
 
 The `robonomistClient` package provides seamless and efficient access to
 a wide range of datasources via the Robonomist Data Server. With support
-for **95 197** up-to-date data tables across 57 distinct datasources and
-13 languages, the package is designed to streamline your data analysis
-workflow.
+for **95 197 up-to-date data tables** across **57 distinct datasources**
+and **13 languages**, the package is designed to streamline your data
+analysis workflow.
 
 **International Datasources**
 

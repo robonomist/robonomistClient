@@ -23,7 +23,7 @@ The robonomistClient package is designed to deliver:
 
 **Comprehensive Data Coverage**
 
-Access data from national statistical agencies, international organizations, and regional sources—all in one place. This means less time spent searching for data and more time for analysis.
+Access data from national statistical agencies, international organizations, and regional sources — all in one place. This means less time spent searching for data and more time for analysis.
 
 * Statistics Finland, OECD, World Bank, European Central Bank, and more.
 
@@ -51,7 +51,7 @@ Designed to work smoothly with R, robonomistClient makes building dynamic docume
 
 ## Datasources
 
-The `robonomistClient` package provides seamless and efficient access to a wide range of datasources via the Robonomist Data Server. With support for **`r format(nrow(distinct(data(), id)), big.mark = " ")`** up-to-date data tables across `r nrow(datasources())` distinct datasources and `r length(unique(unlist(datasources()$languages)))` languages, the package is designed to streamline your data analysis workflow.
+The `robonomistClient` package provides seamless and efficient access to a wide range of datasources via the Robonomist Data Server. With support for **`r format(nrow(distinct(data(), id)), big.mark = " ")` up-to-date data tables** across **`r nrow(datasources())` distinct datasources** and **`r length(unique(unlist(datasources()$languages)))` languages**, the package is designed to streamline your data analysis workflow.
 
 **International Datasources**
 
