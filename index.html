@@ -8,8 +8,8 @@
 <title>Access data from Robonomist Data Server • robonomistClient</title>
 <script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
-<link href="deps/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
+<script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
+<link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Access data from Robonomist Data Server">
 <meta name="description" content="Easy and fast access to various datasources in a unified format via Robonomist Data Server.">
 <meta property="og:description" content="Easy and fast access to various datasources in a unified format via Robonomist Data Server.">
@@ -45,7 +45,6 @@
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
 <li><a class="dropdown-item" href="articles/basic_features.html">Basic features</a></li>
     <li><a class="dropdown-item" href="articles/examples.html">Examples</a></li>
-    <li><a class="dropdown-item" href="articles/filtering.html">Filtering large data tables</a></li>
     <li><a class="dropdown-item" href="articles/special.html">Special datasources</a></li>
   </ul>
 </li>
@@ -73,7 +72,7 @@
 <div class="section level2">
 <h2 id="datasources">Datasources<a class="anchor" aria-label="anchor" href="#datasources"></a>
 </h2>
-<p>The <code>robonomistClient</code> package allows easy and fast access to various datasources connecting to a Robonomist Data Server. Currently the client package provides access to 98 253 up-to-date data tables from 60 different datasources with 13 different languages.</p>
+<p>The <code>robonomistClient</code> package allows easy and fast access to various datasources connecting to a Robonomist Data Server. Currently the client package provides access to 96 420 up-to-date data tables from 58 different datasources with 13 different languages.</p>
 <p>Some of the integrated datasources:</p>
 <ul>
 <li>Statistics Finland (StatFin &amp; StatFin archive databases)</li>
@@ -138,39 +137,39 @@
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/datasources.html">datasources</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="do">## # Robonomist Server Datasources</span></span>
-<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="do">##    dataset            title                           languages           datasource                 </span></span>
-<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="do">##  1 StatFin            Statistics Finland, StatFin da… c("fi", "sv", "en") StatFin                    </span></span>
-<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="do">##  2 StatFin_Passiivi   Statistics Finland, StatFin ar… c("fi", "sv", "en") StatFin_Passiivi           </span></span>
-<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="do">##  3 Vero               Finnish Tax Administration sta… c("fi", "sv", "en") Vero                       </span></span>
-<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a><span class="do">##  4 ec                 European Commission's Business… en                  EC                         </span></span>
-<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a><span class="do">##  5 kunnat             Key statistics of municipaliti… c("fi", "sv", "en") KuntienAvainluvut          </span></span>
-<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a><span class="do">##  6 kunnat             Financial data reported by mun… c("fi", "sv", "en") KuntienTalous              </span></span>
-<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a><span class="do">##  7 paavo              Statistics Finland's Paavo dat… c("fi", "sv", "en") Paavo                      </span></span>
-<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a><span class="do">##  8 tulli              Finnish Customs, Uljas Statist… c("fi", "sv", "en") Tulli                      </span></span>
-<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a><span class="do">##  9 luke               Statistics database of Natural… c("fi", "sv", "en") Luke                       </span></span>
-<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a><span class="do">## 10 etk                Finnish Centre for Pensions' s… c("fi", "sv", "en") ETK                        </span></span>
-<span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a><span class="do">## 11 eurostat           Eurostat database               c("en", "de", "fr") eurostat                   </span></span>
-<span id="cb4-14"><a href="#cb4-14" tabindex="-1"></a><span class="do">## 12 ecb                ECB Statistical Data Warehouse  en                  ECB                        </span></span>
-<span id="cb4-15"><a href="#cb4-15" tabindex="-1"></a><span class="do">## 13 bundesbank         Deutsche Bundesbank time serie… c("en", "de")       Bundesbank                 </span></span>
-<span id="cb4-16"><a href="#cb4-16" tabindex="-1"></a><span class="do">## 14 oecd               OECD database                   en                  OECD                       </span></span>
-<span id="cb4-17"><a href="#cb4-17" tabindex="-1"></a><span class="do">## 15 oecd3              OECD database (SDMX-JSON API)   en                  OECD3                      </span></span>
-<span id="cb4-18"><a href="#cb4-18" tabindex="-1"></a><span class="do">## 16 oecd               OECD database                   en                  OECD4                      </span></span>
-<span id="cb4-19"><a href="#cb4-19" tabindex="-1"></a><span class="do">## 17 wb                 World Bank Open Data            en                  WB                         </span></span>
-<span id="cb4-20"><a href="#cb4-20" tabindex="-1"></a><span class="do">## 18 hsa                Greater Helsinki Open Statisti… c("fi", "sv", "en") HSA                        </span></span>
-<span id="cb4-21"><a href="#cb4-21" tabindex="-1"></a><span class="do">## 19 helymp             Helsinki environmental statist… c("fi", "en", "sv") HelsinginYmpäristötilasto  </span></span>
-<span id="cb4-22"><a href="#cb4-22" tabindex="-1"></a><span class="do">## 20 helhyv             Helsinki wellbeing statistics   fi                  HelsinginHyvinvointitilasto</span></span>
-<span id="cb4-23"><a href="#cb4-23" tabindex="-1"></a><span class="do">## 21 nordstat           Nordstat                        c("fi", "en", "sv") Nordstat                   </span></span>
-<span id="cb4-24"><a href="#cb4-24" tabindex="-1"></a><span class="do">## 22 covid              European Centre for Disease Pr… en                  ECDC                       </span></span>
-<span id="cb4-25"><a href="#cb4-25" tabindex="-1"></a><span class="do">## 23 vipunen            Vipunen, Education Statistics … fi                  Vipunen                    </span></span>
-<span id="cb4-26"><a href="#cb4-26" tabindex="-1"></a><span class="do">## 24 epirapo            THL Epirapo COVID-19 database   fi                  Epirapo                    </span></span>
-<span id="cb4-27"><a href="#cb4-27" tabindex="-1"></a><span class="do">## 25 sotkanet           Sotkanet indicator bank of the… c("fi", "en", "sv") Sotkanet                   </span></span>
-<span id="cb4-28"><a href="#cb4-28" tabindex="-1"></a><span class="do">## 26 maakoto            Immigrants and integration sta… c("fi", "sv", "en") Maakoto                    </span></span>
-<span id="cb4-29"><a href="#cb4-29" tabindex="-1"></a><span class="do">## 27 koto               Integration database, Finnish … c("fi", "sv", "en") Koto                       </span></span>
-<span id="cb4-30"><a href="#cb4-30" tabindex="-1"></a><span class="do">## 28 toimipaikkalaskuri Toimipaikkalaskuri database, S… fi                  Toimipaikkalaskuri         </span></span>
-<span id="cb4-31"><a href="#cb4-31" tabindex="-1"></a><span class="do">## 29 kokeelliset        Statistics Finland's experimen… c("fi", "sv", "en") KokeellisetTilastot        </span></span>
-<span id="cb4-32"><a href="#cb4-32" tabindex="-1"></a><span class="do">## 30 traficom           Traficom statistics database    c("fi", "sv", "en") Traficom                   </span></span>
-<span id="cb4-33"><a href="#cb4-33" tabindex="-1"></a><span class="do">## # ℹ 30 more rows</span></span>
-<span id="cb4-34"><a href="#cb4-34" tabindex="-1"></a><span class="do">## # ℹ 1 more variable: available &lt;lgl&gt;</span></span></code></pre></div>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="do">##    dataset                  title                                                    languages          </span></span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="do">##  1 StatFin                  Statistics Finland, StatFin database                     c("fi", "sv", "en")</span></span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="do">##  2 StatFin_Passiivi         Statistics Finland, StatFin archive database             c("fi", "sv", "en")</span></span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="do">##  3 Vero                     Finnish Tax Administration statistical database          c("fi", "sv", "en")</span></span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a><span class="do">##  4 ec                       European Commission's Business and Consumer Surveys      en                 </span></span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a><span class="do">##  5 kunnat                   Key statistics of municipalities, Statistics Finland     c("fi", "sv", "en")</span></span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a><span class="do">##  6 kunnat                   Financial data reported by municipalities and joint mun… c("fi", "sv", "en")</span></span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a><span class="do">##  7 paavo                    Statistics Finland's Paavo database                      c("fi", "sv", "en")</span></span>
+<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a><span class="do">##  8 tulli                    Finnish Customs, Uljas Statistical Database              c("fi", "sv", "en")</span></span>
+<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a><span class="do">##  9 luke                     Statistics database of Natural Resources Institute Finl… c("fi", "sv", "en")</span></span>
+<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a><span class="do">## 10 etk                      Finnish Centre for Pensions' statistical database        c("fi", "sv", "en")</span></span>
+<span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a><span class="do">## 11 eurostat                 Eurostat database                                        c("en", "de", "fr")</span></span>
+<span id="cb4-14"><a href="#cb4-14" tabindex="-1"></a><span class="do">## 12 ecb                      ECB Statistical Data Warehouse                           en                 </span></span>
+<span id="cb4-15"><a href="#cb4-15" tabindex="-1"></a><span class="do">## 13 bundesbank               Deutsche Bundesbank time series database                 c("en", "de")      </span></span>
+<span id="cb4-16"><a href="#cb4-16" tabindex="-1"></a><span class="do">## 14 oecd                     OECD database                                            en                 </span></span>
+<span id="cb4-17"><a href="#cb4-17" tabindex="-1"></a><span class="do">## 15 wb                       World Bank Open Data                                     en                 </span></span>
+<span id="cb4-18"><a href="#cb4-18" tabindex="-1"></a><span class="do">## 16 hsa                      Greater Helsinki Open Statistical Databases, Aluesarjat  c("fi", "sv", "en")</span></span>
+<span id="cb4-19"><a href="#cb4-19" tabindex="-1"></a><span class="do">## 17 helymp                   Helsinki environmental statistics                        c("fi", "en", "sv")</span></span>
+<span id="cb4-20"><a href="#cb4-20" tabindex="-1"></a><span class="do">## 18 helhyv                   Helsinki wellbeing statistics                            fi                 </span></span>
+<span id="cb4-21"><a href="#cb4-21" tabindex="-1"></a><span class="do">## 19 nordstat                 Nordstat                                                 c("fi", "en", "sv")</span></span>
+<span id="cb4-22"><a href="#cb4-22" tabindex="-1"></a><span class="do">## 20 covid                    European Centre for Disease Prevention and Control COVI… en                 </span></span>
+<span id="cb4-23"><a href="#cb4-23" tabindex="-1"></a><span class="do">## 21 vipunen                  Vipunen, Education Statistics Finland                    fi                 </span></span>
+<span id="cb4-24"><a href="#cb4-24" tabindex="-1"></a><span class="do">## 22 epirapo                  THL Epirapo COVID-19 database                            fi                 </span></span>
+<span id="cb4-25"><a href="#cb4-25" tabindex="-1"></a><span class="do">## 23 sotkanet                 Sotkanet indicator bank of the Finnish Institute for He… c("fi", "en", "sv")</span></span>
+<span id="cb4-26"><a href="#cb4-26" tabindex="-1"></a><span class="do">## 24 maakoto                  Immigrants and integration statistics, Statistics Finla… c("fi", "sv", "en")</span></span>
+<span id="cb4-27"><a href="#cb4-27" tabindex="-1"></a><span class="do">## 25 koto                     Integration database, Finnish Ministry of Economic Affa… c("fi", "sv", "en")</span></span>
+<span id="cb4-28"><a href="#cb4-28" tabindex="-1"></a><span class="do">## 26 toimipaikkalaskuri       Toimipaikkalaskuri database, Statitstics Finland         fi                 </span></span>
+<span id="cb4-29"><a href="#cb4-29" tabindex="-1"></a><span class="do">## 27 kokeelliset              Statistics Finland's experimental statistics             c("fi", "sv", "en")</span></span>
+<span id="cb4-30"><a href="#cb4-30" tabindex="-1"></a><span class="do">## 28 traficom                 Traficom statistics database                             c("fi", "sv", "en")</span></span>
+<span id="cb4-31"><a href="#cb4-31" tabindex="-1"></a><span class="do">## 29 tieliikenneonnettomuudet Road traffic accidents statistical database, Statistics… c("fi", "sv", "en")</span></span>
+<span id="cb4-32"><a href="#cb4-32" tabindex="-1"></a><span class="do">## 30 rudolf                   Rudolf statistical database, Business Finland            c("fi", "en")      </span></span>
+<span id="cb4-33"><a href="#cb4-33" tabindex="-1"></a><span class="do">## # ℹ 28 more rows</span></span>
+<span id="cb4-34"><a href="#cb4-34" tabindex="-1"></a><span class="do">## # ℹ 2 more variables: datasource &lt;chr&gt;, available &lt;lgl&gt;</span></span></code></pre></div>
 <p>The <code>data</code> function is convenient way to search and get data tables. Print all available data tables:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/data.html">data</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
@@ -207,7 +206,7 @@
 <span id="cb6-31"><a href="#cb6-31" tabindex="-1"></a><span class="do">## 28 StatFin/altp/statfin_altp_pxt_12bf.px   Kotitalouksien tulot ja menot alueittain, vuosittain muuttujina S… fi   </span></span>
 <span id="cb6-32"><a href="#cb6-32" tabindex="-1"></a><span class="do">## 29 StatFin/altp/statfin_altp_pxt_12bf.px   Hushållens inkomster och utgifter per region, årsvis efter Sektor… sv   </span></span>
 <span id="cb6-33"><a href="#cb6-33" tabindex="-1"></a><span class="do">## 30 StatFin/altp/statfin_altp_pxt_12bf.px   Household income and expenditure by area, annually by Sector, Are… en   </span></span>
-<span id="cb6-34"><a href="#cb6-34" tabindex="-1"></a><span class="do">## # ℹ 172,382 more rows</span></span></code></pre></div>
+<span id="cb6-34"><a href="#cb6-34" tabindex="-1"></a><span class="do">## # ℹ 171,700 more rows</span></span></code></pre></div>
 <p>To get a specific data table, use the tables id.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/data.html">data</a></span><span class="op">(</span><span class="st">"StatFin/synt/statfin_synt_pxt_12dx.px"</span><span class="op">)</span></span></code></pre></div>
@@ -236,20 +235,20 @@
 <span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a></span>
 <span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a><span class="do">## # Robonomist id: oecd/DSD_FISH_PROD@DF_FISH_AQUA</span></span>
 <span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a><span class="do">## # Title:         Aquaculture production</span></span>
-<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a><span class="do">## # Vintage:       2024-03-08 18:57:12</span></span>
+<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a><span class="do">## # Vintage:       2024-07-25 09:39:34</span></span>
 <span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a><span class="do">## # A tibble:      1,431 × 10</span></span>
-<span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a><span class="do">##    REF_AREA FREQ   MEASURE                SPECIES UNIT_MEASURE time         value UNIT_MULT DECIMALS CONVENTION</span></span>
-<span id="cb10-8"><a href="#cb10-8" tabindex="-1"></a><span class="do">##  * &lt;chr&gt;    &lt;chr&gt;  &lt;chr&gt;                  &lt;chr&gt;   &lt;chr&gt;        &lt;date&gt;       &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;    &lt;chr&gt;     </span></span>
-<span id="cb10-9"><a href="#cb10-9" tabindex="-1"></a><span class="do">##  1 Israel   Annual Aquaculture production Total   Tonnes       2021-01-01  14875  0         0        LW        </span></span>
-<span id="cb10-10"><a href="#cb10-10" tabindex="-1"></a><span class="do">##  2 Sweden   Annual Aquaculture production Total   Tonnes       1995-01-01   7554  0         0        LW        </span></span>
-<span id="cb10-11"><a href="#cb10-11" tabindex="-1"></a><span class="do">##  3 France   Annual Aquaculture production Total   Tonnes       1995-01-01 280786  0         0        LW        </span></span>
-<span id="cb10-12"><a href="#cb10-12" tabindex="-1"></a><span class="do">##  4 Denmark  Annual Aquaculture production Total   Tonnes       2003-01-01  37772  0         0        LW        </span></span>
-<span id="cb10-13"><a href="#cb10-13" tabindex="-1"></a><span class="do">##  5 Denmark  Annual Aquaculture production Total   Tonnes       2002-01-01  32026  0         0        LW        </span></span>
-<span id="cb10-14"><a href="#cb10-14" tabindex="-1"></a><span class="do">##  6 Denmark  Annual Aquaculture production Total   Tonnes       2001-01-01  41573  0         0        LW        </span></span>
-<span id="cb10-15"><a href="#cb10-15" tabindex="-1"></a><span class="do">##  7 Sweden   Annual Aquaculture production Total   Tonnes       2005-01-01   5880  0         0        LW        </span></span>
-<span id="cb10-16"><a href="#cb10-16" tabindex="-1"></a><span class="do">##  8 Sweden   Annual Aquaculture production Total   Tonnes       2004-01-01   5989  0         0        LW        </span></span>
-<span id="cb10-17"><a href="#cb10-17" tabindex="-1"></a><span class="do">##  9 Sweden   Annual Aquaculture production Total   Tonnes       2003-01-01   6334  0         0        LW        </span></span>
-<span id="cb10-18"><a href="#cb10-18" tabindex="-1"></a><span class="do">## 10 Denmark  Annual Aquaculture production Total   Tonnes       2019-01-01  40221. 0         0        LW        </span></span>
+<span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a><span class="do">##    REF_AREA  FREQ   MEASURE                SPECIES UNIT_MEASURE time       value UNIT_MULT DECIMALS CONVENTION</span></span>
+<span id="cb10-8"><a href="#cb10-8" tabindex="-1"></a><span class="do">##  * &lt;chr&gt;     &lt;chr&gt;  &lt;chr&gt;                  &lt;chr&gt;   &lt;chr&gt;        &lt;date&gt;     &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;    &lt;chr&gt;     </span></span>
+<span id="cb10-9"><a href="#cb10-9" tabindex="-1"></a><span class="do">##  1 Argentina Annual Aquaculture production Total   Tonnes       1995-01-01  1474 0         0        LW        </span></span>
+<span id="cb10-10"><a href="#cb10-10" tabindex="-1"></a><span class="do">##  2 Argentina Annual Aquaculture production Total   Tonnes       1996-01-01  1322 0         0        LW        </span></span>
+<span id="cb10-11"><a href="#cb10-11" tabindex="-1"></a><span class="do">##  3 Argentina Annual Aquaculture production Total   Tonnes       1997-01-01  1314 0         0        LW        </span></span>
+<span id="cb10-12"><a href="#cb10-12" tabindex="-1"></a><span class="do">##  4 Argentina Annual Aquaculture production Total   Tonnes       1998-01-01  1040 0         0        LW        </span></span>
+<span id="cb10-13"><a href="#cb10-13" tabindex="-1"></a><span class="do">##  5 Argentina Annual Aquaculture production Total   Tonnes       1999-01-01  1218 0         0        LW        </span></span>
+<span id="cb10-14"><a href="#cb10-14" tabindex="-1"></a><span class="do">##  6 Argentina Annual Aquaculture production Total   Tonnes       2000-01-01  1784 0         0        LW        </span></span>
+<span id="cb10-15"><a href="#cb10-15" tabindex="-1"></a><span class="do">##  7 Argentina Annual Aquaculture production Total   Tonnes       2001-01-01  1340 0         0        LW        </span></span>
+<span id="cb10-16"><a href="#cb10-16" tabindex="-1"></a><span class="do">##  8 Argentina Annual Aquaculture production Total   Tonnes       2002-01-01  1457 0         0        LW        </span></span>
+<span id="cb10-17"><a href="#cb10-17" tabindex="-1"></a><span class="do">##  9 Argentina Annual Aquaculture production Total   Tonnes       2003-01-01  1647 0         0        LW        </span></span>
+<span id="cb10-18"><a href="#cb10-18" tabindex="-1"></a><span class="do">## 10 Argentina Annual Aquaculture production Total   Tonnes       2004-01-01  1848 0         0        LW        </span></span>
 <span id="cb10-19"><a href="#cb10-19" tabindex="-1"></a><span class="do">## # ℹ 1,421 more rows</span></span></code></pre></div>
 </div>
 <div class="section level2">
@@ -303,7 +302,7 @@
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
 </div>
 
     </footer>

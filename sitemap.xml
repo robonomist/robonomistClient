@@ -2,7 +2,6 @@
 <url><loc>https://robonomist.github.io/robonomistClient/404.html</loc></url>
 <url><loc>https://robonomist.github.io/robonomistClient/articles/basic_features.html</loc></url>
 <url><loc>https://robonomist.github.io/robonomistClient/articles/examples.html</loc></url>
-<url><loc>https://robonomist.github.io/robonomistClient/articles/filtering.html</loc></url>
 <url><loc>https://robonomist.github.io/robonomistClient/articles/index.html</loc></url>
 <url><loc>https://robonomist.github.io/robonomistClient/articles/special.html</loc></url>
 <url><loc>https://robonomist.github.io/robonomistClient/authors.html</loc></url>
@@ -24,5 +23,6 @@
 <url><loc>https://robonomist.github.io/robonomistClient/reference/robonomistClient-package.html</loc></url>
 <url><loc>https://robonomist.github.io/robonomistClient/reference/robonomist_id.html</loc></url>
 <url><loc>https://robonomist.github.io/robonomistClient/reference/set_robonomist_server.html</loc></url>
+<url><loc>https://robonomist.github.io/robonomistClient/reference/signal_data_get.html</loc></url>
 </urlset>
 
