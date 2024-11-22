@@ -18,7 +18,10 @@ tbl_format_footer.robonomist_search <- function(x, setup, ...) {
 }
 
 #' @export
-print.robonomist_search <- function(x, n = getOption("robonomistClient.search_print_n", 30), ...) {
+print.robonomist_search <- function(x, n = NULL, ...) {
+  if (is.null(n) == 0) {
+    n <- getOption("robonomistClient.search_print_n", 30)
+  }
   NextMethod(n = n)
 }
 
@@ -44,7 +47,10 @@ tbl_sum.robonomist_datasources <- function(x, ...) {
 }
 
 #' @export
-print.robonomist_datasources <- function(x, n = getOption("robonomistClient.datasources_print_n", 30), ...) {
+print.robonomist_datasources <- function(x, n = NULL, ...) {
+  if (is.null(n) == 0) {
+    n <- getOption("robonomistClient.datasources_print_n", 30)
+  }
   NextMethod(n = n)
 }
 
