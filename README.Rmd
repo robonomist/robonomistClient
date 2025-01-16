@@ -4,7 +4,9 @@ output: github_document
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
-  fig.path = "man/figures/"
+  fig.path = "man/figures/",
+  comment = "#>",
+  cache = TRUE
 )
 library(robonomistClient)
 library(tidyverse)
@@ -13,103 +15,154 @@ data()
 
 # Robonomist Client <a href='https://robonomist.com'><img src='man/figures/logo.png' align="right" height="138.5" /></a>
 
-A client package for R to access Robonomist Data Server
+The `robonomistClient` package is a powerful R client designed to simplify access to diverse datasets hosted on the Robonomist Data Server. With seamless integration, the package enables analysts, researchers, and developers to retrieve and analyze up-to-date, multilingual data from numerous national and international sources, all in a tidy format ready for analysis.
+
+## Key Features
+
+The robonomistClient package is designed to deliver:
+
+**Comprehensive Data Coverage**
+
+Access data from national statistical agencies, international organizations, and regional sources — all in one place. This means less time spent searching for data and more time for analysis.
+
+* Statistics Finland, OECD, World Bank, European Central Bank, and more.
+
+**High Data Fidelity and Trust**
+
+Our data is reliable and accurately reflects the information from official statistical agencies. Complete metadata is provided for every dataset to ensure that your analysis is based on credible information.
+
+* Full transparency on data sources.
+* Detailed metadata included.
+
+**Flexibility in Data Retrieval**
+
+Customize the way data is retrieved to fit your specific needs:
+
+* Multilingual support
+* Choose between variable labels or codes.
+* Interpret time variables as dates or raw values.
+
+**Seamless Integration for Dynamic Workflows**
+
+Designed to work smoothly with R, robonomistClient makes building dynamic documents and automatically updating apps easier by providing a stable API:
+
+* Reduce disruptions caused by changing official statistics APIs.
+* Focus on insights rather than wrangling with data inconsistencies.
 
 ## Datasources
 
-The `robonomistClient` package allows easy and fast access to various datasources connecting to a Robonomist Data Server. Currently the client package provides access to `r format(nrow(distinct(data(), id)), big.mark = " ")` up-to-date data tables from `r nrow(datasources())` different datasources with `r length(unique(unlist(datasources()$languages)))` different languages.
+The `robonomistClient` package provides seamless and efficient access to a wide range of datasources via the Robonomist Data Server. With support for **`r format(nrow(distinct(data(), id)), big.mark = " ")` up-to-date data tables** across **`r nrow(datasources())` distinct datasources** and **`r length(unique(unlist(datasources()$languages)))` languages**, the package is designed to streamline your data analysis workflow.
 
-Some of the integrated datasources:
+**International Datasources**
 
-* Statistics Finland (StatFin & StatFin archive databases)
-* Statistics Finland municipal data (Key figures & Financial data)
-* Paavo postal code area statistics by Statistics Finland
-* Experimental statistics by Statistics Finland
-* Immigrants and integration database by Statistics Finland
-* Finnish Tax Administration
-* Finnish Centre for Pensions
-* Natural Resources Institute Finland (Luonnonvarakeskus LUKE)
-* Traficom database (The Finnish Transport and Communications Agency)
-* Customs Finland
-* THL Sotkanet
-* Vipunen, Education Statistics Finland
-* Helsingin seudun aluesarjat -tilastotietokanta
-* Helsingin ympäristötilasto
-* Fingrid
-* TutkiHallintoa.fi (Valtiokonttori)
-* Eurostat
-* European Commission Business and consumer surveys
-* World Bank
-* OECD
-* European Central Bank (ECB) Statistical data warehouse
-* Deutsche Bundesbank time series database
-* COVID-19 data (THL Epirapo, ECDC, and covid19datahub.io)
-* Statistics Sweden
-* The Swedish National Institute of Economic Research
-* Swedish Agricultural Agency
-* Statistics Norway
-* Statistics Denmark
-* Statistics Iceland
-* Statistics Estonia
-* Bank for International Settlements (BIS)
-* International Monetary Fund (IMF)
-* United Nations Economic Commission for Europe Statistical Database
-* United Nations Conference on Trade and Development
-* FAO, Food and Agriculture Organization of the United Nations
-* Nordic Statistics Database
-* U.S. Energy Information Administration database
-* FRED, Federal Reserve Economic Data, St. Louis Fed
-* Entso-E Transperancy Platform
-* Robonomist's curated tidy data tables
+* **Global Institutions**: OECD, International Monetary Fund (IMF), World Bank, United Nations Economic Commission for Europe Statistical Database (UNECE), United Nations Conference on Trade and Development (UNCTAD), FAO (Food and Agriculture Organization), Bank for International Settlements (BIS).
+* **European Union**: Eurostat, European Commission, European Central Bank (ECB).
+* **Nordic Countries**: Statistics Sweden, Swedish National Institute of Economic Research, Swedish Agricultural Agency, Statistics Norway, Statistics Denmark, Statistics Iceland, Statistics Estonia, Nordic Statistics Database.
 
-To setup a Robonomist Data Server for your organization, please contact <team@robonomist.com>.
+**Finnish Datasources**
 
-## Installation
+* **Statistics Finland**: StatFin, StatFin archive databases, Municipal figures & financial data, Paavo postal code area statistics, experimental statistics, immigrants and integration database.
+* **Regional Data**: Helsingin seudun aluesarjat -tilastotietokanta, Helsingin ympäristötilasto.
+* **National Agencies**: Finnish Tax Administration, Finnish Centre for Pensions, Natural Resources Institute Finland (LUKE), Traficom (Finnish Transport and Communications Agency), Customs Finland, THL Sotkanet, Vipunen (Education Statistics Finland), Fingrid, TutkiHallintoa.fi (Valtiokonttori).
 
-Install the development version from github:
+**Thematic & Specialized Datasources**
 
-```{r, eval = FALSE}
-## install.packages("devtools")
-devtools::install_github("robonomist/robonomistClient")
-```
+* **Energy & Environment**: Entso-E Transparency Platform, U.S. Energy Information Administration database, Fingrid.
+* **Financial**: Deutsche Bundesbank time series database, FRED (Federal Reserve Economic Data**.
+* **Health & Pandemic Data**: THL Epirapo, ECDC.
+
+This list highlights just some of the many datasources available through the `robonomistClient package`. The package also includes **Robonomist's curated tidy data tables**, providing ready-to-use datasets tailored for streamlined analysis and insight generation.
 
 ## Getting started
 
-Once installed, set the hostname of your Robonomist Data Server and connnect with `set_robonomist_server` function. Then you can start exploring the database. 
+To setup a Robonomist Data Server for your organization, please contact <team@robonomist.com>.
+
+### 1. Install the Package
+
+First, install the package from GitHub (if you haven't already):
+
+```{r, eval = FALSE}
+# Install devtools if necessary
+# install.packages("devtools")
+
+# Install the latest version of robonomistClient from GitHub
+devtools::install_github("robonomist/robonomistClient")
+```
+
+### 2. Set Up Your Connection
+
+To start using the package, you need to set the hostname of your Robonomist Data Server and provide an access token. Use the set `robonomist_server()` function to establish the connection.
 
 ```{r, include = FALSE}
 library(robonomistClient)
+options(
+  robonomistClient.datasources_print_n = 10,
+  robonomistClient.search_print_n = 10
+)
 ```
-
 
 ```{r, eval = FALSE}
 library(robonomistClient)
-set_robonomist_server(hostname = "hostname.com", access_token = "xyz")
+
+# Set up the connection
+set_robonomist_server(hostname = "hostname.com", access_token = "abc")
 ```
 
-List all available datasources:
+### 3. Explore Available Datasources
+
+To see which datasources are available, use the `datasources()` function. This will give you an overview of all the datasources you can access.
 ```{r}
 datasources()
 ```
 
-The `data` function is convenient way to search and get data tables. Print all available data tables:
+### 4. Search and Retrieve Data Tables
+
+The `data()` function allows you to search and retrieve data tables from the datasources. Here’s how to list all available data tables:
+
 ```{r}
 data()
 ```
 
-To get a specific data table, use the tables id.
+* Search for tables related to employment:
+  ```{r}
+  data("Employment")
+  ```
+* Search for a specific dataset with language options:
+  ```{r}
+  data("StatFin/ntp", lang = "en")
+  ```
+
+These search capabilities help you quickly locate the data you need without needing to know exact IDs.
+
+### 5. Retrieve a Specific Data Table
+
+If you know the ID of a specific data table you want, you can retrieve it by passing the ID to the `data()` function. For example:
+
 ```{r}
 data("StatFin/synt/statfin_synt_pxt_12dx.px")
 ```
 
-Get data using a link from the datasources website:
+#### Retrieve Data for Production Use
+
+The `data_get()` function is designed for production use cases where robustness is crucial. It allows you to fetch a specific dataset by its ID directly, without any searching. This ensures consistency, especially in automated scripts or applications where you need to reliably retrieve the same dataset over time.
+
+```{r}
+# Fetch a specific dataset using its ID for production use
+production_data <- data_get("StatFin/synt/statfin_synt_pxt_12dx.px")
+```
+
+
+#### Fetch Data Directly Using a URL
+
+You can also fetch data directly using a link from the datasource’s website using `fetch_data_from_url()`. This is useful when you have a specific URL from a datasource explorer, such as the OECD's data explorer:
+
 ```{r}
 fetch_data_from_url("https://data-explorer.oecd.org/vis?tm=sna&pg=0&fs[0]=Measure%2C0%7CAquaculture%20production%23AQUA_PD%23&fc=Measure&snb=1&vw=tb&df[ds]=dsDisseminateFinalDMZ&df[id]=DSD_FISH_PROD%40DF_FISH_AQUA&df[ag]=OECD.TAD.ARP&df[vs]=1.0&pd=2010%2C&dq=.A.._T.T&ly[rw]=REF_AREA&ly[cl]=TIME_PERIOD&to[TIME_PERIOD]=false")
 ```
 
 ## More information
 
-You can find detailed information on how to use `robonomistClient` in the [documentation](https://robonomist.github.io/robonomistClient).
+For more detailed information and examples, check the package documentation:
 
 * [Basic features](https://robonomist.github.io/robonomistClient/articles/basic_features.html)
 * [Examples](https://robonomist.github.io/robonomistClient/articles/examples.html)

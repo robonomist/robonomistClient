@@ -15,79 +15,126 @@ knitr::opts_chunk$set(
 library(tidyverse)
 ```
 
-## Datasources
+## Tidy Data Principles in `robonomistClient`
 
-The `robonomistClient` package aims to make using data from various sources as easy as possible. The package helps you access data in a simple standard format, without having to think about how to extract and wrangle the data.
+The `robonomistClient` package follows **tidy data principles** to ensure that the returned datasets are easy to work with and ready for analysis. This approach helps minimize data preparation time, enabling analysts to focus on insights rather than wrangling data. Below are some of the key principles used:
 
-You can list all available datasources:
+* **Long Format**: Data is returned in long format whenever possible. This means each row represents a single observation, making it ideal for use with popular analysis and visualization tools in R, such as `ggplot2` and the rest of the tidyverse.
+* **Value Variable**: In the long format, the measured quantity is captured in a `value` variable that is always numeric. This ensures consistency across datasets and facilitates easy aggregation, summarization, and visualization.
+* **Time Variable**: The time dimension is represented by a date variable of class `Date` or date and time of class `POSIXct`. A date variable is positioned consistently in the dataset for ease of use:
+  * **First Day of the Period**: For date-based data (e.g., monthly, quarterly), the date represents *the first day of the period*. For example, "March 2024" is represented as `"2024-03-01"`, making it easy to sort and filter chronologically.
+* **Variable Arrangement**: Categorical variables, which represent the grouping dimensions of the data (such as region, industry, or demographic group), are positioned **on the left side** of the dataset. Additional attributes related to observations may be positioned on the right side of the `value` variable. This arrangement ensures that categorical identifiers are easily distinguishable from the measurement variables and attributes, improving readability and simplifying analysis.
+* **Consistency**: This tidy structure allows the data to seamlessly integrate with typical R workflows and tools for data science, such as `dplyr` and `tidyr`. By using consistent formatting, robonomistClient data can easily be reshaped, filtered, and summarized to suit a wide range of analytical needs.
+
+## Overview of Datasources
+
+The `robonomistClient` package is designed to simplify working with data from a wide variety of datasources. It allows you to easily access data in a standardized format, freeing you from worrying about how to extract and wrangle data from different providers.
+
+To see all available datasources:
 ```{r}
 library(robonomistClient)
 datasources()
 ```
 
+The package keeps the listed datasources automatically up-to-date, ensuring that you always access the most current versions.
+
 ```{r, include = FALSE}
 data()
 ```
 
-## Data tables
+## Working with Data Tables
 
-All contents are orginized as data tables, which in most cases are tibble-class objects. The `data` function is convenient way to search and get data tables. To print all available data tables:
+All content within `robonomistClient` is organized as data tables, which are typically tibble objects. The `data()` function is a flexible way to explore and retrieve data tables.
+
+### Listing Data Tables
+
+To list all available data tables:
+
 ```{r}
 data()
 ```
 
-The package automatically ensures that the listed data tables are the latest versions available at the datasources.
+To browse the tables interactively, you can also open them in the Data Viewer:
 
-To get a specific data table, use the tables id.
-```{r}
-data("StatFin/synt/statfin_synt_pxt_12dx.px")
-```
-
-You can access the version information, or vintage, of a data table with
-```{r}
-data_vintage("StatFin/synt/statfin_synt_pxt_12dx.px")
-```
-
-You can easily explore all available data tables in the Data Viewer.
 ```{r, eval = FALSE}
 View(data())
 ```
 
-To explore available data tables in the `Vero` dataset, for example, use the dataset name with a forward slash as the first argument in `data`, i.e.  `View(data("Vero/"))`. Or print the data table listing in your console:
+### Retrieving a Specific Data Table
+
+If you know the specific ID of the table, you can easily retrieve it:
+
 ```{r}
-data("Vero/")
+df <- data("StatFin/synt/statfin_synt_pxt_12dx.px")
 ```
 
-## Search and retrieval
+To check the version information (vintage) of a data table, use:
 
-The `data()` function a conveniance function that works for two tasks: search and retrieval.
-
-* When the argument matches more than one table ids or titles, the `data()` function will return tibble of matched data tables. 
-* When exactly one matching data table is found, the `data()` function will return that data table. 
-
-For example, `data("väestö")` will search data and find multible data tables, and return the matches. In contrast, `data("StatFin/synt/statfin_synt_pxt_12dx.px")` will return a specific data table. The function `data()` is meant for rapid exploration, and in production context it is better use more specific functions. 
-
-To separate the tasks of search and retrieval, use functions `data_search()` and `data_get()`. Use `data_get()` to return a data table for a given table id, and fail if no match exists. For example, use `data_get("StatFin/synt/statfin_synt_pxt_12dx.px")` to guarantee that either a data table or an error will be returned.
-
-The function `data_search()` allows to search and return matching table ids, without downloading actual data. For example, to search all data tables related to "väestö", use:
 ```{r}
-data_search("väestö")
+data_vintage("StatFin/synt/statfin_synt_pxt_12dx.px")
 ```
 
-## Tidy time and labels
+## Filtering by Dataset
 
-For some datasources we are able to automatically parse the time dimension of the data into a more convenient format. When the `tidy_time` argument is set to `TRUE`, data tables are formatted so that time dimension is named `time`, the class is set to `Date`, and the variable is relocated next to `value`, i.e. second from the right.
+You can also narrow your search to a specific dataset. For instance, to explore all available tables from the Finnish Tax Administration (Vero):
+
+```{r, eval = FALSE}
+View(data("Vero/"))  # Opens Data Viewer with the tables
+data("Vero/")        # Lists tables in the consoledata("Vero/")
+```
+
+## Searching and Retrieving Data
+
+The data() function is convenient because it combines searching and retrieving data into a single function:
+
+* **Search Mode**: If the argument matches multiple table IDs or titles, data() returns a tibble of matched data tables. For instance:
+  ```{r}
+  data("väestö")  # Returns multiple matches for 'väestö'
+  ```
+* **Retrieve Mode**: If the argument matches exactly one table ID, data() will directly return that data table:
+  ```{r}
+  data("StatFin/synt/statfin_synt_pxt_12dx.px")  # Returns the specific data table
+  ```
+For more robust usage in production, where consistency is key, it is recommended to use more specific functions:
+
+### `data_search()` and `data_get()`
+
+To clearly separate search and retrieval operations:
+
+* `data_search()`: Use this function to search for matching table IDs without downloading the actual data. This is useful for exploring available datasets:
+  ```{r}
+  data_search("väestö")
+  ```
+* `data_get()`: Use this function for robust retrieval of a specific data table by its ID. This ensures either a data table or an error is returned, making it more predictable for production use:
+  ```{r}
+  d <- data_get("StatFin/synt/statfin_synt_pxt_12dx.px")
+  ```
+
+## Handling Time and Labels in Data
+
+### Tidy Time Formatting
+
+For most datasources, `robonomistClient` can automatically format the time dimension for easier analysis. Setting the `tidy_time` argument to `TRUE` will:
+
+* Name the time dimension time.
+* Convert it to `Date` class.
+* Relocate the time variable to be just before the value column, making it more convenient to work with.
 
 ```{r}
+# Without tidy time formatting
 data_get("StatFin/ntp/statfin_ntp_pxt_132h.px")
-data_get("StatFin/ntp/statfin_ntp_pxt_132h.px", tidy_time = TRUE) |>
-  arrange(Taloustoimi, Tiedot)
+
+# With tidy time formatting
+data_get("StatFin/ntp/statfin_ntp_pxt_132h.px", tidy_time = TRUE)
 ```
 
-Similarly, some datasources provide both labelled and coded versions of tha data tables:
+The `tidy_time` argument defaults to `TRUE` for all datasources that provide a consistent schema for time variables.
+
+### Working with Labels and Codes
+
+Some datasources provide both labelled and coded versions of data tables. By default, labels are included, but you can control this using the labels argument:
 
 ```{r}
+# Retrieve data without labels (useful when working with coded data)
 data_get("StatFin/ntp/statfin_ntp_pxt_132h.px", labels = FALSE)
 ```
-
-
