@@ -1,3 +1,7 @@
+# robonomistClient 2.2.21
+
+* improve validation logic for `robonomist_id` objects
+
 # robonomistClient 2.2.20
 
 * Fix `fetch_data_from_url()` bugs

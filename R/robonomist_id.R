@@ -27,13 +27,15 @@ new_robonomist_id <- function(x = character()) {
 validate_robonomist_id <- function(x) {
   if (all(x == "__NA__") || all(x == "NA")) {
     ## Workaround for inline tables in Rmd's
-    return()
+  } else {
+    not_na <- !is.na(x)
+    if (any(not_na & grepl("(\u00a7|\\s|#)", x))) {
+      stop("robonomist_id cannot contain spaces, # or \u00a7 characters", call. = FALSE)
+    }
+    if (any(not_na & (nchar(x) < 3 | !grepl("/", x)))) {
+      stop("robonomist_id must contain a dataset and a table name, separated by a slash (/)", call. = FALSE)
+    }
   }
-  stopifnot(
-    nchar(x) > 2,
-    !grepl("(\u00a7| |#)", x),
-    grepl("/", x)
-  )
 }
 
 #' @export
