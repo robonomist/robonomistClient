@@ -1,6 +1,7 @@
 # robonomistClient 2.2.21
 
 * improve validation logic for `robonomist_id` objects
+* Fix search print
 
 # robonomistClient 2.2.20
 

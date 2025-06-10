@@ -11,7 +11,7 @@ tbl_sum.robonomist_search <- function(x, ...) {
 tbl_format_footer.robonomist_search <- function(x, setup, ...) {
   if (nrow(x) == 0) {
     cli::cli_alert_danger("No matches found.")
-    NULL
+    character()
   } else {
     NextMethod()
   }
