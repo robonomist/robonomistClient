@@ -73,6 +73,11 @@ datalock <- function(x, name = NULL,
 
 #' Parse and Retrieve Data from URL
 #'
+#' @description
+#' `r lifecycle::badge("deprecated")`
+#'
+#' This function was deprecated because [data()] function now supports direct data fetching from various datasources.
+#'
 #' The `fetch_data_from_url()` function is designed to facilitate easy access to data by parsing a copied URL from websites of various datasources. It forms a query to the database and retrieves the data in R using the `robonomistclient` package.
 #'
 #' Currently supported sites:
@@ -120,6 +125,9 @@ datalock <- function(x, name = NULL,
 #' @importFrom stringr str_extract str_replace str_replace_all str_split str_split_1 str_match
 #' @export
 fetch_data_from_url <- function(url, get = TRUE) {
+
+  lifecycle::deprecate_warn("2.2.22", "robonomistClient::fetch_data_from_url()", "robonomistClient::data()")
+
   parsed_url <- parse_url(url)
   query <-
     if (parsed_url$hostname == "data-explorer.oecd.org" &&

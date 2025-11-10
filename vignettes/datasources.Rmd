@@ -1,0 +1,34 @@
+---
+title: "List of datasources"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{List of datasources}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+Available Robonomist Datasources, retrieved on r Sys.Date()`.
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  fig.path = "man/figures/",
+  comment = "#>",
+  cache = TRUE
+)
+library(robonomistClient)
+options("roboplot.caption.template" = "Source: {text}")
+```
+
+```{r echo = FALSE}
+datasources() |>
+  select(Title = title, Languages = languages, `Dataset ID` = dataset) |>
+  arrange(Title) |>
+  roboplotr::robotable(
+    title = "Robonomist Datasources",
+    caption = paste("Robonomist Data Server, retrieved on", Sys.Date()),
+    pagelength = 100,
+    class = c("row-border", "hover"),
+    responsive = "Languages",
+    sortable = FALSE
+  )
+```

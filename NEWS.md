@@ -1,3 +1,7 @@
+# robonomistClient 2.2.22
+
+* `fetch_data_from_url()` function was deprecated, use `data()` instead.
+
 # robonomistClient 2.2.21
 
 * improve validation logic for `robonomist_id` objects

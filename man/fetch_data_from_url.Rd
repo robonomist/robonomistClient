@@ -15,9 +15,12 @@ fetch_data_from_url(url, get = TRUE)
 If \code{get} is \code{TRUE}, the function returns the queried data. If \code{get} is \code{FALSE}, it returns the query string.
 }
 \description{
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
+
+This function was deprecated because \code{\link[=data]{data()}} function now supports direct data fetching from various datasources.
+
 The \code{fetch_data_from_url()} function is designed to facilitate easy access to data by parsing a copied URL from websites of various datasources. It forms a query to the database and retrieves the data in R using the \code{robonomistclient} package.
-}
-\details{
+
 Currently supported sites:
 \itemize{
 \item \href{https://data-explorer.oecd.org/}{OECD Data Explorer}

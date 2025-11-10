@@ -51,7 +51,7 @@ Designed to work smoothly with R, robonomistClient makes building dynamic docume
 
 ## Datasources
 
-The `robonomistClient` package provides seamless and efficient access to a wide range of datasources via the Robonomist Data Server. With support for **`r format(nrow(distinct(data(), id)), big.mark = " ")` up-to-date data tables** across **`r nrow(datasources())` distinct datasources** and **`r length(unique(unlist(datasources()$languages)))` languages**, the package is designed to streamline your data analysis workflow.
+The `robonomistClient` package provides seamless and efficient access to [a wide range of datasources](https://robonomist.github.io/robonomistClient/articles/datasources.html) via the Robonomist Data Server. With support for **`r format(nrow(distinct(data(), id)), big.mark = " ")` up-to-date data tables** across **`r nrow(datasources())` distinct datasources** and **`r length(unique(unlist(datasources()$languages)))` languages**, the package is designed to streamline your data analysis workflow.
 
 **International Datasources**
 
@@ -123,14 +123,15 @@ The `data()` function allows you to search and retrieve data tables from the dat
 data()
 ```
 
-* Search for tables related to employment:
-  ```{r}
-  data("employment eurostat")
-  ```
-* Search for a specific dataset with language options:
-  ```{r, eval = FALSE}
-  data("eurostat/ lfs", lang = "de")
-  ```
+Search for tables related to employment:
+```{r}
+data("employment eurostat")
+```
+
+Search for a specific dataset with language options:
+```{r, eval = FALSE}
+data("eurostat/ lfs", lang = "de")
+```
 
 These search capabilities help you quickly locate the data you need without needing to know exact IDs.
 
