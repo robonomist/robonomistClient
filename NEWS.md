@@ -1,3 +1,7 @@
+# robonomistClient 2.2.23
+
+* Fix search and datasource print length parameters
+
 # robonomistClient 2.2.22
 
 * `fetch_data_from_url()` function was deprecated, use `data()` instead.
