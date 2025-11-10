@@ -15,7 +15,5 @@ data_metadata(id, lang = NULL)
 List of metadata
 }
 \description{
-\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
-
-The output of this function is likely to change. Currently works only with px-based tables.
+\code{data_metadata()} returns metadata information about a specific data table. The returned metadata structure depends on the datasource.
 }

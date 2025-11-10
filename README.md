@@ -228,13 +228,9 @@ data("eurostat/bd_hg") |> tail()
 
 ### 6. Fetch Data Using Web Links
 
-TODO: Make this more easier to understand
-
-Happend to find a useful data table on a datasource’s website? For most
-datasources, you can easily fetch the data using the `data()` function.
-Just copy the link from your browser and pass it to the `data()`
-function. For example, if you find a dataset on the OECD website, you
-can retrieve it like this:
+You can also fetch data simply by copying the link from your browser and
+passing it to the `data()` function. For example, if you find a dataset
+on the OECD website, you can retrieve it like this:
 
 ``` r
 data("https://data-explorer.oecd.org/vis?tm=sna&pg=0&fs[0]=Measure%2C0%7CAquaculture%20production%23AQUA_PD%23&fc=Measure&snb=1&vw=tb&df[ds]=dsDisseminateFinalDMZ&df[id]=DSD_FISH_PROD%40DF_FISH_AQUA&df[ag]=OECD.TAD.ARP&df[vs]=1.0&pd=2010%2C&dq=.A.._T.T&ly[rw]=REF_AREA&ly[cl]=TIME_PERIOD&to[TIME_PERIOD]=false")
@@ -265,24 +261,26 @@ data("https://data-explorer.oecd.org/vis?tm=sna&pg=0&fs[0]=Measure%2C0%7CAquacul
 
 ### 7. Retrieve Data for Production Use
 
-RobonomistClient is designed to work as stable platform for building
-dynamic documents and automatically updating data applications. To
-ensure robustness in production use cases, the package provides the
-`data_get()` function. It uses data table IDs directly, avoiding the
-need for searching and ensuring consistent data retrieval.
+RobonomistClient is designed to work as **stable platform** for building
+dynamic documents and real-time data applications. To ensure robustness
+in production use cases, the package provides the `data_get()` function.
+It uses data table IDs directly, avoiding the need for searching and
+ensuring consistent data retrieval.
 
 ``` r
 # Fetch a specific dataset using its ID for production use
 production_data <- data_get("StatFin/synt/statfin_synt_pxt_12dx.px")
 ```
 
-## More information
+## Further Reading
 
 For more detailed information and examples, check the package
 documentation:
 
 - [Basic
   features](https://robonomist.github.io/robonomistClient/articles/basic_features.html)
+- [List of
+  datasources](https://robonomist.github.io/robonomistClient/articles/datasources.html)
 - [Examples](https://robonomist.github.io/robonomistClient/articles/examples.html)
 - [Filtering large data
   tables](https://robonomist.github.io/robonomistClient/articles/filtering.html)

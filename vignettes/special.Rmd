@@ -25,13 +25,23 @@ library(tidyverse)
 
 ## FRED
 
-The St. Louis Fed Database FRED contain about +800k time series. To avoid filling up the Robonomist Server table of content, individual time series from FRED are not directly visible in the search function. Instead, you can list all "sources" and "releases" with:
+The St. Louis Fed Database FRED contain about +800k time series. You can access them simply by calling the `data` function with the id of the time series. For example, to get [the US Real Gross Domestic Product (GDPC1)](https://fred.stlouisfed.org/series/GDPC1):
+
+```{r, message = FALSE}
+data("fred/GDPC1")
+```
+
+### Advanced usage
+
+#### Browsing the dataset
+
+The "fred" dataset also contains listings of available sources and releases. You can list all "sources" and "releases" with:
 
 ```{r, message = FALSE}
 data("fred/")
 ```
 
-The database hierarchy is very simple: Sources contain releases, and releases contain time series. 
+The database hierarchy is very simple: Sources contain releases, and releases contain time series.
 
 To list all releases, for example, in source 1 (Board of Governors of the Federal Reserve System), call:
 
@@ -44,6 +54,8 @@ To list all time series in the first release on the list (Industrial Production 
 ```{r}
 data("fred/release=13")
 ```
+
+#### Downloading time series
 
 To download a time series, use the `get_data` function:
 
@@ -59,6 +71,8 @@ ggplot(d, aes(time, value, color = Title)) +
   geom_line() +
   theme(legend.position = "bottom", legend.direction = "vertical")
 ```
+
+#### Time series transformations
 
 The FRED api also allows some basic time series transformations with the `units` parameter:
 

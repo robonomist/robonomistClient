@@ -15,30 +15,45 @@
 #'
 #' Generally, `dl_filter` should be named list where names are variable names and values character vectors of selected values (see Examples). Alternatively, some datasources allow for a dot-separated string to define a download filter.
 #'
-#' @param pattern string, Search query or table id, possibly followed by a \code{§}-filter.
-#' @param dl_filter list or named vector passed to datasource download functions for filtering incoming data. Supported by tulli, OECD and ECB.
-#' @param labels logical, Some datasources can return labelled or coded data.
+#' @param pattern Character. Search query or table id, possibly followed by a \code{§}-filter.
+#' @param dl_filter List or named vector. The download filter is passed to datasource download functions to filter data before download. See Details.
+#' @param labels Logical. If FALSE, then variable values are returned as codes instead of labels.
 #' @param lang Two-letter language code, e.g. "en" or "sv".
-#' @param na.rm Px-file based datasources return a table with a combination of all categories. Missing values can be filtered when reading the file to improve preformance.
-#' @param tidy_time logical, If TRUE, the time dimension is parsed into Date class and renamed `time`. If NULL, the datasource specific default will be used.
-#' @param ... Datasource-specific arguments. TODO
+#' @param na.rm Logical. If TRUE, and supported by the datasource, missing values are removed from the returned data frame upon retrieval.
+#' @param tidy_time Logical. If TRUE, the time dimension is parsed into Date class and renamed `time`. If NULL, the datasource specific default will be used.
+#' @param ... Other arguments passed to datasource download functions.
 #'
 #' @examples
-#' \dontrun{
-#' ## Return information on the data table structure
-#' data("ecb/AME")
-#' ## Example of download filter
+#'
+#' # Search for datasets matching pattern:
+#' data("consumer indicator")
+#'
+#' ## Limit your search to a specific dataset by providing
+#' ## the dataset name and a slash as prefix:
+#' data("ec/ consumer indicator")
+#'
+#' ## Download data by providing exact table id:
+#' data("ec/consumer")
+#'
+#' ## With time series based datasets you can retrieve the time series
+#' ## using the source's id:
+#' data("ecb/FM.M.U2.EUR.RT.MM.EURIBOR1YD_.HSTA")
+#'
+#' ## Alternatively, you can copy the full URL from the source's website:
+#' data("https://data.ecb.europa.eu/data/datasets/FM/FM.M.U2.EUR.RT.MM.EURIBOR1YD_.HSTA")
+#'
+#' ## Most time series datasets also support wildcards. For example,
+#' ## in case of ECB, you can leave a part of the series id unspecified:
+#' data("ecb/FM.M.U2.EUR.RT.MM..HSTA")
+#'
+#' ## If the data table too large to download in full, you may need to
+#' ## provide a download filter. First get the available variables and values:
+#' data("ecb/AME") |> str()
+#'
+#' ## Then provide a suitable filter to download data:
 #' data("ecb/AME", dl_filter = list(ame_ref_area = "FIN"))
 #'
-#' data(
-#'   "ecb/FM",
-#'   dl_filter = list(
-#'     freq = "M",
-#'     provider_fm_id = "EURIBOR1YD_"
-#'   )
-#' )
-#' data("ecb/FM", dl_filter = "M.U2.EUR.RT.MM.EURIBOR1YD_.HSTA")
-#'
+#' ## Another example with Finish Customs dataset:
 #' data("tulli/uljas_cpa2008",
 #'   dl_filter = list(
 #'     "Tavaraluokitus CPA2008_2" = "*A-X",
@@ -48,7 +63,13 @@
 #'     "Indikaattorit" = "=FIRST 1"
 #'   )
 #' )
-#' }
+#'
+#' ## Using §-filter to filter data after download:
+#' data("ec/consumer§Fin§Confidence")
+#'
+#' ## Using §-filter with start date:
+#' data("ec/consumer§Fin§Confidence§2020-01-01")
+#'
 #' @rdname data
 #  Workaround: pkgdown interprets `data` function as a dataset, so the "a" in data is a homoglyph.
 #' @usage dаta(
@@ -78,11 +99,12 @@ data <- function(pattern = "",
 #' Get data for table id
 #'
 #' @description
-#' `data_get()` returns data without performing searching or pattern filters. In production code it is better to use `data_get()` instead of `data()` as it slightly faster and does not depend on the search mechanism.  `data_get()` will result in error, if no match exists.
 #'
-#' @param id, string, Exact robonomist_id
-#' @rdname data
+#' `data_get()` returns data for a given table id without performing searching, url parsing or pattern filters, and is prefered in programmatic use-cases where robustness and speed are important. `data_get()` will result in error, if no match exists.
+#'
+#' @param id, Character. Exact table id. If multiple ids are provided as a character vector, they are bound row-wise into a single data frame.
 #' @export
+#' @rdname data
 data_get <- function(id,
                      dl_filter = NULL,
                      labels = getOption("robonomistClient.labels"),
@@ -97,7 +119,7 @@ data_get <- function(id,
 #' Search for data
 #'
 #' @description
-#' `data_search()` only performs a search and returns the results.
+#' `data_search()` performs a search and returns a list of matching data tables without downloading any data.
 #'
 #' @rdname data
 #' @export
@@ -106,13 +128,16 @@ data_search <- function(pattern = "") {
 }
 
 
-#' Vintage of a table, i.e. POSIXct-class datetime of the latest update
+#' Vintage of a data table
 #'
 #' @description
-#' The vintage indicates the time when the table of was last updated, if this information is provided by the datasource, which is not allways the case. If that time of the last update is not available, the vintage will be the time of last scheduled an update for the data table. In such cases the vintage might change without any actual changes in the data, as we have reloaded the data to check if there has been any changes.
 #'
-#' @param id string, Exact table id
-#' @return named character vector. For original data tables the value will be a scalar.
+#' `data_vintage()` returns the latest update time of the specified data tables for the purpose of monitoring data freshness.
+#'
+#' The vintage indicates the time when the table of was last updated at the source, if such information is provided by the datasource. If the source does not provide vintage information, the vintage will be the time new data was last queried from the source.
+#'
+#' @param id Character vector, Exact table ids
+#' @return Named vector of POSIXct-class datetimes indicating the vintage of each table.
 #'
 #' @export
 data_vintage <- function(id) {
@@ -122,9 +147,8 @@ data_vintage <- function(id) {
 #' Metadata of table
 #'
 #' @description
-#' `r lifecycle::badge("experimental")`
 #'
-#' The output of this function is likely to change. Currently works only with px-based tables.
+#' `data_metadata()` returns metadata information about a specific data table. The returned metadata structure depends on the datasource.
 #'
 #' @param id, Exact table id
 #' @param lang, Two-letter language code, e.g. "en" or "sv".
@@ -155,7 +179,7 @@ datasources <- function(lang = NULL, available_only = TRUE) {
 
 #' Structured menu of available datasources and data tables
 #'
-#' @param datasource, character, Datasource name
+#' @param datasource, Character, Datasource name
 #' @param lang, Two-letter language code, e.g. "en" or "sv".
 #' @return Nested list of datasource_menu and datasource_menu_item objects
 #' @export

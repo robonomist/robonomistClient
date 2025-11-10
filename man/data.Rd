@@ -29,21 +29,21 @@ data_get(
 data_search(pattern = "")
 }
 \arguments{
-\item{pattern}{string, Search query or table id, possibly followed by a \code{§}-filter.}
+\item{pattern}{Character. Search query or table id, possibly followed by a \code{§}-filter.}
 
-\item{dl_filter}{list or named vector passed to datasource download functions for filtering incoming data. Supported by tulli, OECD and ECB.}
+\item{dl_filter}{List or named vector. The download filter is passed to datasource download functions to filter data before download. See Details.}
 
-\item{labels}{logical, Some datasources can return labelled or coded data.}
+\item{labels}{Logical. If FALSE, then variable values are returned as codes instead of labels.}
 
 \item{lang}{Two-letter language code, e.g. "en" or "sv".}
 
-\item{na.rm}{Px-file based datasources return a table with a combination of all categories. Missing values can be filtered when reading the file to improve preformance.}
+\item{na.rm}{Logical. If TRUE, and supported by the datasource, missing values are removed from the returned data frame upon retrieval.}
 
-\item{tidy_time}{logical, If TRUE, the time dimension is parsed into Date class and renamed \code{time}. If NULL, the datasource specific default will be used.}
+\item{tidy_time}{Logical. If TRUE, the time dimension is parsed into Date class and renamed \code{time}. If NULL, the datasource specific default will be used.}
 
-\item{...}{Datasource-specific arguments. TODO}
+\item{...}{Other arguments passed to datasource download functions.}
 
-\item{id, }{string, Exact robonomist_id}
+\item{id, }{Character. Exact table id. If multiple ids are provided as a character vector, they are bound row-wise into a single data frame.}
 }
 \description{
 \code{data()} is a convenience function that searches the database and returns
@@ -52,9 +52,9 @@ data_search(pattern = "")
 \item data if only one match is found.
 }
 
-\code{data_get()} returns data without performing searching or pattern filters. In production code it is better to use \code{data_get()} instead of \code{data()} as it slightly faster and does not depend on the search mechanism.  \code{data_get()} will result in error, if no match exists.
+\code{data_get()} returns data for a given table id without performing searching, url parsing or pattern filters, and is prefered in programmatic use-cases where robustness and speed are important. \code{data_get()} will result in error, if no match exists.
 
-\code{data_search()} only performs a search and returns the results.
+\code{data_search()} performs a search and returns a list of matching data tables without downloading any data.
 }
 \section{\verb{§}-filter}{
 The \code{data()} function allows for a special \code{§}-filter. When the pattern matches a single table and the function returns a data frame, the \code{§}-filter can be used to subset rows of data frame. The tibble is filterd by sequence of regular expressions separated by section sign \code{§}. The regular expression are applied to data frame's variables sequentially.
@@ -69,21 +69,36 @@ Generally, \code{dl_filter} should be named list where names are variable names 
 }
 
 \examples{
-\dontrun{
-## Return information on the data table structure
-data("ecb/AME")
-## Example of download filter
+
+# Search for datasets matching pattern:
+data("consumer indicator")
+
+## Limit your search to a specific dataset by providing
+## the dataset name and a slash as prefix:
+data("ec/ consumer indicator")
+
+## Download data by providing exact table id:
+data("ec/consumer")
+
+## With time series based datasets you can retrieve the time series
+## using the source's id:
+data("ecb/FM.M.U2.EUR.RT.MM.EURIBOR1YD_.HSTA")
+
+## Alternatively, you can copy the full URL from the source's website:
+data("https://data.ecb.europa.eu/data/datasets/FM/FM.M.U2.EUR.RT.MM.EURIBOR1YD_.HSTA")
+
+## Most time series datasets also support wildcards. For example,
+## in case of ECB, you can leave a part of the series id unspecified:
+data("ecb/FM.M.U2.EUR.RT.MM..HSTA")
+
+## If the data table too large to download in full, you may need to
+## provide a download filter. First get the available variables and values:
+data("ecb/AME") |> str()
+
+## Then provide a suitable filter to download data:
 data("ecb/AME", dl_filter = list(ame_ref_area = "FIN"))
 
-data(
-  "ecb/FM",
-  dl_filter = list(
-    freq = "M",
-    provider_fm_id = "EURIBOR1YD_"
-  )
-)
-data("ecb/FM", dl_filter = "M.U2.EUR.RT.MM.EURIBOR1YD_.HSTA")
-
+## Another example with Finish Customs dataset:
 data("tulli/uljas_cpa2008",
   dl_filter = list(
     "Tavaraluokitus CPA2008_2" = "*A-X",
@@ -93,5 +108,11 @@ data("tulli/uljas_cpa2008",
     "Indikaattorit" = "=FIRST 1"
   )
 )
-}
+
+## Using §-filter to filter data after download:
+data("ec/consumer§Fin§Confidence")
+
+## Using §-filter with start date:
+data("ec/consumer§Fin§Confidence§2020-01-01")
+
 }

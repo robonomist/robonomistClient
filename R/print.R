@@ -19,10 +19,10 @@ tbl_format_footer.robonomist_search <- function(x, setup, ...) {
 
 #' @export
 print.robonomist_search <- function(x, n = NULL, ...) {
-  if (is.null(n) == 0) {
+  if (is.null(n)) {
     n <- getOption("robonomistClient.search_print_n", 30)
   }
-  NextMethod(n = n)
+  NextMethod(n = n, ...)
 }
 
 
@@ -48,10 +48,10 @@ tbl_sum.robonomist_datasources <- function(x, ...) {
 
 #' @export
 print.robonomist_datasources <- function(x, n = NULL, ...) {
-  if (is.null(n) == 0) {
+  if (is.null(n)) {
     n <- getOption("robonomistClient.datasources_print_n", 30)
   }
-  NextMethod(n = n)
+  NextMethod(n = n, ...)
 }
 
 #' @importFrom pillar get_max_extent new_pillar_shaft_simple

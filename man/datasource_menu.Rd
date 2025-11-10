@@ -7,7 +7,7 @@
 datasource_menu(datasource = NULL, lang = NULL)
 }
 \arguments{
-\item{datasource, }{character, Datasource name}
+\item{datasource, }{Character, Datasource name}
 
 \item{lang, }{Two-letter language code, e.g. "en" or "sv".}
 }

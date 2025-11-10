@@ -22,6 +22,9 @@ knitr::opts_chunk$set(
 library(robonomistClient)
 library(tidyverse)
 library(roboplotr)
+```
+
+```{r roboplot_setup, include = FALSE}
 set_roboplot_options(
   xaxis_ceiling = "years",
   modebar = c("home", "closest", "compare", "zoom", "img_n", "img_w", "data_dl")
