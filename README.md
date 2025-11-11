@@ -1,30 +1,29 @@
 
 # Robonomist Client <a href='https://robonomist.com'><img src='man/figures/logo.png' align="right" height="138.5" /></a>
 
-The `robonomistClient` package is a powerful R client designed to
-simplify access to diverse datasets hosted on the Robonomist Data
-Server. With seamless integration, the package enables analysts,
-researchers, and developers to retrieve and analyze up-to-date,
-multilingual data from numerous national and international sources, all
-in a tidy format ready for analysis.
+The `robonomistClient` package is a robust R client for effortless
+access to statistical data. It empowers researchers, analysts, and
+developers to easily discover, retrieve, and analyze up-to-date data
+from numerous national and international sources — all in tidy,
+analysis-ready formats.
 
 ## Key Features
 
-The robonomistClient package is designed to deliver:
+The main features of `robonomistClient` include:
 
 **Comprehensive Data Coverage**
 
 Access data from national statistical agencies, international
-organizations, and regional sources — all in one place. This means less
-time spent searching for data and more time for analysis.
+organizations, and regional sources — all in one place. Spend less time
+searching for data and more time analyzing it.
 
-- Statistics Finland, OECD, World Bank, European Central Bank, and more.
+- Eurostat, OECD, World Bank, European Central Bank, and more.
 
 **High Data Fidelity and Trust**
 
-Our data is reliable and accurately reflects the information from
-official statistical agencies. Complete metadata is provided for every
-dataset to ensure that your analysis is based on credible information.
+All data is reliable and accurately reflects the information from
+official statistical agencies. Datasets include comprehensive metadata,
+ensuring your analysis is based on credible and transparent information.
 
 - Full transparency on data sources.
 - Detailed metadata included.
@@ -39,19 +38,19 @@ Customize the way data is retrieved to fit your specific needs:
 
 **Seamless Integration for Dynamic Workflows**
 
-Designed to work smoothly with R, robonomistClient makes building
-dynamic documents and automatically updating apps easier by providing a
-stable API:
+Designed for robust integration with R, `robonomistClient` makes it easy
+to build dynamic documents and automatically updating applications:
 
-- Reduce disruptions caused by changing official statistics APIs.
-- Focus on insights rather than wrangling with data inconsistencies.
+- Provides a stable API, reducing disruptions from changes in official
+  statistics APIs.
+- Focus on insights, not data wrangling.
 
 ## Datasources
 
 The `robonomistClient` package provides seamless and efficient access to
 [a wide range of
 datasources](https://robonomist.github.io/robonomistClient/articles/datasources.html)
-via the Robonomist Data Server. With support for **101 569 up-to-date
+via the Robonomist Data Server. With support for **101 576 up-to-date
 data tables** across **60 distinct datasources** and **13 languages**,
 the package is designed to streamline your data analysis workflow.
 
@@ -90,89 +89,83 @@ the package is designed to streamline your data analysis workflow.
   Reserve Economic Data\*\*.
 - **Health & Pandemic Data**: THL Epirapo, ECDC.
 
-This list highlights just some of the many datasources available through
-the `robonomistClient package`. The package also includes **Robonomist’s
-curated tidy data tables**, providing ready-to-use datasets tailored for
-streamlined analysis and insight generation.
+This list highlights just some of the [many datasources
+available](https://robonomist.github.io/robonomistClient/articles/datasources.html)
+through the `robonomistClient` package.
 
 ## Getting started
 
-To setup a Robonomist Data Server for your organization, please contact
+To set up a Robonomist Data Server for your organization, contact
 <team@robonomist.com>.
 
 ### 1. Install the Package
 
-First, install the package from GitHub (if you haven’t already):
+Install the package from GitHub:
 
 ``` r
-# Install devtools if necessary
+# Install devtools if needed
 # install.packages("devtools")
 
-# Install the latest version of robonomistClient from GitHub
+# Install robonomistClient from GitHub
 devtools::install_github("robonomist/robonomistClient")
 ```
 
 ### 2. Set Up Your Connection
 
-To start using the package, you need to set the hostname of your
-Robonomist Data Server and provide an access token. Use the set
-`robonomist_server()` function to establish the connection.
+Set the hostname and access token for your Robonomist Data Server using
+`set_robonomist_server()`:
 
 ``` r
 library(robonomistClient)
 
-# Set up the connection
 set_robonomist_server(hostname = "hostname.com", access_token = "abc")
 ```
 
 ### 3. Explore Available Datasources
 
-To see which datasources are available, use the `datasources()`
-function. This will give you an overview of all the datasources you can
-access.
+See available datasources with the `datasources()` function:
 
 ``` r
 datasources()
 ```
 
     #> # Robonomist Server Datasources
-    #>    dataset          title                                                             languages datasource available
-    #>    <r_dataset>      <chr>                                                             <iso2>    <chr>      <lgl>    
-    #>  1 StatFin          Statistics Finland, StatFin database                              fi,sv,en  StatFin    TRUE     
-    #>  2 StatFin_Passiivi Statistics Finland, StatFin archive database                      fi,sv,en  StatFin_P… TRUE     
-    #>  3 Vero             Finnish Tax Administration statistical database                   fi,sv,en  Vero       TRUE     
-    #>  4 ec               European Commission's Business and Consumer Surveys               en        EC         TRUE     
-    #>  5 kunnat           Key statistics of municipalities, Statistics Finland              fi,sv,en  KuntienAv… TRUE     
-    #>  6 kunnat           Financial data reported by municipalities and joint municipal au… fi,sv,en  KuntienTa… TRUE     
-    #>  7 paavo            Statistics Finland's Paavo database                               fi,sv,en  Paavo      TRUE     
-    #>  8 tulli            Finnish Customs, Uljas Statistical Database                       fi,sv,en  Tulli      TRUE     
-    #>  9 luke             Statistics database of Natural Resources Institute Finland (Luke) fi,sv,en  Luke       TRUE     
-    #> 10 etk              Finnish Centre for Pensions' statistical database                 fi,sv,en  ETK        TRUE     
+    #>    dataset          title                                                            languages datasource available
+    #>    <r_dataset>      <chr>                                                            <iso2>    <chr>      <lgl>    
+    #>  1 StatFin          Statistics Finland, StatFin database                             fi,sv,en  StatFin    TRUE     
+    #>  2 StatFin_Passiivi Statistics Finland, StatFin archive database                     fi,sv,en  StatFin_P… TRUE     
+    #>  3 Vero             Finnish Tax Administration statistical database                  fi,sv,en  Vero       TRUE     
+    #>  4 ec               European Commission's Business and Consumer Surveys              en        EC         TRUE     
+    #>  5 kunnat           Key statistics of municipalities, Statistics Finland             fi,sv,en  KuntienAv… TRUE     
+    #>  6 kunnat           Financial data reported by municipalities and joint municipal a… fi,sv,en  KuntienTa… TRUE     
+    #>  7 paavo            Statistics Finland's Paavo database                              fi,sv,en  Paavo      TRUE     
+    #>  8 tulli            Finnish Customs, Uljas Statistical Database                      fi,sv,en  Tulli      TRUE     
+    #>  9 luke             Statistics database of Natural Resources Institute Finland (Luk… fi,sv,en  Luke       TRUE     
+    #> 10 etk              Finnish Centre for Pensions' statistical database                fi,sv,en  ETK        TRUE     
     #> # ℹ 50 more rows
 
 ### 4. Search and Retrieve Data Tables
 
-The `data()` function allows you to search and retrieve data tables from
-the datasources. Here’s how to list all available data tables:
+Use the `data()` function to search and list data tables:
 
 ``` r
 data()
 ```
 
     #> # Robonomist Database search results
-    #>    id                                      title                                                               lang 
-    #>    <r_id>                                  <chr>                                                               <chr>
-    #>  1 StatFin/adopt/statfin_adopt_pxt_11lv.px 11lv -- Adoptiot lapsen syntymämaan, ikäryhmän ja sukupuolen sekä … fi   
-    #>  2 StatFin/adopt/statfin_adopt_pxt_13qh.px 13qh -- Adoptiot adoptoitavan vanhempien mukaan, 1999-2024          fi   
-    #>  3 StatFin/aku/statfin_aku_pxt_12dz.px     12dz -- Aikuiskoulutukseen osallistuminen (ml. työhön tai ammattii… fi   
-    #>  4 StatFin/aku/statfin_aku_pxt_12ea.px     12ea -- Aikuiskoulutukseen osallistuminen (ml. työhön tai ammattii… fi   
-    #>  5 StatFin/aku/statfin_aku_pxt_14bu.px     14bu -- Aikuiskoulutukseen osallistuminen (ml. työhön tai ammattii… fi   
-    #>  6 StatFin/aku/statfin_aku_pxt_14bv.px     14bv -- Aikuiskoulutukseen osallistuminen (ml. työhön tai ammattii… fi   
-    #>  7 StatFin/ava/statfin_ava_pxt_12a9.px     12a9 -- Perusopetuksen vuosiluokkien 1-9 ja lisäopetuksen suoritta… fi   
-    #>  8 StatFin/ava/statfin_ava_pxt_12aa.px     12aa -- Aikuisten perusopetuksen oppimäärän suorittaneiden kieliva… fi   
-    #>  9 StatFin/ava/statfin_ava_pxt_12ad.px     12ad -- Toisen asteen opiskelijoiden valitsemat vieraat kielet, 20… fi   
-    #> 10 StatFin/ava/statfin_ava_pxt_139d.px     139d -- Toisen asteen opiskelijoiden valitsemien vieraiden kielen … fi   
-    #> # ℹ 179,165 more rows
+    #>    id                                      title                                                              lang 
+    #>    <r_id>                                  <chr>                                                              <chr>
+    #>  1 StatFin/adopt/statfin_adopt_pxt_11lv.px 11lv -- Adoptiot lapsen syntymämaan, ikäryhmän ja sukupuolen sekä… fi   
+    #>  2 StatFin/adopt/statfin_adopt_pxt_13qh.px 13qh -- Adoptiot adoptoitavan vanhempien mukaan, 1999-2024         fi   
+    #>  3 StatFin/aku/statfin_aku_pxt_12dz.px     12dz -- Aikuiskoulutukseen osallistuminen (ml. työhön tai ammatti… fi   
+    #>  4 StatFin/aku/statfin_aku_pxt_12ea.px     12ea -- Aikuiskoulutukseen osallistuminen (ml. työhön tai ammatti… fi   
+    #>  5 StatFin/aku/statfin_aku_pxt_14bu.px     14bu -- Aikuiskoulutukseen osallistuminen (ml. työhön tai ammatti… fi   
+    #>  6 StatFin/aku/statfin_aku_pxt_14bv.px     14bv -- Aikuiskoulutukseen osallistuminen (ml. työhön tai ammatti… fi   
+    #>  7 StatFin/ava/statfin_ava_pxt_12a9.px     12a9 -- Perusopetuksen vuosiluokkien 1-9 ja lisäopetuksen suoritt… fi   
+    #>  8 StatFin/ava/statfin_ava_pxt_12aa.px     12aa -- Aikuisten perusopetuksen oppimäärän suorittaneiden kieliv… fi   
+    #>  9 StatFin/ava/statfin_ava_pxt_12ad.px     12ad -- Toisen asteen opiskelijoiden valitsemat vieraat kielet, 2… fi   
+    #> 10 StatFin/ava/statfin_ava_pxt_139d.px     139d -- Toisen asteen opiskelijoiden valitsemien vieraiden kielen… fi   
+    #> # ℹ 179,179 more rows
 
 Search for tables related to employment:
 
@@ -181,33 +174,31 @@ data("employment eurostat")
 ```
 
     #> # Robonomist Database search results
-    #>    id                           title                                                                          lang 
-    #>    <r_id>                       <chr>                                                                          <chr>
-    #>  1 eurostat/bd_9pm_r2           High growth enterprises (growth by 10% or more) and related employment by NAC… en   
-    #>  2 eurostat/bd_9pm_r2$dv_2421   High growth enterprises (growth by 10% or more) and related employment by NAC… en   
-    #>  3 eurostat/bd_hg               High growth enterprises and related employment by NACE Rev. 2 activity         en   
-    #>  4 eurostat/bd_hg$dv_2307       High growth enterprises and related employment by NACE Rev. 2 activity         en   
-    #>  5 eurostat/bd_hg_micro         High growth micro enterprises and related employment by NACE Rev. 2 activity   en   
-    #>  6 eurostat/bd_hg_micro$dv_2422 High growth micro enterprises and related employment by NACE Rev. 2 activity   en   
-    #>  7 eurostat/bs_bs10_00          Turnover by client specialisation and employment size class (2000)             en   
-    #>  8 eurostat/bs_bs1_01           SBS variables by product specialisation and by employment size class for div … en   
-    #>  9 eurostat/bs_bs1_03           SBS variables by employment size class for div 72 and 74 (2003)                en   
-    #> 10 eurostat/bs_bs1_04           Main economic variables by employment size class (2004)                        en   
+    #>    id                           title                                                                         lang 
+    #>    <r_id>                       <chr>                                                                         <chr>
+    #>  1 eurostat/bd_9pm_r2           High growth enterprises (growth by 10% or more) and related employment by NA… en   
+    #>  2 eurostat/bd_9pm_r2$dv_2421   High growth enterprises (growth by 10% or more) and related employment by NA… en   
+    #>  3 eurostat/bd_hg               High growth enterprises and related employment by NACE Rev. 2 activity        en   
+    #>  4 eurostat/bd_hg$dv_2307       High growth enterprises and related employment by NACE Rev. 2 activity        en   
+    #>  5 eurostat/bd_hg_micro         High growth micro enterprises and related employment by NACE Rev. 2 activity  en   
+    #>  6 eurostat/bd_hg_micro$dv_2422 High growth micro enterprises and related employment by NACE Rev. 2 activity  en   
+    #>  7 eurostat/bs_bs10_00          Turnover by client specialisation and employment size class (2000)            en   
+    #>  8 eurostat/bs_bs1_01           SBS variables by product specialisation and by employment size class for div… en   
+    #>  9 eurostat/bs_bs1_03           SBS variables by employment size class for div 72 and 74 (2003)               en   
+    #> 10 eurostat/bs_bs1_04           Main economic variables by employment size class (2004)                       en   
     #> # ℹ 511 more rows
 
-Search for a specific dataset with language options:
+Search for a specific dataset in another language:
 
 ``` r
 data("eurostat/ lfs", lang = "de")
 ```
 
-These search capabilities help you quickly locate the data you need
-without needing to know exact IDs.
+You can search with keywords, partial names, or dataset IDs.
 
 ### 5. Retrieve a Specific Data Table
 
-If you know the ID of a specific data table you want, you can retrieve
-it by passing the ID to the `data()` function. For example:
+If you know the ID of a data table, retrieve it directly:
 
 ``` r
 data("eurostat/bd_hg") |> tail()
@@ -217,20 +208,21 @@ data("eurostat/bd_hg") |> tail()
     #> # Title:         High growth enterprises and related employment by NACE Rev. 2 activity
     #> # Vintage:       2025-10-24 23:00:00
     #> # A tibble:      6 × 6
-    #>   freq   indic_sbs                                                                  nace_r2   geo   time       value
-    #>   <chr>  <chr>                                                                      <chr>     <chr> <date>     <dbl>
-    #> 1 Annual Employees in young high-growth enterprises measured in employment - number Other pe… Port… 2023-01-01    NA
-    #> 2 Annual Employees in young high-growth enterprises measured in employment - number Other pe… Roma… 2023-01-01   112
-    #> 3 Annual Employees in young high-growth enterprises measured in employment - number Other pe… Swed… 2023-01-01    36
-    #> 4 Annual Employees in young high-growth enterprises measured in employment - number Other pe… Slov… 2023-01-01     0
-    #> 5 Annual Employees in young high-growth enterprises measured in employment - number Other pe… Slov… 2023-01-01     0
-    #> 6 Annual Employees in young high-growth enterprises measured in employment - number Other pe… Türk… 2023-01-01    NA
+    #>   freq   indic_sbs                                                                  nace_r2  geo   time       value
+    #>   <chr>  <chr>                                                                      <chr>    <chr> <date>     <dbl>
+    #> 1 Annual Employees in young high-growth enterprises measured in employment - number Other p… Port… 2023-01-01    NA
+    #> 2 Annual Employees in young high-growth enterprises measured in employment - number Other p… Roma… 2023-01-01   112
+    #> 3 Annual Employees in young high-growth enterprises measured in employment - number Other p… Swed… 2023-01-01    36
+    #> 4 Annual Employees in young high-growth enterprises measured in employment - number Other p… Slov… 2023-01-01     0
+    #> 5 Annual Employees in young high-growth enterprises measured in employment - number Other p… Slov… 2023-01-01     0
+    #> 6 Annual Employees in young high-growth enterprises measured in employment - number Other p… Türk… 2023-01-01    NA
 
 ### 6. Fetch Data Using Web Links
 
-You can also fetch data simply by copying the link from your browser and
-passing it to the `data()` function. For example, if you find a dataset
-on the OECD website, you can retrieve it like this:
+Copy a dataset link from your browser and pass it to `data()`. For
+example, if you find[a dataset on the OECD
+website](https://data-explorer.oecd.org/vis?tm=sna&pg=0&fs%5B0%5D=Measure%2C0%7CAquaculture%20production%23AQUA_PD%23&fc=Measure&snb=1&vw=tb&df%5Bds%5D=dsDisseminateFinalDMZ&df%5Bid%5D=DSD_FISH_PROD%40DF_FISH_AQUA&df%5Bag%5D=OECD.TAD.ARP&df%5Bvs%5D=1.0&pd=2010%2C&dq=.A.._T.T&ly%5Brw%5D=REF_AREA&ly%5Bcl%5D=TIME_PERIOD&to%5BTIME_PERIOD%5D=false),
+you can retrieve it like this:
 
 ``` r
 data("https://data-explorer.oecd.org/vis?tm=sna&pg=0&fs[0]=Measure%2C0%7CAquaculture%20production%23AQUA_PD%23&fc=Measure&snb=1&vw=tb&df[ds]=dsDisseminateFinalDMZ&df[id]=DSD_FISH_PROD%40DF_FISH_AQUA&df[ag]=OECD.TAD.ARP&df[vs]=1.0&pd=2010%2C&dq=.A.._T.T&ly[rw]=REF_AREA&ly[cl]=TIME_PERIOD&to[TIME_PERIOD]=false")
@@ -239,7 +231,7 @@ data("https://data-explorer.oecd.org/vis?tm=sna&pg=0&fs[0]=Measure%2C0%7CAquacul
     #> ℹ The URL points to a data table in dataset "oecd".
 
     #> ℹ For direct data retrieval, use:
-    #> >  data_get("oecd/DSD_FISH_PROD@DF_FISH_AQUA", dl_filter = ".A.._T.T")
+    #> >  data_get("oecd/DSD_FISH_PROD@DF_FISH_AQUA..A.._T.T")
 
     #> # Robonomist id: oecd/DSD_FISH_PROD@DF_FISH_AQUA
     #> # Title:         Aquaculture production
@@ -261,11 +253,9 @@ data("https://data-explorer.oecd.org/vis?tm=sna&pg=0&fs[0]=Measure%2C0%7CAquacul
 
 ### 7. Retrieve Data for Production Use
 
-RobonomistClient is designed to work as **stable platform** for building
-dynamic documents and real-time data applications. To ensure robustness
-in production use cases, the package provides the `data_get()` function.
-It uses data table IDs directly, avoiding the need for searching and
-ensuring consistent data retrieval.
+`robonomistClient` is a stable platform for building dynamic documents
+and real-time data applications. For production use, use the
+`data_get()` function with a data table ID for consistent results.
 
 ``` r
 # Fetch a specific dataset using its ID for production use

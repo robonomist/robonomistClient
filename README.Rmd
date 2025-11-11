@@ -15,21 +15,21 @@ data()
 
 # Robonomist Client <a href='https://robonomist.com'><img src='man/figures/logo.png' align="right" height="138.5" /></a>
 
-The `robonomistClient` package is a powerful R client designed to simplify access to diverse datasets hosted on the Robonomist Data Server. With seamless integration, the package enables analysts, researchers, and developers to retrieve and analyze up-to-date, multilingual data from numerous national and international sources, all in a tidy format ready for analysis.
+The `robonomistClient` package is a robust R client for effortless access to statistical data. It empowers  researchers, analysts, and developers to easily discover, retrieve, and analyze up-to-date data from numerous national and international sources — all in tidy, analysis-ready formats.
 
 ## Key Features
 
-The robonomistClient package is designed to deliver:
+The main features of `robonomistClient` include:
 
 **Comprehensive Data Coverage**
 
-Access data from national statistical agencies, international organizations, and regional sources — all in one place. This means less time spent searching for data and more time for analysis.
+Access data from national statistical agencies, international organizations, and regional sources — all in one place. Spend less time searching for data and more time analyzing it.
 
-* Statistics Finland, OECD, World Bank, European Central Bank, and more.
+* Eurostat, OECD, World Bank, European Central Bank, and more.
 
 **High Data Fidelity and Trust**
 
-Our data is reliable and accurately reflects the information from official statistical agencies. Complete metadata is provided for every dataset to ensure that your analysis is based on credible information.
+All data is reliable and accurately reflects the information from official statistical agencies. Datasets include comprehensive metadata, ensuring your analysis is based on credible and transparent information.
 
 * Full transparency on data sources.
 * Detailed metadata included.
@@ -44,10 +44,10 @@ Customize the way data is retrieved to fit your specific needs:
 
 **Seamless Integration for Dynamic Workflows**
 
-Designed to work smoothly with R, robonomistClient makes building dynamic documents and automatically updating apps easier by providing a stable API:
+Designed for robust integration with R, `robonomistClient` makes it easy to build dynamic documents and automatically updating applications:
 
-* Reduce disruptions caused by changing official statistics APIs.
-* Focus on insights rather than wrangling with data inconsistencies.
+* Provides a stable API, reducing disruptions from changes in official statistics APIs.
+* Focus on insights, not data wrangling.
 
 ## Datasources
 
@@ -71,27 +71,27 @@ The `robonomistClient` package provides seamless and efficient access to [a wide
 * **Financial**: Deutsche Bundesbank time series database, FRED (Federal Reserve Economic Data**.
 * **Health & Pandemic Data**: THL Epirapo, ECDC.
 
-This list highlights just some of the many datasources available through the `robonomistClient package`. The package also includes **Robonomist's curated tidy data tables**, providing ready-to-use datasets tailored for streamlined analysis and insight generation.
+This list highlights just some of the [many datasources available](https://robonomist.github.io/robonomistClient/articles/datasources.html) through the `robonomistClient` package.
 
 ## Getting started
 
-To setup a Robonomist Data Server for your organization, please contact <team@robonomist.com>.
+To set up a Robonomist Data Server for your organization, contact <team@robonomist.com>.
 
 ### 1. Install the Package
 
-First, install the package from GitHub (if you haven't already):
+Install the package from GitHub:
 
 ```{r, eval = FALSE}
-# Install devtools if necessary
+# Install devtools if needed
 # install.packages("devtools")
 
-# Install the latest version of robonomistClient from GitHub
+# Install robonomistClient from GitHub
 devtools::install_github("robonomist/robonomistClient")
 ```
 
 ### 2. Set Up Your Connection
 
-To start using the package, you need to set the hostname of your Robonomist Data Server and provide an access token. Use the set `robonomist_server()` function to establish the connection.
+Set the hostname and access token for your Robonomist Data Server using `set_robonomist_server()`:
 
 ```{r, include = FALSE}
 library(robonomistClient)
@@ -104,20 +104,19 @@ options(
 ```{r, eval = FALSE}
 library(robonomistClient)
 
-# Set up the connection
 set_robonomist_server(hostname = "hostname.com", access_token = "abc")
 ```
 
 ### 3. Explore Available Datasources
 
-To see which datasources are available, use the `datasources()` function. This will give you an overview of all the datasources you can access.
+See available datasources with the `datasources()` function:
 ```{r}
 datasources()
 ```
 
 ### 4. Search and Retrieve Data Tables
 
-The `data()` function allows you to search and retrieve data tables from the datasources. Here’s how to list all available data tables:
+Use the `data()` function to search and list data tables:
 
 ```{r}
 data()
@@ -128,16 +127,16 @@ Search for tables related to employment:
 data("employment eurostat")
 ```
 
-Search for a specific dataset with language options:
+Search for a specific dataset in another language:
 ```{r, eval = FALSE}
 data("eurostat/ lfs", lang = "de")
 ```
 
-These search capabilities help you quickly locate the data you need without needing to know exact IDs.
+You can search with keywords, partial names, or dataset IDs.
 
 ### 5. Retrieve a Specific Data Table
 
-If you know the ID of a specific data table you want, you can retrieve it by passing the ID to the `data()` function. For example:
+If you know the ID of a data table, retrieve it directly:
 
 ```{r}
 data("eurostat/bd_hg") |> tail()
@@ -145,7 +144,7 @@ data("eurostat/bd_hg") |> tail()
 
 ### 6. Fetch Data Using Web Links
 
-You can also fetch data simply by copying the link from your browser and passing it to the `data()` function. For example, if you find a dataset on the OECD website, you can retrieve it like this:
+Copy a dataset link from your browser and pass it to `data()`. For example, if you find[ a dataset on the OECD website](https://data-explorer.oecd.org/vis?tm=sna&pg=0&fs[0]=Measure%2C0%7CAquaculture%20production%23AQUA_PD%23&fc=Measure&snb=1&vw=tb&df[ds]=dsDisseminateFinalDMZ&df[id]=DSD_FISH_PROD%40DF_FISH_AQUA&df[ag]=OECD.TAD.ARP&df[vs]=1.0&pd=2010%2C&dq=.A.._T.T&ly[rw]=REF_AREA&ly[cl]=TIME_PERIOD&to[TIME_PERIOD]=false), you can retrieve it like this:
 
 ```{r}
 data("https://data-explorer.oecd.org/vis?tm=sna&pg=0&fs[0]=Measure%2C0%7CAquaculture%20production%23AQUA_PD%23&fc=Measure&snb=1&vw=tb&df[ds]=dsDisseminateFinalDMZ&df[id]=DSD_FISH_PROD%40DF_FISH_AQUA&df[ag]=OECD.TAD.ARP&df[vs]=1.0&pd=2010%2C&dq=.A.._T.T&ly[rw]=REF_AREA&ly[cl]=TIME_PERIOD&to[TIME_PERIOD]=false")
@@ -153,7 +152,7 @@ data("https://data-explorer.oecd.org/vis?tm=sna&pg=0&fs[0]=Measure%2C0%7CAquacul
 
 ### 7. Retrieve Data for Production Use
 
-RobonomistClient is designed to work as **stable platform** for building dynamic documents and real-time data applications. To ensure robustness in production use cases, the package provides the `data_get()` function. It uses data table IDs directly, avoiding the need for searching and ensuring consistent data retrieval.
+`robonomistClient` is a stable platform for building dynamic documents and real-time data applications. For production use, use the `data_get()` function with a data table ID for consistent results.
 
 ```{r}
 # Fetch a specific dataset using its ID for production use
