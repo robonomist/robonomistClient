@@ -30,7 +30,7 @@
 
     <a class="navbar-brand me-2" href="index.html">robonomistClient</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">2.2.21</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">2.2.23</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -44,6 +44,7 @@
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
 <li><a class="dropdown-item" href="articles/basic_features.html">Basic features</a></li>
+    <li><a class="dropdown-item" href="articles/datasources.html">List of datasources</a></li>
     <li><a class="dropdown-item" href="articles/examples.html">Examples</a></li>
     <li><a class="dropdown-item" href="articles/special.html">Special datasources</a></li>
   </ul>
@@ -68,18 +69,18 @@
 <a class="anchor" aria-label="anchor" href="#robonomist-client-"></a>
 </h1>
 </div>
-<p>The <code>robonomistClient</code> package is a powerful R client designed to simplify access to diverse datasets hosted on the Robonomist Data Server. With seamless integration, the package enables analysts, researchers, and developers to retrieve and analyze up-to-date, multilingual data from numerous national and international sources, all in a tidy format ready for analysis.</p>
+<p>The <code>robonomistClient</code> package is a robust R client for effortless access to statistical data. It empowers researchers, analysts, and developers to easily discover, retrieve, and analyze up-to-date data from numerous national and international sources — all in tidy, analysis-ready formats.</p>
 <div class="section level2">
 <h2 id="key-features">Key Features<a class="anchor" aria-label="anchor" href="#key-features"></a>
 </h2>
-<p>The robonomistClient package is designed to deliver:</p>
+<p>The main features of <code>robonomistClient</code> include:</p>
 <p><strong>Comprehensive Data Coverage</strong></p>
-<p>Access data from national statistical agencies, international organizations, and regional sources — all in one place. This means less time spent searching for data and more time for analysis.</p>
+<p>Access data from national statistical agencies, international organizations, and regional sources — all in one place. Spend less time searching for data and more time analyzing it.</p>
 <ul>
-<li>Statistics Finland, OECD, World Bank, European Central Bank, and more.</li>
+<li>Eurostat, OECD, World Bank, European Central Bank, and more.</li>
 </ul>
 <p><strong>High Data Fidelity and Trust</strong></p>
-<p>Our data is reliable and accurately reflects the information from official statistical agencies. Complete metadata is provided for every dataset to ensure that your analysis is based on credible information.</p>
+<p>All data is reliable and accurately reflects the information from official statistical agencies. Datasets include comprehensive metadata, ensuring your analysis is based on credible and transparent information.</p>
 <ul>
 <li>Full transparency on data sources.</li>
 <li>Detailed metadata included.</li>
@@ -92,16 +93,16 @@
 <li>Interpret time variables as dates or raw values.</li>
 </ul>
 <p><strong>Seamless Integration for Dynamic Workflows</strong></p>
-<p>Designed to work smoothly with R, robonomistClient makes building dynamic documents and automatically updating apps easier by providing a stable API:</p>
+<p>Designed for robust integration with R, <code>robonomistClient</code> makes it easy to build dynamic documents and automatically updating applications:</p>
 <ul>
-<li>Reduce disruptions caused by changing official statistics APIs.</li>
-<li>Focus on insights rather than wrangling with data inconsistencies.</li>
+<li>Provides a stable API, reducing disruptions from changes in official statistics APIs.</li>
+<li>Focus on insights, not data wrangling.</li>
 </ul>
 </div>
 <div class="section level2">
 <h2 id="datasources">Datasources<a class="anchor" aria-label="anchor" href="#datasources"></a>
 </h2>
-<p>The <code>robonomistClient</code> package provides seamless and efficient access to a wide range of datasources via the Robonomist Data Server. With support for <strong>95 197 up-to-date data tables</strong> across <strong>57 distinct datasources</strong> and <strong>13 languages</strong>, the package is designed to streamline your data analysis workflow.</p>
+<p>The <code>robonomistClient</code> package provides seamless and efficient access to <a href="https://robonomist.github.io/robonomistClient/articles/datasources.html">a wide range of datasources</a> via the Robonomist Data Server. With support for <strong>101 576 up-to-date data tables</strong> across <strong>60 distinct datasources</strong> and <strong>13 languages</strong>, the package is designed to streamline your data analysis workflow.</p>
 <p><strong>International Datasources</strong></p>
 <ul>
 <li>
@@ -129,176 +130,159 @@
 <li>
 <strong>Health &amp; Pandemic Data</strong>: THL Epirapo, ECDC.</li>
 </ul>
-<p>This list highlights just some of the many datasources available through the <code>robonomistClient package</code>. The package also includes <strong>Robonomist’s curated tidy data tables</strong>, providing ready-to-use datasets tailored for streamlined analysis and insight generation.</p>
+<p>This list highlights just some of the <a href="https://robonomist.github.io/robonomistClient/articles/datasources.html">many datasources available</a> through the <code>robonomistClient</code> package.</p>
 </div>
 <div class="section level2">
 <h2 id="getting-started">Getting started<a class="anchor" aria-label="anchor" href="#getting-started"></a>
 </h2>
-<p>To setup a Robonomist Data Server for your organization, please contact <a href="mailto:team@robonomist.com" class="email">team@robonomist.com</a>.</p>
+<p>To set up a Robonomist Data Server for your organization, contact <a href="mailto:team@robonomist.com" class="email">team@robonomist.com</a>.</p>
 <div class="section level3">
 <h3 id="id_1-install-the-package">1. Install the Package<a class="anchor" aria-label="anchor" href="#id_1-install-the-package"></a>
 </h3>
-<p>First, install the package from GitHub (if you haven’t already):</p>
+<p>Install the package from GitHub:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Install devtools if necessary</span></span>
+<code class="sourceCode R"><span><span class="co"># Install devtools if needed</span></span>
 <span><span class="co"># install.packages("devtools")</span></span>
 <span></span>
-<span><span class="co"># Install the latest version of robonomistClient from GitHub</span></span>
+<span><span class="co"># Install robonomistClient from GitHub</span></span>
 <span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"robonomist/robonomistClient"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="id_2-set-up-your-connection">2. Set Up Your Connection<a class="anchor" aria-label="anchor" href="#id_2-set-up-your-connection"></a>
 </h3>
-<p>To start using the package, you need to set the hostname of your Robonomist Data Server and provide an access token. Use the set <code>robonomist_server()</code> function to establish the connection.</p>
+<p>Set the hostname and access token for your Robonomist Data Server using <code><a href="reference/set_robonomist_server.html">set_robonomist_server()</a></code>:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://robonomist.github.io/robonomistClient/">robonomistClient</a></span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># Set up the connection</span></span>
 <span><span class="fu"><a href="reference/set_robonomist_server.html">set_robonomist_server</a></span><span class="op">(</span>hostname <span class="op">=</span> <span class="st">"hostname.com"</span>, access_token <span class="op">=</span> <span class="st">"abc"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="id_3-explore-available-datasources">3. Explore Available Datasources<a class="anchor" aria-label="anchor" href="#id_3-explore-available-datasources"></a>
 </h3>
-<p>To see which datasources are available, use the <code><a href="reference/datasources.html">datasources()</a></code> function. This will give you an overview of all the datasources you can access.</p>
+<p>See available datasources with the <code><a href="reference/datasources.html">datasources()</a></code> function:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/datasources.html">datasources</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="co">#&gt; # Robonomist Server Datasources</span></span>
-<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="co">#&gt;    dataset          title                                          languages</span></span>
-<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="co">#&gt;    &lt;r_dataset&gt;      &lt;chr&gt;                                          &lt;iso2&gt;   </span></span>
-<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="co">#&gt;  1 StatFin          Statistics Finland, StatFin database           fi,sv,en </span></span>
-<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="co">#&gt;  2 StatFin_Passiivi Statistics Finland, StatFin archive database   fi,sv,en </span></span>
-<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a><span class="co">#&gt;  3 Vero             Finnish Tax Administration statistical databa… fi,sv,en </span></span>
-<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a><span class="co">#&gt;  4 ec               European Commission's Business and Consumer S… en       </span></span>
-<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a><span class="co">#&gt;  5 kunnat           Key statistics of municipalities, Statistics … fi,sv,en </span></span>
-<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a><span class="co">#&gt;  6 kunnat           Financial data reported by municipalities and… fi,sv,en </span></span>
-<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a><span class="co">#&gt;  7 paavo            Statistics Finland's Paavo database            fi,sv,en </span></span>
-<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a><span class="co">#&gt;  8 tulli            Finnish Customs, Uljas Statistical Database    fi,sv,en </span></span>
-<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a><span class="co">#&gt;  9 luke             Statistics database of Natural Resources Inst… fi,sv,en </span></span>
-<span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a><span class="co">#&gt; 10 etk              Finnish Centre for Pensions' statistical data… fi,sv,en </span></span>
-<span id="cb4-14"><a href="#cb4-14" tabindex="-1"></a><span class="co">#&gt; # ℹ 47 more rows</span></span>
-<span id="cb4-15"><a href="#cb4-15" tabindex="-1"></a><span class="co">#&gt; # ℹ 2 more variables: datasource &lt;chr&gt;, available &lt;lgl&gt;</span></span></code></pre></div>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="co">#&gt;    dataset          title                                                            languages datasource available</span></span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="co">#&gt;    &lt;r_dataset&gt;      &lt;chr&gt;                                                            &lt;iso2&gt;    &lt;chr&gt;      &lt;lgl&gt;    </span></span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="co">#&gt;  1 StatFin          Statistics Finland, StatFin database                             fi,sv,en  StatFin    TRUE     </span></span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="co">#&gt;  2 StatFin_Passiivi Statistics Finland, StatFin archive database                     fi,sv,en  StatFin_P… TRUE     </span></span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a><span class="co">#&gt;  3 Vero             Finnish Tax Administration statistical database                  fi,sv,en  Vero       TRUE     </span></span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a><span class="co">#&gt;  4 ec               European Commission's Business and Consumer Surveys              en        EC         TRUE     </span></span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a><span class="co">#&gt;  5 kunnat           Key statistics of municipalities, Statistics Finland             fi,sv,en  KuntienAv… TRUE     </span></span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a><span class="co">#&gt;  6 kunnat           Financial data reported by municipalities and joint municipal a… fi,sv,en  KuntienTa… TRUE     </span></span>
+<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a><span class="co">#&gt;  7 paavo            Statistics Finland's Paavo database                              fi,sv,en  Paavo      TRUE     </span></span>
+<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a><span class="co">#&gt;  8 tulli            Finnish Customs, Uljas Statistical Database                      fi,sv,en  Tulli      TRUE     </span></span>
+<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a><span class="co">#&gt;  9 luke             Statistics database of Natural Resources Institute Finland (Luk… fi,sv,en  Luke       TRUE     </span></span>
+<span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a><span class="co">#&gt; 10 etk              Finnish Centre for Pensions' statistical database                fi,sv,en  ETK        TRUE     </span></span>
+<span id="cb4-14"><a href="#cb4-14" tabindex="-1"></a><span class="co">#&gt; # ℹ 50 more rows</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="id_4-search-and-retrieve-data-tables">4. Search and Retrieve Data Tables<a class="anchor" aria-label="anchor" href="#id_4-search-and-retrieve-data-tables"></a>
 </h3>
-<p>The <code><a href="reference/data.html">data()</a></code> function allows you to search and retrieve data tables from the datasources. Here’s how to list all available data tables:</p>
+<p>Use the <code><a href="reference/data.html">data()</a></code> function to search and list data tables:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/data.html">data</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb6"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="co">#&gt; # Robonomist Database search results</span></span>
-<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="co">#&gt;    id                                      title                       lang </span></span>
-<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="co">#&gt;    &lt;r_id&gt;                                  &lt;chr&gt;                       &lt;chr&gt;</span></span>
-<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a><span class="co">#&gt;  1 StatFin/adopt/statfin_adopt_pxt_11lv.px Adoptiot muuttujina Vuosi,… fi   </span></span>
-<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a><span class="co">#&gt;  2 StatFin/adopt/statfin_adopt_pxt_11lv.px Adoptioner efter År, Födel… sv   </span></span>
-<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a><span class="co">#&gt;  3 StatFin/adopt/statfin_adopt_pxt_11lv.px Adoptions by Year, Country… en   </span></span>
-<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a><span class="co">#&gt;  4 StatFin/adopt/statfin_adopt_pxt_13qh.px Adoptiot muuttujina Vuosi,… fi   </span></span>
-<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a><span class="co">#&gt;  5 StatFin/adopt/statfin_adopt_pxt_13qh.px Adoptioner efter År, Föräl… sv   </span></span>
-<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a><span class="co">#&gt;  6 StatFin/adopt/statfin_adopt_pxt_13qh.px Adoptions by Year, Parents… en   </span></span>
-<span id="cb6-10"><a href="#cb6-10" tabindex="-1"></a><span class="co">#&gt;  7 StatFin/aku/statfin_aku_pxt_12dz.px     Aikuiskoulutukseen osallis… fi   </span></span>
-<span id="cb6-11"><a href="#cb6-11" tabindex="-1"></a><span class="co">#&gt;  8 StatFin/aku/statfin_aku_pxt_12dz.px     Deltagande i vuxenutbildni… sv   </span></span>
-<span id="cb6-12"><a href="#cb6-12" tabindex="-1"></a><span class="co">#&gt;  9 StatFin/aku/statfin_aku_pxt_12dz.px     Participation in adult edu… en   </span></span>
-<span id="cb6-13"><a href="#cb6-13" tabindex="-1"></a><span class="co">#&gt; 10 StatFin/aku/statfin_aku_pxt_12ea.px     Aikuiskoulutukseen osallis… fi   </span></span>
-<span id="cb6-14"><a href="#cb6-14" tabindex="-1"></a><span class="co">#&gt; # ℹ 170,260 more rows</span></span></code></pre></div>
-<ul>
-<li>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="co">#&gt;    id                                      title                                                              lang </span></span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="co">#&gt;    &lt;r_id&gt;                                  &lt;chr&gt;                                                              &lt;chr&gt;</span></span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a><span class="co">#&gt;  1 StatFin/adopt/statfin_adopt_pxt_11lv.px 11lv -- Adoptiot lapsen syntymämaan, ikäryhmän ja sukupuolen sekä… fi   </span></span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a><span class="co">#&gt;  2 StatFin/adopt/statfin_adopt_pxt_13qh.px 13qh -- Adoptiot adoptoitavan vanhempien mukaan, 1999-2024         fi   </span></span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a><span class="co">#&gt;  3 StatFin/aku/statfin_aku_pxt_12dz.px     12dz -- Aikuiskoulutukseen osallistuminen (ml. työhön tai ammatti… fi   </span></span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a><span class="co">#&gt;  4 StatFin/aku/statfin_aku_pxt_12ea.px     12ea -- Aikuiskoulutukseen osallistuminen (ml. työhön tai ammatti… fi   </span></span>
+<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a><span class="co">#&gt;  5 StatFin/aku/statfin_aku_pxt_14bu.px     14bu -- Aikuiskoulutukseen osallistuminen (ml. työhön tai ammatti… fi   </span></span>
+<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a><span class="co">#&gt;  6 StatFin/aku/statfin_aku_pxt_14bv.px     14bv -- Aikuiskoulutukseen osallistuminen (ml. työhön tai ammatti… fi   </span></span>
+<span id="cb6-10"><a href="#cb6-10" tabindex="-1"></a><span class="co">#&gt;  7 StatFin/ava/statfin_ava_pxt_12a9.px     12a9 -- Perusopetuksen vuosiluokkien 1-9 ja lisäopetuksen suoritt… fi   </span></span>
+<span id="cb6-11"><a href="#cb6-11" tabindex="-1"></a><span class="co">#&gt;  8 StatFin/ava/statfin_ava_pxt_12aa.px     12aa -- Aikuisten perusopetuksen oppimäärän suorittaneiden kieliv… fi   </span></span>
+<span id="cb6-12"><a href="#cb6-12" tabindex="-1"></a><span class="co">#&gt;  9 StatFin/ava/statfin_ava_pxt_12ad.px     12ad -- Toisen asteen opiskelijoiden valitsemat vieraat kielet, 2… fi   </span></span>
+<span id="cb6-13"><a href="#cb6-13" tabindex="-1"></a><span class="co">#&gt; 10 StatFin/ava/statfin_ava_pxt_139d.px     139d -- Toisen asteen opiskelijoiden valitsemien vieraiden kielen… fi   </span></span>
+<span id="cb6-14"><a href="#cb6-14" tabindex="-1"></a><span class="co">#&gt; # ℹ 179,179 more rows</span></span></code></pre></div>
 <p>Search for tables related to employment:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/data.html">data</a></span><span class="op">(</span><span class="st">"Employment"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/data.html">data</a></span><span class="op">(</span><span class="st">"employment eurostat"</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb8"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="co">#&gt; # Robonomist Database search results</span></span>
-<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="co">#&gt;    id                                        title                     lang </span></span>
-<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a><span class="co">#&gt;    &lt;r_id&gt;                                    &lt;chr&gt;                     &lt;chr&gt;</span></span>
-<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a><span class="co">#&gt;  1 StatFin/altp/statfin_altp_pxt_12bg.px     Employment and hours wor… en   </span></span>
-<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a><span class="co">#&gt;  2 StatFin/klt/statfin_klt_pxt_13jb.px       Employment of students s… en   </span></span>
-<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a><span class="co">#&gt;  3 StatFin/ntp/statfin_ntp_pxt_11tj.px       Employment and hours wor… en   </span></span>
-<span id="cb8-7"><a href="#cb8-7" tabindex="-1"></a><span class="co">#&gt;  4 StatFin/tyokay/statfin_tyokay_pxt_115b.px Population by Area, Main… en   </span></span>
-<span id="cb8-8"><a href="#cb8-8" tabindex="-1"></a><span class="co">#&gt;  5 StatFin/tyokay/statfin_tyokay_pxt_115c.px Population by Main type … en   </span></span>
-<span id="cb8-9"><a href="#cb8-9" tabindex="-1"></a><span class="co">#&gt;  6 StatFin/tyokay/statfin_tyokay_pxt_115d.px Population by Area, Main… en   </span></span>
-<span id="cb8-10"><a href="#cb8-10" tabindex="-1"></a><span class="co">#&gt;  7 StatFin/tyokay/statfin_tyokay_pxt_115e.px Population by Main type … en   </span></span>
-<span id="cb8-11"><a href="#cb8-11" tabindex="-1"></a><span class="co">#&gt;  8 StatFin/tyokay/statfin_tyokay_pxt_115f.px Population by Area, Main… en   </span></span>
-<span id="cb8-12"><a href="#cb8-12" tabindex="-1"></a><span class="co">#&gt;  9 StatFin/tyokay/statfin_tyokay_pxt_115g.px Population by Main type … en   </span></span>
-<span id="cb8-13"><a href="#cb8-13" tabindex="-1"></a><span class="co">#&gt; 10 StatFin/tyokay/statfin_tyokay_pxt_115h.px Employed labour force in… en   </span></span>
-<span id="cb8-14"><a href="#cb8-14" tabindex="-1"></a><span class="co">#&gt; # ℹ 3,656 more rows</span></span></code></pre></div>
-</li>
-<li>
-<p>Search for a specific dataset with language options:</p>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="co">#&gt;    id                           title                                                                         lang </span></span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a><span class="co">#&gt;    &lt;r_id&gt;                       &lt;chr&gt;                                                                         &lt;chr&gt;</span></span>
+<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a><span class="co">#&gt;  1 eurostat/bd_9pm_r2           High growth enterprises (growth by 10% or more) and related employment by NA… en   </span></span>
+<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a><span class="co">#&gt;  2 eurostat/bd_9pm_r2$dv_2421   High growth enterprises (growth by 10% or more) and related employment by NA… en   </span></span>
+<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a><span class="co">#&gt;  3 eurostat/bd_hg               High growth enterprises and related employment by NACE Rev. 2 activity        en   </span></span>
+<span id="cb8-7"><a href="#cb8-7" tabindex="-1"></a><span class="co">#&gt;  4 eurostat/bd_hg$dv_2307       High growth enterprises and related employment by NACE Rev. 2 activity        en   </span></span>
+<span id="cb8-8"><a href="#cb8-8" tabindex="-1"></a><span class="co">#&gt;  5 eurostat/bd_hg_micro         High growth micro enterprises and related employment by NACE Rev. 2 activity  en   </span></span>
+<span id="cb8-9"><a href="#cb8-9" tabindex="-1"></a><span class="co">#&gt;  6 eurostat/bd_hg_micro$dv_2422 High growth micro enterprises and related employment by NACE Rev. 2 activity  en   </span></span>
+<span id="cb8-10"><a href="#cb8-10" tabindex="-1"></a><span class="co">#&gt;  7 eurostat/bs_bs10_00          Turnover by client specialisation and employment size class (2000)            en   </span></span>
+<span id="cb8-11"><a href="#cb8-11" tabindex="-1"></a><span class="co">#&gt;  8 eurostat/bs_bs1_01           SBS variables by product specialisation and by employment size class for div… en   </span></span>
+<span id="cb8-12"><a href="#cb8-12" tabindex="-1"></a><span class="co">#&gt;  9 eurostat/bs_bs1_03           SBS variables by employment size class for div 72 and 74 (2003)               en   </span></span>
+<span id="cb8-13"><a href="#cb8-13" tabindex="-1"></a><span class="co">#&gt; 10 eurostat/bs_bs1_04           Main economic variables by employment size class (2004)                       en   </span></span>
+<span id="cb8-14"><a href="#cb8-14" tabindex="-1"></a><span class="co">#&gt; # ℹ 511 more rows</span></span></code></pre></div>
+<p>Search for a specific dataset in another language:</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/data.html">data</a></span><span class="op">(</span><span class="st">"StatFin/ntp"</span>, lang <span class="op">=</span> <span class="st">"en"</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb10"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="co">#&gt; # Robonomist Database search results</span></span>
-<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a><span class="co">#&gt;   id                                  title                            lang </span></span>
-<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a><span class="co">#&gt;   &lt;r_id&gt;                              &lt;chr&gt;                            &lt;chr&gt;</span></span>
-<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a><span class="co">#&gt; 1 StatFin/ntp/statfin_ntp_pxt_11tj.px Employment and hours worked qua… en   </span></span>
-<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a><span class="co">#&gt; 2 StatFin/ntp/statfin_ntp_pxt_132g.px Income and production by indust… en   </span></span>
-<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a><span class="co">#&gt; 3 StatFin/ntp/statfin_ntp_pxt_132h.px Gross domestic product and nati… en</span></span></code></pre></div>
-</li>
-</ul>
-<p>These search capabilities help you quickly locate the data you need without needing to know exact IDs.</p>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/data.html">data</a></span><span class="op">(</span><span class="st">"eurostat/ lfs"</span>, lang <span class="op">=</span> <span class="st">"de"</span><span class="op">)</span></span></code></pre></div>
+<p>You can search with keywords, partial names, or dataset IDs.</p>
 </div>
 <div class="section level3">
 <h3 id="id_5-retrieve-a-specific-data-table">5. Retrieve a Specific Data Table<a class="anchor" aria-label="anchor" href="#id_5-retrieve-a-specific-data-table"></a>
 </h3>
-<p>If you know the ID of a specific data table you want, you can retrieve it by passing the ID to the <code><a href="reference/data.html">data()</a></code> function. For example:</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/data.html">data</a></span><span class="op">(</span><span class="st">"StatFin/synt/statfin_synt_pxt_12dx.px"</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb12"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="co">#&gt; # Robonomist id: StatFin/synt/statfin_synt_pxt_12dx.px</span></span>
-<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a><span class="co">#&gt; # Title:         Väestönmuutokset muuttujina Vuosi ja Tiedot</span></span>
-<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a><span class="co">#&gt; # Last updated:  2024-05-28 08:00:00</span></span>
-<span id="cb12-4"><a href="#cb12-4" tabindex="-1"></a><span class="co">#&gt; # Next update:   2025-05-20 08:00:00</span></span>
-<span id="cb12-5"><a href="#cb12-5" tabindex="-1"></a><span class="co">#&gt; # A tibble:      3,025 × 3</span></span>
-<span id="cb12-6"><a href="#cb12-6" tabindex="-1"></a><span class="co">#&gt;    Vuosi Tiedot                     value</span></span>
-<span id="cb12-7"><a href="#cb12-7" tabindex="-1"></a><span class="co">#&gt;  * &lt;chr&gt; &lt;chr&gt;                      &lt;dbl&gt;</span></span>
-<span id="cb12-8"><a href="#cb12-8" tabindex="-1"></a><span class="co">#&gt;  1 1749  Elävänä syntyneet          16700</span></span>
-<span id="cb12-9"><a href="#cb12-9" tabindex="-1"></a><span class="co">#&gt;  2 1749  Kuolleet                   11600</span></span>
-<span id="cb12-10"><a href="#cb12-10" tabindex="-1"></a><span class="co">#&gt;  3 1749  Luonnollinen väestönlisäys  5100</span></span>
-<span id="cb12-11"><a href="#cb12-11" tabindex="-1"></a><span class="co">#&gt;  4 1749  Kuntien välinen muutto        NA</span></span>
-<span id="cb12-12"><a href="#cb12-12" tabindex="-1"></a><span class="co">#&gt;  5 1749  Maahanmuutto Suomeen          NA</span></span>
-<span id="cb12-13"><a href="#cb12-13" tabindex="-1"></a><span class="co">#&gt;  6 1749  Maastamuutto Suomesta         NA</span></span>
-<span id="cb12-14"><a href="#cb12-14" tabindex="-1"></a><span class="co">#&gt;  7 1749  Nettomaahanmuutto             NA</span></span>
-<span id="cb12-15"><a href="#cb12-15" tabindex="-1"></a><span class="co">#&gt;  8 1749  Solmitut avioliitot         3900</span></span>
-<span id="cb12-16"><a href="#cb12-16" tabindex="-1"></a><span class="co">#&gt;  9 1749  Avioerot                      NA</span></span>
-<span id="cb12-17"><a href="#cb12-17" tabindex="-1"></a><span class="co">#&gt; 10 1749  Kokonaismuutos                NA</span></span>
-<span id="cb12-18"><a href="#cb12-18" tabindex="-1"></a><span class="co">#&gt; # ℹ 3,015 more rows</span></span></code></pre></div>
-<div class="section level4">
-<h4 id="retrieve-data-for-production-use">Retrieve Data for Production Use<a class="anchor" aria-label="anchor" href="#retrieve-data-for-production-use"></a>
-</h4>
-<p>The <code><a href="reference/data.html">data_get()</a></code> function is designed for production use cases where robustness is crucial. It allows you to fetch a specific dataset by its ID directly, without any searching. This ensures consistency, especially in automated scripts or applications where you need to reliably retrieve the same dataset over time.</p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<p>If you know the ID of a data table, retrieve it directly:</p>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="reference/data.html">data</a></span><span class="op">(</span><span class="st">"eurostat/bd_hg"</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">tail</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="co">#&gt; # Robonomist id: eurostat/bd_hg</span></span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a><span class="co">#&gt; # Title:         High growth enterprises and related employment by NACE Rev. 2 activity</span></span>
+<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a><span class="co">#&gt; # Vintage:       2025-10-24 23:00:00</span></span>
+<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a><span class="co">#&gt; # A tibble:      6 × 6</span></span>
+<span id="cb11-5"><a href="#cb11-5" tabindex="-1"></a><span class="co">#&gt;   freq   indic_sbs                                                                  nace_r2  geo   time       value</span></span>
+<span id="cb11-6"><a href="#cb11-6" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;  &lt;chr&gt;                                                                      &lt;chr&gt;    &lt;chr&gt; &lt;date&gt;     &lt;dbl&gt;</span></span>
+<span id="cb11-7"><a href="#cb11-7" tabindex="-1"></a><span class="co">#&gt; 1 Annual Employees in young high-growth enterprises measured in employment - number Other p… Port… 2023-01-01    NA</span></span>
+<span id="cb11-8"><a href="#cb11-8" tabindex="-1"></a><span class="co">#&gt; 2 Annual Employees in young high-growth enterprises measured in employment - number Other p… Roma… 2023-01-01   112</span></span>
+<span id="cb11-9"><a href="#cb11-9" tabindex="-1"></a><span class="co">#&gt; 3 Annual Employees in young high-growth enterprises measured in employment - number Other p… Swed… 2023-01-01    36</span></span>
+<span id="cb11-10"><a href="#cb11-10" tabindex="-1"></a><span class="co">#&gt; 4 Annual Employees in young high-growth enterprises measured in employment - number Other p… Slov… 2023-01-01     0</span></span>
+<span id="cb11-11"><a href="#cb11-11" tabindex="-1"></a><span class="co">#&gt; 5 Annual Employees in young high-growth enterprises measured in employment - number Other p… Slov… 2023-01-01     0</span></span>
+<span id="cb11-12"><a href="#cb11-12" tabindex="-1"></a><span class="co">#&gt; 6 Annual Employees in young high-growth enterprises measured in employment - number Other p… Türk… 2023-01-01    NA</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="id_6-fetch-data-using-web-links">6. Fetch Data Using Web Links<a class="anchor" aria-label="anchor" href="#id_6-fetch-data-using-web-links"></a>
+</h3>
+<p>Copy a dataset link from your browser and pass it to <code><a href="reference/data.html">data()</a></code>. For example, if you find<a href="https://data-explorer.oecd.org/vis?tm=sna&amp;pg=0&amp;fs%5B0%5D=Measure%2C0%7CAquaculture%20production%23AQUA_PD%23&amp;fc=Measure&amp;snb=1&amp;vw=tb&amp;df%5Bds%5D=dsDisseminateFinalDMZ&amp;df%5Bid%5D=DSD_FISH_PROD%40DF_FISH_AQUA&amp;df%5Bag%5D=OECD.TAD.ARP&amp;df%5Bvs%5D=1.0&amp;pd=2010%2C&amp;dq=.A.._T.T&amp;ly%5Brw%5D=REF_AREA&amp;ly%5Bcl%5D=TIME_PERIOD&amp;to%5BTIME_PERIOD%5D=false" class="external-link">a dataset on the OECD website</a>, you can retrieve it like this:</p>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="reference/data.html">data</a></span><span class="op">(</span><span class="st">"https://data-explorer.oecd.org/vis?tm=sna&amp;pg=0&amp;fs[0]=Measure%2C0%7CAquaculture%20production%23AQUA_PD%23&amp;fc=Measure&amp;snb=1&amp;vw=tb&amp;df[ds]=dsDisseminateFinalDMZ&amp;df[id]=DSD_FISH_PROD%40DF_FISH_AQUA&amp;df[ag]=OECD.TAD.ARP&amp;df[vs]=1.0&amp;pd=2010%2C&amp;dq=.A.._T.T&amp;ly[rw]=REF_AREA&amp;ly[cl]=TIME_PERIOD&amp;to[TIME_PERIOD]=false"</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="co">#&gt; ℹ The URL points to a data table in dataset "oecd".</span></span>
+<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a><span class="co">#&gt; ℹ For direct data retrieval, use:</span></span>
+<span id="cb13-4"><a href="#cb13-4" tabindex="-1"></a><span class="co">#&gt; &gt;  data_get("oecd/DSD_FISH_PROD@DF_FISH_AQUA..A.._T.T")</span></span>
+<span id="cb13-5"><a href="#cb13-5" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" tabindex="-1"></a><span class="co">#&gt; # Robonomist id: oecd/DSD_FISH_PROD@DF_FISH_AQUA</span></span>
+<span id="cb13-7"><a href="#cb13-7" tabindex="-1"></a><span class="co">#&gt; # Title:         Aquaculture production</span></span>
+<span id="cb13-8"><a href="#cb13-8" tabindex="-1"></a><span class="co">#&gt; # Vintage:       2025-03-10 14:23:35</span></span>
+<span id="cb13-9"><a href="#cb13-9" tabindex="-1"></a><span class="co">#&gt; # A tibble:      1,456 × 10</span></span>
+<span id="cb13-10"><a href="#cb13-10" tabindex="-1"></a><span class="co">#&gt;    REF_AREA  FREQ   MEASURE                SPECIES UNIT_MEASURE time       value UNIT_MULT DECIMALS CONVENTION</span></span>
+<span id="cb13-11"><a href="#cb13-11" tabindex="-1"></a><span class="co">#&gt;  * &lt;chr&gt;     &lt;chr&gt;  &lt;chr&gt;                  &lt;chr&gt;   &lt;chr&gt;        &lt;date&gt;     &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;    &lt;chr&gt;     </span></span>
+<span id="cb13-12"><a href="#cb13-12" tabindex="-1"></a><span class="co">#&gt;  1 Argentina Annual Aquaculture production Total   Tonnes       1995-01-01  1474 0         0        LW        </span></span>
+<span id="cb13-13"><a href="#cb13-13" tabindex="-1"></a><span class="co">#&gt;  2 Argentina Annual Aquaculture production Total   Tonnes       1996-01-01  1322 0         0        LW        </span></span>
+<span id="cb13-14"><a href="#cb13-14" tabindex="-1"></a><span class="co">#&gt;  3 Argentina Annual Aquaculture production Total   Tonnes       1997-01-01  1314 0         0        LW        </span></span>
+<span id="cb13-15"><a href="#cb13-15" tabindex="-1"></a><span class="co">#&gt;  4 Argentina Annual Aquaculture production Total   Tonnes       1998-01-01  1040 0         0        LW        </span></span>
+<span id="cb13-16"><a href="#cb13-16" tabindex="-1"></a><span class="co">#&gt;  5 Argentina Annual Aquaculture production Total   Tonnes       1999-01-01  1218 0         0        LW        </span></span>
+<span id="cb13-17"><a href="#cb13-17" tabindex="-1"></a><span class="co">#&gt;  6 Argentina Annual Aquaculture production Total   Tonnes       2000-01-01  1784 0         0        LW        </span></span>
+<span id="cb13-18"><a href="#cb13-18" tabindex="-1"></a><span class="co">#&gt;  7 Argentina Annual Aquaculture production Total   Tonnes       2001-01-01  1340 0         0        LW        </span></span>
+<span id="cb13-19"><a href="#cb13-19" tabindex="-1"></a><span class="co">#&gt;  8 Argentina Annual Aquaculture production Total   Tonnes       2002-01-01  1457 0         0        LW        </span></span>
+<span id="cb13-20"><a href="#cb13-20" tabindex="-1"></a><span class="co">#&gt;  9 Argentina Annual Aquaculture production Total   Tonnes       2003-01-01  1647 0         0        LW        </span></span>
+<span id="cb13-21"><a href="#cb13-21" tabindex="-1"></a><span class="co">#&gt; 10 Argentina Annual Aquaculture production Total   Tonnes       2004-01-01  1848 0         0        LW        </span></span>
+<span id="cb13-22"><a href="#cb13-22" tabindex="-1"></a><span class="co">#&gt; # ℹ 1,446 more rows</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="id_7-retrieve-data-for-production-use">7. Retrieve Data for Production Use<a class="anchor" aria-label="anchor" href="#id_7-retrieve-data-for-production-use"></a>
+</h3>
+<p><code>robonomistClient</code> is a stable platform for building dynamic documents and real-time data applications. For production use, use the <code><a href="reference/data.html">data_get()</a></code> function with a data table ID for consistent results.</p>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Fetch a specific dataset using its ID for production use</span></span>
 <span><span class="va">production_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/data.html">data_get</a></span><span class="op">(</span><span class="st">"StatFin/synt/statfin_synt_pxt_12dx.px"</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div class="section level4">
-<h4 id="fetch-data-directly-using-a-url">Fetch Data Directly Using a URL<a class="anchor" aria-label="anchor" href="#fetch-data-directly-using-a-url"></a>
-</h4>
-<p>You can also fetch data directly using a link from the datasource’s website using <code><a href="reference/fetch_data_from_url.html">fetch_data_from_url()</a></code>. This is useful when you have a specific URL from a datasource explorer, such as the OECD’s data explorer:</p>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/fetch_data_from_url.html">fetch_data_from_url</a></span><span class="op">(</span><span class="st">"https://data-explorer.oecd.org/vis?tm=sna&amp;pg=0&amp;fs[0]=Measure%2C0%7CAquaculture%20production%23AQUA_PD%23&amp;fc=Measure&amp;snb=1&amp;vw=tb&amp;df[ds]=dsDisseminateFinalDMZ&amp;df[id]=DSD_FISH_PROD%40DF_FISH_AQUA&amp;df[ag]=OECD.TAD.ARP&amp;df[vs]=1.0&amp;pd=2010%2C&amp;dq=.A.._T.T&amp;ly[rw]=REF_AREA&amp;ly[cl]=TIME_PERIOD&amp;to[TIME_PERIOD]=false"</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb15"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="co">#&gt; data_get("oecd/DSD_FISH_PROD@DF_FISH_AQUA", dl_filter = ".A.._T.T")</span></span>
-<span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a></span>
-<span id="cb15-3"><a href="#cb15-3" tabindex="-1"></a><span class="co">#&gt; # Robonomist id: oecd/DSD_FISH_PROD@DF_FISH_AQUA</span></span>
-<span id="cb15-4"><a href="#cb15-4" tabindex="-1"></a><span class="co">#&gt; # Title:         Aquaculture production</span></span>
-<span id="cb15-5"><a href="#cb15-5" tabindex="-1"></a><span class="co">#&gt; # Vintage:       2024-07-25 09:39:34</span></span>
-<span id="cb15-6"><a href="#cb15-6" tabindex="-1"></a><span class="co">#&gt; # A tibble:      1,431 × 10</span></span>
-<span id="cb15-7"><a href="#cb15-7" tabindex="-1"></a><span class="co">#&gt;    REF_AREA  FREQ   MEASURE  SPECIES UNIT_MEASURE time       value UNIT_MULT</span></span>
-<span id="cb15-8"><a href="#cb15-8" tabindex="-1"></a><span class="co">#&gt;  * &lt;chr&gt;     &lt;chr&gt;  &lt;chr&gt;    &lt;chr&gt;   &lt;chr&gt;        &lt;date&gt;     &lt;dbl&gt; &lt;chr&gt;    </span></span>
-<span id="cb15-9"><a href="#cb15-9" tabindex="-1"></a><span class="co">#&gt;  1 Argentina Annual Aquacul… Total   Tonnes       1995-01-01  1474 0        </span></span>
-<span id="cb15-10"><a href="#cb15-10" tabindex="-1"></a><span class="co">#&gt;  2 Argentina Annual Aquacul… Total   Tonnes       1996-01-01  1322 0        </span></span>
-<span id="cb15-11"><a href="#cb15-11" tabindex="-1"></a><span class="co">#&gt;  3 Argentina Annual Aquacul… Total   Tonnes       1997-01-01  1314 0        </span></span>
-<span id="cb15-12"><a href="#cb15-12" tabindex="-1"></a><span class="co">#&gt;  4 Argentina Annual Aquacul… Total   Tonnes       1998-01-01  1040 0        </span></span>
-<span id="cb15-13"><a href="#cb15-13" tabindex="-1"></a><span class="co">#&gt;  5 Argentina Annual Aquacul… Total   Tonnes       1999-01-01  1218 0        </span></span>
-<span id="cb15-14"><a href="#cb15-14" tabindex="-1"></a><span class="co">#&gt;  6 Argentina Annual Aquacul… Total   Tonnes       2000-01-01  1784 0        </span></span>
-<span id="cb15-15"><a href="#cb15-15" tabindex="-1"></a><span class="co">#&gt;  7 Argentina Annual Aquacul… Total   Tonnes       2001-01-01  1340 0        </span></span>
-<span id="cb15-16"><a href="#cb15-16" tabindex="-1"></a><span class="co">#&gt;  8 Argentina Annual Aquacul… Total   Tonnes       2002-01-01  1457 0        </span></span>
-<span id="cb15-17"><a href="#cb15-17" tabindex="-1"></a><span class="co">#&gt;  9 Argentina Annual Aquacul… Total   Tonnes       2003-01-01  1647 0        </span></span>
-<span id="cb15-18"><a href="#cb15-18" tabindex="-1"></a><span class="co">#&gt; 10 Argentina Annual Aquacul… Total   Tonnes       2004-01-01  1848 0        </span></span>
-<span id="cb15-19"><a href="#cb15-19" tabindex="-1"></a><span class="co">#&gt; # ℹ 1,421 more rows</span></span>
-<span id="cb15-20"><a href="#cb15-20" tabindex="-1"></a><span class="co">#&gt; # ℹ 2 more variables: DECIMALS &lt;chr&gt;, CONVENTION &lt;chr&gt;</span></span></code></pre></div>
-</div>
-</div>
 </div>
 <div class="section level2">
-<h2 id="more-information">More information<a class="anchor" aria-label="anchor" href="#more-information"></a>
+<h2 id="further-reading">Further Reading<a class="anchor" aria-label="anchor" href="#further-reading"></a>
 </h2>
 <p>For more detailed information and examples, check the package documentation:</p>
 <ul>
 <li><a href="https://robonomist.github.io/robonomistClient/articles/basic_features.html">Basic features</a></li>
+<li><a href="https://robonomist.github.io/robonomistClient/articles/datasources.html">List of datasources</a></li>
 <li><a href="https://robonomist.github.io/robonomistClient/articles/examples.html">Examples</a></li>
 <li><a href="https://robonomist.github.io/robonomistClient/articles/filtering.html">Filtering large data tables</a></li>
 </ul>
@@ -344,7 +328,7 @@
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
     </footer>

@@ -4,14 +4,14 @@ search results if multiple matching tables are found, and
 data if only one match is found.
 
 
-data_get() returns data without performing searching or pattern filters. In production code it is better to use data_get() instead of data() as it slightly faster and does not depend on the search mechanism.  data_get() will result in error, if no match exists.
-data_search() only performs a search and returns the results."><meta property="og:description" content="data() is a convenience function that searches the database and returns
+data_get() returns data for a given table id without performing searching, url parsing or pattern filters, and is prefered in programmatic use-cases where robustness and speed are important. data_get() will result in error, if no match exists.
+data_search() performs a search and returns a list of matching data tables without downloading any data."><meta property="og:description" content="data() is a convenience function that searches the database and returns
 search results if multiple matching tables are found, and
 data if only one match is found.
 
 
-data_get() returns data without performing searching or pattern filters. In production code it is better to use data_get() instead of data() as it slightly faster and does not depend on the search mechanism.  data_get() will result in error, if no match exists.
-data_search() only performs a search and returns the results."><meta property="og:image" content="https://robonomist.github.io/robonomistClient/logo.png"><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-133826983-1"></script><script>
+data_get() returns data for a given table id without performing searching, url parsing or pattern filters, and is prefered in programmatic use-cases where robustness and speed are important. data_get() will result in error, if no match exists.
+data_search() performs a search and returns a list of matching data tables without downloading any data."><meta property="og:image" content="https://robonomist.github.io/robonomistClient/logo.png"><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-133826983-1"></script><script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
@@ -25,7 +25,7 @@ data_search() only performs a search and returns the results."><meta property="o
 
     <a class="navbar-brand me-2" href="../index.html">robonomistClient</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">2.2.21</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">2.2.23</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,6 +37,7 @@ data_search() only performs a search and returns the results."><meta property="o
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><a class="dropdown-item" href="../articles/basic_features.html">Basic features</a></li>
+    <li><a class="dropdown-item" href="../articles/datasources.html">List of datasources</a></li>
     <li><a class="dropdown-item" href="../articles/examples.html">Examples</a></li>
     <li><a class="dropdown-item" href="../articles/special.html">Special datasources</a></li>
   </ul></li>
@@ -59,8 +60,8 @@ data_search() only performs a search and returns the results."><meta property="o
     <div class="ref-description section level2">
     <p><code>data()</code> is a convenience function that searches the database and returns</p><ol><li><p>search results if multiple matching tables are found, and</p></li>
 <li><p>data if only one match is found.</p></li>
-</ol><p><code>data_get()</code> returns data without performing searching or pattern filters. In production code it is better to use <code>data_get()</code> instead of <code>data()</code> as it slightly faster and does not depend on the search mechanism.  <code>data_get()</code> will result in error, if no match exists.</p>
-<p><code>data_search()</code> only performs a search and returns the results.</p>
+</ol><p><code>data_get()</code> returns data for a given table id without performing searching, url parsing or pattern filters, and is prefered in programmatic use-cases where robustness and speed are important. <code>data_get()</code> will result in error, if no match exists.</p>
+<p><code>data_search()</code> performs a search and returns a list of matching data tables without downloading any data.</p>
     </div>
 
     <div class="section level2">
@@ -93,15 +94,15 @@ data_search() only performs a search and returns the results."><meta property="o
 
 
 <dl><dt id="arg-pattern">pattern<a class="anchor" aria-label="anchor" href="#arg-pattern"></a></dt>
-<dd><p>string, Search query or table id, possibly followed by a <code>§</code>-filter.</p></dd>
+<dd><p>Character. Search query or table id, possibly followed by a <code>§</code>-filter.</p></dd>
 
 
 <dt id="arg-dl-filter">dl_filter<a class="anchor" aria-label="anchor" href="#arg-dl-filter"></a></dt>
-<dd><p>list or named vector passed to datasource download functions for filtering incoming data. Supported by tulli, OECD and ECB.</p></dd>
+<dd><p>List or named vector. The download filter is passed to datasource download functions to filter data before download. See Details.</p></dd>
 
 
 <dt id="arg-labels">labels<a class="anchor" aria-label="anchor" href="#arg-labels"></a></dt>
-<dd><p>logical, Some datasources can return labelled or coded data.</p></dd>
+<dd><p>Logical. If FALSE, then variable values are returned as codes instead of labels.</p></dd>
 
 
 <dt id="arg-lang">lang<a class="anchor" aria-label="anchor" href="#arg-lang"></a></dt>
@@ -109,19 +110,19 @@ data_search() only performs a search and returns the results."><meta property="o
 
 
 <dt id="arg-na-rm">na.rm<a class="anchor" aria-label="anchor" href="#arg-na-rm"></a></dt>
-<dd><p>Px-file based datasources return a table with a combination of all categories. Missing values can be filtered when reading the file to improve preformance.</p></dd>
+<dd><p>Logical. If TRUE, and supported by the datasource, missing values are removed from the returned data frame upon retrieval.</p></dd>
 
 
 <dt id="arg-tidy-time">tidy_time<a class="anchor" aria-label="anchor" href="#arg-tidy-time"></a></dt>
-<dd><p>logical, If TRUE, the time dimension is parsed into Date class and renamed <code>time</code>. If NULL, the datasource specific default will be used.</p></dd>
+<dd><p>Logical. If TRUE, the time dimension is parsed into Date class and renamed <code>time</code>. If NULL, the datasource specific default will be used.</p></dd>
 
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
-<dd><p>Datasource-specific arguments. TODO</p></dd>
+<dd><p>Other arguments passed to datasource download functions.</p></dd>
 
 
 <dt id="arg-id-">id, <a class="anchor" aria-label="anchor" href="#arg-id-"></a></dt>
-<dd><p>string, Exact robonomist_id</p></dd>
+<dd><p>Character. Exact table id. If multiple ids are provided as a character vector, they are bound row-wise into a single data frame.</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -137,21 +138,236 @@ data_search() only performs a search and returns the results."><meta property="o
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
-<span class="r-in"><span><span class="co">## Return information on the data table structure</span></span></span>
-<span class="r-in"><span><span class="fu">data</span><span class="op">(</span><span class="st">"ecb/AME"</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="co">## Example of download filter</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Search for datasets matching pattern:</span></span></span>
+<span class="r-in"><span><span class="fu">data</span><span class="op">(</span><span class="st">"consumer indicator"</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Connecting to <span style="color: #0000BB;">robonomistServer</span> at wss://data.robonomist.app</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Connecting to <span style="color: #0000BB;">robonomistServer</span> at wss://data.robonomist.app <span style="color: #B2B2B2;">[932ms]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Connected successfully to robonomistServer 2.10.2</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Connected successfully to robonomistServer 2.10.2 <span style="color: #B2B2B2;">[25ms]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ⠙ Requesting data</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ⠹ Requesting data</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ⠸ Requesting data</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ⠼ Requesting data</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Updating dataset <span style="font-weight: bold;">tidy</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Updating dataset <span style="font-weight: bold;">tidy</span> <span style="color: #B2B2B2;">[119ms]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ⠼ Requesting data</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[9.3s]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># Robonomist Database search results</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    id                                                          title       lang </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;r_id&gt;</span>                                                      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> <span style="color: #0000BB;">ec</span>/<span style="color: #00BBBB;">consumer</span>                                                 Consumer S… en   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> <span style="color: #0000BB;">ec</span>/<span style="color: #00BBBB;">consumer_nsa</span>                                             Consumer S… en   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> <span style="color: #0000BB;">ec</span>/<span style="color: #00BBBB;">consumer_q</span>                                               Consumer S… en   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> <span style="color: #0000BB;">ec</span>/<span style="color: #00BBBB;">consumer_q_nsa</span>                                           Consumer S… en   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> <span style="color: #0000BB;">eurostat</span>/<span style="color: #00BBBB;">ei_bsco_m</span>                                          Consumers … en   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> <span style="color: #0000BB;">ecb</span>/<span style="color: #00BBBB;">JDF_EXR_HCI_CPI</span>                                         Harmonised… en   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> <span style="color: #0000BB;">wb</span>/<span style="color: #00BBBB;">EP.CPI.1996</span>                                              Consumer P… en   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> <span style="color: #0000BB;">wb</span>/<span style="color: #00BBBB;">EP.CPI.2002</span>                                              Consumer P… en   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> <span style="color: #0000BB;">wb</span>/<span style="color: #00BBBB;">EP.CPI.2007</span>                                              Consumer P… en   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> <span style="color: #0000BB;">wb</span>/<span style="color: #00BBBB;">FP.CPI.TOTL.ZG</span>                                           Inflation,… en   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">11</span> <span style="color: #0000BB;">wb</span>/<span style="color: #00BBBB;">MO.INDEX.ECON.XQ</span>                                         Sustainabl… en   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">12</span> <span style="color: #0000BB;">wb</span>/<span style="color: #00BBBB;">PX.REC.REER</span>                                              Real effec… en   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">13</span> <span style="color: #0000BB;">wb</span>/<span style="color: #00BBBB;">SPI.D5.2.4.CPIBY</span>                                         CPI base y… en   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">14</span> <span style="color: #0000BB;">se</span>/<span style="color: #00BBBB;">PR/PR0101/PR0101S/SnabbStatPR0101</span>                        Consumer P… en   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">15</span> <span style="color: #0000BB;">konj</span>/<span style="color: #00BBBB;">hushall/indikatorhus.px</span>                                Household … en   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">16</span> <span style="color: #0000BB;">konj</span>/<span style="color: #00BBBB;">hushall/zhushallhist/hushallpremm/Indikatorhus.px</span>      Household … en   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">17</span> <span style="color: #0000BB;">dk</span>/<span style="color: #00BBBB;">FORV1</span>                                                    Consumer c… en   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">18</span> <span style="color: #0000BB;">md</span>/<span style="color: #00BBBB;">40_Statistica_economica/15_ENE/serii_lunare/ENE010200.px</span> Stocks, in… en   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">19</span> <span style="color: #0000BB;">si</span>/<span style="color: #00BBBB;">0811601S.px</span>                                              Consumer s… en   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">20</span> <span style="color: #0000BB;">si</span>/<span style="color: #00BBBB;">0811602S.px</span>                                              Consumer s… en   </span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Limit your search to a specific dataset by providing</span></span></span>
+<span class="r-in"><span><span class="co">## the dataset name and a slash as prefix:</span></span></span>
+<span class="r-in"><span><span class="fu">data</span><span class="op">(</span><span class="st">"ec/ consumer indicator"</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ⠙ Requesting data</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[190ms]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># Robonomist Database search results</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   id                title                                                  lang </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;r_id&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                                  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> <span style="color: #0000BB;">ec</span>/<span style="color: #00BBBB;">consumer</span>       Consumer Sentiment Indicator                           en   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> <span style="color: #0000BB;">ec</span>/<span style="color: #00BBBB;">consumer_nsa</span>   Consumer Sentiment Indicator, non-seasonally adjusted  en   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> <span style="color: #0000BB;">ec</span>/<span style="color: #00BBBB;">consumer_q</span>     Consumer Sentiment Indicator, quarterly questions      en   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> <span style="color: #0000BB;">ec</span>/<span style="color: #00BBBB;">consumer_q_nsa</span> Consumer Sentiment Indicator, non-seasonally adjusted… en   </span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Download data by providing exact table id:</span></span></span>
+<span class="r-in"><span><span class="fu">data</span><span class="op">(</span><span class="st">"ec/consumer"</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ⠙ Requesting data</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[800ms]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># Robonomist id: </span><span style="color: #00BBBB;">ec/consumer</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># Title:         Consumer Sentiment Indicator</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># Vintage:       2025-10-27 16:40:55</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble:      205,800 × 4</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    Country                              Indicator               time       value</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  <span style="color: #BCBCBC;">*</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                   <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> European Union (current composition) Confidence Indicator (… 1985-01-01 -<span style="color: #BB0000;">10.2</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> European Union (current composition) Confidence Indicator (… 1985-02-01 -<span style="color: #BB0000;">10.6</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> European Union (current composition) Confidence Indicator (… 1985-03-01 -<span style="color: #BB0000;">11.5</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> European Union (current composition) Confidence Indicator (… 1985-04-01 -<span style="color: #BB0000;">10.8</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> European Union (current composition) Confidence Indicator (… 1985-05-01 -<span style="color: #BB0000;">11.2</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> European Union (current composition) Confidence Indicator (… 1985-06-01 -<span style="color: #BB0000;">11.6</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> European Union (current composition) Confidence Indicator (… 1985-07-01 -<span style="color: #BB0000;">11.2</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> European Union (current composition) Confidence Indicator (… 1985-08-01 -<span style="color: #BB0000;">10.9</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> European Union (current composition) Confidence Indicator (… 1985-09-01 -<span style="color: #BB0000;">10.7</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> European Union (current composition) Confidence Indicator (… 1985-10-01  -<span style="color: #BB0000;">8</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 205,790 more rows</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## With time series based datasets you can retrieve the time series</span></span></span>
+<span class="r-in"><span><span class="co">## using the source's id:</span></span></span>
+<span class="r-in"><span><span class="fu">data</span><span class="op">(</span><span class="st">"ecb/FM.M.U2.EUR.RT.MM.EURIBOR1YD_.HSTA"</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ⠙ Requesting data</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[199ms]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># Robonomist id: </span><span style="color: #00BBBB;">ecb/FM</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># Title:         Financial market data</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># Vintage:       2025-11-11 08:00:00</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble:      382 × 9</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    Frequency `Reference area`                 Currency Financial market provid…¹</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  <span style="color: #BCBCBC;">*</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> Monthly   Euro area (changing composition) Euro     Refinitiv                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> Monthly   Euro area (changing composition) Euro     Refinitiv                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> Monthly   Euro area (changing composition) Euro     Refinitiv                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> Monthly   Euro area (changing composition) Euro     Refinitiv                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> Monthly   Euro area (changing composition) Euro     Refinitiv                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> Monthly   Euro area (changing composition) Euro     Refinitiv                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> Monthly   Euro area (changing composition) Euro     Refinitiv                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> Monthly   Euro area (changing composition) Euro     Refinitiv                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> Monthly   Euro area (changing composition) Euro     Refinitiv                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> Monthly   Euro area (changing composition) Euro     Refinitiv                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 372 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ abbreviated name: ¹​`Financial market provider`</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 5 more variables: `Financial market instrument` &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   `Financial market provider identifier` &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   `Financial market data type` &lt;chr&gt;, time &lt;date&gt;, value &lt;dbl&gt;</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Alternatively, you can copy the full URL from the source's website:</span></span></span>
+<span class="r-in"><span><span class="fu">data</span><span class="op">(</span><span class="st">"https://data.ecb.europa.eu/data/datasets/FM/FM.M.U2.EUR.RT.MM.EURIBOR1YD_.HSTA"</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ⠙ Requesting data</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> The URL points to a data table in dataset <span style="color: #0000BB;">"ecb"</span>.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ⠙ Requesting data</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> For direct data retrieval, use:</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> &gt;  data_get("ecb/FM.M.U2.EUR.RT.MM.EURIBOR1YD_.HSTA", raw = TRUE)</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ⠙ Requesting data</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[192ms]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># Robonomist id: </span><span style="color: #00BBBB;">ecb/FM</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># Title:         Financial market data</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># Vintage:       2025-11-11 08:00:00</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble:      382 × 9</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    Frequency `Reference area`                 Currency Financial market provid…¹</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  <span style="color: #BCBCBC;">*</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> Monthly   Euro area (changing composition) Euro     Refinitiv                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> Monthly   Euro area (changing composition) Euro     Refinitiv                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> Monthly   Euro area (changing composition) Euro     Refinitiv                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> Monthly   Euro area (changing composition) Euro     Refinitiv                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> Monthly   Euro area (changing composition) Euro     Refinitiv                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> Monthly   Euro area (changing composition) Euro     Refinitiv                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> Monthly   Euro area (changing composition) Euro     Refinitiv                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> Monthly   Euro area (changing composition) Euro     Refinitiv                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> Monthly   Euro area (changing composition) Euro     Refinitiv                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> Monthly   Euro area (changing composition) Euro     Refinitiv                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 372 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ abbreviated name: ¹​`Financial market provider`</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 5 more variables: `Financial market instrument` &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   `Financial market provider identifier` &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   `Financial market data type` &lt;chr&gt;, time &lt;date&gt;, value &lt;dbl&gt;</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Most time series datasets also support wildcards. For example,</span></span></span>
+<span class="r-in"><span><span class="co">## in case of ECB, you can leave a part of the series id unspecified:</span></span></span>
+<span class="r-in"><span><span class="fu">data</span><span class="op">(</span><span class="st">"ecb/FM.M.U2.EUR.RT.MM..HSTA"</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ⠙ Requesting data</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[199ms]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># Robonomist id: </span><span style="color: #00BBBB;">ecb/FM</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># Title:         Financial market data</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># Vintage:       2025-11-11 08:00:00</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble:      1,528 × 9</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    Frequency `Reference area`                 Currency Financial market provid…¹</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  <span style="color: #BCBCBC;">*</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> Monthly   Euro area (changing composition) Euro     Refinitiv                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> Monthly   Euro area (changing composition) Euro     Refinitiv                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> Monthly   Euro area (changing composition) Euro     Refinitiv                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> Monthly   Euro area (changing composition) Euro     Refinitiv                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> Monthly   Euro area (changing composition) Euro     Refinitiv                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> Monthly   Euro area (changing composition) Euro     Refinitiv                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> Monthly   Euro area (changing composition) Euro     Refinitiv                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> Monthly   Euro area (changing composition) Euro     Refinitiv                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> Monthly   Euro area (changing composition) Euro     Refinitiv                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> Monthly   Euro area (changing composition) Euro     Refinitiv                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 1,518 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ abbreviated name: ¹​`Financial market provider`</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 5 more variables: `Financial market instrument` &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   `Financial market provider identifier` &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   `Financial market data type` &lt;chr&gt;, time &lt;date&gt;, value &lt;dbl&gt;</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## If the data table too large to download in full, you may need to</span></span></span>
+<span class="r-in"><span><span class="co">## provide a download filter. First get the available variables and values:</span></span></span>
+<span class="r-in"><span><span class="fu">data</span><span class="op">(</span><span class="st">"ecb/AME"</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ⠙ Requesting data</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[183ms]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> List of 7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ FREQ              : tibble [10 × 2] (S3: tbl_df/tbl/data.frame)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ..$ id   : chr [1:10] "A" "B" "D" "E" ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ..$ label: chr [1:10] "Annual" "Daily - business week" "Daily" "Event (not supported)" ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ AME_REF_AREA      : tibble [109 × 2] (S3: tbl_df/tbl/data.frame)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ..$ id   : chr [1:109] "A10" "A13" "ALB" "AUS" ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ..$ label: chr [1:109] "10 accession countries" "13 candidate countries" "Albania" "Australia" ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ AME_TRANSFORMATION: tibble [3 × 2] (S3: tbl_df/tbl/data.frame)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ..$ id   : chr [1:3] "1" "3" "9"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ..$ label: chr [1:3] "Original data and moving arithmetic mean" "Index numbers and moving arithmetic mean" "Annual changes (and moving arithmetic mean for time periods)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ AME_AGG_METHOD    : tibble [5 × 2] (S3: tbl_df/tbl/data.frame)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ..$ id   : chr [1:5] "0" "1" "2" "3" ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ..$ label: chr [1:5] "Standard aggregation" "Weighted mean by GDP, weights in current euro" "Weighted mean by GDP, weights in current PPS" "Weighted mean by private consumption in euro" ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ AME_UNIT          : tibble [11 × 2] (S3: tbl_df/tbl/data.frame)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ..$ id   : chr [1:11] "0" "212" "30" "310" ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ..$ label: chr [1:11] "National currency" "PPS [1960-1993 GDP EU-12, 1994- GDP EU-15]" "US Dollar" "Percentage of GDP at market prices" ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ AME_REFERENCE     : tibble [28 × 2] (S3: tbl_df/tbl/data.frame)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ..$ id   : chr [1:28] "0" "215" "30" "315" ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ..$ label: chr [1:28] "No reference" "EU-15 = 100 including former West Germany" "US = 100" "EU-15 = 100 including unified Germany" ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ AME_ITEM          : tibble [910 × 2] (S3: tbl_df/tbl/data.frame)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ..$ id   : chr [1:910] "AAGE" "AAGT" "ADGGFI" "ADGGFU" ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ..$ label: chr [1:910] "Average share of imports and exports of goods in world trade excluding intra EU trade - Foreign trade statistic"| __truncated__ "Average share of imports and exports of goods in world trade including intra EU trade - Foreign trade statistics" "Snow ball effect on general government consolidated gross debt Maastricht and former definition (linked series)" "Impact of the nominal increase of GDP on general government consolidated gross debt, Maastricht and former defi"| __truncated__ ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  - attr(*, "robonomist_id")= r_id [1:1] ecb/AME</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  - attr(*, "robonomist_vintage")= POSIXct[1:1], format: "2025-11-11 08:00:00"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  - attr(*, "robonomist_title")= chr "AMECO"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  - attr(*, "robonomist_language")= chr "en"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  - attr(*, "robonomist_source")= chr NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  - attr(*, "robonomist_frequency")= chr NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  - attr(*, "class")= chr [1:2] "robonomist_data" "list"</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Then provide a suitable filter to download data:</span></span></span>
 <span class="r-in"><span><span class="fu">data</span><span class="op">(</span><span class="st">"ecb/AME"</span>, dl_filter <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>ame_ref_area <span class="op">=</span> <span class="st">"FIN"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ⠙ Requesting data</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[182ms]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># Robonomist id: </span><span style="color: #00BBBB;">ecb/AME</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># Title:         AMECO</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># Vintage:       2025-11-11 08:00:00</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble:      243 × 9</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    Frequency `Ameco reference area` `Ameco transformation`                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  <span style="color: #BCBCBC;">*</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> Annual    Finland                Original data and moving arithmetic mean</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> Annual    Finland                Original data and moving arithmetic mean</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> Annual    Finland                Original data and moving arithmetic mean</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> Annual    Finland                Original data and moving arithmetic mean</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> Annual    Finland                Original data and moving arithmetic mean</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> Annual    Finland                Original data and moving arithmetic mean</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> Annual    Finland                Original data and moving arithmetic mean</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> Annual    Finland                Original data and moving arithmetic mean</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> Annual    Finland                Original data and moving arithmetic mean</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> Annual    Finland                Original data and moving arithmetic mean</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 233 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 6 more variables: `Ameco aggregation method` &lt;chr&gt;, `Ameco unit` &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   `Ameco reference` &lt;chr&gt;, `Ameco item` &lt;chr&gt;, time &lt;date&gt;, value &lt;dbl&gt;</span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu">data</span><span class="op">(</span></span></span>
-<span class="r-in"><span>  <span class="st">"ecb/FM"</span>,</span></span>
-<span class="r-in"><span>  dl_filter <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>    freq <span class="op">=</span> <span class="st">"M"</span>,</span></span>
-<span class="r-in"><span>    provider_fm_id <span class="op">=</span> <span class="st">"EURIBOR1YD_"</span></span></span>
-<span class="r-in"><span>  <span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu">data</span><span class="op">(</span><span class="st">"ecb/FM"</span>, dl_filter <span class="op">=</span> <span class="st">"M.U2.EUR.RT.MM.EURIBOR1YD_.HSTA"</span><span class="op">)</span></span></span>
-<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Another example with Finish Customs dataset:</span></span></span>
 <span class="r-in"><span><span class="fu">data</span><span class="op">(</span><span class="st">"tulli/uljas_cpa2008"</span>,</span></span>
 <span class="r-in"><span>  dl_filter <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
 <span class="r-in"><span>    <span class="st">"Tavaraluokitus CPA2008_2"</span> <span class="op">=</span> <span class="st">"*A-X"</span>,</span></span>
@@ -161,7 +377,73 @@ data_search() only performs a search and returns the results."><meta property="o
 <span class="r-in"><span>    <span class="st">"Indikaattorit"</span> <span class="op">=</span> <span class="st">"=FIRST 1"</span></span></span>
 <span class="r-in"><span>  <span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ⠙ Requesting data</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[178ms]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># Robonomist id: </span><span style="color: #00BBBB;">tulli/uljas_cpa2008</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># Title:         CPA2008, CC BY 4.0</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># Vintage:       2023-12-20 16:36:42</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble:      508 × 6</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    `Tavaraluokitus CPA2008_2`   Maa      Suunta Indikaattorit time         value</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  <span style="color: #BCBCBC;">*</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> *A-X (2008--.) KAIKKI RYHMÄT AA (200… Tuont… Tilastoarvo … 2015-05-01  4.23<span style="color: #949494;">e</span>9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> *A-X (2008--.) KAIKKI RYHMÄT AD (200… Tuont… Tilastoarvo … 2015-05-01  2.18<span style="color: #949494;">e</span>5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> *A-X (2008--.) KAIKKI RYHMÄT AE (200… Tuont… Tilastoarvo … 2015-05-01  7.22<span style="color: #949494;">e</span>5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> *A-X (2008--.) KAIKKI RYHMÄT AF (200… Tuont… Tilastoarvo … 2015-05-01  7.99<span style="color: #949494;">e</span>4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> *A-X (2008--.) KAIKKI RYHMÄT AG (200… Tuont… Tilastoarvo … 2015-05-01 <span style="color: #BB0000;">NA</span>   <span style="color: #949494;"> </span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> *A-X (2008--.) KAIKKI RYHMÄT AI (200… Tuont… Tilastoarvo … 2015-05-01 <span style="color: #BB0000;">NA</span>   <span style="color: #949494;"> </span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> *A-X (2008--.) KAIKKI RYHMÄT AL (200… Tuont… Tilastoarvo … 2015-05-01  2.25<span style="color: #949494;">e</span>4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> *A-X (2008--.) KAIKKI RYHMÄT AM (200… Tuont… Tilastoarvo … 2015-05-01  2.52<span style="color: #949494;">e</span>2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> *A-X (2008--.) KAIKKI RYHMÄT AN (200… Tuont… Tilastoarvo … 2015-05-01 <span style="color: #BB0000;">NA</span>   <span style="color: #949494;"> </span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> *A-X (2008--.) KAIKKI RYHMÄT AO (200… Tuont… Tilastoarvo … 2015-05-01 <span style="color: #BB0000;">NA</span>   <span style="color: #949494;"> </span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 498 more rows</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Using §-filter to filter data after download:</span></span></span>
+<span class="r-in"><span><span class="fu">data</span><span class="op">(</span><span class="st">"ec/consumer§Fin§Confidence"</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ⠙ Requesting data</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[307ms]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># Robonomist id: </span><span style="color: #00BBBB;">ec/consumer</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># Title:         Consumer Sentiment Indicator</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># Vintage:       2025-10-27 16:40:55</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble:      490 × 4</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    Country Indicator                                    time       value</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                        <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> Finland Confidence Indicator (Q1 + Q2 + Q4 + Q9) / 4 1985-01-01    <span style="color: #BB0000;">NA</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> Finland Confidence Indicator (Q1 + Q2 + Q4 + Q9) / 4 1985-02-01    <span style="color: #BB0000;">NA</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> Finland Confidence Indicator (Q1 + Q2 + Q4 + Q9) / 4 1985-03-01    <span style="color: #BB0000;">NA</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> Finland Confidence Indicator (Q1 + Q2 + Q4 + Q9) / 4 1985-04-01    <span style="color: #BB0000;">NA</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> Finland Confidence Indicator (Q1 + Q2 + Q4 + Q9) / 4 1985-05-01    <span style="color: #BB0000;">NA</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> Finland Confidence Indicator (Q1 + Q2 + Q4 + Q9) / 4 1985-06-01    <span style="color: #BB0000;">NA</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> Finland Confidence Indicator (Q1 + Q2 + Q4 + Q9) / 4 1985-07-01    <span style="color: #BB0000;">NA</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> Finland Confidence Indicator (Q1 + Q2 + Q4 + Q9) / 4 1985-08-01    <span style="color: #BB0000;">NA</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> Finland Confidence Indicator (Q1 + Q2 + Q4 + Q9) / 4 1985-09-01    <span style="color: #BB0000;">NA</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> Finland Confidence Indicator (Q1 + Q2 + Q4 + Q9) / 4 1985-10-01    <span style="color: #BB0000;">NA</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 480 more rows</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Using §-filter with start date:</span></span></span>
+<span class="r-in"><span><span class="fu">data</span><span class="op">(</span><span class="st">"ec/consumer§Fin§Confidence§2020-01-01"</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ⠙ Requesting data</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[261ms]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># Robonomist id: </span><span style="color: #00BBBB;">ec/consumer</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># Title:         Consumer Sentiment Indicator</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># Vintage:       2025-10-27 16:40:55</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble:      70 × 4</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    Country Indicator                                    time       value</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                        <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> Finland Confidence Indicator (Q1 + Q2 + Q4 + Q9) / 4 2020-01-01  -<span style="color: #BB0000;">4.4</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> Finland Confidence Indicator (Q1 + Q2 + Q4 + Q9) / 4 2020-02-01  -<span style="color: #BB0000;">4.9</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> Finland Confidence Indicator (Q1 + Q2 + Q4 + Q9) / 4 2020-03-01  -<span style="color: #BB0000;">7</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> Finland Confidence Indicator (Q1 + Q2 + Q4 + Q9) / 4 2020-04-01 -<span style="color: #BB0000;">13.9</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> Finland Confidence Indicator (Q1 + Q2 + Q4 + Q9) / 4 2020-05-01  -<span style="color: #BB0000;">8.8</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> Finland Confidence Indicator (Q1 + Q2 + Q4 + Q9) / 4 2020-06-01  -<span style="color: #BB0000;">3.8</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> Finland Confidence Indicator (Q1 + Q2 + Q4 + Q9) / 4 2020-07-01  -<span style="color: #BB0000;">1.9</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> Finland Confidence Indicator (Q1 + Q2 + Q4 + Q9) / 4 2020-08-01  -<span style="color: #BB0000;">5.1</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> Finland Confidence Indicator (Q1 + Q2 + Q4 + Q9) / 4 2020-09-01  -<span style="color: #BB0000;">6</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> Finland Confidence Indicator (Q1 + Q2 + Q4 + Q9) / 4 2020-10-01  -<span style="color: #BB0000;">6.8</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 60 more rows</span></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
@@ -173,7 +455,7 @@ data_search() only performs a search and returns the results."><meta property="o
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
     </footer></div>

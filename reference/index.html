@@ -13,7 +13,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">robonomistClient</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">2.2.21</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">2.2.23</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,6 +25,7 @@
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><a class="dropdown-item" href="../articles/basic_features.html">Basic features</a></li>
+    <li><a class="dropdown-item" href="../articles/datasources.html">List of datasources</a></li>
     <li><a class="dropdown-item" href="../articles/examples.html">Examples</a></li>
     <li><a class="dropdown-item" href="../articles/special.html">Special datasources</a></li>
   </ul></li>
@@ -47,8 +48,7 @@
 
 
 
-
-    </div><div class="section level2">
+      <dl></dl></div><div class="section level2">
 
 
 
@@ -59,7 +59,8 @@
 
         </dt>
         <dd>Search and get data from Robonomist Data Server</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="datasources.html">datasources()</a></code>
 
@@ -70,8 +71,7 @@
 
 
 
-
-    </div><div class="section level2">
+      <dl></dl></div><div class="section level2">
 
 
 
@@ -81,14 +81,16 @@
           <code><a href="data_vintage.html">data_vintage()</a></code>
 
         </dt>
-        <dd>Vintage of a table, i.e. POSIXct-class datetime of the latest update</dd>
-      </dl><dl><dt>
+        <dd>Vintage of a data table</dd>
+
+        <dt>
 
           <code><a href="data_metadata.html">data_metadata()</a></code>
-          <span class="badge lifecycle lifecycle-experimental">experimental</span>
+
         </dt>
         <dd>Metadata of table</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="datasource_menu.html">datasource_menu()</a></code>
 
@@ -99,8 +101,7 @@
 
 
 
-
-    </div><div class="section level2">
+      <dl></dl></div><div class="section level2">
 
 
 
@@ -108,22 +109,25 @@
       <dl><dt>
 
           <code><a href="fetch_data_from_url.html">fetch_data_from_url()</a></code>
-
+          <span class="badge lifecycle lifecycle-deprecated">deprecated</span>
         </dt>
         <dd>Parse and Retrieve Data from URL</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="ogle.html">ogle()</a></code>
 
         </dt>
         <dd>Explore data by listing distinct categorical values and summarizing other variables</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="print_filter.html">print_filter()</a></code>
 
         </dt>
         <dd>Print all filtering criteria for categorical variables of a tibble</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="datalock.html">datalock()</a></code>
 
@@ -134,8 +138,7 @@
 
 
 
-
-    </div><div class="section level2">
+      <dl></dl></div><div class="section level2">
 
 
 
@@ -146,7 +149,8 @@
 
         </dt>
         <dd>Set the hostname of Robonomist Data Server</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="disconnect.html">disconnect()</a></code>
 
@@ -157,8 +161,7 @@
 
 
 
-
-    </div><div class="section level2">
+      <dl></dl></div><div class="section level2">
 
 
 
@@ -169,13 +172,15 @@
 
         </dt>
         <dd>robonomist_id class</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="as_robonomist_id.html">as_robonomist_id()</a></code>
 
         </dt>
         <dd>Cast object into a robonomist id</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="cash-.robonomist_id.html">`$`(<i>&lt;robonomist_id&gt;</i>)</a></code>
 
@@ -191,7 +196,7 @@
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
     </footer></div>
