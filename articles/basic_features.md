@@ -64,13 +64,13 @@ library(robonomistClient)
 #>     data
 datasources()
 #> ℹ Connecting to robonomistServer at wss://data.robonomist.app
-#> ✔ Connecting to robonomistServer at wss://data.robonomist.app [641ms]
+#> ✔ Connecting to robonomistServer at wss://data.robonomist.app [713ms]
 #> 
 #> ℹ Connected successfully to robonomistServer 2.10.2
 #> ✔ Connected successfully to robonomistServer 2.10.2 [30ms]
 #> 
 #> ⠙ Requesting datasources
-#> ✔ Requesting datasources [170ms]
+#> ✔ Requesting datasources [221ms]
 #> # Robonomist Server Datasources
 #>    dataset         title                                    languages datasource
 #>    <r_dataset>     <chr>                                    <iso2>    <chr>     
@@ -125,7 +125,7 @@ To list all available data tables:
 ``` r
 data()
 #> ⠙ Requesting data
-#> ℹ Object retrieved from client cache (valid until 2025-11-11 13:39:49.513383).
+#> ℹ Object retrieved from client cache (valid until 2025-11-11 14:27:01.485708).
 #> ⠙ Requesting data✔ Requesting data [11ms]
 #> # Robonomist Database search results
 #>    id                                      title                           lang 
@@ -177,7 +177,7 @@ If you know the specific ID of the table, you can easily retrieve it:
 ``` r
 df <- data("StatFin/synt/statfin_synt_pxt_12dx.px")
 #> ⠙ Requesting data
-#> ✔ Requesting data [181ms]
+#> ✔ Requesting data [236ms]
 #> 
 ```
 
@@ -186,7 +186,7 @@ To check the version information (vintage) of a data table, use:
 ``` r
 data_vintage("StatFin/synt/statfin_synt_pxt_12dx.px")
 #> ⠙ Requesting vintage
-#> ✔ Requesting vintage [163ms]
+#> ✔ Requesting vintage [215ms]
 #> 
 #> StatFin/synt/statfin_synt_pxt_12dx.px 
 #>            "2025-09-04 09:22:00 EEST"
@@ -257,7 +257,7 @@ retrieving data into a single function:
   ``` r
   data("StatFin/synt/statfin_synt_pxt_12dx.px")  # Returns the specific data table
   #> ⠙ Requesting data
-  #> ✔ Requesting data [186ms]
+  #> ✔ Requesting data [234ms]
   #> 
   #> # Robonomist id: StatFin/synt/statfin_synt_pxt_12dx.px
   #> # Title:         12dx -- Väestönmuutokset ja väkiluku, 1749-2024
@@ -293,8 +293,7 @@ To clearly separate search and retrieval operations:
   ``` r
   data_search("väestö")
   #> ⠙ Requesting search
-  #> ⠹ Requesting search
-  #> ✔ Requesting search [1.5s]
+  #> ✔ Requesting search [1.8s]
   #> 
   #> # Robonomist Database search results
   #>    id                                    title                             lang 
@@ -340,7 +339,7 @@ To clearly separate search and retrieval operations:
   ``` r
   d <- data_get("StatFin/synt/statfin_synt_pxt_12dx.px")
   #> ⠙ Requesting get
-  #> ✔ Requesting get [164ms]
+  #> ✔ Requesting get [218ms]
   #> 
   ```
 
@@ -361,7 +360,7 @@ time dimension for easier analysis. Setting the `tidy_time` argument to
 # Without tidy time formatting
 data_get("StatFin/ntp/statfin_ntp_pxt_132h.px")
 #> ⠙ Requesting get
-#> ✔ Requesting get [210ms]
+#> ✔ Requesting get [265ms]
 #> 
 #> # Robonomist id: StatFin/ntp/statfin_ntp_pxt_132h.px
 #> # Title:         132h -- Bruttokansantuote ja -tulo sekä tarjonta ja kysyntä
@@ -386,7 +385,7 @@ data_get("StatFin/ntp/statfin_ntp_pxt_132h.px")
 # With tidy time formatting
 data_get("StatFin/ntp/statfin_ntp_pxt_132h.px", tidy_time = TRUE)
 #> ⠙ Requesting get
-#> ✔ Requesting get [208ms]
+#> ✔ Requesting get [264ms]
 #> 
 #> # Robonomist id: StatFin/ntp/statfin_ntp_pxt_132h.px
 #> # Title:         132h -- Bruttokansantuote ja -tulo sekä tarjonta ja kysyntä
@@ -422,7 +421,7 @@ the labels argument:
 # Retrieve data without labels (useful when working with coded data)
 data_get("StatFin/ntp/statfin_ntp_pxt_132h.px", labels = FALSE)
 #> ⠙ Requesting get
-#> ✔ Requesting get [193ms]
+#> ✔ Requesting get [252ms]
 #> 
 #> # Robonomist id: StatFin/ntp/statfin_ntp_pxt_132h.px
 #> # Title:         132h -- Bruttokansantuote ja -tulo sekä tarjonta ja kysyntä

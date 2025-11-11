@@ -1,10 +1,9 @@
-# Explore data by listing distinct categorical values and summarizing other variables
+# Quickly explore categorical and summary variables in a tibble
 
-The `ogle` function provides a quick overview of the contents within a
-tibble, specifically targeting the exploration of categorical variables
-by listing their distinct values and summarizing other variable types.
-This function is useful for preliminary data exploration before
-proceeding with more specific data filtering or analysis.
+Provides a concise overview of a tibble by listing unique values for
+categorical variables and summary statistics for numeric or date/time
+variables. Useful for initial data exploration before filtering or
+analysis.
 
 ## Usage
 
@@ -20,16 +19,13 @@ ogle(.data, ...)
 
 - ...:
 
-  \<'data-masking'\> Additional arguments, specifying the variables to
-  be included in the exploration. When no variables are specified, all
-  variables in the tibble are explored.
+  \<'data-masking'\> Optional. Variables to include in the exploration.
+  If omitted, all variables are explored.
 
 ## Value
 
-A list where each element corresponds to a variable in the tibble. For
-character and factor variables, it returns their distinct values. For
-variables that meet a summary condition (as defined by
-`robonomistClient:::is_summary`), a statistical summary is returned.
+A list: for character and factor variables, their unique values; for
+numeric and date/time variables, a summary.
 
 ## Examples
 

@@ -68,7 +68,7 @@ fetch_data_from_url(url)
 #> ℹ Please use `data()` instead.
 #> data_get("oecd/DSD_FISH_PROD@DF_FISH_AQUA", dl_filter = ".A.._T.T") 
 #> ⠙ Requesting get
-#> ✔ Requesting get [220ms]
+#> ✔ Requesting get [217ms]
 #> 
 #> # Robonomist id: oecd/DSD_FISH_PROD@DF_FISH_AQUA
 #> # Title:         Aquaculture production
@@ -94,7 +94,7 @@ fetch_data_from_url(url, get = FALSE)
 fetch_data_from_url("https://statfin.stat.fi/PxWeb/pxweb/fi/StatFin/StatFin__aku/statfin_aku_pxt_12ea.px/")
 #> data_get("StatFin/aku/statfin_aku_pxt_12ea.px") 
 #> ⠙ Requesting get
-#> ✔ Requesting get [232ms]
+#> ✔ Requesting get [224ms]
 #> 
 #> # Robonomist id: StatFin/aku/statfin_aku_pxt_12ea.px
 #> # Title:         12ea -- Aikuiskoulutukseen osallistuminen (ml. työhön tai
@@ -122,7 +122,7 @@ fetch_data_from_url("https://statfin.stat.fi/PxWeb/pxweb/fi/StatFin/StatFin__aku
 fetch_data_from_url("https://data.ecb.europa.eu/data/datasets/ICP/ICP.M.U2.N.000000.4.ANR")
 #> data_get("ecb/ICP", dl_filter = "M.U2.N.000000.4.ANR") 
 #> ⠙ Requesting get
-#> ✔ Requesting get [174ms]
+#> ✔ Requesting get [214ms]
 #> 
 #> # Robonomist id: ecb/ICP
 #> # Title:         Indices of Consumer prices
@@ -149,7 +149,7 @@ fetch_data_from_url("https://data.ecb.europa.eu/data/datasets/ICP/ICP.M.U2.N.000
 fetch_data_from_url("https://data.worldbank.org/indicator/SH.DYN.MORT?locations=1W&start=1990&view=chart")
 #> data_get("wb/SH.DYN.MORT") 
 #> ⠙ Requesting get
-#> ✔ Requesting get [189ms]
+#> ✔ Requesting get [232ms]
 #> 
 #> # Robonomist id: wb/SH.DYN.MORT
 #> # Title:         Mortality rate, under-5 (per 1,000 live births)
@@ -173,7 +173,7 @@ fetch_data_from_url("https://data.worldbank.org/indicator/SH.DYN.MORT?locations=
 fetch_data_from_url("https://fred.stlouisfed.org/series/FPCPITOTLZGUSA")
 #> data_get("fred/FPCPITOTLZGUSA") 
 #> ⠙ Requesting get
-#> ✔ Requesting get [537ms]
+#> ✔ Requesting get [591ms]
 #> 
 #> # Robonomist id: fred/FPCPITOTLZGUSA
 #> # Title:         Inflation, consumer prices for the United States
@@ -197,7 +197,7 @@ fetch_data_from_url("https://fred.stlouisfed.org/series/FPCPITOTLZGUSA")
 fetch_data_from_url("https://data.bis.org/topics/RPP/BIS,WS_SPP,1.0/Q.5R.N.628")
 #> data_get("bis/WS_SPP", dl_filter = "Q.5R.N.628") 
 #> ⠙ Requesting get
-#> ✔ Requesting get [212ms]
+#> ✔ Requesting get [269ms]
 #> 
 #> # Robonomist id: bis/WS_SPP
 #> # Title:         Selected residential property prices
@@ -221,7 +221,7 @@ fetch_data_from_url("https://data.bis.org/topics/RPP/BIS,WS_SPP,1.0/Q.5R.N.628")
 fetch_data_from_url("https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__EN__EN0302/SSDArGasavtal/")
 #> data_get("se/EN/EN0302/SSDArGasavtal") 
 #> ⠙ Requesting get
-#> ✔ Requesting get [537ms]
+#> ✔ Requesting get [290ms]
 #> 
 #> # Robonomist id: se/EN/EN0302/SSDArGasavtal
 #> # Title:         Change of natural gas supplier. Year 2008 - 2024

@@ -142,20 +142,16 @@ data_search() performs a search and returns a list of matching data tables witho
 <span class="r-in"><span><span class="co"># Search for datasets matching pattern:</span></span></span>
 <span class="r-in"><span><span class="fu">data</span><span class="op">(</span><span class="st">"consumer indicator"</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Connecting to <span style="color: #0000BB;">robonomistServer</span> at wss://data.robonomist.app</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Connecting to <span style="color: #0000BB;">robonomistServer</span> at wss://data.robonomist.app <span style="color: #B2B2B2;">[932ms]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Connecting to <span style="color: #0000BB;">robonomistServer</span> at wss://data.robonomist.app <span style="color: #B2B2B2;">[1.2s]</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Connected successfully to robonomistServer 2.10.2</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Connected successfully to robonomistServer 2.10.2 <span style="color: #B2B2B2;">[25ms]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Connected successfully to robonomistServer 2.10.2 <span style="color: #B2B2B2;">[24ms]</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ⠙ Requesting data</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ⠹ Requesting data</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ⠸ Requesting data</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ⠼ Requesting data</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Updating dataset <span style="font-weight: bold;">tidy</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Updating dataset <span style="font-weight: bold;">tidy</span> <span style="color: #B2B2B2;">[119ms]</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ⠼ Requesting data</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[9.3s]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[7.3s]</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># Robonomist Database search results</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    id                                                          title       lang </span>
@@ -185,7 +181,7 @@ data_search() performs a search and returns a list of matching data tables witho
 <span class="r-in"><span><span class="co">## the dataset name and a slash as prefix:</span></span></span>
 <span class="r-in"><span><span class="fu">data</span><span class="op">(</span><span class="st">"ec/ consumer indicator"</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ⠙ Requesting data</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[190ms]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[239ms]</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># Robonomist Database search results</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   id                title                                                  lang </span>
@@ -198,7 +194,7 @@ data_search() performs a search and returns a list of matching data tables witho
 <span class="r-in"><span><span class="co">## Download data by providing exact table id:</span></span></span>
 <span class="r-in"><span><span class="fu">data</span><span class="op">(</span><span class="st">"ec/consumer"</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ⠙ Requesting data</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[800ms]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[1.1s]</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># Robonomist id: </span><span style="color: #00BBBB;">ec/consumer</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># Title:         Consumer Sentiment Indicator</span></span>
@@ -222,7 +218,7 @@ data_search() performs a search and returns a list of matching data tables witho
 <span class="r-in"><span><span class="co">## using the source's id:</span></span></span>
 <span class="r-in"><span><span class="fu">data</span><span class="op">(</span><span class="st">"ecb/FM.M.U2.EUR.RT.MM.EURIBOR1YD_.HSTA"</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ⠙ Requesting data</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[199ms]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[225ms]</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># Robonomist id: </span><span style="color: #00BBBB;">ecb/FM</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># Title:         Financial market data</span></span>
@@ -254,7 +250,7 @@ data_search() performs a search and returns a list of matching data tables witho
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> For direct data retrieval, use:</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> &gt;  data_get("ecb/FM.M.U2.EUR.RT.MM.EURIBOR1YD_.HSTA", raw = TRUE)</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ⠙ Requesting data</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[192ms]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[252ms]</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># Robonomist id: </span><span style="color: #00BBBB;">ecb/FM</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># Title:         Financial market data</span></span>
@@ -282,7 +278,7 @@ data_search() performs a search and returns a list of matching data tables witho
 <span class="r-in"><span><span class="co">## in case of ECB, you can leave a part of the series id unspecified:</span></span></span>
 <span class="r-in"><span><span class="fu">data</span><span class="op">(</span><span class="st">"ecb/FM.M.U2.EUR.RT.MM..HSTA"</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ⠙ Requesting data</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[199ms]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[230ms]</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># Robonomist id: </span><span style="color: #00BBBB;">ecb/FM</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># Title:         Financial market data</span></span>
@@ -310,7 +306,7 @@ data_search() performs a search and returns a list of matching data tables witho
 <span class="r-in"><span><span class="co">## provide a download filter. First get the available variables and values:</span></span></span>
 <span class="r-in"><span><span class="fu">data</span><span class="op">(</span><span class="st">"ecb/AME"</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ⠙ Requesting data</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[183ms]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[222ms]</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> List of 7</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  $ FREQ              : tibble [10 × 2] (S3: tbl_df/tbl/data.frame)</span>
@@ -345,7 +341,7 @@ data_search() performs a search and returns a list of matching data tables witho
 <span class="r-in"><span><span class="co">## Then provide a suitable filter to download data:</span></span></span>
 <span class="r-in"><span><span class="fu">data</span><span class="op">(</span><span class="st">"ecb/AME"</span>, dl_filter <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>ame_ref_area <span class="op">=</span> <span class="st">"FIN"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ⠙ Requesting data</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[182ms]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[251ms]</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># Robonomist id: </span><span style="color: #00BBBB;">ecb/AME</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># Title:         AMECO</span></span>
@@ -378,7 +374,7 @@ data_search() performs a search and returns a list of matching data tables witho
 <span class="r-in"><span>  <span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ⠙ Requesting data</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[178ms]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[243ms]</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># Robonomist id: </span><span style="color: #00BBBB;">tulli/uljas_cpa2008</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># Title:         CPA2008, CC BY 4.0</span></span>
@@ -401,7 +397,7 @@ data_search() performs a search and returns a list of matching data tables witho
 <span class="r-in"><span><span class="co">## Using §-filter to filter data after download:</span></span></span>
 <span class="r-in"><span><span class="fu">data</span><span class="op">(</span><span class="st">"ec/consumer§Fin§Confidence"</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ⠙ Requesting data</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[307ms]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[340ms]</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># Robonomist id: </span><span style="color: #00BBBB;">ec/consumer</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># Title:         Consumer Sentiment Indicator</span></span>
@@ -424,7 +420,7 @@ data_search() performs a search and returns a list of matching data tables witho
 <span class="r-in"><span><span class="co">## Using §-filter with start date:</span></span></span>
 <span class="r-in"><span><span class="fu">data</span><span class="op">(</span><span class="st">"ec/consumer§Fin§Confidence§2020-01-01"</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ⠙ Requesting data</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[261ms]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[291ms]</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># Robonomist id: </span><span style="color: #00BBBB;">ec/consumer</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># Title:         Consumer Sentiment Indicator</span></span>

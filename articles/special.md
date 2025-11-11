@@ -89,11 +89,11 @@ the Federal Reserve System), call:
 ``` r
 data("fred/source=1")
 #> ⠙ Requesting data
-#> ✔ Requesting data [742ms]
+#> ✔ Requesting data [695ms]
 #> 
 #> # Robonomist id: fred/source=1
 #> # Title:         Board of Governors of the Federal Reserve System (US)
-#> # Vintage:       2025-11-11 12:00:00
+#> # Vintage:       2025-11-11 14:00:00
 #> # A tibble:      35 × 5
 #>    release_id name                                     press_release link  notes
 #>  *      <int> <chr>                                    <lgl>         <chr> <chr>
@@ -116,7 +116,7 @@ Production and Capacity Utilization), call:
 ``` r
 data("fred/release=13")
 #> ⠙ Requesting data
-#> ✔ Requesting data [605ms]
+#> ✔ Requesting data [700ms]
 #> 
 #> # Robonomist id: fred/release=13
 #> # Title:         G.17 Industrial Production and Capacity Utilization
@@ -147,8 +147,7 @@ To download a time series, use the `get_data` function:
 ``` r
 data_get("fred/CAPB00004S")
 #> ⠙ Requesting get
-#> ⠹ Requesting get
-#> ✔ Requesting get [1.1s]
+#> ✔ Requesting get [374ms]
 #> 
 #> # Robonomist id: fred/CAPB00004S
 #> # Title:         Industrial Capacity: Manufacturing (SIC)
@@ -174,7 +173,7 @@ You can also retrieve multiple time series by providing a vector of ids:
 ``` r
 d <- data_get(c("fred/CAPB5610CS", "fred/CAPB5640CS"))
 #> ⠙ Requesting get
-#> ✔ Requesting get [1.7s]
+#> ✔ Requesting get [221ms]
 #> 
 d
 #> # Robonomist id: fred/CAPB5610CS
@@ -213,7 +212,7 @@ data_get(c("fred/CAPB5610CS", "fred/CAPB5640CS"), units = "pc1") |>
   geom_line() +
   theme(legend.position = "bottom", legend.direction = "vertical")
 #> ⠙ Requesting get
-#> ✔ Requesting get [849ms]
+#> ✔ Requesting get [225ms]
 #> 
 ```
 
@@ -241,7 +240,7 @@ data_get(c("fred/CAPB5610CS", "fred/CAPB5640CS"), units = "pc1", frequency = "a"
   geom_line() +
   theme(legend.position = "bottom", legend.direction = "vertical")
 #> ⠙ Requesting get
-#> ✔ Requesting get [741ms]
+#> ✔ Requesting get [217ms]
 #> 
 ```
 

@@ -4,7 +4,7 @@ Available Robonomist Datasources, retrieved on 2025-11-11.
 
     #> ℹ Connecting to robonomistServer at wss://data.robonomist.app
 
-    #> ✔ Connecting to robonomistServer at wss://data.robonomist.app [571ms]
+    #> ✔ Connecting to robonomistServer at wss://data.robonomist.app [942ms]
 
     #> 
 
@@ -16,6 +16,6 @@ Available Robonomist Datasources, retrieved on 2025-11-11.
 
     #> ⠙ Requesting datasources
 
-    #> ✔ Requesting datasources [163ms]
+    #> ✔ Requesting datasources [216ms]
 
     #> 

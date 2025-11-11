@@ -113,20 +113,16 @@ define a download filter.
 # Search for datasets matching pattern:
 data("consumer indicator")
 #> ℹ Connecting to robonomistServer at wss://data.robonomist.app
-#> ✔ Connecting to robonomistServer at wss://data.robonomist.app [932ms]
+#> ✔ Connecting to robonomistServer at wss://data.robonomist.app [1.2s]
 #> 
 #> ℹ Connected successfully to robonomistServer 2.10.2
-#> ✔ Connected successfully to robonomistServer 2.10.2 [25ms]
+#> ✔ Connected successfully to robonomistServer 2.10.2 [24ms]
 #> 
 #> ⠙ Requesting data
 #> ⠹ Requesting data
 #> ⠸ Requesting data
 #> ⠼ Requesting data
-#> ℹ Updating dataset tidy
-#> ✔ Updating dataset tidy [119ms]
-#> 
-#> ⠼ Requesting data
-#> ✔ Requesting data [9.3s]
+#> ✔ Requesting data [7.3s]
 #> 
 #> # Robonomist Database search results
 #>    id                                                          title       lang 
@@ -156,7 +152,7 @@ data("consumer indicator")
 ## the dataset name and a slash as prefix:
 data("ec/ consumer indicator")
 #> ⠙ Requesting data
-#> ✔ Requesting data [190ms]
+#> ✔ Requesting data [239ms]
 #> 
 #> # Robonomist Database search results
 #>   id                title                                                  lang 
@@ -169,7 +165,7 @@ data("ec/ consumer indicator")
 ## Download data by providing exact table id:
 data("ec/consumer")
 #> ⠙ Requesting data
-#> ✔ Requesting data [800ms]
+#> ✔ Requesting data [1.1s]
 #> 
 #> # Robonomist id: ec/consumer
 #> # Title:         Consumer Sentiment Indicator
@@ -193,7 +189,7 @@ data("ec/consumer")
 ## using the source's id:
 data("ecb/FM.M.U2.EUR.RT.MM.EURIBOR1YD_.HSTA")
 #> ⠙ Requesting data
-#> ✔ Requesting data [199ms]
+#> ✔ Requesting data [225ms]
 #> 
 #> # Robonomist id: ecb/FM
 #> # Title:         Financial market data
@@ -225,7 +221,7 @@ data("https://data.ecb.europa.eu/data/datasets/FM/FM.M.U2.EUR.RT.MM.EURIBOR1YD_.
 #> ℹ For direct data retrieval, use:
 #> >  data_get("ecb/FM.M.U2.EUR.RT.MM.EURIBOR1YD_.HSTA", raw = TRUE)
 #> ⠙ Requesting data
-#> ✔ Requesting data [192ms]
+#> ✔ Requesting data [252ms]
 #> 
 #> # Robonomist id: ecb/FM
 #> # Title:         Financial market data
@@ -253,7 +249,7 @@ data("https://data.ecb.europa.eu/data/datasets/FM/FM.M.U2.EUR.RT.MM.EURIBOR1YD_.
 ## in case of ECB, you can leave a part of the series id unspecified:
 data("ecb/FM.M.U2.EUR.RT.MM..HSTA")
 #> ⠙ Requesting data
-#> ✔ Requesting data [199ms]
+#> ✔ Requesting data [230ms]
 #> 
 #> # Robonomist id: ecb/FM
 #> # Title:         Financial market data
@@ -281,7 +277,7 @@ data("ecb/FM.M.U2.EUR.RT.MM..HSTA")
 ## provide a download filter. First get the available variables and values:
 data("ecb/AME") |> str()
 #> ⠙ Requesting data
-#> ✔ Requesting data [183ms]
+#> ✔ Requesting data [222ms]
 #> 
 #> List of 7
 #>  $ FREQ              : tibble [10 × 2] (S3: tbl_df/tbl/data.frame)
@@ -316,7 +312,7 @@ data("ecb/AME") |> str()
 ## Then provide a suitable filter to download data:
 data("ecb/AME", dl_filter = list(ame_ref_area = "FIN"))
 #> ⠙ Requesting data
-#> ✔ Requesting data [182ms]
+#> ✔ Requesting data [251ms]
 #> 
 #> # Robonomist id: ecb/AME
 #> # Title:         AMECO
@@ -349,7 +345,7 @@ data("tulli/uljas_cpa2008",
   )
 )
 #> ⠙ Requesting data
-#> ✔ Requesting data [178ms]
+#> ✔ Requesting data [243ms]
 #> 
 #> # Robonomist id: tulli/uljas_cpa2008
 #> # Title:         CPA2008, CC BY 4.0
@@ -372,7 +368,7 @@ data("tulli/uljas_cpa2008",
 ## Using §-filter to filter data after download:
 data("ec/consumer§Fin§Confidence")
 #> ⠙ Requesting data
-#> ✔ Requesting data [307ms]
+#> ✔ Requesting data [340ms]
 #> 
 #> # Robonomist id: ec/consumer
 #> # Title:         Consumer Sentiment Indicator
@@ -395,7 +391,7 @@ data("ec/consumer§Fin§Confidence")
 ## Using §-filter with start date:
 data("ec/consumer§Fin§Confidence§2020-01-01")
 #> ⠙ Requesting data
-#> ✔ Requesting data [261ms]
+#> ✔ Requesting data [291ms]
 #> 
 #> # Robonomist id: ec/consumer
 #> # Title:         Consumer Sentiment Indicator

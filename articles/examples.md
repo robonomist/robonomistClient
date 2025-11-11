@@ -14,7 +14,7 @@ library(roboplotr)
 data("entsoe/dap_FI")
 #> # Robonomist id: entsoe/dap_FI
 #> # Title:         Day ahead price for bidding zone, Finland
-#> # Vintage:       2025-11-11 13:00:00
+#> # Vintage:       2025-11-11 14:00:00
 #> # A tibble:      658 × 6
 #>    Area  Currency `Measure unit` resolution time                value
 #>  * <chr> <chr>    <chr>          <chr>      <dttm>              <dbl>
@@ -83,7 +83,7 @@ data("eurostat/prc_hicp_manr") |>
   roboplot(geo, title = "Consumer price inflation", subtitle = "Annual change, %")
 #> ⠙ Requesting data
 #> ⠹ Requesting data
-#> ✔ Requesting data [4.2s]
+#> ✔ Requesting data [5.9s]
 #> 
 #> Using the attribute "source" for plot caption.
 #> roboplotr arranged data 'd' column `geo` using mean of 'value'. Relevel `geo`

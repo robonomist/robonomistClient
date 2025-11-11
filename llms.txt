@@ -315,10 +315,9 @@ documentation:
 - [`fetch_data_from_url()`](https://robonomist.github.io/robonomistClient/reference/fetch_data_from_url.md)
   **\[deprecated\]** : Parse and Retrieve Data from URL
 - [`ogle()`](https://robonomist.github.io/robonomistClient/reference/ogle.md)
-  : Explore data by listing distinct categorical values and summarizing
-  other variables
+  : Quickly explore categorical and summary variables in a tibble
 - [`print_filter()`](https://robonomist.github.io/robonomistClient/reference/print_filter.md)
-  : Print all filtering criteria for categorical variables of a tibble
+  : Print filter criteria for categorical variables in a tibble
 - [`datalock()`](https://robonomist.github.io/robonomistClient/reference/datalock.md)
   : Lock and Save Data Locally
 
