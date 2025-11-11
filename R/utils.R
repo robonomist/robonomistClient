@@ -2,43 +2,37 @@
   if (is.null(x)) y else x
 }
 
-
 #' Lock and Save Data Locally
 #'
-#' This function locks a given R object `x` by saving it to a file with a `.rdlock` extension.
-#' If the file already exists (and `overwrite` is FALSE), the existing file is read and its contents returned.
+#' Saves an R object `x` to a file with a `.rdlock` extension, effectively "locking" its value for reproducible use. If the file already exists and `overwrite` is `FALSE`, the function reads and returns the existing value instead of overwriting it.
 #'
 #' @importFrom rlang abort hash
 #' @export
 #'
-#' @param x The R object to be locked and saved.
-#' @param name Optional; the name to be used for the saved file.
-#'             If NULL, a name is generated using the hash of the expression that defines `x`.
-#'             If provided, it must be a single non-empty character string.
-#' @param path Optional; the directory path where the data file is to be saved.
-#'             Defaults to the value of the 'robonomistClient.datalock.path' option.
-#'             If NULL, the file is saved in the current working directory.
-#' @param overwrite Logical; whether to overwrite the existing data file.
-#'                  Defaults to FALSE, meaning that if the file exists, it is read and returned
-#'                  without overwriting.
+#' @param x The R object to save and lock.
+#' @param name Optional. The file name to use. If `NULL`, a name is generated from a hash of the expression for `x`. Must be a single, non-empty character string if provided.
+#' @param path Optional. Directory path to save the file. Defaults to the value of the 'robonomistClient.datalock.path' option. If `NULL`, saves to the current working directory.
+#' @param overwrite Logical. If `TRUE`, overwrites any existing file. If `FALSE` (default), reads and returns the existing file if present.
 #'
-#' @return Returns the data `x` after saving or reading it from the file.
-#'         If `overwrite` is TRUE, `x` is returned after saving.
-#'         If `overwrite` is FALSE and the file exists, the contents of the file are returned.
-#'         If the file does not exist, `x` is saved and then returned.
+#' @return The value of `x` after saving, or the value read from file if it already exists and `overwrite` is `FALSE`.
 #'
 #' @examples
-#' x <- runif(1) |> datalock(name = "example", path = "fixed_data")
-#' y <- runif(1) |> datalock(name = "example", path = "fixed_data")
-#' identical(x, y)
+#' library(tibble)
 #'
-#' # This will save `y` to a file named "example.rdlock" in the "fixed_data" path.
-#' # If the file "example.rdlock" already exists, `x` will to be evalated but read from the file.
+#' # Lock and save a data frame
+#' locked_df1 <-
+#'   tibble(x = runif(3), y = c("a", "b", "c")) |>
+#'   datalock()
 #'
-#' @note This function uses the 'hash' function from the 'rlang' package to generate a file name
-#'       if no name is provided.
-#' @importFrom rlang abort hash
-#' @export
+#' # Now re-running the same code retrieves the locked data instead of generating new random values
+#' locked_df2 <-
+#'   tibble(x = runif(3), y = c("a", "b", "c")) |>
+#'   datalock()
+#'
+#' # Check that the locked data is identical
+#' identical(locked_df1, locked_df2)  # TRUE
+#'
+#' @note If no name is provided, a hash of the expression for `x` is used as the file name.
 datalock <- function(x, name = NULL,
                      path = getOption("robonomistClient.datalock.path"),
                      overwrite = getOption("robonomistClient.datalock.overwrite", FALSE)) {

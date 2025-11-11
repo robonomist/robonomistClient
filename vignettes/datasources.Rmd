@@ -20,7 +20,7 @@ library(dplyr)
 options("roboplot.caption.template" = "Source: {text}")
 ```
 
-```{r echo = FALSE}
+```{r echo = FALSE, messages = FALSE}
 datasources() |>
   select(Title = title, Languages = languages, `Dataset ID` = dataset) |>
   arrange(Title) |>

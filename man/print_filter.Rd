@@ -2,28 +2,21 @@
 % Please edit documentation in R/ogle.R
 \name{print_filter}
 \alias{print_filter}
-\title{Print all filtering criteria for categorical variables of a tibble}
+\title{Print filter criteria for categorical variables in a tibble}
 \usage{
 print_filter(.data, ...)
 }
 \arguments{
 \item{.data}{A tibble containing the data.}
 
-\item{...}{<'data-masking'> Optional variables to specify which categorical variables
-to include in the filter printout. If omitted, filter criteria for all
-categorical variables will be generated and printed.}
+\item{...}{<'data-masking'> Optional. Variables to include in the filter expression. If omitted, all categorical variables are used.}
 }
 \value{
-The function prints the filtering criteria to the console and, if applicable,
-copies it to the clipboard. It returns the original tibble invisibly for further
-chaining of functions.
+Invisibly returns the original tibble. The filter expression is printed to the console and, if possible, copied to the clipboard.
 }
 \description{
-This function generates and prints a filtering criteria string for categorical variables
-in a tibble. If running in an interactive session and the \code{clipr} package is installed,
-the generated filter string will also be copied to the clipboard for easy pasting into
-scripts or reports. This is particularly useful for quickly generating filter conditions
-for subsequent data manipulation tasks.
+Generates and prints a filter expression for the categorical variables in a tibble.
+If run interactively and the \code{clipr} package is available, the filter expression is also copied to the clipboard for easy use in scripts or reports. This helps quickly create filter conditions for further data analysis.
 }
 \examples{
 \dontrun{
