@@ -16,6 +16,7 @@ knitr::opts_chunk$set(
   cache = TRUE
 )
 library(robonomistClient)
+library(dplyr)
 options("roboplot.caption.template" = "Source: {text}")
 ```
 
