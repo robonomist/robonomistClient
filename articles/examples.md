@@ -14,21 +14,21 @@ library(roboplotr)
 data("entsoe/dap_FI")
 #> # Robonomist id: entsoe/dap_FI
 #> # Title:         Day ahead price for bidding zone, Finland
-#> # Vintage:       2025-11-11 14:00:00
-#> # A tibble:      658 × 6
+#> # Vintage:       2025-11-13 16:00:00
+#> # A tibble:      653 × 6
 #>    Area  Currency `Measure unit` resolution time                value
 #>  * <chr> <chr>    <chr>          <chr>      <dttm>              <dbl>
-#>  1 FI    EURO     megawatt hours PT15M      2025-11-05 23:00:00  3.01
-#>  2 FI    EURO     megawatt hours PT15M      2025-11-05 23:15:00  2.22
-#>  3 FI    EURO     megawatt hours PT15M      2025-11-05 23:30:00  2.2 
-#>  4 FI    EURO     megawatt hours PT15M      2025-11-05 23:45:00  2.17
-#>  5 FI    EURO     megawatt hours PT15M      2025-11-06 00:00:00  2.6 
-#>  6 FI    EURO     megawatt hours PT15M      2025-11-06 00:15:00  2.58
-#>  7 FI    EURO     megawatt hours PT15M      2025-11-06 00:30:00  2.54
-#>  8 FI    EURO     megawatt hours PT15M      2025-11-06 00:45:00  2.46
-#>  9 FI    EURO     megawatt hours PT15M      2025-11-06 01:00:00  2.3 
-#> 10 FI    EURO     megawatt hours PT15M      2025-11-06 01:15:00  2.43
-#> # ℹ 648 more rows
+#>  1 FI    EURO     megawatt hours PT15M      2025-11-07 23:00:00  30.1
+#>  2 FI    EURO     megawatt hours PT15M      2025-11-07 23:15:00  27.5
+#>  3 FI    EURO     megawatt hours PT15M      2025-11-07 23:30:00  25.9
+#>  4 FI    EURO     megawatt hours PT15M      2025-11-07 23:45:00  25.5
+#>  5 FI    EURO     megawatt hours PT15M      2025-11-08 00:00:00  29.5
+#>  6 FI    EURO     megawatt hours PT15M      2025-11-08 00:15:00  27.8
+#>  7 FI    EURO     megawatt hours PT15M      2025-11-08 00:30:00  26.3
+#>  8 FI    EURO     megawatt hours PT15M      2025-11-08 00:45:00  26.2
+#>  9 FI    EURO     megawatt hours PT15M      2025-11-08 01:00:00  30  
+#> 10 FI    EURO     megawatt hours PT15M      2025-11-08 01:15:00  29.3
+#> # ℹ 643 more rows
 
 data("entsoe/dap_FI") |>
   ggplot(aes(time, value)) +
@@ -83,7 +83,7 @@ data("eurostat/prc_hicp_manr") |>
   roboplot(geo, title = "Consumer price inflation", subtitle = "Annual change, %")
 #> ⠙ Requesting data
 #> ⠹ Requesting data
-#> ✔ Requesting data [5.9s]
+#> ✔ Requesting data [6s]
 #> 
 #> Using the attribute "source" for plot caption.
 #> roboplotr arranged data 'd' column `geo` using mean of 'value'. Relevel `geo`

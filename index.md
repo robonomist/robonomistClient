@@ -49,7 +49,7 @@ to build dynamic documents and automatically updating applications:
 The `robonomistClient` package provides seamless and efficient access to
 [a wide range of
 datasources](https://robonomist.github.io/robonomistClient/articles/datasources.html)
-via the Robonomist Data Server. With support for **101 576 up-to-date
+via the Robonomist Data Server. With support for **101 636 up-to-date
 data tables** across **60 distinct datasources** and **13 languages**,
 the package is designed to streamline your data analysis workflow.
 
@@ -132,18 +132,18 @@ datasources()
 
 ``` R
 #> # Robonomist Server Datasources
-#>    dataset          title                                                            languages datasource available
-#>    <r_dataset>      <chr>                                                            <iso2>    <chr>      <lgl>    
-#>  1 StatFin          Statistics Finland, StatFin database                             fi,sv,en  StatFin    TRUE     
-#>  2 StatFin_Passiivi Statistics Finland, StatFin archive database                     fi,sv,en  StatFin_P… TRUE     
-#>  3 Vero             Finnish Tax Administration statistical database                  fi,sv,en  Vero       TRUE     
-#>  4 ec               European Commission's Business and Consumer Surveys              en        EC         TRUE     
-#>  5 kunnat           Key statistics of municipalities, Statistics Finland             fi,sv,en  KuntienAv… TRUE     
-#>  6 kunnat           Financial data reported by municipalities and joint municipal a… fi,sv,en  KuntienTa… TRUE     
-#>  7 paavo            Statistics Finland's Paavo database                              fi,sv,en  Paavo      TRUE     
-#>  8 tulli            Finnish Customs, Uljas Statistical Database                      fi,sv,en  Tulli      TRUE     
-#>  9 luke             Statistics database of Natural Resources Institute Finland (Luk… fi,sv,en  Luke       TRUE     
-#> 10 etk              Finnish Centre for Pensions' statistical database                fi,sv,en  ETK        TRUE     
+#>    dataset          title                                                          languages datasource available
+#>    <r_dataset>      <chr>                                                          <iso2>    <chr>      <lgl>    
+#>  1 StatFin          Statistics Finland, StatFin database                           fi,sv,en  StatFin    TRUE     
+#>  2 StatFin_Passiivi Statistics Finland, StatFin archive database                   fi,sv,en  StatFin_P… TRUE     
+#>  3 Vero             Finnish Tax Administration statistical database                fi,sv,en  Vero       TRUE     
+#>  4 ec               European Commission's Business and Consumer Surveys            en        EC         TRUE     
+#>  5 kunnat           Key statistics of municipalities, Statistics Finland           fi,sv,en  KuntienAv… TRUE     
+#>  6 kunnat           Financial data reported by municipalities and joint municipal… fi,sv,en  KuntienTa… TRUE     
+#>  7 paavo            Statistics Finland's Paavo database                            fi,sv,en  Paavo      TRUE     
+#>  8 tulli            Finnish Customs, Uljas Statistical Database                    fi,sv,en  Tulli      TRUE     
+#>  9 luke             Statistics database of Natural Resources Institute Finland (L… fi,sv,en  Luke       TRUE     
+#> 10 etk              Finnish Centre for Pensions' statistical database              fi,sv,en  ETK        TRUE     
 #> # ℹ 50 more rows
 ```
 
@@ -159,19 +159,19 @@ data()
 
 ``` R
 #> # Robonomist Database search results
-#>    id                                      title                                                              lang 
-#>    <r_id>                                  <chr>                                                              <chr>
-#>  1 StatFin/adopt/statfin_adopt_pxt_11lv.px 11lv -- Adoptiot lapsen syntymämaan, ikäryhmän ja sukupuolen sekä… fi   
-#>  2 StatFin/adopt/statfin_adopt_pxt_13qh.px 13qh -- Adoptiot adoptoitavan vanhempien mukaan, 1999-2024         fi   
-#>  3 StatFin/aku/statfin_aku_pxt_12dz.px     12dz -- Aikuiskoulutukseen osallistuminen (ml. työhön tai ammatti… fi   
-#>  4 StatFin/aku/statfin_aku_pxt_12ea.px     12ea -- Aikuiskoulutukseen osallistuminen (ml. työhön tai ammatti… fi   
-#>  5 StatFin/aku/statfin_aku_pxt_14bu.px     14bu -- Aikuiskoulutukseen osallistuminen (ml. työhön tai ammatti… fi   
-#>  6 StatFin/aku/statfin_aku_pxt_14bv.px     14bv -- Aikuiskoulutukseen osallistuminen (ml. työhön tai ammatti… fi   
-#>  7 StatFin/ava/statfin_ava_pxt_12a9.px     12a9 -- Perusopetuksen vuosiluokkien 1-9 ja lisäopetuksen suoritt… fi   
-#>  8 StatFin/ava/statfin_ava_pxt_12aa.px     12aa -- Aikuisten perusopetuksen oppimäärän suorittaneiden kieliv… fi   
-#>  9 StatFin/ava/statfin_ava_pxt_12ad.px     12ad -- Toisen asteen opiskelijoiden valitsemat vieraat kielet, 2… fi   
-#> 10 StatFin/ava/statfin_ava_pxt_139d.px     139d -- Toisen asteen opiskelijoiden valitsemien vieraiden kielen… fi   
-#> # ℹ 179,179 more rows
+#>    id                                      title                                                            lang 
+#>    <r_id>                                  <chr>                                                            <chr>
+#>  1 StatFin/adopt/statfin_adopt_pxt_11lv.px 11lv -- Adoptiot lapsen syntymämaan, ikäryhmän ja sukupuolen se… fi   
+#>  2 StatFin/adopt/statfin_adopt_pxt_13qh.px 13qh -- Adoptiot adoptoitavan vanhempien mukaan, 1999-2024       fi   
+#>  3 StatFin/aku/statfin_aku_pxt_12dz.px     12dz -- Aikuiskoulutukseen osallistuminen (ml. työhön tai ammat… fi   
+#>  4 StatFin/aku/statfin_aku_pxt_12ea.px     12ea -- Aikuiskoulutukseen osallistuminen (ml. työhön tai ammat… fi   
+#>  5 StatFin/aku/statfin_aku_pxt_14bu.px     14bu -- Aikuiskoulutukseen osallistuminen (ml. työhön tai ammat… fi   
+#>  6 StatFin/aku/statfin_aku_pxt_14bv.px     14bv -- Aikuiskoulutukseen osallistuminen (ml. työhön tai ammat… fi   
+#>  7 StatFin/ava/statfin_ava_pxt_12a9.px     12a9 -- Perusopetuksen vuosiluokkien 1-9 ja lisäopetuksen suori… fi   
+#>  8 StatFin/ava/statfin_ava_pxt_12aa.px     12aa -- Aikuisten perusopetuksen oppimäärän suorittaneiden kiel… fi   
+#>  9 StatFin/ava/statfin_ava_pxt_12ad.px     12ad -- Toisen asteen opiskelijoiden valitsemat vieraat kielet,… fi   
+#> 10 StatFin/ava/statfin_ava_pxt_139d.px     139d -- Toisen asteen opiskelijoiden valitsemien vieraiden kiel… fi   
+#> # ℹ 179,294 more rows
 ```
 
 Search for tables related to employment:
@@ -182,18 +182,18 @@ data("employment eurostat")
 
 ``` R
 #> # Robonomist Database search results
-#>    id                           title                                                                         lang 
-#>    <r_id>                       <chr>                                                                         <chr>
-#>  1 eurostat/bd_9pm_r2           High growth enterprises (growth by 10% or more) and related employment by NA… en   
-#>  2 eurostat/bd_9pm_r2$dv_2421   High growth enterprises (growth by 10% or more) and related employment by NA… en   
-#>  3 eurostat/bd_hg               High growth enterprises and related employment by NACE Rev. 2 activity        en   
-#>  4 eurostat/bd_hg$dv_2307       High growth enterprises and related employment by NACE Rev. 2 activity        en   
-#>  5 eurostat/bd_hg_micro         High growth micro enterprises and related employment by NACE Rev. 2 activity  en   
-#>  6 eurostat/bd_hg_micro$dv_2422 High growth micro enterprises and related employment by NACE Rev. 2 activity  en   
-#>  7 eurostat/bs_bs10_00          Turnover by client specialisation and employment size class (2000)            en   
-#>  8 eurostat/bs_bs1_01           SBS variables by product specialisation and by employment size class for div… en   
-#>  9 eurostat/bs_bs1_03           SBS variables by employment size class for div 72 and 74 (2003)               en   
-#> 10 eurostat/bs_bs1_04           Main economic variables by employment size class (2004)                       en   
+#>    id                           title                                                                       lang 
+#>    <r_id>                       <chr>                                                                       <chr>
+#>  1 eurostat/bd_9pm_r2           High growth enterprises (growth by 10% or more) and related employment by … en   
+#>  2 eurostat/bd_9pm_r2$dv_2421   High growth enterprises (growth by 10% or more) and related employment by … en   
+#>  3 eurostat/bd_hg               High growth enterprises and related employment by NACE Rev. 2 activity      en   
+#>  4 eurostat/bd_hg$dv_2307       High growth enterprises and related employment by NACE Rev. 2 activity      en   
+#>  5 eurostat/bd_hg_micro         High growth micro enterprises and related employment by NACE Rev. 2 activi… en   
+#>  6 eurostat/bd_hg_micro$dv_2422 High growth micro enterprises and related employment by NACE Rev. 2 activi… en   
+#>  7 eurostat/bs_bs10_00          Turnover by client specialisation and employment size class (2000)          en   
+#>  8 eurostat/bs_bs1_01           SBS variables by product specialisation and by employment size class for d… en   
+#>  9 eurostat/bs_bs1_03           SBS variables by employment size class for div 72 and 74 (2003)             en   
+#> 10 eurostat/bs_bs1_04           Main economic variables by employment size class (2004)                     en   
 #> # ℹ 511 more rows
 ```
 
@@ -218,21 +218,21 @@ data("eurostat/bd_hg") |> tail()
 #> # Title:         High growth enterprises and related employment by NACE Rev. 2 activity
 #> # Vintage:       2025-10-24 23:00:00
 #> # A tibble:      6 × 6
-#>   freq   indic_sbs                                                                  nace_r2  geo   time       value
-#>   <chr>  <chr>                                                                      <chr>    <chr> <date>     <dbl>
-#> 1 Annual Employees in young high-growth enterprises measured in employment - number Other p… Port… 2023-01-01    NA
-#> 2 Annual Employees in young high-growth enterprises measured in employment - number Other p… Roma… 2023-01-01   112
-#> 3 Annual Employees in young high-growth enterprises measured in employment - number Other p… Swed… 2023-01-01    36
-#> 4 Annual Employees in young high-growth enterprises measured in employment - number Other p… Slov… 2023-01-01     0
-#> 5 Annual Employees in young high-growth enterprises measured in employment - number Other p… Slov… 2023-01-01     0
-#> 6 Annual Employees in young high-growth enterprises measured in employment - number Other p… Türk… 2023-01-01    NA
+#>   freq   indic_sbs                                                                 nace_r2 geo   time       value
+#>   <chr>  <chr>                                                                     <chr>   <chr> <date>     <dbl>
+#> 1 Annual Employees in young high-growth enterprises measured in employment - numb… Other … Port… 2023-01-01    NA
+#> 2 Annual Employees in young high-growth enterprises measured in employment - numb… Other … Roma… 2023-01-01   112
+#> 3 Annual Employees in young high-growth enterprises measured in employment - numb… Other … Swed… 2023-01-01    36
+#> 4 Annual Employees in young high-growth enterprises measured in employment - numb… Other … Slov… 2023-01-01     0
+#> 5 Annual Employees in young high-growth enterprises measured in employment - numb… Other … Slov… 2023-01-01     0
+#> 6 Annual Employees in young high-growth enterprises measured in employment - numb… Other … Türk… 2023-01-01    NA
 ```
 
 ### 6. Fetch Data Using Web Links
 
 Copy a dataset link from your browser and pass it to
 [`data()`](https://robonomist.github.io/robonomistClient/reference/data.md).
-For example, if you find[a dataset on the OECD
+For example, if you find [a dataset on the OECD
 website](https://data-explorer.oecd.org/vis?tm=sna&pg=0&fs%5B0%5D=Measure%2C0%7CAquaculture%20production%23AQUA_PD%23&fc=Measure&snb=1&vw=tb&df%5Bds%5D=dsDisseminateFinalDMZ&df%5Bid%5D=DSD_FISH_PROD%40DF_FISH_AQUA&df%5Bag%5D=OECD.TAD.ARP&df%5Bvs%5D=1.0&pd=2010%2C&dq=.A.._T.T&ly%5Brw%5D=REF_AREA&ly%5Bcl%5D=TIME_PERIOD&to%5BTIME_PERIOD%5D=false),
 you can retrieve it like this:
 

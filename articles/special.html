@@ -150,7 +150,7 @@ releases. You can list all “sources” and “releases” with:</p>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">28</span> <span style="color: #0000BB;">fred</span>/<span style="color: #00BBBB;">source=48</span> Organization for Economic Co-operation and Development  en   </span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">29</span> <span style="color: #0000BB;">fred</span>/<span style="color: #00BBBB;">source=50</span> U.S. Employment and Training Administration             en   </span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">30</span> <span style="color: #0000BB;">fred</span>/<span style="color: #00BBBB;">source=53</span> U.S. Energy Information Administration                  en   </span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 408 more rows</span></span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 409 more rows</span></span></span></code></pre></div>
 <p>The database hierarchy is very simple: Sources contain releases, and
 releases contain time series.</p>
 <p>To list all releases, for example, in source 1 (Board of Governors of
@@ -158,11 +158,11 @@ the Federal Reserve System), call:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/data.html">data</a></span><span class="op">(</span><span class="st">"fred/source=1"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; ⠙ Requesting data</span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[695ms]</span></span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[688ms]</span></span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># Robonomist id: </span><span style="color: #00BBBB;">fred/source=1</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># Title:         Board of Governors of the Federal Reserve System (US)</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># Vintage:       2025-11-11 14:00:00</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># Vintage:       2025-11-13 16:00:00</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble:      35 × 5</span></span></span>
 <span><span class="co">#&gt;    release_id name                                     press_release link  notes</span></span>
 <span><span class="co">#&gt;  <span style="color: #BCBCBC;">*</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                    <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span></span>
@@ -182,7 +182,7 @@ Production and Capacity Utilization), call:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/data.html">data</a></span><span class="op">(</span><span class="st">"fred/release=13"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; ⠙ Requesting data</span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[700ms]</span></span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[699ms]</span></span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># Robonomist id: </span><span style="color: #00BBBB;">fred/release=13</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># Title:         G.17 Industrial Production and Capacity Utilization</span></span></span>
@@ -213,7 +213,7 @@ function:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/data.html">data_get</a></span><span class="op">(</span><span class="st">"fred/CAPB00004S"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; ⠙ Requesting get</span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[374ms]</span></span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[485ms]</span></span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># Robonomist id: </span><span style="color: #00BBBB;">fred/CAPB00004S</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># Title:         Industrial Capacity: Manufacturing (SIC)</span></span></span>
@@ -237,7 +237,7 @@ ids:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">d</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/data.html">data_get</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"fred/CAPB5610CS"</span>, <span class="st">"fred/CAPB5640CS"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; ⠙ Requesting get</span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[221ms]</span></span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> Requesting get <span style="color: #B2B2B2;">[361ms]</span></span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="va">d</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># Robonomist id: </span><span style="color: #00BBBB;">fred/CAPB5610CS</span></span></span>

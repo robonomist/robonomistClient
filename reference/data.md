@@ -113,7 +113,7 @@ define a download filter.
 # Search for datasets matching pattern:
 data("consumer indicator")
 #> ℹ Connecting to robonomistServer at wss://data.robonomist.app
-#> ✔ Connecting to robonomistServer at wss://data.robonomist.app [1.2s]
+#> ✔ Connecting to robonomistServer at wss://data.robonomist.app [1.4s]
 #> 
 #> ℹ Connected successfully to robonomistServer 2.10.2
 #> ✔ Connected successfully to robonomistServer 2.10.2 [24ms]
@@ -122,7 +122,13 @@ data("consumer indicator")
 #> ⠹ Requesting data
 #> ⠸ Requesting data
 #> ⠼ Requesting data
-#> ✔ Requesting data [7.3s]
+#> ⠴ Requesting data
+#> ⠦ Requesting data
+#> ℹ Updating dataset tidy
+#> ✔ Updating dataset tidy [219ms]
+#> 
+#> ⠦ Requesting data
+#> ✔ Requesting data [18.2s]
 #> 
 #> # Robonomist Database search results
 #>    id                                                          title       lang 
@@ -152,7 +158,7 @@ data("consumer indicator")
 ## the dataset name and a slash as prefix:
 data("ec/ consumer indicator")
 #> ⠙ Requesting data
-#> ✔ Requesting data [239ms]
+#> ✔ Requesting data [296ms]
 #> 
 #> # Robonomist Database search results
 #>   id                title                                                  lang 
@@ -165,7 +171,7 @@ data("ec/ consumer indicator")
 ## Download data by providing exact table id:
 data("ec/consumer")
 #> ⠙ Requesting data
-#> ✔ Requesting data [1.1s]
+#> ✔ Requesting data [936ms]
 #> 
 #> # Robonomist id: ec/consumer
 #> # Title:         Consumer Sentiment Indicator
@@ -189,11 +195,11 @@ data("ec/consumer")
 ## using the source's id:
 data("ecb/FM.M.U2.EUR.RT.MM.EURIBOR1YD_.HSTA")
 #> ⠙ Requesting data
-#> ✔ Requesting data [225ms]
+#> ✔ Requesting data [1.8s]
 #> 
 #> # Robonomist id: ecb/FM
 #> # Title:         Financial market data
-#> # Vintage:       2025-11-11 08:00:00
+#> # Vintage:       2025-11-13 08:00:00
 #> # A tibble:      382 × 9
 #>    Frequency `Reference area`                 Currency Financial market provid…¹
 #>  * <chr>     <chr>                            <chr>    <chr>                    
@@ -221,11 +227,11 @@ data("https://data.ecb.europa.eu/data/datasets/FM/FM.M.U2.EUR.RT.MM.EURIBOR1YD_.
 #> ℹ For direct data retrieval, use:
 #> >  data_get("ecb/FM.M.U2.EUR.RT.MM.EURIBOR1YD_.HSTA", raw = TRUE)
 #> ⠙ Requesting data
-#> ✔ Requesting data [252ms]
+#> ✔ Requesting data [902ms]
 #> 
 #> # Robonomist id: ecb/FM
 #> # Title:         Financial market data
-#> # Vintage:       2025-11-11 08:00:00
+#> # Vintage:       2025-11-13 08:00:00
 #> # A tibble:      382 × 9
 #>    Frequency `Reference area`                 Currency Financial market provid…¹
 #>  * <chr>     <chr>                            <chr>    <chr>                    
@@ -249,11 +255,11 @@ data("https://data.ecb.europa.eu/data/datasets/FM/FM.M.U2.EUR.RT.MM.EURIBOR1YD_.
 ## in case of ECB, you can leave a part of the series id unspecified:
 data("ecb/FM.M.U2.EUR.RT.MM..HSTA")
 #> ⠙ Requesting data
-#> ✔ Requesting data [230ms]
+#> ✔ Requesting data [1s]
 #> 
 #> # Robonomist id: ecb/FM
 #> # Title:         Financial market data
-#> # Vintage:       2025-11-11 08:00:00
+#> # Vintage:       2025-11-13 08:00:00
 #> # A tibble:      1,528 × 9
 #>    Frequency `Reference area`                 Currency Financial market provid…¹
 #>  * <chr>     <chr>                            <chr>    <chr>                    
@@ -277,12 +283,12 @@ data("ecb/FM.M.U2.EUR.RT.MM..HSTA")
 ## provide a download filter. First get the available variables and values:
 data("ecb/AME") |> str()
 #> ⠙ Requesting data
-#> ✔ Requesting data [222ms]
+#> ✔ Requesting data [334ms]
 #> 
 #> List of 7
 #>  $ FREQ              : tibble [10 × 2] (S3: tbl_df/tbl/data.frame)
 #>   ..$ id   : chr [1:10] "A" "B" "D" "E" ...
-#>   ..$ label: chr [1:10] "Annual" "Daily - business week" "Daily" "Event (not supported)" ...
+#>   ..$ label: chr [1:10] "Annual" "Daily - businessweek" "Daily" "Event (not supported)" ...
 #>  $ AME_REF_AREA      : tibble [109 × 2] (S3: tbl_df/tbl/data.frame)
 #>   ..$ id   : chr [1:109] "A10" "A13" "ALB" "AUS" ...
 #>   ..$ label: chr [1:109] "10 accession countries" "13 candidate countries" "Albania" "Australia" ...
@@ -302,7 +308,7 @@ data("ecb/AME") |> str()
 #>   ..$ id   : chr [1:910] "AAGE" "AAGT" "ADGGFI" "ADGGFU" ...
 #>   ..$ label: chr [1:910] "Average share of imports and exports of goods in world trade excluding intra EU trade - Foreign trade statistic"| __truncated__ "Average share of imports and exports of goods in world trade including intra EU trade - Foreign trade statistics" "Snow ball effect on general government consolidated gross debt Maastricht and former definition (linked series)" "Impact of the nominal increase of GDP on general government consolidated gross debt, Maastricht and former defi"| __truncated__ ...
 #>  - attr(*, "robonomist_id")= r_id [1:1] ecb/AME
-#>  - attr(*, "robonomist_vintage")= POSIXct[1:1], format: "2025-11-11 08:00:00"
+#>  - attr(*, "robonomist_vintage")= POSIXct[1:1], format: "2025-11-13 08:00:00"
 #>  - attr(*, "robonomist_title")= chr "AMECO"
 #>  - attr(*, "robonomist_language")= chr "en"
 #>  - attr(*, "robonomist_source")= chr NA
@@ -312,11 +318,12 @@ data("ecb/AME") |> str()
 ## Then provide a suitable filter to download data:
 data("ecb/AME", dl_filter = list(ame_ref_area = "FIN"))
 #> ⠙ Requesting data
-#> ✔ Requesting data [251ms]
+#> ⠹ Requesting data
+#> ✔ Requesting data [1s]
 #> 
 #> # Robonomist id: ecb/AME
 #> # Title:         AMECO
-#> # Vintage:       2025-11-11 08:00:00
+#> # Vintage:       2025-11-13 08:00:00
 #> # A tibble:      243 × 9
 #>    Frequency `Ameco reference area` `Ameco transformation`                  
 #>  * <chr>     <chr>                  <chr>                                   
@@ -345,7 +352,7 @@ data("tulli/uljas_cpa2008",
   )
 )
 #> ⠙ Requesting data
-#> ✔ Requesting data [243ms]
+#> ✔ Requesting data [278ms]
 #> 
 #> # Robonomist id: tulli/uljas_cpa2008
 #> # Title:         CPA2008, CC BY 4.0
@@ -368,7 +375,7 @@ data("tulli/uljas_cpa2008",
 ## Using §-filter to filter data after download:
 data("ec/consumer§Fin§Confidence")
 #> ⠙ Requesting data
-#> ✔ Requesting data [340ms]
+#> ✔ Requesting data [489ms]
 #> 
 #> # Robonomist id: ec/consumer
 #> # Title:         Consumer Sentiment Indicator
@@ -391,7 +398,7 @@ data("ec/consumer§Fin§Confidence")
 ## Using §-filter with start date:
 data("ec/consumer§Fin§Confidence§2020-01-01")
 #> ⠙ Requesting data
-#> ✔ Requesting data [291ms]
+#> ✔ Requesting data [380ms]
 #> 
 #> # Robonomist id: ec/consumer
 #> # Title:         Consumer Sentiment Indicator

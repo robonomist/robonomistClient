@@ -51,7 +51,7 @@ library(robonomistClient)
 #> Loaded robonomistClient 2.2.23
 #> ℹ Set to connect wss://data.robonomist.app
 #> 
-#> ✔ Set to connect wss://data.robonomist.app [17ms]
+#> ✔ Set to connect wss://data.robonomist.app [16ms]
 #> 
 #> 
 #> 
@@ -64,7 +64,7 @@ library(robonomistClient)
 #>     data
 datasources()
 #> ℹ Connecting to robonomistServer at wss://data.robonomist.app
-#> ✔ Connecting to robonomistServer at wss://data.robonomist.app [713ms]
+#> ✔ Connecting to robonomistServer at wss://data.robonomist.app [652ms]
 #> 
 #> ℹ Connected successfully to robonomistServer 2.10.2
 #> ✔ Connected successfully to robonomistServer 2.10.2 [30ms]
@@ -125,8 +125,8 @@ To list all available data tables:
 ``` r
 data()
 #> ⠙ Requesting data
-#> ℹ Object retrieved from client cache (valid until 2025-11-11 14:27:01.485708).
-#> ⠙ Requesting data✔ Requesting data [11ms]
+#> ℹ Object retrieved from client cache (valid until 2025-11-13 16:58:49.436446).
+#> ⠙ Requesting data✔ Requesting data [10ms]
 #> # Robonomist Database search results
 #>    id                                      title                           lang 
 #>    <r_id>                                  <chr>                           <chr>
@@ -160,7 +160,7 @@ data()
 #> 28 StatFin/alvaa/statfin_alvaa_pxt_14y3.px 14y3 -- Äänestystiedot sukupuo… fi   
 #> 29 StatFin/alvaa/statfin_alvaa_pxt_14y4.px 14y4 -- Puolueiden kannatus ja… fi   
 #> 30 StatFin/alvaa/statfin_alvaa_pxt_14y5.px 14y5 -- Hylätyt äänestysliput … fi   
-#> # ℹ 179,159 more rows
+#> # ℹ 179,274 more rows
 ```
 
 To browse the tables interactively, you can also open them in the Data
@@ -177,7 +177,7 @@ If you know the specific ID of the table, you can easily retrieve it:
 ``` r
 df <- data("StatFin/synt/statfin_synt_pxt_12dx.px")
 #> ⠙ Requesting data
-#> ✔ Requesting data [236ms]
+#> ✔ Requesting data [239ms]
 #> 
 ```
 
@@ -186,7 +186,7 @@ To check the version information (vintage) of a data table, use:
 ``` r
 data_vintage("StatFin/synt/statfin_synt_pxt_12dx.px")
 #> ⠙ Requesting vintage
-#> ✔ Requesting vintage [215ms]
+#> ✔ Requesting vintage [214ms]
 #> 
 #> StatFin/synt/statfin_synt_pxt_12dx.px 
 #>            "2025-09-04 09:22:00 EEST"
@@ -213,7 +213,7 @@ retrieving data into a single function:
   ``` r
   data("väestö")  # Returns multiple matches for 'väestö'
   #> ⠙ Requesting data
-  #> ✔ Requesting data [1.9s]
+  #> ✔ Requesting data [1.4s]
   #> 
   #> # Robonomist Database search results
   #>    id                                    title                             lang 
@@ -257,7 +257,7 @@ retrieving data into a single function:
   ``` r
   data("StatFin/synt/statfin_synt_pxt_12dx.px")  # Returns the specific data table
   #> ⠙ Requesting data
-  #> ✔ Requesting data [234ms]
+  #> ✔ Requesting data [231ms]
   #> 
   #> # Robonomist id: StatFin/synt/statfin_synt_pxt_12dx.px
   #> # Title:         12dx -- Väestönmuutokset ja väkiluku, 1749-2024
@@ -293,6 +293,7 @@ To clearly separate search and retrieval operations:
   ``` r
   data_search("väestö")
   #> ⠙ Requesting search
+  #> ⠹ Requesting search
   #> ✔ Requesting search [1.8s]
   #> 
   #> # Robonomist Database search results
@@ -339,7 +340,7 @@ To clearly separate search and retrieval operations:
   ``` r
   d <- data_get("StatFin/synt/statfin_synt_pxt_12dx.px")
   #> ⠙ Requesting get
-  #> ✔ Requesting get [218ms]
+  #> ✔ Requesting get [234ms]
   #> 
   ```
 
@@ -360,7 +361,7 @@ time dimension for easier analysis. Setting the `tidy_time` argument to
 # Without tidy time formatting
 data_get("StatFin/ntp/statfin_ntp_pxt_132h.px")
 #> ⠙ Requesting get
-#> ✔ Requesting get [265ms]
+#> ✔ Requesting get [297ms]
 #> 
 #> # Robonomist id: StatFin/ntp/statfin_ntp_pxt_132h.px
 #> # Title:         132h -- Bruttokansantuote ja -tulo sekä tarjonta ja kysyntä
@@ -385,7 +386,7 @@ data_get("StatFin/ntp/statfin_ntp_pxt_132h.px")
 # With tidy time formatting
 data_get("StatFin/ntp/statfin_ntp_pxt_132h.px", tidy_time = TRUE)
 #> ⠙ Requesting get
-#> ✔ Requesting get [264ms]
+#> ✔ Requesting get [279ms]
 #> 
 #> # Robonomist id: StatFin/ntp/statfin_ntp_pxt_132h.px
 #> # Title:         132h -- Bruttokansantuote ja -tulo sekä tarjonta ja kysyntä
@@ -421,7 +422,7 @@ the labels argument:
 # Retrieve data without labels (useful when working with coded data)
 data_get("StatFin/ntp/statfin_ntp_pxt_132h.px", labels = FALSE)
 #> ⠙ Requesting get
-#> ✔ Requesting get [252ms]
+#> ✔ Requesting get [269ms]
 #> 
 #> # Robonomist id: StatFin/ntp/statfin_ntp_pxt_132h.px
 #> # Title:         132h -- Bruttokansantuote ja -tulo sekä tarjonta ja kysyntä

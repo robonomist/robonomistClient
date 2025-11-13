@@ -77,7 +77,7 @@ data("fred/")
 #> 28 fred/source=48 Organization for Economic Co-operation and Development  en   
 #> 29 fred/source=50 U.S. Employment and Training Administration             en   
 #> 30 fred/source=53 U.S. Energy Information Administration                  en   
-#> # ℹ 408 more rows
+#> # ℹ 409 more rows
 ```
 
 The database hierarchy is very simple: Sources contain releases, and
@@ -89,11 +89,11 @@ the Federal Reserve System), call:
 ``` r
 data("fred/source=1")
 #> ⠙ Requesting data
-#> ✔ Requesting data [695ms]
+#> ✔ Requesting data [688ms]
 #> 
 #> # Robonomist id: fred/source=1
 #> # Title:         Board of Governors of the Federal Reserve System (US)
-#> # Vintage:       2025-11-11 14:00:00
+#> # Vintage:       2025-11-13 16:00:00
 #> # A tibble:      35 × 5
 #>    release_id name                                     press_release link  notes
 #>  *      <int> <chr>                                    <lgl>         <chr> <chr>
@@ -116,7 +116,7 @@ Production and Capacity Utilization), call:
 ``` r
 data("fred/release=13")
 #> ⠙ Requesting data
-#> ✔ Requesting data [700ms]
+#> ✔ Requesting data [699ms]
 #> 
 #> # Robonomist id: fred/release=13
 #> # Title:         G.17 Industrial Production and Capacity Utilization
@@ -147,7 +147,7 @@ To download a time series, use the `get_data` function:
 ``` r
 data_get("fred/CAPB00004S")
 #> ⠙ Requesting get
-#> ✔ Requesting get [374ms]
+#> ✔ Requesting get [485ms]
 #> 
 #> # Robonomist id: fred/CAPB00004S
 #> # Title:         Industrial Capacity: Manufacturing (SIC)
@@ -173,7 +173,7 @@ You can also retrieve multiple time series by providing a vector of ids:
 ``` r
 d <- data_get(c("fred/CAPB5610CS", "fred/CAPB5640CS"))
 #> ⠙ Requesting get
-#> ✔ Requesting get [221ms]
+#> ✔ Requesting get [361ms]
 #> 
 d
 #> # Robonomist id: fred/CAPB5610CS
