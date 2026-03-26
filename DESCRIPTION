@@ -1,6 +1,6 @@
 Package: robonomistClient
 Title: Access data from Robonomist Data Server
-Version: 2.2.23
+Version: 2.2.24
 Authors@R: 
     person(given = "Juha",
            family = "Itkonen",
@@ -47,6 +47,6 @@ Suggests:
     robonomistServer,
     roboplotr,
     testthat (>= 3.0.0)
-Remotes: robonomist/roboplotr
+Remotes: robonomist/roboplotr, qsbase/qs
 Config/testthat/edition: 3
 VignetteBuilder: knitr
