@@ -1,7 +1,7 @@
 
 test_that("Frontend works remotely", {
   skip_if(getOption("robonomist.skip.server.test", FALSE), "Test server not configured.")
-  id <- "StatFin/asas/statfin_asas_pxt_115a.px"
+  id <- "StatFin/adopt/statfin_adopt_pxt_13qh.px"
   expect_s3_class(data_vintage(id), "POSIXct")
   expect_type(data_metadata(id), "list")
   expect_s3_class(data_search(id), "robonomist_search")

@@ -21,5 +21,10 @@ Useful links:
 \author{
 \strong{Maintainer}: Juha Itkonen \email{juha@robonomist.com}
 
+Authors:
+\itemize{
+  \item Juha Itkonen \email{juha@robonomist.com}
+}
+
 }
 \keyword{internal}
