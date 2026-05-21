@@ -14,3 +14,7 @@ Useful links:
 ## Author
 
 **Maintainer**: Juha Itkonen <juha@robonomist.com>
+
+Authors:
+
+- Juha Itkonen <juha@robonomist.com>

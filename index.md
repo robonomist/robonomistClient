@@ -102,6 +102,7 @@ To set up a Robonomist Data Server for your organization, contact
 Install the package from GitHub:
 
 ``` r
+
 # Install devtools if needed
 # install.packages("devtools")
 
@@ -115,6 +116,7 @@ Set the hostname and access token for your Robonomist Data Server using
 [`set_robonomist_server()`](https://robonomist.github.io/robonomistClient/reference/set_robonomist_server.md):
 
 ``` r
+
 library(robonomistClient)
 
 set_robonomist_server(hostname = "hostname.com", access_token = "abc")
@@ -127,6 +129,7 @@ See available datasources with the
 function:
 
 ``` r
+
 datasources()
 ```
 
@@ -154,6 +157,7 @@ Use the
 function to search and list data tables:
 
 ``` r
+
 data()
 ```
 
@@ -177,6 +181,7 @@ data()
 Search for tables related to employment:
 
 ``` r
+
 data("employment eurostat")
 ```
 
@@ -200,6 +205,7 @@ data("employment eurostat")
 Search for a specific dataset in another language:
 
 ``` r
+
 data("eurostat/ lfs", lang = "de")
 ```
 
@@ -210,6 +216,7 @@ You can search with keywords, partial names, or dataset IDs.
 If you know the ID of a data table, retrieve it directly:
 
 ``` r
+
 data("eurostat/bd_hg") |> tail()
 ```
 
@@ -237,6 +244,7 @@ website](https://data-explorer.oecd.org/vis?tm=sna&pg=0&fs%5B0%5D=Measure%2C0%7C
 you can retrieve it like this:
 
 ``` r
+
 data("https://data-explorer.oecd.org/vis?tm=sna&pg=0&fs[0]=Measure%2C0%7CAquaculture%20production%23AQUA_PD%23&fc=Measure&snb=1&vw=tb&df[ds]=dsDisseminateFinalDMZ&df[id]=DSD_FISH_PROD%40DF_FISH_AQUA&df[ag]=OECD.TAD.ARP&df[vs]=1.0&pd=2010%2C&dq=.A.._T.T&ly[rw]=REF_AREA&ly[cl]=TIME_PERIOD&to[TIME_PERIOD]=false")
 ```
 
@@ -273,6 +281,7 @@ and real-time data applications. For production use, use the
 function with a data table ID for consistent results.
 
 ``` r
+
 # Fetch a specific dataset using its ID for production use
 production_data <- data_get("StatFin/synt/statfin_synt_pxt_12dx.px")
 ```

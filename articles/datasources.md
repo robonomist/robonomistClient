@@ -1,21 +1,21 @@
 # List of datasources
 
-Available Robonomist Datasources, retrieved on 2025-11-13.
+Available Robonomist Datasources, retrieved on 2026-05-21.
 
     #> ℹ Connecting to robonomistServer at wss://data.robonomist.app
 
-    #> ✔ Connecting to robonomistServer at wss://data.robonomist.app [663ms]
+    #> ✔ Connecting to robonomistServer at wss://data.robonomist.app [551ms]
 
     #> 
 
-    #> ℹ Connected successfully to robonomistServer 2.10.2
+    #> ℹ Connected successfully to robonomistServer 2.11.0
 
-    #> ✔ Connected successfully to robonomistServer 2.10.2 [30ms]
+    #> ✔ Connected successfully to robonomistServer 2.11.0 [30ms]
 
     #> 
 
     #> ⠙ Requesting datasources
 
-    #> ✔ Requesting datasources [216ms]
+    #> ✔ Requesting datasources [259ms]
 
     #> 

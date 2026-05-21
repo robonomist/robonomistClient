@@ -68,11 +68,12 @@ fetch_data_from_url(url)
 #> ℹ Please use `data()` instead.
 #> data_get("oecd/DSD_FISH_PROD@DF_FISH_AQUA", dl_filter = ".A.._T.T") 
 #> ⠙ Requesting get
-#> ✔ Requesting get [302ms]
+#> ⠹ Requesting get
+#> ✔ Requesting get [2.3s]
 #> 
 #> # Robonomist id: oecd/DSD_FISH_PROD@DF_FISH_AQUA
 #> # Title:         Aquaculture production
-#> # Vintage:       2025-03-10 14:23:35
+#> # Vintage:       2026-04-22 08:22:10
 #> # A tibble:      1,456 × 10
 #>    REF_AREA  FREQ   MEASURE      SPECIES UNIT_MEASURE time       value UNIT_MULT
 #>  * <chr>     <chr>  <chr>        <chr>   <chr>        <date>     <dbl> <chr>    
@@ -94,7 +95,7 @@ fetch_data_from_url(url, get = FALSE)
 fetch_data_from_url("https://statfin.stat.fi/PxWeb/pxweb/fi/StatFin/StatFin__aku/statfin_aku_pxt_12ea.px/")
 #> data_get("StatFin/aku/statfin_aku_pxt_12ea.px") 
 #> ⠙ Requesting get
-#> ✔ Requesting get [255ms]
+#> ✔ Requesting get [2.9s]
 #> 
 #> # Robonomist id: StatFin/aku/statfin_aku_pxt_12ea.px
 #> # Title:         12ea -- Aikuiskoulutukseen osallistuminen (ml. työhön tai
@@ -122,12 +123,12 @@ fetch_data_from_url("https://statfin.stat.fi/PxWeb/pxweb/fi/StatFin/StatFin__aku
 fetch_data_from_url("https://data.ecb.europa.eu/data/datasets/ICP/ICP.M.U2.N.000000.4.ANR")
 #> data_get("ecb/ICP", dl_filter = "M.U2.N.000000.4.ANR") 
 #> ⠙ Requesting get
-#> ✔ Requesting get [329ms]
+#> ✔ Requesting get [2.3s]
 #> 
 #> # Robonomist id: ecb/ICP
 #> # Title:         Indices of Consumer prices
-#> # Vintage:       2025-11-13 08:00:00
-#> # A tibble:      346 × 8
+#> # Vintage:       2026-05-21 08:00:00
+#> # A tibble:      348 × 8
 #>    Frequency `Reference area`      `Adjustment indicator` Classification - ICP…¹
 #>  * <chr>     <chr>                 <chr>                  <chr>                 
 #>  1 Monthly   Euro area (changing … Neither seasonally no… HICP - Overall index  
@@ -140,7 +141,7 @@ fetch_data_from_url("https://data.ecb.europa.eu/data/datasets/ICP/ICP.M.U2.N.000
 #>  8 Monthly   Euro area (changing … Neither seasonally no… HICP - Overall index  
 #>  9 Monthly   Euro area (changing … Neither seasonally no… HICP - Overall index  
 #> 10 Monthly   Euro area (changing … Neither seasonally no… HICP - Overall index  
-#> # ℹ 336 more rows
+#> # ℹ 338 more rows
 #> # ℹ abbreviated name: ¹​`Classification - ICP context`
 #> # ℹ 4 more variables: `Institution originating the data flow` <chr>,
 #> #   `Series variation - ICP context` <chr>, time <date>, value <dbl>
@@ -151,16 +152,12 @@ fetch_data_from_url("https://data.worldbank.org/indicator/SH.DYN.MORT?locations=
 #> ⠙ Requesting get
 #> ⠹ Requesting get
 #> ⠸ Requesting get
-#> ⠼ Requesting get
-#> ⠴ Requesting get
-#> ⠦ Requesting get
-#> ⠧ Requesting get
-#> ✔ Requesting get [18.9s]
+#> ✔ Requesting get [4.6s]
 #> 
 #> # Robonomist id: wb/SH.DYN.MORT
 #> # Title:         Mortality rate, under-5 (per 1,000 live births)
-#> # Vintage:       2025-11-13 06:29:28.791208
-#> # A tibble:      18,590 × 6
+#> # Vintage:       2026-05-21 06:29:18.866388
+#> # A tibble:      18,876 × 6
 #>    indicator                                iso2c iso3c country time       value
 #>  * <chr>                                    <chr> <chr> <chr>   <date>     <dbl>
 #>  1 Mortality rate, under-5 (per 1,000 live… ZH    AFE   Africa… 1960-01-01    NA
@@ -173,14 +170,13 @@ fetch_data_from_url("https://data.worldbank.org/indicator/SH.DYN.MORT?locations=
 #>  8 Mortality rate, under-5 (per 1,000 live… ZH    AFE   Africa… 1967-01-01    NA
 #>  9 Mortality rate, under-5 (per 1,000 live… ZH    AFE   Africa… 1968-01-01    NA
 #> 10 Mortality rate, under-5 (per 1,000 live… ZH    AFE   Africa… 1969-01-01    NA
-#> # ℹ 18,580 more rows
+#> # ℹ 18,866 more rows
 
 # Fred
 fetch_data_from_url("https://fred.stlouisfed.org/series/FPCPITOTLZGUSA")
 #> data_get("fred/FPCPITOTLZGUSA") 
 #> ⠙ Requesting get
-#> ⠹ Requesting get
-#> ✔ Requesting get [1.6s]
+#> ✔ Requesting get [1.1s]
 #> 
 #> # Robonomist id: fred/FPCPITOTLZGUSA
 #> # Title:         Inflation, consumer prices for the United States
@@ -204,36 +200,39 @@ fetch_data_from_url("https://fred.stlouisfed.org/series/FPCPITOTLZGUSA")
 fetch_data_from_url("https://data.bis.org/topics/RPP/BIS,WS_SPP,1.0/Q.5R.N.628")
 #> data_get("bis/WS_SPP", dl_filter = "Q.5R.N.628") 
 #> ⠙ Requesting get
-#> ✔ Requesting get [2.8s]
+#> ⠹ Requesting get
+#> ⠸ Requesting get
+#> ✔ Requesting get [4.9s]
 #> 
 #> # Robonomist id: bis/WS_SPP
 #> # Title:         Selected residential property prices
-#> # Vintage:       2025-11-14 08:00:00
-#> # A tibble:      34,876 × 6
-#>    Frequency `Reference area` Value `Unit of measure`          time        value
-#>  * <chr>     <chr>            <chr> <chr>                      <date>      <dbl>
-#>  1 Quarterly Czechia          Real  Year-on-year changes, in … 2009-01-01  0.654
-#>  2 Quarterly Czechia          Real  Year-on-year changes, in … 2009-04-01 -5.76 
-#>  3 Quarterly Czechia          Real  Year-on-year changes, in … 2009-07-01 -6.72 
-#>  4 Quarterly Czechia          Real  Year-on-year changes, in … 2009-10-01 -7.20 
-#>  5 Quarterly Czechia          Real  Year-on-year changes, in … 2010-01-01 -5.32 
-#>  6 Quarterly Czechia          Real  Year-on-year changes, in … 2010-04-01 -2.58 
-#>  7 Quarterly Czechia          Real  Year-on-year changes, in … 2010-07-01 -2.71 
-#>  8 Quarterly Czechia          Real  Year-on-year changes, in … 2010-10-01 -2.00 
-#>  9 Quarterly Czechia          Real  Year-on-year changes, in … 2011-01-01 -1.53 
-#> 10 Quarterly Czechia          Real  Year-on-year changes, in … 2011-04-01 -1.21 
-#> # ℹ 34,866 more rows
+#> # Vintage:       2026-05-22 08:00:00
+#> # A tibble:      35,388 × 6
+#>    Frequency `Reference area` Value `Unit of measure`         time         value
+#>  * <chr>     <chr>            <chr> <chr>                     <date>       <dbl>
+#>  1 Quarterly Latvia           Real  Year-on-year changes, in… 2007-01-01  39.0  
+#>  2 Quarterly Latvia           Real  Year-on-year changes, in… 2007-04-01  28.6  
+#>  3 Quarterly Latvia           Real  Year-on-year changes, in… 2007-07-01  23.7  
+#>  4 Quarterly Latvia           Real  Year-on-year changes, in… 2007-10-01   8.37 
+#>  5 Quarterly Latvia           Real  Year-on-year changes, in… 2008-01-01   0.222
+#>  6 Quarterly Latvia           Real  Year-on-year changes, in… 2008-04-01  -5.51 
+#>  7 Quarterly Latvia           Real  Year-on-year changes, in… 2008-07-01 -16.9  
+#>  8 Quarterly Latvia           Real  Year-on-year changes, in… 2008-10-01 -26.6  
+#>  9 Quarterly Latvia           Real  Year-on-year changes, in… 2009-01-01 -42.3  
+#> 10 Quarterly Latvia           Real  Year-on-year changes, in… 2009-04-01 -44.8  
+#> # ℹ 35,378 more rows
 
 # SCB
 fetch_data_from_url("https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__EN__EN0302/SSDArGasavtal/")
 #> data_get("se/EN/EN0302/SSDArGasavtal") 
 #> ⠙ Requesting get
-#> ✔ Requesting get [685ms]
+#> ⠹ Requesting get
+#> ✔ Requesting get [4.3s]
 #> 
 #> # Robonomist id: se/EN/EN0302/SSDArGasavtal
-#> # Title:         Change of natural gas supplier. Year 2008 - 2024
-#> # Last updated:  2025-03-28 14:37:00
-#> # A tibble:      68 × 5
+#> # Title:         Change of natural gas supplier. Year 2008 - 2025
+#> # Last updated:  2026-03-31 10:03:00
+#> # A tibble:      72 × 5
 #>    `consumer category` `customers or installations` observations     year  value
 #>  * <chr>               <chr>                        <chr>            <chr> <dbl>
 #>  1 households          number of customers          Change of natur… 2008     NA
@@ -246,5 +245,5 @@ fetch_data_from_url("https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__E
 #>  8 households          number of customers          Change of natur… 2015    170
 #>  9 households          number of customers          Change of natur… 2016    226
 #> 10 households          number of customers          Change of natur… 2017    354
-#> # ℹ 58 more rows
+#> # ℹ 62 more rows
 ```

@@ -1,5 +1,9 @@
 # Changelog
 
+## robonomistClient 2.2.24
+
+- Fix qs dependency issue
+
 ## robonomistClient 2.2.23
 
 - Fix search and datasource print length parameters

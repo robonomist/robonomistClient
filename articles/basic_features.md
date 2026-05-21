@@ -47,11 +47,12 @@ and wrangle data from different providers.
 To see all available datasources:
 
 ``` r
+
 library(robonomistClient)
-#> Loaded robonomistClient 2.2.23
+#> Loaded robonomistClient 2.3.0
 #> ℹ Set to connect wss://data.robonomist.app
 #> 
-#> ✔ Set to connect wss://data.robonomist.app [16ms]
+#> ✔ Set to connect wss://data.robonomist.app [17ms]
 #> 
 #> 
 #> 
@@ -64,13 +65,13 @@ library(robonomistClient)
 #>     data
 datasources()
 #> ℹ Connecting to robonomistServer at wss://data.robonomist.app
-#> ✔ Connecting to robonomistServer at wss://data.robonomist.app [652ms]
+#> ✔ Connecting to robonomistServer at wss://data.robonomist.app [589ms]
 #> 
-#> ℹ Connected successfully to robonomistServer 2.10.2
-#> ✔ Connected successfully to robonomistServer 2.10.2 [30ms]
+#> ℹ Connected successfully to robonomistServer 2.11.0
+#> ✔ Connected successfully to robonomistServer 2.11.0 [29ms]
 #> 
 #> ⠙ Requesting datasources
-#> ✔ Requesting datasources [221ms]
+#> ✔ Requesting datasources [278ms]
 #> # Robonomist Server Datasources
 #>    dataset         title                                    languages datasource
 #>    <r_dataset>     <chr>                                    <iso2>    <chr>     
@@ -123,9 +124,10 @@ function is a flexible way to explore and retrieve data tables.
 To list all available data tables:
 
 ``` r
+
 data()
 #> ⠙ Requesting data
-#> ℹ Object retrieved from client cache (valid until 2025-11-13 16:58:49.436446).
+#> ℹ Object retrieved from client cache (valid until 2026-05-21 11:16:18.697186).
 #> ⠙ Requesting data✔ Requesting data [10ms]
 #> # Robonomist Database search results
 #>    id                                      title                           lang 
@@ -138,12 +140,12 @@ data()
 #>  6 StatFin/aku/statfin_aku_pxt_14bv.px     14bv -- Aikuiskoulutukseen osa… fi   
 #>  7 StatFin/ava/statfin_ava_pxt_12a9.px     12a9 -- Perusopetuksen vuosilu… fi   
 #>  8 StatFin/ava/statfin_ava_pxt_12aa.px     12aa -- Aikuisten perusopetuks… fi   
-#>  9 StatFin/ava/statfin_ava_pxt_12ad.px     12ad -- Toisen asteen opiskeli… fi   
-#> 10 StatFin/ava/statfin_ava_pxt_139d.px     139d -- Toisen asteen opiskeli… fi   
-#> 11 StatFin/ava/statfin_ava_pxt_139p.px     139p -- Osuudet toisen asteen … fi   
-#> 12 StatFin/ava/statfin_ava_pxt_14cd.px     14cd -- Perusopetuksen vuosilu… fi   
-#> 13 StatFin/ava/statfin_ava_pxt_159d.px     159d -- Katsomusaineiden opisk… fi   
-#> 14 StatFin/ava/statfin_ava_pxt_159n.px     159n -- Katsomusaineiden opisk… fi   
+#>  9 StatFin/ava/statfin_ava_pxt_139d.px     139d -- Toisen asteen opiskeli… fi   
+#> 10 StatFin/ava/statfin_ava_pxt_139p.px     139p -- Osuudet toisen asteen … fi   
+#> 11 StatFin/ava/statfin_ava_pxt_14cd.px     14cd -- Perusopetuksen vuosilu… fi   
+#> 12 StatFin/ava/statfin_ava_pxt_159d.px     159d -- Katsomusaineiden opisk… fi   
+#> 13 StatFin/ava/statfin_ava_pxt_159n.px     159n -- Katsomusaineiden opisk… fi   
+#> 14 StatFin/ava/statfin_ava_pxt_15as.px     15as -- Toisen asteen opiskeli… fi   
 #> 15 StatFin/alyr/statfin_alyr_pxt_11g5.px   11g5 -- Julkisyhteisöjen toimi… fi   
 #> 16 StatFin/alyr/statfin_alyr_pxt_11ge.px   11ge -- Julkisyhteisöjen toimi… fi   
 #> 17 StatFin/alyr/statfin_alyr_pxt_11gh.px   11gh -- Julkisyhteisöjen toimi… fi   
@@ -160,13 +162,14 @@ data()
 #> 28 StatFin/alvaa/statfin_alvaa_pxt_14y3.px 14y3 -- Äänestystiedot sukupuo… fi   
 #> 29 StatFin/alvaa/statfin_alvaa_pxt_14y4.px 14y4 -- Puolueiden kannatus ja… fi   
 #> 30 StatFin/alvaa/statfin_alvaa_pxt_14y5.px 14y5 -- Hylätyt äänestysliput … fi   
-#> # ℹ 179,274 more rows
+#> # ℹ 182,671 more rows
 ```
 
 To browse the tables interactively, you can also open them in the Data
 Viewer:
 
 ``` r
+
 View(data())
 ```
 
@@ -175,18 +178,21 @@ View(data())
 If you know the specific ID of the table, you can easily retrieve it:
 
 ``` r
+
 df <- data("StatFin/synt/statfin_synt_pxt_12dx.px")
 #> ⠙ Requesting data
-#> ✔ Requesting data [239ms]
+#> ⠹ Requesting data
+#> ✔ Requesting data [4.9s]
 #> 
 ```
 
 To check the version information (vintage) of a data table, use:
 
 ``` r
+
 data_vintage("StatFin/synt/statfin_synt_pxt_12dx.px")
 #> ⠙ Requesting vintage
-#> ✔ Requesting vintage [214ms]
+#> ✔ Requesting vintage [265ms]
 #> 
 #> StatFin/synt/statfin_synt_pxt_12dx.px 
 #>            "2025-09-04 09:22:00 EEST"
@@ -198,6 +204,7 @@ You can also narrow your search to a specific dataset. For instance, to
 explore all available tables from the Finnish Tax Administration (Vero):
 
 ``` r
+
 View(data("Vero/"))  # Opens Data Viewer with the tables
 data("Vero/")        # Lists tables in the consoledata("Vero/")
 ```
@@ -211,53 +218,57 @@ retrieving data into a single function:
   data() returns a tibble of matched data tables. For instance:
 
   ``` r
+
   data("väestö")  # Returns multiple matches for 'väestö'
   #> ⠙ Requesting data
-  #> ✔ Requesting data [1.4s]
+  #> ✔ Requesting data [1.9s]
   #> 
   #> # Robonomist Database search results
   #>    id                                    title                             lang 
   #>    <r_id>                                <chr>                             <chr>
-  #>  1 StatFin/asas/statfin_asas_pxt_115a.px 115a -- Asuntokunnat, asuntoväes… fi   
-  #>  2 StatFin/asas/statfin_asas_pxt_115y.px 115y -- Asuntokunnat ja asuntovä… fi   
-  #>  3 StatFin/asas/statfin_asas_pxt_115z.px 115z -- Asuntokunnat ja asuntovä… fi   
-  #>  4 StatFin/asas/statfin_asas_pxt_116b.px 116b -- Asuntokunnat ja asuntovä… fi   
-  #>  5 StatFin/asas/statfin_asas_pxt_116e.px 116e -- Asuntokunnat ja asuntovä… fi   
-  #>  6 StatFin/eot/statfin_eot_pxt_11te.px   11te -- Itse koettu terveys 16 v… fi   
-  #>  7 StatFin/eot/statfin_eot_pxt_11ty.px   11ty -- Tyytyväisyys elämään 16 … fi   
-  #>  8 StatFin/eot/statfin_eot_pxt_11ub.px   11ub -- Tyytyväisyys kotitaloude… fi   
-  #>  9 StatFin/eot/statfin_eot_pxt_11v2.px   11v2 -- Tyytyväisyys elämään, ke… fi   
-  #> 10 StatFin/eot/statfin_eot_pxt_11wp.px   11wp -- Onnellisuuden tunteet ne… fi   
-  #> 11 StatFin/eot/statfin_eot_pxt_11z9.px   11z9 -- Yksinäisyyden tunne nelj… fi   
-  #> 12 StatFin/eot/statfin_eot_pxt_11zc.px   11zc -- Yksinäisyyden tunne nelj… fi   
-  #> 13 StatFin/eot/statfin_eot_pxt_11ze.px   11ze -- Tyytyväisyys elämään, ke… fi   
-  #> 14 StatFin/eot/statfin_eot_pxt_11zy.px   11zy -- Itse koettu terveys 16 v… fi   
-  #> 15 StatFin/eot/statfin_eot_pxt_121a.px   121a -- Tyytyväisyys elämään 16 … fi   
-  #> 16 StatFin/eot/statfin_eot_pxt_13ju.px   13ju -- Luottamus toisiin ihmisi… fi   
-  #> 17 StatFin/eot/statfin_eot_pxt_13jv.px   13jv -- Luottamus toisiin ihmisi… fi   
-  #> 18 StatFin/eot/statfin_eot_pxt_13wk.px   13wk -- Kotitalousväestön pienit… fi   
-  #> 19 StatFin/eot/statfin_eot_pxt_13wl.px   13wl -- Kotitalousväestön pienit… fi   
-  #> 20 StatFin/eot/statfin_eot_pxt_13wm.px   13wm -- Kotitalousväestön pienit… fi   
-  #> 21 StatFin/eot/statfin_eot_pxt_13xi.px   13xi -- Toimintarajoitteiset hen… fi   
-  #> 22 StatFin/eot/statfin_eot_pxt_13xj.px   13xj -- Perustoiminnoissa koetut… fi   
-  #> 23 StatFin/eot/statfin_eot_pxt_13xl.px   13xl -- Kokemus ulkopuolisuuden … fi   
-  #> 24 StatFin/eot/statfin_eot_pxt_13xt.px   13xt -- Tyytyväisyys ihmissuhtei… fi   
-  #> 25 StatFin/eot/statfin_eot_pxt_13xu.px   13xu -- Toimintarajoitteiset hen… fi   
-  #> 26 StatFin/eot/statfin_eot_pxt_13xv.px   13xv -- Itse koettu terveydentil… fi   
-  #> 27 StatFin/eot/statfin_eot_pxt_13yc.px   13yc -- Kokemus ulkopuolisuuden … fi   
-  #> 28 StatFin/eot/statfin_eot_pxt_14cm.px   14cm -- Luovien harrastusten har… fi   
-  #> 29 StatFin/eot/statfin_eot_pxt_14cn.px   14cn -- Luovien harrastusten har… fi   
-  #> 30 StatFin/eot/statfin_eot_pxt_14ct.px   14ct -- Elokuvissa, esityksissä,… fi   
-  #> # ℹ 863 more rows
+  #>  1 StatFin/asku/statfin_asku_pxt_15fd.px 15fd -- Asuntokunnat, asuntoväes… fi   
+  #>  2 StatFin/asku/statfin_asku_pxt_15fh.px 15fh -- Asuntokunnat ja asuntovä… fi   
+  #>  3 StatFin/eot/statfin_eot_pxt_11te.px   11te -- Itse koettu terveys 16 v… fi   
+  #>  4 StatFin/eot/statfin_eot_pxt_11ty.px   11ty -- Tyytyväisyys elämään 16 … fi   
+  #>  5 StatFin/eot/statfin_eot_pxt_11ub.px   11ub -- Tyytyväisyys kotitaloude… fi   
+  #>  6 StatFin/eot/statfin_eot_pxt_11v2.px   11v2 -- Tyytyväisyys elämään, ke… fi   
+  #>  7 StatFin/eot/statfin_eot_pxt_11wp.px   11wp -- Onnellisuuden tunteet ne… fi   
+  #>  8 StatFin/eot/statfin_eot_pxt_11z9.px   11z9 -- Yksinäisyyden tunne nelj… fi   
+  #>  9 StatFin/eot/statfin_eot_pxt_11zc.px   11zc -- Yksinäisyyden tunne nelj… fi   
+  #> 10 StatFin/eot/statfin_eot_pxt_11ze.px   11ze -- Tyytyväisyys elämään, ke… fi   
+  #> 11 StatFin/eot/statfin_eot_pxt_11zy.px   11zy -- Itse koettu terveys 16 v… fi   
+  #> 12 StatFin/eot/statfin_eot_pxt_121a.px   121a -- Tyytyväisyys elämään 16 … fi   
+  #> 13 StatFin/eot/statfin_eot_pxt_13ju.px   13ju -- Luottamus toisiin ihmisi… fi   
+  #> 14 StatFin/eot/statfin_eot_pxt_13jv.px   13jv -- Luottamus toisiin ihmisi… fi   
+  #> 15 StatFin/eot/statfin_eot_pxt_13wk.px   13wk -- Kotitalousväestön pienit… fi   
+  #> 16 StatFin/eot/statfin_eot_pxt_13wl.px   13wl -- Kotitalousväestön pienit… fi   
+  #> 17 StatFin/eot/statfin_eot_pxt_13wm.px   13wm -- Kotitalousväestön pienit… fi   
+  #> 18 StatFin/eot/statfin_eot_pxt_13xi.px   13xi -- Toimintarajoitteiset hen… fi   
+  #> 19 StatFin/eot/statfin_eot_pxt_13xj.px   13xj -- Perustoiminnoissa koetut… fi   
+  #> 20 StatFin/eot/statfin_eot_pxt_13xl.px   13xl -- Kokemus ulkopuolisuuden … fi   
+  #> 21 StatFin/eot/statfin_eot_pxt_13xt.px   13xt -- Tyytyväisyys ihmissuhtei… fi   
+  #> 22 StatFin/eot/statfin_eot_pxt_13xu.px   13xu -- Toimintarajoitteiset hen… fi   
+  #> 23 StatFin/eot/statfin_eot_pxt_13xv.px   13xv -- Itse koettu terveydentil… fi   
+  #> 24 StatFin/eot/statfin_eot_pxt_13yc.px   13yc -- Kokemus ulkopuolisuuden … fi   
+  #> 25 StatFin/eot/statfin_eot_pxt_14cm.px   14cm -- Luovien harrastusten har… fi   
+  #> 26 StatFin/eot/statfin_eot_pxt_14cn.px   14cn -- Luovien harrastusten har… fi   
+  #> 27 StatFin/eot/statfin_eot_pxt_14ct.px   14ct -- Elokuvissa, esityksissä,… fi   
+  #> 28 StatFin/eot/statfin_eot_pxt_14cu.px   14cu -- Mahdollisuus pyytää apua… fi   
+  #> 29 StatFin/eot/statfin_eot_pxt_14cw.px   14cw -- Mahdollisuus pyytää apua… fi   
+  #> 30 StatFin/eot/statfin_eot_pxt_14cx.px   14cx -- Sukulaisten tapaamisen j… fi   
+  #> # ℹ 896 more rows
   ```
 
 - **Retrieve Mode**: If the argument matches exactly one table ID,
   data() will directly return that data table:
 
   ``` r
+
   data("StatFin/synt/statfin_synt_pxt_12dx.px")  # Returns the specific data table
   #> ⠙ Requesting data
-  #> ✔ Requesting data [231ms]
+  #> ⠹ Requesting data
+  #> ⠸ Requesting data
+  #> ✔ Requesting data [4.2s]
   #> 
   #> # Robonomist id: StatFin/synt/statfin_synt_pxt_12dx.px
   #> # Title:         12dx -- Väestönmuutokset ja väkiluku, 1749-2024
@@ -291,45 +302,45 @@ To clearly separate search and retrieval operations:
   the actual data. This is useful for exploring available datasets:
 
   ``` r
+
   data_search("väestö")
   #> ⠙ Requesting search
-  #> ⠹ Requesting search
   #> ✔ Requesting search [1.8s]
   #> 
   #> # Robonomist Database search results
   #>    id                                    title                             lang 
   #>    <r_id>                                <chr>                             <chr>
-  #>  1 StatFin/asas/statfin_asas_pxt_115a.px 115a -- Asuntokunnat, asuntoväes… fi   
-  #>  2 StatFin/asas/statfin_asas_pxt_115y.px 115y -- Asuntokunnat ja asuntovä… fi   
-  #>  3 StatFin/asas/statfin_asas_pxt_115z.px 115z -- Asuntokunnat ja asuntovä… fi   
-  #>  4 StatFin/asas/statfin_asas_pxt_116b.px 116b -- Asuntokunnat ja asuntovä… fi   
-  #>  5 StatFin/asas/statfin_asas_pxt_116e.px 116e -- Asuntokunnat ja asuntovä… fi   
-  #>  6 StatFin/eot/statfin_eot_pxt_11te.px   11te -- Itse koettu terveys 16 v… fi   
-  #>  7 StatFin/eot/statfin_eot_pxt_11ty.px   11ty -- Tyytyväisyys elämään 16 … fi   
-  #>  8 StatFin/eot/statfin_eot_pxt_11ub.px   11ub -- Tyytyväisyys kotitaloude… fi   
-  #>  9 StatFin/eot/statfin_eot_pxt_11v2.px   11v2 -- Tyytyväisyys elämään, ke… fi   
-  #> 10 StatFin/eot/statfin_eot_pxt_11wp.px   11wp -- Onnellisuuden tunteet ne… fi   
-  #> 11 StatFin/eot/statfin_eot_pxt_11z9.px   11z9 -- Yksinäisyyden tunne nelj… fi   
-  #> 12 StatFin/eot/statfin_eot_pxt_11zc.px   11zc -- Yksinäisyyden tunne nelj… fi   
-  #> 13 StatFin/eot/statfin_eot_pxt_11ze.px   11ze -- Tyytyväisyys elämään, ke… fi   
-  #> 14 StatFin/eot/statfin_eot_pxt_11zy.px   11zy -- Itse koettu terveys 16 v… fi   
-  #> 15 StatFin/eot/statfin_eot_pxt_121a.px   121a -- Tyytyväisyys elämään 16 … fi   
-  #> 16 StatFin/eot/statfin_eot_pxt_13ju.px   13ju -- Luottamus toisiin ihmisi… fi   
-  #> 17 StatFin/eot/statfin_eot_pxt_13jv.px   13jv -- Luottamus toisiin ihmisi… fi   
-  #> 18 StatFin/eot/statfin_eot_pxt_13wk.px   13wk -- Kotitalousväestön pienit… fi   
-  #> 19 StatFin/eot/statfin_eot_pxt_13wl.px   13wl -- Kotitalousväestön pienit… fi   
-  #> 20 StatFin/eot/statfin_eot_pxt_13wm.px   13wm -- Kotitalousväestön pienit… fi   
-  #> 21 StatFin/eot/statfin_eot_pxt_13xi.px   13xi -- Toimintarajoitteiset hen… fi   
-  #> 22 StatFin/eot/statfin_eot_pxt_13xj.px   13xj -- Perustoiminnoissa koetut… fi   
-  #> 23 StatFin/eot/statfin_eot_pxt_13xl.px   13xl -- Kokemus ulkopuolisuuden … fi   
-  #> 24 StatFin/eot/statfin_eot_pxt_13xt.px   13xt -- Tyytyväisyys ihmissuhtei… fi   
-  #> 25 StatFin/eot/statfin_eot_pxt_13xu.px   13xu -- Toimintarajoitteiset hen… fi   
-  #> 26 StatFin/eot/statfin_eot_pxt_13xv.px   13xv -- Itse koettu terveydentil… fi   
-  #> 27 StatFin/eot/statfin_eot_pxt_13yc.px   13yc -- Kokemus ulkopuolisuuden … fi   
-  #> 28 StatFin/eot/statfin_eot_pxt_14cm.px   14cm -- Luovien harrastusten har… fi   
-  #> 29 StatFin/eot/statfin_eot_pxt_14cn.px   14cn -- Luovien harrastusten har… fi   
-  #> 30 StatFin/eot/statfin_eot_pxt_14ct.px   14ct -- Elokuvissa, esityksissä,… fi   
-  #> # ℹ 863 more rows
+  #>  1 StatFin/asku/statfin_asku_pxt_15fd.px 15fd -- Asuntokunnat, asuntoväes… fi   
+  #>  2 StatFin/asku/statfin_asku_pxt_15fh.px 15fh -- Asuntokunnat ja asuntovä… fi   
+  #>  3 StatFin/eot/statfin_eot_pxt_11te.px   11te -- Itse koettu terveys 16 v… fi   
+  #>  4 StatFin/eot/statfin_eot_pxt_11ty.px   11ty -- Tyytyväisyys elämään 16 … fi   
+  #>  5 StatFin/eot/statfin_eot_pxt_11ub.px   11ub -- Tyytyväisyys kotitaloude… fi   
+  #>  6 StatFin/eot/statfin_eot_pxt_11v2.px   11v2 -- Tyytyväisyys elämään, ke… fi   
+  #>  7 StatFin/eot/statfin_eot_pxt_11wp.px   11wp -- Onnellisuuden tunteet ne… fi   
+  #>  8 StatFin/eot/statfin_eot_pxt_11z9.px   11z9 -- Yksinäisyyden tunne nelj… fi   
+  #>  9 StatFin/eot/statfin_eot_pxt_11zc.px   11zc -- Yksinäisyyden tunne nelj… fi   
+  #> 10 StatFin/eot/statfin_eot_pxt_11ze.px   11ze -- Tyytyväisyys elämään, ke… fi   
+  #> 11 StatFin/eot/statfin_eot_pxt_11zy.px   11zy -- Itse koettu terveys 16 v… fi   
+  #> 12 StatFin/eot/statfin_eot_pxt_121a.px   121a -- Tyytyväisyys elämään 16 … fi   
+  #> 13 StatFin/eot/statfin_eot_pxt_13ju.px   13ju -- Luottamus toisiin ihmisi… fi   
+  #> 14 StatFin/eot/statfin_eot_pxt_13jv.px   13jv -- Luottamus toisiin ihmisi… fi   
+  #> 15 StatFin/eot/statfin_eot_pxt_13wk.px   13wk -- Kotitalousväestön pienit… fi   
+  #> 16 StatFin/eot/statfin_eot_pxt_13wl.px   13wl -- Kotitalousväestön pienit… fi   
+  #> 17 StatFin/eot/statfin_eot_pxt_13wm.px   13wm -- Kotitalousväestön pienit… fi   
+  #> 18 StatFin/eot/statfin_eot_pxt_13xi.px   13xi -- Toimintarajoitteiset hen… fi   
+  #> 19 StatFin/eot/statfin_eot_pxt_13xj.px   13xj -- Perustoiminnoissa koetut… fi   
+  #> 20 StatFin/eot/statfin_eot_pxt_13xl.px   13xl -- Kokemus ulkopuolisuuden … fi   
+  #> 21 StatFin/eot/statfin_eot_pxt_13xt.px   13xt -- Tyytyväisyys ihmissuhtei… fi   
+  #> 22 StatFin/eot/statfin_eot_pxt_13xu.px   13xu -- Toimintarajoitteiset hen… fi   
+  #> 23 StatFin/eot/statfin_eot_pxt_13xv.px   13xv -- Itse koettu terveydentil… fi   
+  #> 24 StatFin/eot/statfin_eot_pxt_13yc.px   13yc -- Kokemus ulkopuolisuuden … fi   
+  #> 25 StatFin/eot/statfin_eot_pxt_14cm.px   14cm -- Luovien harrastusten har… fi   
+  #> 26 StatFin/eot/statfin_eot_pxt_14cn.px   14cn -- Luovien harrastusten har… fi   
+  #> 27 StatFin/eot/statfin_eot_pxt_14ct.px   14ct -- Elokuvissa, esityksissä,… fi   
+  #> 28 StatFin/eot/statfin_eot_pxt_14cu.px   14cu -- Mahdollisuus pyytää apua… fi   
+  #> 29 StatFin/eot/statfin_eot_pxt_14cw.px   14cw -- Mahdollisuus pyytää apua… fi   
+  #> 30 StatFin/eot/statfin_eot_pxt_14cx.px   14cx -- Sukulaisten tapaamisen j… fi   
+  #> # ℹ 896 more rows
   ```
 
 - [`data_get()`](https://robonomist.github.io/robonomistClient/reference/data.md):
@@ -338,9 +349,11 @@ To clearly separate search and retrieval operations:
   it more predictable for production use:
 
   ``` r
+
   d <- data_get("StatFin/synt/statfin_synt_pxt_12dx.px")
   #> ⠙ Requesting get
-  #> ✔ Requesting get [234ms]
+  #> ⠹ Requesting get
+  #> ✔ Requesting get [3.7s]
   #> 
   ```
 
@@ -358,17 +371,19 @@ time dimension for easier analysis. Setting the `tidy_time` argument to
   it more convenient to work with.
 
 ``` r
+
 # Without tidy time formatting
 data_get("StatFin/ntp/statfin_ntp_pxt_132h.px")
 #> ⠙ Requesting get
-#> ✔ Requesting get [297ms]
+#> ⠹ Requesting get
+#> ✔ Requesting get [3.8s]
 #> 
 #> # Robonomist id: StatFin/ntp/statfin_ntp_pxt_132h.px
 #> # Title:         132h -- Bruttokansantuote ja -tulo sekä tarjonta ja kysyntä
-#> #   neljännesvuosittain, 1990Q1-2025Q2
-#> # Last updated:  2025-09-18 08:00:00
-#> # Next update:   2025-11-28 08:00:00
-#> # A tibble:      113,316 × 4
+#> #   neljännesvuosittain, 1990Q1-2025Q4
+#> # Last updated:  2026-03-13 08:00:00
+#> # Next update:   2026-05-29 08:00:00
+#> # A tibble:      114,912 × 4
 #>    Vuosineljännes Taloustoimi                             Tiedot           value
 #>  * <chr>          <chr>                                   <chr>            <dbl>
 #>  1 1990Q1         B1GMH Bruttokansantuote markkinahintaan Kausitasoitett… 22885.
@@ -381,19 +396,20 @@ data_get("StatFin/ntp/statfin_ntp_pxt_132h.px")
 #>  8 1990Q1         B1GMH Bruttokansantuote markkinahintaan Työpäiväkorjat… 33928 
 #>  9 1990Q1         B1GMH Bruttokansantuote markkinahintaan Kausitasoitetu…    NA 
 #> 10 1990Q1         B1GMH Bruttokansantuote markkinahintaan Trendisarjan v…    NA 
-#> # ℹ 113,306 more rows
+#> # ℹ 114,902 more rows
 
 # With tidy time formatting
 data_get("StatFin/ntp/statfin_ntp_pxt_132h.px", tidy_time = TRUE)
 #> ⠙ Requesting get
-#> ✔ Requesting get [279ms]
+#> ⠹ Requesting get
+#> ✔ Requesting get [3.9s]
 #> 
 #> # Robonomist id: StatFin/ntp/statfin_ntp_pxt_132h.px
 #> # Title:         132h -- Bruttokansantuote ja -tulo sekä tarjonta ja kysyntä
-#> #   neljännesvuosittain, 1990Q1-2025Q2
-#> # Last updated:  2025-09-18 08:00:00
-#> # Next update:   2025-11-28 08:00:00
-#> # A tibble:      113,316 × 4
+#> #   neljännesvuosittain, 1990Q1-2025Q4
+#> # Last updated:  2026-03-13 08:00:00
+#> # Next update:   2026-05-29 08:00:00
+#> # A tibble:      114,912 × 4
 #>    Taloustoimi                             Tiedot              time        value
 #>  * <chr>                                   <chr>               <date>      <dbl>
 #>  1 B1GMH Bruttokansantuote markkinahintaan Kausitasoitettu ja… 1990-01-01 22885.
@@ -406,7 +422,7 @@ data_get("StatFin/ntp/statfin_ntp_pxt_132h.px", tidy_time = TRUE)
 #>  8 B1GMH Bruttokansantuote markkinahintaan Työpäiväkorjattu s… 1990-01-01 33928 
 #>  9 B1GMH Bruttokansantuote markkinahintaan Kausitasoitetun ja… 1990-01-01    NA 
 #> 10 B1GMH Bruttokansantuote markkinahintaan Trendisarjan volyy… 1990-01-01    NA 
-#> # ℹ 113,306 more rows
+#> # ℹ 114,902 more rows
 ```
 
 The `tidy_time` argument defaults to `TRUE` for all datasources that
@@ -419,17 +435,20 @@ tables. By default, labels are included, but you can control this using
 the labels argument:
 
 ``` r
+
 # Retrieve data without labels (useful when working with coded data)
 data_get("StatFin/ntp/statfin_ntp_pxt_132h.px", labels = FALSE)
 #> ⠙ Requesting get
-#> ✔ Requesting get [269ms]
+#> ⠹ Requesting get
+#> ⠸ Requesting get
+#> ✔ Requesting get [4.3s]
 #> 
 #> # Robonomist id: StatFin/ntp/statfin_ntp_pxt_132h.px
 #> # Title:         132h -- Bruttokansantuote ja -tulo sekä tarjonta ja kysyntä
-#> #   neljännesvuosittain, 1990Q1-2025Q2
-#> # Last updated:  2025-09-18 08:00:00
-#> # Next update:   2025-11-28 08:00:00
-#> # A tibble:      113,316 × 4
+#> #   neljännesvuosittain, 1990Q1-2025Q4
+#> # Last updated:  2026-03-13 08:00:00
+#> # Next update:   2026-05-29 08:00:00
+#> # A tibble:      114,912 × 4
 #>    Vuosineljännes Taloustoimi Tiedot               value
 #>  * <chr>          <chr>       <chr>                <dbl>
 #>  1 1990Q1         B1GMH       kausitcp            22885.
@@ -442,5 +461,5 @@ data_get("StatFin/ntp/statfin_ntp_pxt_132h.px", labels = FALSE)
 #>  8 1990Q1         B1GMH       tyopvv2015          33928 
 #>  9 1990Q1         B1GMH       vol_kk_kausitvv2015    NA 
 #> 10 1990Q1         B1GMH       vol_kk_trendivv2015    NA 
-#> # ℹ 113,306 more rows
+#> # ℹ 114,902 more rows
 ```
