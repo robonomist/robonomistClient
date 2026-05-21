@@ -1,5 +1,9 @@
 # Changelog
 
+## robonomistClient 2.3.0
+
+- Migrate to qs2
+
 ## robonomistClient 2.2.24
 
 - Fix qs dependency issue

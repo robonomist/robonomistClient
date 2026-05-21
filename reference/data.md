@@ -114,33 +114,58 @@ define a download filter.
 # Search for datasets matching pattern:
 data("consumer indicator")
 #> ℹ Connecting to robonomistServer at wss://data.robonomist.app
-#> Error in websocket callback: qs-legacy format detected, use qs::qread
-#> Error in self$send(fun = "server_version", args = list(), message = FALSE): Connection was lost!
-#> ✖ Connecting to robonomistServer at wss://data.robonomist.app [1h 1s]
+#> ✔ Connecting to robonomistServer at wss://data.robonomist.app [1s]
 #> 
+#> ℹ Connected successfully to robonomistServer 2.11.0
+#> ✔ Connected successfully to robonomistServer 2.11.0 [25ms]
+#> 
+#> ⠙ Requesting data
+#> ⠹ Requesting data
+#> ✔ Requesting data [2.7s]
+#> 
+#> # Robonomist Database search results
+#>    id                                                              title   lang 
+#>    <r_id>                                                          <chr>   <chr>
+#>  1 ec/consumer                                                     Consum… en   
+#>  2 ec/consumer_nsa                                                 Consum… en   
+#>  3 ec/consumer_q                                                   Consum… en   
+#>  4 ec/consumer_q_nsa                                               Consum… en   
+#>  5 eurostat/ei_bsco_m                                              Consum… en   
+#>  6 ecb/JDF_EXR_HCI_CPI                                             Harmon… en   
+#>  7 wb/EP.CPI.1996                                                  Consum… en   
+#>  8 wb/EP.CPI.2002                                                  Consum… en   
+#>  9 wb/EP.CPI.2007                                                  Consum… en   
+#> 10 wb/FP.CPI.TOTL.ZG                                               Inflat… en   
+#> 11 wb/MO.INDEX.ECON.XQ                                             Sustai… en   
+#> 12 wb/PX.REC.REER                                                  Real e… en   
+#> 13 wb/SPI.D5.2.4.CPIBY                                             CPI ba… en   
+#> 14 konj/hushall/indikatorhus.px                                    Househ… en   
+#> 15 konj/hushall/zhushallhist/hushallpremm/HushallIndikatorPreMM.px Househ… en   
+#> 16 dk/FORV1                                                        Consum… en   
+#> 17 md/40_Statistica_economica/15_ENE/serii_lunare/ENE010200.px     Stocks… en   
+#> 18 si/0811601S.px                                                  Consum… en   
+#> 19 si/0811602S.px                                                  Consum… en   
 
 ## Limit your search to a specific dataset by providing
 ## the dataset name and a slash as prefix:
 data("ec/ consumer indicator")
-#> ℹ Connecting to robonomistServer at wss://data.robonomist.app
-#> Error in websocket callback: qs-legacy format detected, use qs::qread
-#> Error in self$send(fun = "server_version", args = list(), message = FALSE): Connection was lost!
-#> ✖ Connecting to robonomistServer at wss://data.robonomist.app [8m 53.6s]
+#> ⠙ Requesting data
+#> ✔ Requesting data [781ms]
 #> 
+#> # Robonomist Database search results
+#>   id                title                                                  lang 
+#>   <r_id>            <chr>                                                  <chr>
+#> 1 ec/consumer       Consumer Sentiment Indicator                           en   
+#> 2 ec/consumer_nsa   Consumer Sentiment Indicator, non-seasonally adjusted  en   
+#> 3 ec/consumer_q     Consumer Sentiment Indicator, quarterly questions      en   
+#> 4 ec/consumer_q_nsa Consumer Sentiment Indicator, non-seasonally adjusted… en   
 
 ## Download data by providing exact table id:
 data("ec/consumer")
-#> ℹ Connecting to robonomistServer at wss://data.robonomist.app
-#> ✔ Connecting to robonomistServer at wss://data.robonomist.app [845ms]
-#> 
-#> ℹ Connected successfully to robonomistServer 2.11.0
-#> ✔ Connected successfully to robonomistServer 2.11.0 [18ms]
-#> 
 #> ⠙ Requesting data
 #> ⠹ Requesting data
 #> ⠸ Requesting data
-#> ⠼ Requesting data
-#> ✔ Requesting data [7.1s]
+#> ✔ Requesting data [4.2s]
 #> 
 #> # Robonomist id: ec/consumer
 #> # Title:         Consumer Sentiment Indicator
@@ -166,6 +191,8 @@ data("ecb/FM.M.U2.EUR.RT.MM.EURIBOR1YD_.HSTA")
 #> ⠙ Requesting data
 #> ⠹ Requesting data
 #> ⠸ Requesting data
+#> ⠼ Requesting data
+#> ⠴ Requesting data
 #> → Request failed in server error:
 #>  ! in callr subprocess.
 #> Caused by error in `(function (id, lang = NULL, ..., raw = FALSE) …`:
@@ -183,9 +210,9 @@ data("ecb/FM.M.U2.EUR.RT.MM.EURIBOR1YD_.HSTA")
 #> $ na.rm : logi FALSE
 #> Caused by error in `httr_retry()` at robonomistServer/R/DatasourceECB.R:95:7:
 #> ! Service Unavailable (HTTP 503).
-#> ⠸ Requesting data
+#> ⠴ Requesting data
 #> Error: Request failed
-#> ✖ Requesting data [8.1s]
+#> ✖ Requesting data [13.1s]
 #> 
 
 ## Alternatively, you can copy the full URL from the source's website:
@@ -193,21 +220,23 @@ data("https://data.ecb.europa.eu/data/datasets/FM/FM.M.U2.EUR.RT.MM.EURIBOR1YD_.
 #> ⠙ Requesting data
 #> ℹ The URL points to a data table in dataset "ecb".
 #> ⠙ Requesting data
-#> ⠹ Requesting data
 #> ℹ For direct data retrieval, use:
 #> >  data_get("ecb/FM.M.U2.EUR.RT.MM.EURIBOR1YD_.HSTA", raw = TRUE)
+#> ⠙ Requesting data
+#> ⠹ Requesting data
+#> ! Failed to handle url in datasource ECB
 #> ⠹ Requesting data
 #> ⠸ Requesting data
-#> ! Failed to handle url in datasource ECB
-#> ⠸ Requesting data
 #> ⠼ Requesting data
+#> ⠴ Requesting data
+#> ⠦ Requesting data
 #> → Request failed in server error:
 #>  ! in callr subprocess.
 #> Caused by error in `staging$handle_url(query$url, lang, ...)` at Data.R:59:9:
 #> ! No datasource could handle the url.
-#> ⠼ Requesting data
+#> ⠦ Requesting data
 #> Error: Request failed
-#> ✖ Requesting data [8.6s]
+#> ✖ Requesting data [13.6s]
 #> 
 
 ## Most time series datasets also support wildcards. For example,
@@ -217,6 +246,7 @@ data("ecb/FM.M.U2.EUR.RT.MM..HSTA")
 #> ⠹ Requesting data
 #> ⠸ Requesting data
 #> ⠼ Requesting data
+#> ⠴ Requesting data
 #> → Request failed in server error:
 #>  ! in callr subprocess.
 #> Caused by error in `(function (id, lang = NULL, ..., raw = FALSE) …`:
@@ -234,16 +264,18 @@ data("ecb/FM.M.U2.EUR.RT.MM..HSTA")
 #> $ na.rm : logi FALSE
 #> Caused by error in `httr_retry()` at robonomistServer/R/DatasourceECB.R:95:7:
 #> ! Service Unavailable (HTTP 503).
-#> ⠼ Requesting data
+#> ⠴ Requesting data
 #> Error: Request failed
-#> ✖ Requesting data [9.9s]
+#> ✖ Requesting data [13.8s]
 #> 
 
 ## If the data table too large to download in full, you may need to
 ## provide a download filter. First get the available variables and values:
 data("ecb/AME") |> str()
 #> ⠙ Requesting data
-#> ✔ Requesting data [2.2s]
+#> ⠹ Requesting data
+#> ⠸ Requesting data
+#> ✔ Requesting data [4.3s]
 #> 
 #> List of 7
 #>  $ FREQ              : tibble [10 × 2] (S3: tbl_df/tbl/data.frame)
@@ -279,28 +311,8 @@ data("ecb/AME") |> str()
 data("ecb/AME", dl_filter = list(ame_ref_area = "FIN"))
 #> ⠙ Requesting data
 #> ⠹ Requesting data
-#> ⠸ Requesting data
-#> ⠼ Requesting data
-#> → Request failed in server error:
-#>  ! in callr subprocess.
-#> Caused by error in `(function (id, lang = NULL, ..., raw = FALSE) …`:
-#> ! Failed to compute and could not find a cache backup.
-#> At key:
-#> List of 8
-#> $ : chr "data"
-#> $ : Named chr [1:2] "v1.0.2" "v1"
-#> ..- attr(*, "names")= chr [1:2] "ECB" "Datasource"
-#> $ : chr "ecb"
-#> $ : chr "ECB"
-#> $ : r_id [1:1] ecb/AME
-#> $ : NULL
-#> $ dl_filter:List of 1
-#> $ na.rm : logi FALSE
-#> Caused by error in `httr_retry()` at robonomistServer/R/DatasourceECB.R:95:7:
-#> ! Service Unavailable (HTTP 503).
-#> ⠼ Requesting data
-#> Error: Request failed
-#> ✖ Requesting data [9s]
+#> Error in connection$send(fun, args): Connection was lost!
+#> ✖ Requesting data [4.7s]
 #> 
 
 ## Another example with Finish Customs dataset:
@@ -313,9 +325,15 @@ data("tulli/uljas_cpa2008",
     "Indikaattorit" = "=FIRST 1"
   )
 )
+#> ℹ Connecting to robonomistServer at wss://data.robonomist.app
+#> ✔ Connecting to robonomistServer at wss://data.robonomist.app [1.2s]
+#> 
+#> ℹ Connected successfully to robonomistServer 2.11.0
+#> ✔ Connected successfully to robonomistServer 2.11.0 [18ms]
+#> 
 #> ⠙ Requesting data
 #> ⠹ Requesting data
-#> ✔ Requesting data [2.2s]
+#> ✔ Requesting data [4s]
 #> 
 #> # Robonomist id: tulli/uljas_cpa2008
 #> # Title:         CPA2008, CC BY 4.0
@@ -338,7 +356,7 @@ data("tulli/uljas_cpa2008",
 ## Using §-filter to filter data after download:
 data("ec/consumer§Fin§Confidence")
 #> ⠙ Requesting data
-#> ✔ Requesting data [488ms]
+#> ✔ Requesting data [837ms]
 #> 
 #> # Robonomist id: ec/consumer
 #> # Title:         Consumer Sentiment Indicator
@@ -361,7 +379,7 @@ data("ec/consumer§Fin§Confidence")
 ## Using §-filter with start date:
 data("ec/consumer§Fin§Confidence§2020-01-01")
 #> ⠙ Requesting data
-#> ✔ Requesting data [356ms]
+#> ✔ Requesting data [404ms]
 #> 
 #> # Robonomist id: ec/consumer
 #> # Title:         Consumer Sentiment Indicator

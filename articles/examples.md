@@ -89,7 +89,9 @@ data("eurostat/prc_hicp_manr") |>
   roboplot(geo, title = "Consumer price inflation", subtitle = "Annual change, %")
 #> ⠙ Requesting data
 #> ⠹ Requesting data
-#> ✔ Requesting data [8.8s]
+#> ⠸ Requesting data
+#> ⠼ Requesting data
+#> ✔ Requesting data [12.8s]
 #> 
 #> Using the attribute "source" for plot caption.
 #> roboplotr arranged data 'd' column `geo` using mean of 'value'. Relevel `geo`

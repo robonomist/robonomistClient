@@ -142,33 +142,58 @@ data_search() performs a search and returns a list of matching data tables witho
 <span class="r-in"><span><span class="co"># Search for datasets matching pattern:</span></span></span>
 <span class="r-in"><span><span class="fu">data</span><span class="op">(</span><span class="st">"consumer indicator"</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Connecting to <span style="color: #0000BB;">robonomistServer</span> at wss://data.robonomist.app</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Error in websocket callback: qs-legacy format detected, use qs::qread</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in self$send(fun = "server_version", args = list(), message = FALSE):</span> Connection was lost!</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Connecting to <span style="color: #0000BB;">robonomistServer</span> at wss://data.robonomist.app <span style="color: #B2B2B2;">[1h 1s]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Connecting to <span style="color: #0000BB;">robonomistServer</span> at wss://data.robonomist.app <span style="color: #B2B2B2;">[1s]</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Connected successfully to robonomistServer 2.11.0</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Connected successfully to robonomistServer 2.11.0 <span style="color: #B2B2B2;">[25ms]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ⠙ Requesting data</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ⠹ Requesting data</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[2.7s]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># Robonomist Database search results</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    id                                                              title   lang </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;r_id&gt;</span>                                                          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> <span style="color: #0000BB;">ec</span>/<span style="color: #00BBBB;">consumer</span>                                                     Consum… en   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> <span style="color: #0000BB;">ec</span>/<span style="color: #00BBBB;">consumer_nsa</span>                                                 Consum… en   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> <span style="color: #0000BB;">ec</span>/<span style="color: #00BBBB;">consumer_q</span>                                                   Consum… en   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> <span style="color: #0000BB;">ec</span>/<span style="color: #00BBBB;">consumer_q_nsa</span>                                               Consum… en   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> <span style="color: #0000BB;">eurostat</span>/<span style="color: #00BBBB;">ei_bsco_m</span>                                              Consum… en   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> <span style="color: #0000BB;">ecb</span>/<span style="color: #00BBBB;">JDF_EXR_HCI_CPI</span>                                             Harmon… en   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> <span style="color: #0000BB;">wb</span>/<span style="color: #00BBBB;">EP.CPI.1996</span>                                                  Consum… en   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> <span style="color: #0000BB;">wb</span>/<span style="color: #00BBBB;">EP.CPI.2002</span>                                                  Consum… en   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> <span style="color: #0000BB;">wb</span>/<span style="color: #00BBBB;">EP.CPI.2007</span>                                                  Consum… en   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> <span style="color: #0000BB;">wb</span>/<span style="color: #00BBBB;">FP.CPI.TOTL.ZG</span>                                               Inflat… en   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">11</span> <span style="color: #0000BB;">wb</span>/<span style="color: #00BBBB;">MO.INDEX.ECON.XQ</span>                                             Sustai… en   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">12</span> <span style="color: #0000BB;">wb</span>/<span style="color: #00BBBB;">PX.REC.REER</span>                                                  Real e… en   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">13</span> <span style="color: #0000BB;">wb</span>/<span style="color: #00BBBB;">SPI.D5.2.4.CPIBY</span>                                             CPI ba… en   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">14</span> <span style="color: #0000BB;">konj</span>/<span style="color: #00BBBB;">hushall/indikatorhus.px</span>                                    Househ… en   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">15</span> <span style="color: #0000BB;">konj</span>/<span style="color: #00BBBB;">hushall/zhushallhist/hushallpremm/HushallIndikatorPreMM.px</span> Househ… en   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">16</span> <span style="color: #0000BB;">dk</span>/<span style="color: #00BBBB;">FORV1</span>                                                        Consum… en   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">17</span> <span style="color: #0000BB;">md</span>/<span style="color: #00BBBB;">40_Statistica_economica/15_ENE/serii_lunare/ENE010200.px</span>     Stocks… en   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">18</span> <span style="color: #0000BB;">si</span>/<span style="color: #00BBBB;">0811601S.px</span>                                                  Consum… en   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">19</span> <span style="color: #0000BB;">si</span>/<span style="color: #00BBBB;">0811602S.px</span>                                                  Consum… en   </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## Limit your search to a specific dataset by providing</span></span></span>
 <span class="r-in"><span><span class="co">## the dataset name and a slash as prefix:</span></span></span>
 <span class="r-in"><span><span class="fu">data</span><span class="op">(</span><span class="st">"ec/ consumer indicator"</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Connecting to <span style="color: #0000BB;">robonomistServer</span> at wss://data.robonomist.app</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Error in websocket callback: qs-legacy format detected, use qs::qread</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in self$send(fun = "server_version", args = list(), message = FALSE):</span> Connection was lost!</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Connecting to <span style="color: #0000BB;">robonomistServer</span> at wss://data.robonomist.app <span style="color: #B2B2B2;">[8m 53.6s]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ⠙ Requesting data</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[781ms]</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># Robonomist Database search results</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   id                title                                                  lang </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;r_id&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                                  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> <span style="color: #0000BB;">ec</span>/<span style="color: #00BBBB;">consumer</span>       Consumer Sentiment Indicator                           en   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> <span style="color: #0000BB;">ec</span>/<span style="color: #00BBBB;">consumer_nsa</span>   Consumer Sentiment Indicator, non-seasonally adjusted  en   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> <span style="color: #0000BB;">ec</span>/<span style="color: #00BBBB;">consumer_q</span>     Consumer Sentiment Indicator, quarterly questions      en   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> <span style="color: #0000BB;">ec</span>/<span style="color: #00BBBB;">consumer_q_nsa</span> Consumer Sentiment Indicator, non-seasonally adjusted… en   </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## Download data by providing exact table id:</span></span></span>
 <span class="r-in"><span><span class="fu">data</span><span class="op">(</span><span class="st">"ec/consumer"</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Connecting to <span style="color: #0000BB;">robonomistServer</span> at wss://data.robonomist.app</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Connecting to <span style="color: #0000BB;">robonomistServer</span> at wss://data.robonomist.app <span style="color: #B2B2B2;">[845ms]</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Connected successfully to robonomistServer 2.11.0</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Connected successfully to robonomistServer 2.11.0 <span style="color: #B2B2B2;">[18ms]</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ⠙ Requesting data</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ⠹ Requesting data</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ⠸ Requesting data</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ⠼ Requesting data</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[7.1s]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[4.2s]</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># Robonomist id: </span><span style="color: #00BBBB;">ec/consumer</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># Title:         Consumer Sentiment Indicator</span></span>
@@ -194,6 +219,8 @@ data_search() performs a search and returns a list of matching data tables witho
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ⠙ Requesting data</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ⠹ Requesting data</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ⠸ Requesting data</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ⠼ Requesting data</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ⠴ Requesting data</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> → Request failed in server error:</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>  ! in callr subprocess.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Caused by error in `(function (id, lang = NULL, ..., raw = FALSE) …`:</span>
@@ -211,9 +238,9 @@ data_search() performs a search and returns a list of matching data tables witho
 <span class="r-msg co"><span class="r-pr">#&gt;</span> $ na.rm : logi FALSE</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Caused by error in `httr_retry()` at robonomistServer/R/DatasourceECB.R:95:7:</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ! Service Unavailable (HTTP 503).</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ⠸ Requesting data</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ⠴ Requesting data</span>
 <span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> Request failed</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Requesting data <span style="color: #B2B2B2;">[8.1s]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Requesting data <span style="color: #B2B2B2;">[13.1s]</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## Alternatively, you can copy the full URL from the source's website:</span></span></span>
@@ -221,21 +248,23 @@ data_search() performs a search and returns a list of matching data tables witho
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ⠙ Requesting data</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> The URL points to a data table in dataset <span style="color: #0000BB;">"ecb"</span>.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ⠙ Requesting data</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ⠹ Requesting data</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> For direct data retrieval, use:</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> &gt;  data_get("ecb/FM.M.U2.EUR.RT.MM.EURIBOR1YD_.HSTA", raw = TRUE)</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ⠙ Requesting data</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ⠹ Requesting data</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> Failed to handle url in datasource ECB</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ⠹ Requesting data</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ⠸ Requesting data</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> Failed to handle url in datasource ECB</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ⠸ Requesting data</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ⠼ Requesting data</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ⠴ Requesting data</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ⠦ Requesting data</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> → Request failed in server error:</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>  ! in callr subprocess.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Caused by error in `staging$handle_url(query$url, lang, ...)` at Data.R:59:9:</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ! No datasource could handle the url.</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ⠼ Requesting data</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ⠦ Requesting data</span>
 <span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> Request failed</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Requesting data <span style="color: #B2B2B2;">[8.6s]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Requesting data <span style="color: #B2B2B2;">[13.6s]</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## Most time series datasets also support wildcards. For example,</span></span></span>
@@ -245,6 +274,7 @@ data_search() performs a search and returns a list of matching data tables witho
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ⠹ Requesting data</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ⠸ Requesting data</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ⠼ Requesting data</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ⠴ Requesting data</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> → Request failed in server error:</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>  ! in callr subprocess.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Caused by error in `(function (id, lang = NULL, ..., raw = FALSE) …`:</span>
@@ -262,16 +292,18 @@ data_search() performs a search and returns a list of matching data tables witho
 <span class="r-msg co"><span class="r-pr">#&gt;</span> $ na.rm : logi FALSE</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Caused by error in `httr_retry()` at robonomistServer/R/DatasourceECB.R:95:7:</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ! Service Unavailable (HTTP 503).</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ⠼ Requesting data</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ⠴ Requesting data</span>
 <span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> Request failed</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Requesting data <span style="color: #B2B2B2;">[9.9s]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Requesting data <span style="color: #B2B2B2;">[13.8s]</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## If the data table too large to download in full, you may need to</span></span></span>
 <span class="r-in"><span><span class="co">## provide a download filter. First get the available variables and values:</span></span></span>
 <span class="r-in"><span><span class="fu">data</span><span class="op">(</span><span class="st">"ecb/AME"</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ⠙ Requesting data</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[2.2s]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ⠹ Requesting data</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ⠸ Requesting data</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[4.3s]</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> List of 7</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  $ FREQ              : tibble [10 × 2] (S3: tbl_df/tbl/data.frame)</span>
@@ -307,28 +339,8 @@ data_search() performs a search and returns a list of matching data tables witho
 <span class="r-in"><span><span class="fu">data</span><span class="op">(</span><span class="st">"ecb/AME"</span>, dl_filter <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>ame_ref_area <span class="op">=</span> <span class="st">"FIN"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ⠙ Requesting data</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ⠹ Requesting data</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ⠸ Requesting data</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ⠼ Requesting data</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> → Request failed in server error:</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>  ! in callr subprocess.</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Caused by error in `(function (id, lang = NULL, ..., raw = FALSE) …`:</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ! Failed to compute and could not find a cache backup.</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> At key:</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> List of 8</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> $ : chr "data"</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> $ : Named chr [1:2] "v1.0.2" "v1"</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ..- attr(*, "names")= chr [1:2] "ECB" "Datasource"</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> $ : chr "ecb"</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> $ : chr "ECB"</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> $ : r_id [1:1] ecb/AME</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> $ : NULL</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> $ dl_filter:List of 1</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> $ na.rm : logi FALSE</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Caused by error in `httr_retry()` at robonomistServer/R/DatasourceECB.R:95:7:</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ! Service Unavailable (HTTP 503).</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ⠼ Requesting data</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> Request failed</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Requesting data <span style="color: #B2B2B2;">[9s]</span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in connection$send(fun, args):</span> Connection was lost!</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Requesting data <span style="color: #B2B2B2;">[4.7s]</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## Another example with Finish Customs dataset:</span></span></span>
@@ -341,9 +353,15 @@ data_search() performs a search and returns a list of matching data tables witho
 <span class="r-in"><span>    <span class="st">"Indikaattorit"</span> <span class="op">=</span> <span class="st">"=FIRST 1"</span></span></span>
 <span class="r-in"><span>  <span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Connecting to <span style="color: #0000BB;">robonomistServer</span> at wss://data.robonomist.app</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Connecting to <span style="color: #0000BB;">robonomistServer</span> at wss://data.robonomist.app <span style="color: #B2B2B2;">[1.2s]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Connected successfully to robonomistServer 2.11.0</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Connected successfully to robonomistServer 2.11.0 <span style="color: #B2B2B2;">[18ms]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ⠙ Requesting data</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ⠹ Requesting data</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[2.2s]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[4s]</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># Robonomist id: </span><span style="color: #00BBBB;">tulli/uljas_cpa2008</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># Title:         CPA2008, CC BY 4.0</span></span>
@@ -366,7 +384,7 @@ data_search() performs a search and returns a list of matching data tables witho
 <span class="r-in"><span><span class="co">## Using §-filter to filter data after download:</span></span></span>
 <span class="r-in"><span><span class="fu">data</span><span class="op">(</span><span class="st">"ec/consumer§Fin§Confidence"</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ⠙ Requesting data</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[488ms]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[837ms]</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># Robonomist id: </span><span style="color: #00BBBB;">ec/consumer</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># Title:         Consumer Sentiment Indicator</span></span>
@@ -389,7 +407,7 @@ data_search() performs a search and returns a list of matching data tables witho
 <span class="r-in"><span><span class="co">## Using §-filter with start date:</span></span></span>
 <span class="r-in"><span><span class="fu">data</span><span class="op">(</span><span class="st">"ec/consumer§Fin§Confidence§2020-01-01"</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ⠙ Requesting data</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[356ms]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Requesting data <span style="color: #B2B2B2;">[404ms]</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># Robonomist id: </span><span style="color: #00BBBB;">ec/consumer</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># Title:         Consumer Sentiment Indicator</span></span>
